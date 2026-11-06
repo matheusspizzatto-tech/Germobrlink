@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Germo</title>
+<meta name="description" content="Germo: 10 agentes de IA 100% no WhatsApp.">
+<meta property="og:title" content="Germo">
+<meta property="og:description" content="10 agentes de IA 100% no WhatsApp.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%2319E35F%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Manrope:wght@400..800&display=swap">
+<style>
+/* Mesmo visual dos vídeos motion da Germo: fundo branco que desce para um verde claro, cartões brancos com contorno fino, pílula com ponto verde. Uma coluna de bio, 480px no máximo. */
+:root{
+  --bg:#FFFFFF; --tint:#C9F5D7; --ink:#15201A; --ink-2:#2E3A33; --mute:#55605A;
+  --ring:#E4EAE4; --pill-ring:#DCE8DE;
+  --broto:#19E35F; --verde:#13A94B; --verde-lab:#0F8A3D; --noite:#15201A;
+  --display:"Archivo",system-ui,sans-serif; --body:"Manrope",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;min-height:100vh;font-family:var(--body);color:var(--ink);background:linear-gradient(180deg,var(--bg) 0%,var(--bg) 55%,var(--tint) 100%) fixed;background-color:var(--bg);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:480px;margin:0 auto;padding-block:36px 40px;display:flex;flex-direction:column;gap:16px}
+
+.top{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px}
+.logo{display:flex;align-items:center;gap:14px}
+.gm{width:46px;height:46px;border-radius:22%;background:var(--broto);display:grid;place-items:center}
+.wm{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:32px;letter-spacing:-.01em;color:var(--ink)}
+.wm b{color:var(--broto)}
+.handle{color:var(--mute);font-size:15px;font-weight:600}
+.tag{font-weight:600;letter-spacing:-.035em;line-height:1.08;font-size:34px;color:var(--ink);max-width:14ch;text-wrap:balance;margin:6px 0 0}
+.tag .g{color:var(--verde)}
+
+.pill{align-self:center;display:inline-flex;align-items:center;gap:12px;background:#fff;border-radius:999px;padding:12px 24px;font-size:16px;font-weight:600;letter-spacing:-.01em;box-shadow:0 0 0 1.5px var(--pill-ring),0 14px 30px rgba(21,32,26,.08);margin:6px 0 2px;white-space:nowrap}
+.pill i{display:block;width:10px;height:10px;border-radius:50%;background:var(--broto)}
+
+.card{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 120px;gap:12px;background:#fff;border-radius:34px;padding:26px 22px 24px 26px;min-height:224px;overflow:hidden;box-shadow:0 0 0 1.5px var(--ring),0 24px 50px rgba(21,32,26,.09);transition:transform .2s ease,box-shadow .2s ease}
+.card:hover{transform:translateY(-2px);box-shadow:0 0 0 1.5px #D3DDD5,0 28px 56px rgba(21,32,26,.12)}
+.card:focus-visible{outline:3px solid var(--broto);outline-offset:4px}
+.lab{font-family:var(--display);font-stretch:112%;font-weight:700;letter-spacing:.08em;font-size:13px;color:var(--verde-lab);text-transform:uppercase}
+.txt{display:flex;flex-direction:column;min-width:0}
+.card h2{font-weight:600;letter-spacing:-.035em;line-height:1.06;font-size:28px;margin:10px 0 8px;text-wrap:balance;color:var(--ink)}
+.card p{margin:0;color:var(--ink-2);font-size:15px;font-weight:500;line-height:1.45}
+.go{display:inline-flex;align-items:center;gap:10px;margin-top:auto;padding-top:18px;font-weight:700;font-size:15px;color:var(--ink)}
+.go span{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--broto);color:var(--noite);font-size:15px}
+.art{display:flex;align-items:flex-end;justify-content:center;pointer-events:none}
+.art img{width:100%;max-height:170px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 14px 12px rgba(21,32,26,.18))}
+
+.card.dk{background:var(--noite);box-shadow:0 30px 60px -20px rgba(25,227,95,.45)}
+.card.dk .lab{color:var(--broto)}
+.card.dk h2{color:#F4F5F0}
+.card.dk p{color:#B9C4BC}
+.card.dk .go{color:#F4F5F0}
+
+.mini{display:flex;align-items:center;gap:14px;background:#fff;border-radius:999px;padding:10px 22px 10px 12px;margin-top:10px;box-shadow:0 0 0 1.5px var(--pill-ring),0 14px 30px rgba(21,32,26,.07)}
+.mini:focus-visible{outline:3px solid var(--broto);outline-offset:3px}
+.mini img{width:52px;height:52px;object-fit:contain;flex:none;border-radius:50%;background:#FDE9DC;padding:4px 4px 0}
+.mini span{display:flex;flex-direction:column;min-width:0;gap:2px}
+.mini b{font-size:15px;font-weight:700;letter-spacing:-.01em}
+.mini small{font-size:13px;color:var(--mute);font-weight:500;line-height:1.3}
+.mini i{margin-left:auto;font-style:normal;font-size:24px;color:var(--mute)}
+
+.card.comm{background:radial-gradient(circle at 88% 12%,#FFFFFF 0%,#19E35F1F 55%,#19E35F47 100%);box-shadow:0 0 0 1.5px #CDEFD8,0 24px 50px rgba(21,32,26,.09)}
+.perks{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.perks span{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:9px 14px;font-size:14px;font-weight:600;letter-spacing:-.01em;box-shadow:0 0 0 1.5px var(--pill-ring)}
+.perks i{display:block;width:8px;height:8px;border-radius:50%;background:var(--broto)}
+.card.comm .go{grid-column:1/-1;margin-top:0;padding-top:6px}
+
+.foot{text-align:center;color:var(--mute);font-size:13px;margin-top:20px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.foot .wm{font-size:16px}
+@media (max-width:380px){.card{grid-template-columns:minmax(0,1fr) 92px;padding-left:22px}.card h2{font-size:25px}.tag{font-size:30px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <div class="logo">
+      <div class="gm" aria-hidden="true"><svg width="33" height="33" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="24"/><circle cx="360" cy="279" r="24" fill="#0A0C0B"/></svg></div>
+      <span class="wm">GERMO<b>.</b></span>
+    </div>
+    <div class="handle">@germo.br</div>
+    <h1 class="tag">10 agentes de IA <span class="g">100% no WhatsApp.</span></h1>
+  </header>
+
+  <div class="pill"><i></i>Escolha seu próximo passo</div>
+
+  <a class="card" href="#">
+    <div class="txt">
+      <div class="lab">Assine agora</div>
+      <h2>Comece agora no WhatsApp</h2>
+      <p>Veja o que cada um dos 10 agentes faz, os planos e como assinar.</p>
+      <div class="go"><span aria-hidden="true">→</span>Começar agora</div>
+    </div>
+    <div class="art" aria-hidden="true"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/b2c200f9-161f-4f07-b362-f1d32a570a72.webp" alt=""></div>
+  </a>
+
+  <a class="card comm" href="#">
+    <div class="txt">
+      <div class="lab">Comunidade no WhatsApp</div>
+      <h2>Comunidade Germo</h2>
+      <p>Entre no nosso grupo e receba vantagens só para membros.</p>
+    </div>
+    <div class="art" aria-hidden="true"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/e2979ca8-8a46-47bb-8b80-cab3927e3d85.webp" alt="" loading="lazy"></div>
+    <div class="perks"><span><i></i>Descontos</span><span><i></i>Materiais exclusivos</span><span><i></i>Brindes</span><span><i></i>Presente de aniversário</span><span><i></i>Bônus</span></div>
+    <div class="go"><span aria-hidden="true">→</span>Entrar na comunidade</div>
+  </a>
+
+  <a class="card dk" href="#">
+    <div class="txt">
+      <div class="lab">Suporte no WhatsApp</div>
+      <h2>Central de Ajuda</h2>
+      <p>Fale com a nossa equipe sobre planos, agentes e pagamento.</p>
+      <div class="go"><span aria-hidden="true">→</span>Falar com a equipe</div>
+    </div>
+    <div class="art" aria-hidden="true"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/26c8ec16-c3cd-4329-ac66-20c8863b81ab.webp" alt="" loading="lazy"></div>
+  </a>
+
+  <a class="mini" href="#"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/16b8fe9e-d367-4848-b287-3c04b7b9d9b4.webp" alt="" loading="lazy"><span><b>Seja um creator da Germo</b><small>Mostre os agentes no seu perfil e faça parte do time.</small></span><i aria-hidden="true">›</i></a>
+
+  <a class="mini" href="#" style="margin-top:0"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/f1e8e59c-d7cb-4ef8-9a7a-2dc4c3963109.webp" alt="" loading="lazy" style="background:#EEE8FF"><span><b>Materiais Gratuitos</b><small>Guias e conteúdos da Germo para baixar.</small></span><i aria-hidden="true">›</i></a>
+
+  <footer class="foot"><span class="wm">GERMO<b>.</b></span><span>germo.br · Todos os direitos reservados.</span></footer>
+</main>
+</body>
+</html>
