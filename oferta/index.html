@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Germo · Oferta antes do lançamento</title>
+<meta name="description" content="Receba a oferta da Germo antes do lançamento oficial.">
+<meta property="og:title" content="Germo · Oferta antes do lançamento">
+<meta property="og:description" content="Receba a oferta da Germo antes do lançamento oficial.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%2319E35F%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Manrope:wght@400..800&display=swap">
+<style>
+/* Mesmo visual do germobr.link e dos vídeos motion: fundo branco descendo para verde claro, cartão branco com contorno fino, pílula com ponto verde, botão verde broto. */
+:root{
+  --bg:#FFFFFF; --tint:#C9F5D7; --ink:#15201A; --ink-2:#2E3A33; --mute:#55605A;
+  --ring:#E4EAE4; --pill-ring:#DCE8DE; --erro:#C2410C;
+  --broto:#19E35F; --verde:#13A94B; --verde-lab:#0F8A3D; --noite:#15201A;
+  --display:"Archivo",system-ui,sans-serif; --body:"Manrope",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;min-height:100vh;font-family:var(--body);color:var(--ink);background:linear-gradient(180deg,var(--bg) 0%,var(--bg) 50%,var(--tint) 100%) fixed;background-color:var(--bg);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:480px;margin:0 auto;padding-block:36px 40px;display:flex;flex-direction:column;gap:16px}
+
+.top{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px}
+.logo{display:flex;align-items:center;gap:14px}
+.gm{width:46px;height:46px;border-radius:22%;background:var(--broto);display:grid;place-items:center}
+.wm{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:32px;letter-spacing:-.01em;color:var(--ink)}
+.wm b{color:var(--broto)}
+.handle{color:var(--mute);font-size:15px;font-weight:600}
+.tag{font-weight:600;letter-spacing:-.035em;line-height:1.08;font-size:34px;color:var(--ink);max-width:15ch;text-wrap:balance;margin:6px 0 0}
+.tag .g{color:var(--verde)}
+
+.pill{align-self:center;display:inline-flex;align-items:center;gap:12px;background:#fff;border-radius:999px;padding:12px 24px;font-size:16px;font-weight:600;letter-spacing:-.01em;box-shadow:0 0 0 1.5px var(--pill-ring),0 14px 30px rgba(21,32,26,.08);margin:6px 0 2px;white-space:nowrap}
+.pill i{display:block;width:10px;height:10px;border-radius:50%;background:var(--broto)}
+
+.card{position:relative;background:#fff;border-radius:34px;padding:28px 24px 26px;box-shadow:0 0 0 1.5px var(--ring),0 24px 50px rgba(21,32,26,.09)}
+.lab{font-family:var(--display);font-stretch:112%;font-weight:700;letter-spacing:.08em;font-size:13px;color:var(--verde-lab);text-transform:uppercase}
+.card h2{font-weight:600;letter-spacing:-.035em;line-height:1.06;font-size:28px;margin:10px 0 8px;text-wrap:balance}
+.card>p{margin:0;color:var(--ink-2);font-size:15px;font-weight:500;line-height:1.45}
+
+form{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+.campo{display:flex;flex-direction:column;gap:7px}
+.campo label{font-size:14px;font-weight:700;letter-spacing:-.01em;padding-left:4px}
+.campo input{font:inherit;font-size:16px;font-weight:600;color:var(--ink);background:#F6F9F6;border:0;border-radius:18px;padding:16px 18px;box-shadow:inset 0 0 0 1.5px var(--ring);outline:none;transition:box-shadow .15s ease,background .15s ease;min-height:54px}
+.campo input::placeholder{color:#8A938D;font-weight:500}
+.campo input:focus{background:#fff;box-shadow:inset 0 0 0 2px var(--broto),0 0 0 4px rgba(25,227,95,.16)}
+.campo .msg{display:none;margin:0;padding-left:4px;font-size:13px;font-weight:600;color:var(--erro)}
+.campo.erro input{box-shadow:inset 0 0 0 2px var(--erro)}
+.campo.erro .msg{display:block}
+.isca{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+
+button{font:inherit;display:flex;align-items:center;justify-content:center;gap:12px;margin-top:6px;border:0;border-radius:999px;background:var(--broto);color:var(--noite);font-size:16px;font-weight:800;letter-spacing:-.01em;padding:17px 24px;min-height:56px;cursor:pointer;box-shadow:0 16px 30px -12px rgba(25,227,95,.7);transition:transform .15s ease}
+button:hover{transform:translateY(-1px)}
+button:focus-visible{outline:3px solid var(--noite);outline-offset:3px}
+button:disabled{opacity:.6;cursor:default;transform:none}
+button span:last-child{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--noite);color:var(--broto);font-size:14px}
+
+.selos{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px}
+.selos span{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:8px 13px;font-size:13px;font-weight:600;color:var(--ink-2);box-shadow:0 0 0 1.5px var(--pill-ring)}
+.selos i{display:block;width:7px;height:7px;border-radius:50%;background:var(--broto)}
+
+.ok{display:none;text-align:center;padding:10px 4px 4px}
+.ok .check{width:64px;height:64px;margin:0 auto 16px;border-radius:50%;background:var(--broto);display:grid;place-items:center;box-shadow:0 18px 34px -12px rgba(25,227,95,.75)}
+.ok h2{margin:12px 0 8px}
+.ok p{margin:0;color:var(--ink-2);font-size:15px;font-weight:500;line-height:1.45}
+.ok .voltar{display:inline-flex;align-items:center;gap:10px;margin-top:20px;font-weight:700;font-size:15px}
+.ok .voltar span{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--broto);color:var(--noite);font-size:15px}
+.card.enviado .form-area{display:none}
+.card.enviado .ok{display:block}
+
+.foot{text-align:center;color:var(--mute);font-size:13px;margin-top:20px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.foot .wm{font-size:16px}
+@media (max-width:380px){.card{padding:24px 20px 22px}.card h2{font-size:25px}.tag{font-size:30px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <a class="logo" href="/" aria-label="Germo, voltar para o início">
+      <div class="gm" aria-hidden="true"><svg width="33" height="33" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="24"/><circle cx="360" cy="279" r="24" fill="#0A0C0B"/></svg></div>
+      <span class="wm">GERMO<b>.</b></span>
+    </a>
+    <div class="handle">@germo.br</div>
+    <h1 class="tag">Receba a oferta <span class="g">antes do lançamento.</span></h1>
+  </header>
+
+  <div class="pill"><i></i>Lista de espera</div>
+
+  <section class="card" id="card">
+    <div class="form-area">
+      <div class="lab">Oferta exclusiva</div>
+      <h2>Deixe seu contato</h2>
+      <p>Nós chamamos você no WhatsApp com a oferta antes do lançamento oficial.</p>
+
+      <form id="form" novalidate>
+        <div class="campo" id="c-nome">
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" autocomplete="name" placeholder="Seu nome" required>
+          <p class="msg">Escreva seu nome.</p>
+        </div>
+        <div class="campo" id="c-whats">
+          <label for="whatsapp">WhatsApp</label>
+          <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(41) 99999-9999" required>
+          <p class="msg">Escreva o WhatsApp com DDD.</p>
+        </div>
+        <div class="campo" id="c-cidade">
+          <label for="cidade">Cidade</label>
+          <input id="cidade" name="cidade" autocomplete="address-level2" placeholder="Ex.: Castro, PR" required>
+          <p class="msg">Escreva a sua cidade.</p>
+        </div>
+        <input class="isca" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" id="botao"><span id="txt">Receber oferta</span><span aria-hidden="true">→</span></button>
+      </form>
+    </div>
+
+    <div class="ok" aria-live="polite">
+      <div class="check" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#15201A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <div class="lab">Cadastro recebido</div>
+      <h2>Pronto, você está na lista</h2>
+      <p>Nós vamos chamar você no WhatsApp com a oferta antes do lançamento oficial.</p>
+      <a class="voltar" href="/"><span aria-hidden="true">←</span>Voltar para a Germo</a>
+    </div>
+  </section>
+
+  <div class="selos"><span><i></i>Sem compromisso</span><span><i></i>Sem spam</span><span><i></i>Sem custo para entrar</span></div>
+
+  <footer class="foot"><span class="wm">GERMO<b>.</b></span><span>germo.br · Todos os direitos reservados.</span></footer>
+</main>
+
+<script>
+const URL_PLANILHA="https://script.google.com/macros/s/AKfycbwFZGzhpXW8fAUdNYUvxYoQhVjRmIm-I8Qynyp70Pi396rTL8psG7z0NyNCm7HUa7TQ/exec";
+const f=document.getElementById('form'),wz=document.getElementById('whatsapp');
+wz.addEventListener('input',()=>{
+  if(wz.value.trim().startsWith('+'))return;
+  let d=wz.value.replace(/\D/g,'').slice(0,11);
+  wz.value=d.length>6?`(${d.slice(0,2)}) ${d.slice(2,d.length-4)}-${d.slice(-4)}`:d.length>2?`(${d.slice(0,2)}) ${d.slice(2)}`:d;
+});
+const marca=(id,ok)=>(document.getElementById(id).classList.toggle('erro',!ok),ok);
+f.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const nome=f.nome.value.trim(),cidade=f.cidade.value.trim(),dig=wz.value.replace(/\D/g,'');
+  const a=marca('c-nome',nome.length>=2),
+        b=marca('c-whats',wz.value.trim().startsWith('+')?dig.length>=8:dig.length>=10),
+        c=marca('c-cidade',cidade.length>=2);
+  if(!a||!b||!c||f.site.value)return;
+  document.getElementById('botao').disabled=true;document.getElementById('txt').textContent='Enviando';
+  const q=new URLSearchParams(location.search);
+  try{await fetch(URL_PLANILHA,{method:'POST',mode:'no-cors',body:new URLSearchParams({
+    nome,whatsapp:wz.value.trim(),cidade,
+    origem:q.get('origem')||q.get('utm_source')||'germobr.link',
+    campanha:q.get('utm_campaign')||''})})}catch(_){}
+  document.getElementById('card').classList.add('enviado');
+});
+</script>
+</body>
+</html>
