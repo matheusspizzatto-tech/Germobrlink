@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/folder", "destination": "/?utm_source=folder&utm_campaign=folder-impresso", "permanent": false }
+  ]
+}
