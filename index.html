@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Germo</title>
-<meta name="description" content="Germo: 10 ajudantes pro seu dia a dia, no WhatsApp que você já usa.">
+<meta name="description" content="Germo: 10 ajudantes do agro no WhatsApp.">
 <meta property="og:title" content="Germo">
-<meta property="og:description" content="10 ajudantes pro seu dia a dia, no WhatsApp que você já usa.">
+<meta property="og:description" content="10 ajudantes do agro no WhatsApp.">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%2319E35F%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +33,7 @@ a{color:inherit;text-decoration:none}
 .wm{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:32px;letter-spacing:-.01em;color:var(--ink)}
 .wm b{color:var(--broto)}
 .handle{color:var(--mute);font-size:15px;font-weight:600}
-.tag{font-weight:600;letter-spacing:-.035em;line-height:1.08;font-size:clamp(20px,6.6vw,31px);color:var(--ink);text-wrap:balance;margin:6px 0 0}
+.tag{font-weight:600;letter-spacing:-.035em;line-height:1.06;font-size:clamp(26px,8.6vw,40px);color:var(--ink);text-wrap:balance;margin:6px 0 0}
 .tag .g{color:var(--verde)}
 .tag span{display:block;white-space:nowrap}
 
@@ -72,6 +72,24 @@ a{color:inherit;text-decoration:none}
 .perks i{display:block;width:8px;height:8px;border-radius:50%;background:var(--broto)}
 .card.comm .go{grid-column:1/-1;margin-top:0;padding-top:6px}
 
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.isca{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.wz{position:relative;display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:8px 8px 8px 20px;margin:6px 0 2px;box-shadow:0 0 0 1.5px var(--pill-ring),0 14px 30px rgba(21,32,26,.08);transition:box-shadow .2s ease}
+.wz:focus-within{box-shadow:0 0 0 2.5px var(--broto),0 14px 30px rgba(21,32,26,.1)}
+.wz.erro{box-shadow:0 0 0 2px #D64545,0 14px 30px rgba(21,32,26,.08)}
+.wz-ic{display:grid;place-items:center;flex:none}
+.wz input[type=tel]{flex:1;min-width:0;border:0;outline:0;background:transparent;font:600 17px/1.2 var(--body);color:var(--ink);padding:10px 0}
+.wz input[type=tel]::placeholder{color:#7A857E;font-weight:500}
+.wz button{flex:none;width:48px;height:48px;border-radius:50%;border:0;background:var(--broto);display:grid;place-items:center;cursor:pointer}
+.wz button:focus-visible{outline:3px solid var(--noite);outline-offset:2px}
+.wz button:disabled{opacity:.6;cursor:default}
+.wz-ok{display:none;align-items:center;gap:10px;font-weight:700;font-size:15px;line-height:1.35;color:var(--ink);padding:8px 6px 8px 0}
+.wz.ok{padding:12px 20px}
+.wz.ok>*:not(.wz-ok){display:none}
+.wz.ok .wz-ok{display:flex}
+.wz-msg{margin:-6px 0 0;min-height:0;text-align:center;font-size:14px;font-weight:600;color:#C23B3B}
+.wz-msg:empty{display:none}
+
 .foot{text-align:center;color:var(--mute);font-size:13px;margin-top:20px;display:flex;flex-direction:column;align-items:center;gap:8px}
 .foot .wm{font-size:16px}
 @media (max-width:380px){.card{grid-template-columns:minmax(0,1fr) 92px;padding-left:22px}.card h2{font-size:25px}}
@@ -85,20 +103,28 @@ a{color:inherit;text-decoration:none}
       <span class="wm">GERMO<b>.</b></span>
     </div>
     <div class="handle">@germo.br</div>
-    <h1 class="tag"><span>10 ajudantes pro seu dia a dia,</span> <span class="g">no WhatsApp que você já usa.</span></h1>
+    <h1 class="tag"><span>10 ajudantes do agro</span> <span class="g">no WhatsApp.</span></h1>
   </header>
 
-  <div class="pill"><i></i>Escolha seu próximo passo</div>
+  <form class="wz" id="wz" novalidate>
+    <label for="whats" class="sr">Seu WhatsApp com DDD</label>
+    <span class="wz-ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#13A94B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12Z"></path></svg></span>
+    <input id="whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="Seu WhatsApp com DDD">
+    <input class="isca" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button type="submit" id="wzb" aria-label="Entrar na lista de espera"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#15201A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+    <div class="wz-ok" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#13A94B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.2 3 3 6-6"></path></svg>Pronto, você está na lista. Vamos te avisar no WhatsApp.</div>
+  </form>
+  <p class="wz-msg" id="wzmsg" role="status" aria-live="polite"></p>
 
-  <a class="card comm" href="/oferta">
+  <a class="card comm" href="#whats" id="cardwz">
     <div class="txt">
       <div class="lab">Lista de espera</div>
       <h2>Receba antes do lançamento</h2>
-      <p>Seja um dos primeiros a usar os 10 agentes de IA no WhatsApp.</p>
+      <p>Seja um dos primeiros a usar os 10 ajudantes do agro no WhatsApp.</p>
     </div>
     <div class="art" aria-hidden="true"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/b2c200f9-161f-4f07-b362-f1d32a570a72.webp" alt=""></div>
     <div class="perks"><span><i></i>Acesso antecipado</span><span><i></i>Aviso direto no WhatsApp</span><span><i></i>Sem custo para entrar</span></div>
-    <div class="go"><span aria-hidden="true">→</span>Quero receber antes</div>
+    <div class="go"><span aria-hidden="true">↑</span>Coloque seu WhatsApp acima</div>
   </a>
 
   <a class="card dk" href="https://wa.me/5541988840707?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20a%20Germo." target="_blank" rel="noopener">
@@ -113,5 +139,30 @@ a{color:inherit;text-decoration:none}
 
   <footer class="foot"><span class="wm">GERMO<b>.</b></span><span>germo.br · Todos os direitos reservados.</span></footer>
 </main>
+<script>
+const URL_PLANILHA="https://script.google.com/macros/s/AKfycbwFZGzhpXW8fAUdNYUvxYoQhVjRmIm-I8Qynyp70Pi396rTL8psG7z0NyNCm7HUa7TQ/exec";
+const fz=document.getElementById('wz'),wz=document.getElementById('whats'),msg=document.getElementById('wzmsg');
+wz.addEventListener('input',()=>{
+  fz.classList.remove('erro');msg.textContent='';
+  if(wz.value.trim().startsWith('+'))return;
+  let d=wz.value.replace(/\D/g,'').slice(0,11);
+  wz.value=d.length>6?`(${d.slice(0,2)}) ${d.slice(2,d.length-4)}-${d.slice(-4)}`:d.length>2?`(${d.slice(0,2)}) ${d.slice(2)}`:d;
+});
+document.getElementById('cardwz').addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});setTimeout(()=>wz.focus(),250);});
+fz.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const dig=wz.value.replace(/\D/g,'');
+  const ok=wz.value.trim().startsWith('+')?dig.length>=8:dig.length>=10;
+  if(!ok){fz.classList.add('erro');msg.textContent='Digite seu WhatsApp com DDD.';wz.focus();return;}
+  if(fz.site.value)return;
+  document.getElementById('wzb').disabled=true;
+  const q=new URLSearchParams(location.search);
+  try{await fetch(URL_PLANILHA,{method:'POST',mode:'no-cors',body:new URLSearchParams({
+    nome:'',whatsapp:wz.value.trim(),cidade:'',
+    origem:q.get('origem')||q.get('utm_source')||'germobr.link',
+    campanha:q.get('utm_campaign')||'link-bio'})})}catch(_){}
+  fz.classList.add('ok');
+});
+</script>
 </body>
 </html>
