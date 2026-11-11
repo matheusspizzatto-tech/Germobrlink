@@ -538,7 +538,19 @@ footer a{text-decoration:none}
 footer a:hover{color:var(--ink)}
 
 
-.mcrew{display:none}
+.mcrew{display:block;position:relative;width:100%;max-width:520px;height:150px;margin-bottom:-10px}
+.mcrew .mc{position:absolute;bottom:0;border:0;background:none;padding:0;cursor:pointer;animation:mcb 4s ease-in-out infinite}
+.mcrew .mc img{height:100%;width:auto;filter:drop-shadow(0 10px 8px rgba(21,32,26,.18));transition:transform .25s cubic-bezier(.2,1.6,.4,1)}
+.mcrew .mc b{display:none}
+.mcrew .mc.hop img{transform:translateY(-14px) scale(1.06)}
+.mcrew .mc0{left:0;height:96px;bottom:4px;transform:rotate(-8deg)}
+.mcrew .mc1{left:17%;height:114px;bottom:18px}
+.mcrew .mc2{left:40%;height:136px;bottom:0;z-index:2}
+.mcrew .mc3{left:62%;height:112px;bottom:20px}
+.mcrew .mc4{left:82%;height:96px;bottom:4px;transform:rotate(8deg)}
+.msay{position:absolute;left:0;top:-6px;background:#fff;border-radius:14px;padding:8px 13px;font-size:13.5px;font-weight:700;color:var(--ink);white-space:nowrap;box-shadow:0 0 0 1.5px var(--pill),0 10px 22px rgba(21,32,26,.1);opacity:0;transition:opacity .2s;pointer-events:none;z-index:3}
+.msay.on{opacity:1}
+.msay i{font-style:normal;font-weight:800}
 .lead-s{display:none}
 @media (max-width:640px){
   .hero{padding-top:8px}
@@ -565,6 +577,28 @@ footer a:hover{color:var(--ink)}
 }
 @keyframes mcb{50%{translate:0 -6px}}
 @media (prefers-reduced-motion:reduce){.mc{animation:none}}
+
+/* detalhe do ajudante com a entrega */
+.det .ent{border-top:1px solid var(--line)}
+.det .eh{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:16px 28px 0}
+.det .eh small{width:100%;font-family:var(--display);font-stretch:112%;font-weight:700;font-size:11.5px;letter-spacing:.08em;color:var(--c);text-transform:uppercase}
+.det .eh b{font-size:16px}
+.det .eh span{font-size:13.5px;color:var(--mute);font-weight:600}
+.det .ent .pv{padding:18px 28px 24px;display:flex;justify-content:center;align-items:center;min-height:240px}
+.det .ent .pv .ig-wrap{width:100%;justify-content:center}
+.det .ent .pv .deck{max-width:520px}
+.det .ent .pv>.wamsg,.det .ent .pv>.alrt,.det .ent .pv>.ir,.det .ent .pv>.leite,.det .ent .pv>.reel{max-width:420px}
+.det .top img.pop{animation:popin .55s cubic-bezier(.2,1.5,.4,1)}
+@keyframes popin{0%{transform:scale(.6) translateY(16px);opacity:0}100%{transform:none;opacity:1}}
+.endhug{width:min(360px,80%);height:auto;margin-top:10px;filter:drop-shadow(0 18px 18px rgba(21,32,26,.18))}
+.ag{box-shadow:none;background:transparent}
+.ag:hover{background:#fff;box-shadow:0 0 0 1.5px var(--ring)}
+.ag[aria-selected="true"]{background:#fff}
+.ag img{height:92px}
+#whats .why{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:640px){.det .eh{padding:14px 20px 0}.det .ent .pv{padding:14px 16px 20px}.det .ent .pv .ig-wrap{flex-direction:column}.pick .ag img{height:64px}}
+@media (max-width:980px) and (min-width:641px){#whats .why{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
 /* celular: prático para quem está no campo */
 .dots{display:none}
 @media (max-width:640px){
@@ -641,7 +675,7 @@ footer a:hover{color:var(--ink)}
     <div class="in">
       <div class="tx">
         <div class="mcrew" aria-hidden="true"><button type="button" class="mc mc0" data-say="Escrevo o roteiro do seu reels." style="--c:#F26B1D" tabindex="-1"><img src="/img/viral.webp" alt=""><b>viral</b></button><button type="button" class="mc mc1" data-say="Faço o design do seu post." style="--c:#3AA0FF" tabindex="-1"><img src="/img/vitrine.webp" alt=""><b>vitrine</b></button><button type="button" class="mc mc2" data-say="Monto a sua planilha." style="--c:#13A94B" tabindex="-1"><img src="/img/planilha.webp" alt=""><b>planilha</b></button><button type="button" class="mc mc3" data-say="Te aviso antes da chuva." style="--c:#16A898" tabindex="-1"><img src="/img/clima.webp" alt=""><b>clima</b></button><button type="button" class="mc mc4" data-say="Escrevo a mensagem que vende." style="--c:#B88F0E" tabindex="-1"><img src="/img/vendas.webp" alt=""><b>vendas</b></button><span class="msay" id="msay"></span></div>
-        <span class="pl hpill" style="align-self:flex-start"><i class="dot"></i>Pré-lançamento · lista de espera aberta</span>
+        <span class="pl hpill" style="align-self:flex-start;display:none"><i class="dot"></i>Pré-lançamento · lista de espera aberta</span>
         <h1>10 ajudantes,<br><span class="g">no seu WhatsApp.</span></h1>
         <p class="lead lead-l">Você manda uma mensagem, um áudio ou uma foto no WhatsApp da Germo. O ajudante certo responde e devolve o trabalho pronto: a planilha, o relatório da visita, o post, a análise do contrato, a previsão do tempo da sua propriedade e muito mais.</p>
         <p class="lead lead-s">Mande um áudio, uma foto ou uma mensagem. O ajudante certo devolve o trabalho pronto no seu WhatsApp.</p>
@@ -684,32 +718,33 @@ footer a:hover{color:var(--ink)}
     </div>
   </section>
 
-  <!-- 96% -->
-  <section class="stat">
+  <!-- AJUDANTES -->
+  <section id="ajudantes">
     <div class="in">
-      <div class="box rv">
-        <div class="big num">96%</div>
-        <div><p>das pessoas do campo usam o WhatsApp. Por isso nós colocamos os ajudantes onde você já está, e não em mais um aplicativo.</p><small>Fonte: 9ª Pesquisa ABMRA, Hábitos do Produtor Rural.</small></div>
-        <div class="grp" aria-hidden="true"><img src="/img/viral.webp" alt=""><img src="/img/campo.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/vitrine.webp" alt=""></div>
+      <div class="head rv"><span class="eyebrow">Os 10 ajudantes</span><h2>Conheça a sua <span class="g">nova equipe.</span></h2><p class="lead">Toque num ajudante para ver quem ele é, o que ele entrega e como você pede.</p></div>
+      <div class="team">
+        <div class="rv">
+          <div class="pick" role="tablist" aria-label="Escolha um ajudante" id="pick"></div>
+          <p class="hint">Os 10 ficam juntos no mesmo WhatsApp. Você usa quantos precisar, quando precisar.</p>
+        </div>
+        <div class="det rv" id="det" role="tabpanel" aria-live="polite"></div>
+      <template id="entregas"><div data-k="vitrine" data-t="Post e legenda para vender a colheita" data-p="Produtora de morango · Atibaia, SP"><div class="pv"><div class="ig-wrap">
+          <div class="ig-post" role="img" aria-label="Post de Instagram de uma produtora de morango"><div class="ph" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/8b42cec8-a51b-44e3-b668-79895802a247.jpg)"></div><span class="mk"><i>SA</i>Morangos Serra Azul</span><span class="tag"><b>1 kg</b><small>R$ 25</small></span><div class="bd"><small>COLHEITA DE HOJE</small><b>Do pé para a sua mesa <i>em menos de 24 horas.</i></b><span class="ftp"><span>Encomendas pelo WhatsApp</span><span>Atibaia, SP</span></span></div></div>
+          <div class="cap"><span class="lbl">LEGENDA PRONTA</span><div class="u"><i>SA</i>morangosserraazul</div><p>Colhemos hoje cedo, no ponto certo, e separamos as caixas de quem encomendou. Sem câmara fria e sem atravessador: sai do nosso pé direto para a sua casa.</p><p>Caixa de 1 kg por R$ 25. Encomendas até quinta, entrega no sábado em Atibaia e Bragança.</p><span class="hs">#morangos #atibaia #docampoparaamesa</span></div>
+        </div></div></div><div data-k="apresenta" data-t="Apresentação para compradores" data-p="Cafeicultor · Sul de Minas"><div class="pv"><div class="deck">
+          <div class="slide" role="img" aria-label="Slide de apresentação de café especial para compradores"><div class="l"><small>SÍTIO BOA VISTA · SAFRA 26/27</small><b>Café de altitude, <i>colhido a dedo.</i></b><div class="dt"><span>ALTITUDE<b>1.250 m</b></span><span>VARIEDADE<b>Catuaí Amarelo</b></span><span>PONTUAÇÃO<b>86 SCA</b></span></div></div><div class="r" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/bfc22dc9-8a9d-4738-819b-17cc0cbf958b.jpg)"></div></div>
+          <div class="thumbs" aria-hidden="true"><div class="th"><small>02 · PRODUÇÃO</small><div class="bars"><i style="height:40%"></i><i style="height:55%"></i><i style="height:50%"></i><i style="height:72%"></i><i style="height:92%"></i></div><b>5 safras <i>em alta</i></b></div><div class="th"><small>03 · PROCESSO</small><div class="stp">Colheita<i></i>Terreiro<i></i>Tulha</div><b>Do pé à saca, <i>sem pressa</i></b></div><div class="th ph" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/bfc22dc9-8a9d-4738-819b-17cc0cbf958b.jpg)"><small>04 · AMOSTRAS</small><b>Peça a sua <i>amostra de 250 g</i></b><small style="color:#B9B29F">SUL DE MINAS</small></div></div>
+        </div></div></div><div data-k="juridico" data-t="Contrato de parceria analisado" data-p="Pecuarista · Mato Grosso"><div class="pv"><div class="doc2"><div class="hd"><small>CONTRATO · 9 PÁGINAS</small><b>Parceria pecuária, gado de corte</b></div><div class="ln"></div><div class="ln s"></div><div class="mk">Atenção: a divisão dos bezerros não está definida</div><div class="ln"></div><div class="ln"></div><div class="ln s"></div><div class="mk">Falta: quem paga vacina, sal e veterinário</div><div class="ln"></div><div class="ln s"></div><div class="ft2"><span>jurídico</span><span>2 pontos de atenção</span></div></div></div></div><div data-k="contabil" data-t="Resumo para o imposto de renda" data-p="Granja de ovos · Bastos, SP"><div class="pv"><div class="ir"><div class="t">Resumo do ano · Livro Caixa<small>2026</small></div><div class="rw"><span>Receita bruta</span><b>R$ 612.400</b></div><div class="rw"><span>Despesas da atividade</span><b>R$ 514.000</b></div><div class="rw"><span>Resultado real</span><b>R$ 98.400</b></div><div class="cmp"><b>Base menor: resultado real</b>Os 20% da receita dariam R$ 122.480. Leve este resumo ao seu contador.</div></div></div></div><div data-k="planilha" data-t="Controle de ordenha" data-p="Pecuária de leite · Castro, PR"><div class="pv"><div class="leite"><div class="t">Ordenha de novembro<small>litros por dia</small></div><table><tr class="h"><td>Vaca</td><td class="r">Hoje</td><td class="r">Média 30 dias</td></tr><tr><td>Mimosa</td><td class="r">28,0</td><td class="r">27,4</td></tr><tr><td>Estrela</td><td class="r">31,5</td><td class="r">30,1</td></tr><tr><td>Pintada</td><td class="r dn">21,0</td><td class="r">24,8</td></tr><tr><td>Morena</td><td class="r">26,2</td><td class="r">25,9</td></tr><tr class="tt"><td>Total</td><td class="r">106,7</td><td class="r">108,2</td></tr></table></div></div></div><div data-k="campo" data-t="Relatório da visita na estufa" data-p="Técnica agrícola · Caçador, SC"><div class="pv"><div class="doc2" style="transform:rotate(1.5deg)"><div class="hd"><small>RELATÓRIO DE VISITA · PDF</small><b>Estufa 2, tomate italiano</b></div><div class="ph" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/0a91882a-0f7b-49a7-94da-d8e9cd4daf60.jpg)"></div><div class="kv"><span>Fase</span><span>Frutificação</span></div><div class="kv"><span>Irrigação</span><span class="ok">Em dia</span></div><div class="mk">Desbrotar as plantas da linha 4 nesta semana</div><div class="ln"></div><div class="ln s"></div><div class="ft2"><span>campo</span><span>3 páginas</span></div></div></div></div><div data-k="agronomo" data-t="Dúvida na lavoura de café" data-p="Cafeicultor · Cerrado Mineiro"><div class="pv"><div class="wamsg"><div class="bb o">A folha do café está com mancha marrom por cima e parece que tem algo dentro.</div><div class="bb"><b style="color:#C8402F">agrônomo</b>Pelo que você descreveu, pode ser bicho-mineiro. Puxe a pele da mancha: se soltar como papel e tiver uma lagartinha, é ele.<span class="wn">Para a receita do controle, chame o seu agrônomo.</span></div></div></div></div><div data-k="clima" data-t="Aviso de geada antes da hora" data-p="Viticultor · Serra Gaúcha"><div class="pv"><div class="alrt"><div class="tp"><i></i>AVISO DE GEADA</div><span>Madrugada de sábado: mínima entre 0 °C e 2 °C no seu vinhedo. Vale cobrir as mudas na sexta à tarde.</span><div class="days"><div>Qua<b>9 °C</b></div><div>Qui<b>7 °C</b></div><div>Sex<b>4 °C</b></div><div class="hot">Sáb<b>1 °C</b></div><div>Dom<b>5 °C</b></div></div></div></div></div><div data-k="vendas" data-t="Proposta para um mercado" data-p="Horta orgânica · Ibiúna, SP"><div class="pv"><div class="wamsg"><div class="bb o">Quero vender verdura toda semana para o mercado da Renata. O que eu mando?</div><div class="bb"><b style="color:#B88F0E">vendas</b>Manda assim: "Oi, Renata! Consigo entregar 30 maços de alface e 20 de rúcula toda terça e sexta, colhidos no dia. Fecho a semana por R$ 180. Começamos nesta sexta?"</div></div></div></div><div data-k="viral" data-t="Roteiro de reels" data-p="Apicultor · Interior de SP"><div class="pv"><div class="reel"><div class="ph" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/1d315eac-5808-4c3a-9b3b-15ab9ecdddf6.jpg)"><span>Como tiramos o mel <i>sem machucar</i> as abelhas</span></div><ol><li><b>0 a 3 s</b>Close no favo escorrendo. "Você sabe de onde vem esse mel?"</li><li><b>3 a 20 s</b>A fumaça, o quadro e a centrífuga, em 3 cortes.</li><li><b>20 a 30 s</b>O pote pronto e o convite para encomendar.</li></ol></div></div></div></template>
       </div>
     </div>
   </section>
 
-  <!-- O QUE É -->
-  <section id="oque">
-    <div class="in what">
-      <div class="tx rv">
-        <span class="eyebrow">O que é a Germo</span>
-        <h2>Um número de WhatsApp com <span class="g">10 ajudantes</span> trabalhando para você.</h2>
-        <p>Cada ajudante é uma inteligência artificial treinada para um tipo de trabalho do agro. Um monta planilha, outro escreve o relatório da visita, outro acompanha o tempo da sua propriedade, outro explica o contrato.</p>
-        <p>Você não precisa decorar qual chamar. Escreve do seu jeito, ou manda um áudio, e a Germo passa o pedido para o ajudante certo. Ele responde no mesmo chat, com o próprio nome, e entrega pronto.</p>
-      </div>
-      <div class="facts rv">
-        <div class="fact dk"><div class="top"><b class="num">1</b><em>número</em></div><span>Todos os ajudantes respondem no mesmo chat do WhatsApp.</span><div class="vis"><div class="ct"><span class="av"><svg width="18" height="18" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="28"/><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></span><span><b>Germo <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path d="m8 12.3 2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>10 ajudantes · online</small></span></div></div></div>
-        <div class="fact"><div class="top"><b class="num">10</b><em>ajudantes</em></div><span>Cada um com uma função do dia a dia do agro.</span><div class="vis vis-hug"><img class="hug" src="/img/abracados.webp" alt="Os 10 ajudantes da Germo abraçados" loading="lazy"></div></div>
-        <div class="fact"><div class="top"><b class="num">4</b><em>jeitos de pedir</em></div><span>Do jeito que você já usa o WhatsApp.</span><div class="vis"><div class="ways"><span>Texto</span><span>Áudio</span><span>Foto</span><span>PDF</span></div></div></div>
-        <div class="fact"><div class="top"><b class="num">0</b><em>aplicativo novo</em></div><span>Nada de cadastro em site nem senha para lembrar.</span><div class="vis"><div class="nopw" aria-hidden="true"><span class="fld"><small>Senha</small><i>••••••</i></span><span class="tg">Não precisa</span></div></div></div>
-      </div>
+  <!-- EXEMPLOS -->
+  <section class="how" id="exemplos">
+    <div class="in">
+      <div class="head c rv"><span class="eyebrow">Exemplos</span><h2>Um dia comum, <span class="g">com os ajudantes certos.</span></h2><p class="lead">Áudios de verdade, do jeito que o campo fala. Escolha um perfil, aperte o play e veja o que cada ajudante devolve.</p></div>
+      <div class="tabs" role="tablist" aria-label="Perfis" id="ctabs"></div>
+      <div class="case rv" id="case" role="tabpanel"></div>
     </div>
   </section>
 
@@ -730,107 +765,14 @@ footer a:hover{color:var(--ink)}
     </div>
   </section>
 
-  <!-- AJUDANTES -->
-  <section id="ajudantes">
+  <!-- TUDO NO WHATSAPP -->
+  <section id="whats">
     <div class="in">
-      <div class="head rv"><span class="eyebrow">Os 10 ajudantes</span><h2>Conheça cada um e <span class="g">veja o que ele entrega.</span></h2><p class="lead">Toque num ajudante para ver o que ele faz, um exemplo de pedido e o que você recebe de volta.</p></div>
-      <div class="team">
-        <div class="rv">
-          <div class="pick" role="tablist" aria-label="Escolha um ajudante" id="pick"></div>
-          <p class="hint">Os 10 ficam juntos no mesmo WhatsApp. Você usa quantos precisar, quando precisar.</p>
-        </div>
-        <div class="det rv" id="det" role="tabpanel" aria-live="polite"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXEMPLOS -->
-  <section class="how" id="exemplos">
-    <div class="in">
-      <div class="head c rv"><span class="eyebrow">Exemplos</span><h2>Um dia comum, <span class="g">com os ajudantes certos.</span></h2><p class="lead">Áudios de verdade, do jeito que o campo fala. Escolha um perfil, aperte o play e veja o que cada ajudante devolve.</p></div>
-      <div class="tabs" role="tablist" aria-label="Perfis" id="ctabs"></div>
-      <div class="case rv" id="case" role="tabpanel"></div>
-    </div>
-  </section>
-
-  <!-- ENTREGAS -->
-  <section id="entregas">
-    <div class="in">
-      <div class="head rv"><span class="eyebrow">O que você recebe</span><h2>Trabalho pronto, <span class="g">para cada realidade.</span></h2><p class="lead">Do morango ao gado, do café à horta. Veja o que os ajudantes entregariam em 10 situações reais do campo, direto no WhatsApp.</p></div>
-      <div class="gal">
-        <div class="dl big rv"><div class="pv"><div class="ig-wrap">
-          <div class="ig-post" role="img" aria-label="Post de Instagram de uma produtora de morango"><div class="ph" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/8b42cec8-a51b-44e3-b668-79895802a247.jpg)"></div><span class="mk"><i>SA</i>Morangos Serra Azul</span><span class="tag"><b>1 kg</b><small>R$ 25</small></span><div class="bd"><small>COLHEITA DE HOJE</small><b>Do pé para a sua mesa <i>em menos de 24 horas.</i></b><span class="ftp"><span>Encomendas pelo WhatsApp</span><span>Atibaia, SP</span></span></div></div>
-          <div class="cap"><span class="lbl">LEGENDA PRONTA</span><div class="u"><i>SA</i>morangosserraazul</div><p>Colhemos hoje cedo, no ponto certo, e separamos as caixas de quem encomendou. Sem câmara fria e sem atravessador: sai do nosso pé direto para a sua casa.</p><p>Caixa de 1 kg por R$ 25. Encomendas até quinta, entrega no sábado em Atibaia e Bragança.</p><span class="hs">#morangos #atibaia #docampoparaamesa</span></div>
-        </div></div><div class="ft"><img src="/img/vitrine.webp" alt=""><span><b>Post e legenda para vender a colheita</b><small>Produtora de morango · Atibaia, SP</small></span></div></div>
-        <div class="dl big rv"><div class="pv"><div class="deck">
-          <div class="slide" role="img" aria-label="Slide de apresentação de café especial para compradores"><div class="l"><small>SÍTIO BOA VISTA · SAFRA 26/27</small><b>Café de altitude, <i>colhido a dedo.</i></b><div class="dt"><span>ALTITUDE<b>1.250 m</b></span><span>VARIEDADE<b>Catuaí Amarelo</b></span><span>PONTUAÇÃO<b>86 SCA</b></span></div></div><div class="r" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/bfc22dc9-8a9d-4738-819b-17cc0cbf958b.jpg)"></div></div>
-          <div class="thumbs" aria-hidden="true"><div class="th"><small>02 · PRODUÇÃO</small><div class="bars"><i style="height:40%"></i><i style="height:55%"></i><i style="height:50%"></i><i style="height:72%"></i><i style="height:92%"></i></div><b>5 safras <i>em alta</i></b></div><div class="th"><small>03 · PROCESSO</small><div class="stp">Colheita<i></i>Terreiro<i></i>Tulha</div><b>Do pé à saca, <i>sem pressa</i></b></div><div class="th ph" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/bfc22dc9-8a9d-4738-819b-17cc0cbf958b.jpg)"><small>04 · AMOSTRAS</small><b>Peça a sua <i>amostra de 250 g</i></b><small style="color:#B9B29F">SUL DE MINAS</small></div></div>
-        </div></div><div class="ft"><img src="/img/apresenta.webp" alt=""><span><b>Apresentação para compradores</b><small>Cafeicultor · Sul de Minas</small></span></div></div>
-        <div class="dl rv"><div class="pv"><div class="doc2"><div class="hd"><small>CONTRATO · 9 PÁGINAS</small><b>Parceria pecuária, gado de corte</b></div><div class="ln"></div><div class="ln s"></div><div class="mk">Atenção: a divisão dos bezerros não está definida</div><div class="ln"></div><div class="ln"></div><div class="ln s"></div><div class="mk">Falta: quem paga vacina, sal e veterinário</div><div class="ln"></div><div class="ln s"></div><div class="ft2"><span>jurídico</span><span>2 pontos de atenção</span></div></div></div><div class="ft"><img src="/img/juridico.webp" alt=""><span><b>Contrato de parceria analisado</b><small>Pecuarista · Mato Grosso</small></span></div></div>
-        <div class="dl rv"><div class="pv"><div class="ir"><div class="t">Resumo do ano · Livro Caixa<small>2026</small></div><div class="rw"><span>Receita bruta</span><b>R$ 612.400</b></div><div class="rw"><span>Despesas da atividade</span><b>R$ 514.000</b></div><div class="rw"><span>Resultado real</span><b>R$ 98.400</b></div><div class="cmp"><b>Base menor: resultado real</b>Os 20% da receita dariam R$ 122.480. Leve este resumo ao seu contador.</div></div></div><div class="ft"><img src="/img/contabil.webp" alt=""><span><b>Resumo para o imposto de renda</b><small>Granja de ovos · Bastos, SP</small></span></div></div>
-        <div class="dl rv"><div class="pv"><div class="leite"><div class="t">Ordenha de novembro<small>litros por dia</small></div><table><tr class="h"><td>Vaca</td><td class="r">Hoje</td><td class="r">Média 30 dias</td></tr><tr><td>Mimosa</td><td class="r">28,0</td><td class="r">27,4</td></tr><tr><td>Estrela</td><td class="r">31,5</td><td class="r">30,1</td></tr><tr><td>Pintada</td><td class="r dn">21,0</td><td class="r">24,8</td></tr><tr><td>Morena</td><td class="r">26,2</td><td class="r">25,9</td></tr><tr class="tt"><td>Total</td><td class="r">106,7</td><td class="r">108,2</td></tr></table></div></div><div class="ft"><img src="/img/planilha.webp" alt=""><span><b>Controle de ordenha</b><small>Pecuária de leite · Castro, PR</small></span></div></div>
-        <div class="dl rv"><div class="pv"><div class="doc2" style="transform:rotate(1.5deg)"><div class="hd"><small>RELATÓRIO DE VISITA · PDF</small><b>Estufa 2, tomate italiano</b></div><div class="ph" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/0a91882a-0f7b-49a7-94da-d8e9cd4daf60.jpg)"></div><div class="kv"><span>Fase</span><span>Frutificação</span></div><div class="kv"><span>Irrigação</span><span class="ok">Em dia</span></div><div class="mk">Desbrotar as plantas da linha 4 nesta semana</div><div class="ln"></div><div class="ln s"></div><div class="ft2"><span>campo</span><span>3 páginas</span></div></div></div><div class="ft"><img src="/img/campo.webp" alt=""><span><b>Relatório da visita na estufa</b><small>Técnica agrícola · Caçador, SC</small></span></div></div>
-        <div class="dl rv"><div class="pv"><div class="wamsg"><div class="bb o">A folha do café está com mancha marrom por cima e parece que tem algo dentro.</div><div class="bb"><b style="color:#C8402F">agrônomo</b>Pelo que você descreveu, pode ser bicho-mineiro. Puxe a pele da mancha: se soltar como papel e tiver uma lagartinha, é ele.<span class="wn">Para a receita do controle, chame o seu agrônomo.</span></div></div></div><div class="ft"><img src="/img/agronomo.webp" alt=""><span><b>Dúvida na lavoura de café</b><small>Cafeicultor · Cerrado Mineiro</small></span></div></div>
-        <div class="dl rv"><div class="pv"><div class="alrt"><div class="tp"><i></i>AVISO DE GEADA</div><span>Madrugada de sábado: mínima entre 0 °C e 2 °C no seu vinhedo. Vale cobrir as mudas na sexta à tarde.</span><div class="days"><div>Qua<b>9 °C</b></div><div>Qui<b>7 °C</b></div><div>Sex<b>4 °C</b></div><div class="hot">Sáb<b>1 °C</b></div><div>Dom<b>5 °C</b></div></div></div></div><div class="ft"><img src="/img/clima.webp" alt=""><span><b>Aviso de geada antes da hora</b><small>Viticultor · Serra Gaúcha</small></span></div></div>
-        <div class="dl rv"><div class="pv"><div class="wamsg"><div class="bb o">Quero vender verdura toda semana para o mercado da Renata. O que eu mando?</div><div class="bb"><b style="color:#B88F0E">vendas</b>Manda assim: "Oi, Renata! Consigo entregar 30 maços de alface e 20 de rúcula toda terça e sexta, colhidos no dia. Fecho a semana por R$ 180. Começamos nesta sexta?"</div></div></div><div class="ft"><img src="/img/vendas.webp" alt=""><span><b>Proposta para um mercado</b><small>Horta orgânica · Ibiúna, SP</small></span></div></div>
-        <div class="dl rv"><div class="pv"><div class="reel"><div class="ph" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/1d315eac-5808-4c3a-9b3b-15ab9ecdddf6.jpg)"><span>Como tiramos o mel <i>sem machucar</i> as abelhas</span></div><ol><li><b>0 a 3 s</b>Close no favo escorrendo. "Você sabe de onde vem esse mel?"</li><li><b>3 a 20 s</b>A fumaça, o quadro e a centrífuga, em 3 cortes.</li><li><b>20 a 30 s</b>O pote pronto e o convite para encomendar.</li></ol></div></div><div class="ft"><img src="/img/viral.webp" alt=""><span><b>Roteiro de reels</b><small>Apicultor · Interior de SP</small></span></div></div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- POR QUE WHATSAPP -->
-  <section>
-    <div class="in">
-      <div class="head rv"><span class="eyebrow">Por que no WhatsApp</span><h2>O lugar onde o agro <span class="g">já resolve tudo.</span></h2></div>
+      <div class="head rv"><span class="eyebrow">Tudo no WhatsApp</span><h2>Um número só, <span class="g">10 ajudantes trabalhando.</span></h2><p class="lead"><b class="num" style="color:var(--verde)">96%</b> das pessoas do campo usam o WhatsApp. Por isso nós colocamos os ajudantes onde você já está. <span class="muted" style="font-size:13px;display:block;margin-top:6px">Fonte: 9ª Pesquisa ABMRA, Hábitos do Produtor Rural.</span></p></div>
       <div class="why">
         <div class="wy rv"><div class="sc" aria-hidden="true"><div class="ct"><span class="av"><svg width="18" height="18" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="28"/><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></span><span><b>Germo <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path d="m8 12.3 2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>Conta comercial</small></span><span class="add">Salvo</span></div></div><div class="tx2"><h3>Nada para instalar</h3><p>Sem aplicativo novo, sem site para entrar e sem senha. É só um contato salvo no seu celular.</p></div></div>
         <div class="wy rv"><div class="sc" aria-hidden="true"><div class="vn"><span class="pl"></span><span class="wv2" aria-hidden="true"><i style="height:6px"></i><i style="height:11px"></i><i style="height:16px"></i><i style="height:9px"></i><i style="height:14px"></i><i style="height:19px"></i><i style="height:12px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:18px"></i><i style="height:10px"></i><i style="height:8px"></i><i style="height:13px"></i><i style="height:17px"></i><i style="height:9px"></i><i style="height:6px"></i><i style="height:12px"></i><i style="height:15px"></i><i style="height:8px"></i><i style="height:5px"></i></span><small>0:14</small></div></div><div class="tx2"><h3>Pede por áudio</h3><p>Está no trator ou no meio da lavoura? Grava um áudio. O ajudante entende e responde do mesmo jeito que se você tivesse escrito.</p></div></div>
-        <div class="wy rv"><div class="sc" aria-hidden="true"><div class="sig"><div class="b w">Me avisa da chuva<small><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#667781" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></small></div><div class="b">Me avisa da chuva<small>06:42 <svg width="15" height="10" viewBox="0 0 16 11" aria-hidden="true"><path d="M1 6l3 3 6-7M6 9l1 1 7-8" fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round"/></svg></small></div></div></div><div class="tx2"><h3>Sinal fraco não atrapalha</h3><p>Mandou com pouco sinal? A mensagem sai quando a internet voltar e a resposta fica guardada no chat.</p></div></div>
         <div class="wy rv"><div class="sc" aria-hidden="true"><div class="one"><div class="crew10" aria-hidden="true"><img src="/img/planilha.webp" alt=""><img src="/img/clima.webp" alt=""><img src="/img/campo.webp" alt=""><img src="/img/agronomo.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/viral.webp" alt=""><img src="/img/vitrine.webp" alt=""><img src="/img/apresenta.webp" alt=""><img src="/img/juridico.webp" alt=""><img src="/img/contabil.webp" alt=""></div><small>Germo · 10 ajudantes no mesmo chat</small></div></div><div class="tx2"><h3>Tudo num chat só</h3><p>Os 10 ajudantes respondem no mesmo número. O histórico fica junto e você acha qualquer arquivo pela busca do WhatsApp.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MEMÓRIA -->
-  <section class="how" id="memoria">
-    <div class="in mem">
-      <div class="tx rv">
-        <span class="eyebrow">A Germo te conhece</span>
-        <h2>Conte uma vez. <span class="g">A Germo lembra.</span></h2>
-        <p>Logo no começo você se apresenta e, se quiser, manda os seus documentos. A Germo monta a ficha da sua propriedade, e os 10 ajudantes usam essa ficha em toda conversa.</p>
-        <ul>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span><b>Sem repetir tudo de novo.</b> O clima já sabe onde fica a sua propriedade, o planilha já sabe quantos funcionários você tem.</span></li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span><b>Seus documentos à mão.</b> Contrato, análise de solo e relatórios antigos ficam guardados para os ajudantes consultarem.</span></li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span><b>Respostas com a sua cara.</b> O post, a mensagem e a apresentação saem no seu jeito de falar e com os seus dados.</span></li>
-        </ul>
-      </div>
-      <div class="ficha rv" aria-label="Exemplo de ficha da propriedade">
-        <div class="hd"><b>Ficha da propriedade</b><small>EXEMPLO</small></div>
-        <dl>
-          <div><dt>Propriedade</dt><dd>Fazenda Santa Rita</dd></div>
-          <div><dt>Cidade</dt><dd>Castro, PR</dd></div>
-          <div><dt>O que produz</dt><dd>Soja, milho e leite</dd></div>
-          <div><dt>Área</dt><dd>300 ha</dd></div>
-          <div><dt>Equipe</dt><dd>4 funcionários</dd></div>
-          <div><dt>Quem fala</dt><dd>Produtor, por áudio</dd></div>
-        </dl>
-        <div class="docs">
-          <div class="file"><span class="fi" style="background:#C8402F">PDF</span><span><b>Contrato de arrendamento.pdf</b><small>Enviado em 08/11</small></span></div>
-          <div class="file"><span class="fi" style="background:#C8402F">PDF</span><span><b>Análise de solo · Talhão 3.pdf</b><small>Enviado em 08/11</small></span></div>
-        </div>
-        <div class="who10"><div class="row" aria-hidden="true"><img src="/img/planilha.webp" alt=""><img src="/img/clima.webp" alt=""><img src="/img/campo.webp" alt=""><img src="/img/agronomo.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/viral.webp" alt=""><img src="/img/vitrine.webp" alt=""><img src="/img/apresenta.webp" alt=""><img src="/img/juridico.webp" alt=""><img src="/img/contabil.webp" alt=""></div><span>Os 10 ajudantes usam esta ficha</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CUIDADOS -->
-  <section style="padding-top:0">
-    <div class="in">
-      <div class="head rv"><span class="eyebrow">Com responsabilidade</span><h2>Os ajudantes orientam. <span class="g">O profissional decide.</span></h2></div>
-      <div class="care">
-        <div class="cr rv"><div class="fig" aria-hidden="true"><img src="/img/agronomo.webp" alt=""><img src="/img/juridico.webp" alt=""><img src="/img/contabil.webp" alt=""></div><div><h3>Agrônomo, jurídico e contábil</h3><p>Explicam, organizam e mostram os pontos de atenção em linguagem simples. Quando o assunto pede um profissional, eles avisam. Receita de defensivo só com agrônomo habilitado.</p></div></div>
-        <div class="cr rv"><div class="fig" aria-hidden="true"><img src="/img/clima.webp" alt=""></div><div><h3>Previsão em faixa, sem promessa</h3><p>O clima mostra a previsão da sua região em faixas, como "entre 1 °C e 3 °C", porque tempo não é certeza. Ele avisa antes, e a decisão de mexer na lavoura continua sendo sua.</p></div></div>
       </div>
     </div>
   </section>
@@ -874,11 +816,15 @@ footer a:hover{color:var(--ink)}
     <div class="in">
       <div class="head c rv"><span class="eyebrow">Perguntas</span><h2>Ficou alguma dúvida?</h2></div>
       <div class="faq">
+        <details class="rv"><summary>O que é a Germo?<i aria-hidden="true">+</i></summary><p>Um número de WhatsApp com 10 ajudantes trabalhando para você. Cada ajudante é uma inteligência artificial treinada para um tipo de trabalho do agro: um monta planilha, outro escreve o relatório da visita, outro acompanha o tempo da sua propriedade, outro explica o contrato. Você não precisa decorar qual chamar: escreve do seu jeito, ou manda um áudio, e a Germo passa o pedido para o ajudante certo. Ele responde no mesmo chat, com o próprio nome, e entrega pronto.</p></details>
+        <details class="rv"><summary>A Germo lembra das minhas informações?<i aria-hidden="true">+</i></summary><p>Sim. Logo no começo você se apresenta e, se quiser, manda os seus documentos. A Germo monta a ficha da sua propriedade (cidade, o que produz, área, equipe) e os 10 ajudantes usam essa ficha em toda conversa. Assim você não repete tudo de novo, os seus documentos ficam à mão para os ajudantes consultarem e o post, a mensagem e a apresentação saem no seu jeito de falar e com os seus dados.</p></details>
         <details class="rv"><summary>Preciso baixar algum aplicativo?<i aria-hidden="true">+</i></summary><p>Não. A Germo funciona dentro do WhatsApp que você já usa. Depois de assinar, é só salvar o número da Germo e conversar.</p></details>
         <details class="rv"><summary>Como eu chamo o ajudante certo?<i aria-hidden="true">+</i></summary><p>Não precisa escolher. Você escreve ou grava um áudio do seu jeito e a Germo entende qual ajudante resolve. Se preferir, pode chamar pelo nome, por exemplo: "planilha, monta o controle de gastos da safra".</p></details>
         <details class="rv"><summary>Funciona com áudio e com foto?<i aria-hidden="true">+</i></summary><p>Sim. Você pode mandar texto, áudio, foto ou PDF. O campo escreve o relatório a partir do seu áudio, o agrônomo olha a foto da planta e o jurídico lê o contrato em PDF.</p></details>
         <details class="rv"><summary>O que exatamente eu recebo de volta?<i aria-hidden="true">+</i></summary><p>Depende do pedido: planilha pronta, relatório em PDF, apresentação, a arte do post, uma mensagem para copiar e enviar ou o aviso do tempo. Tudo chega no mesmo chat. Se quiser mudar alguma coisa, é só pedir que o ajudante refaz.</p></details>
-        <details class="rv"><summary>Os ajudantes substituem o agrônomo, o advogado ou o contador?<i aria-hidden="true">+</i></summary><p>Não. Eles explicam, organizam e adiantam o trabalho, e avisam quando o assunto precisa de um profissional. Receita de defensivo, por exemplo, só com agrônomo habilitado.</p></details>
+        <details class="rv"><summary>Os ajudantes substituem o agrônomo, o advogado ou o contador?<i aria-hidden="true">+</i></summary><p>Não. O agrônomo, o jurídico e o contábil explicam, organizam e mostram os pontos de atenção em linguagem simples, e avisam quando o assunto precisa de um profissional. Receita de defensivo só com agrônomo habilitado.</p></details>
+        <details class="rv"><summary>E se o sinal da internet estiver fraco?<i aria-hidden="true">+</i></summary><p>Sem problema. A mensagem sai quando a internet voltar e a resposta fica guardada no chat.</p></details>
+        <details class="rv"><summary>A previsão do tempo é garantida?<i aria-hidden="true">+</i></summary><p>O clima mostra a previsão da sua região em faixas, como "entre 1 °C e 3 °C", porque tempo não é certeza. Ele avisa antes, e a decisão de mexer na lavoura continua sendo sua.</p></details>
         <details class="rv"><summary>Quanto custa?<i aria-hidden="true">+</i></summary><p>Os planos saem no lançamento. Quem está na lista de espera recebe a oferta de lançamento antes de todo mundo, no WhatsApp. Entrar na lista não tem custo.</p></details>
         <details class="rv"><summary>E se eu assinar e não gostar?<i aria-hidden="true">+</i></summary><p>Nos primeiros 7 dias, é só mandar "cancelar" no WhatsApp da Germo que nós devolvemos todo o valor, sem burocracia.</p></details>
         <details class="rv"><summary>Quando a Germo lança?<i aria-hidden="true">+</i></summary><p>Em breve. Nós vamos abrir aos poucos, começando por quem está na lista de espera.</p></details>
@@ -895,7 +841,7 @@ footer a:hover{color:var(--ink)}
         <span class="eyebrow">Germo · para quem faz o agro</span>
         <h2>Os ajudantes estão prontos. <span class="g">Falta você.</span></h2>
         <p class="lead" style="margin:0 auto">Entre na lista de espera e receba a Germo antes do lançamento.</p>
-        <div class="lineup" aria-hidden="true"><img src="/img/viral.webp" alt=""><img src="/img/vitrine.webp" alt=""><img src="/img/apresenta.webp" alt=""><img src="/img/planilha.webp" alt=""><img src="/img/campo.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/clima.webp" alt=""><img src="/img/agronomo.webp" alt=""><img src="/img/juridico.webp" alt=""><img src="/img/contabil.webp" alt=""></div>
+        <img class="endhug" src="/img/abracados.webp" alt="Os 10 ajudantes da Germo abraçados" loading="lazy">
       </div>
     </div>
   </section>
@@ -930,16 +876,16 @@ const nav=$('nav');addEventListener('scroll',()=>nav.classList.toggle('sc',scrol
 
 /* ajudantes */
 const AG=[
- {k:'planilha',c:'#19E35F',t:'#13A94B',d:'Monta a planilha inteira do que você precisar: salário, controle de gastos, estoque, custo da safra.',p:'"Monta o controle de gastos da safra de soja, separado por insumo."',r:'Planilha pronta, com as fórmulas, para abrir no Excel ou no Google Planilhas.',chat:[['o','Monta o controle de gastos da safra de soja, separado por insumo.'],['i','Montei com semente, adubo, defensivo, diesel e mão de obra, já com o total por hectare.',{f:['XLSX','#1D8A4A','Gastos_Safra_Soja.xlsx','Planilha · 5 abas']}]]},
- {k:'clima',c:'#1FC7B6',t:'#16A898',d:'Acompanha o tempo da sua propriedade e te avisa antes da geada, da chuva forte e do vento.',p:'"Vai dar para pulverizar amanhã cedo?"',r:'Previsão por hora para a sua região e aviso automático no WhatsApp quando vem geada.',chat:[['i','Aviso de geada: na madrugada de quinta a mínima fica entre 1 °C e 3 °C na sua região. Vale proteger as mudas até quarta à noite.'],['o','Obrigado. E a chuva da semana?'],['i','Entre 15 e 25 mm no sábado, concentrados à tarde.']]},
- {k:'campo',c:'#A0673A',t:'#8A5A2F',d:'Escreve o relatório da visita técnica a partir do seu áudio e das fotos da lavoura.',p:'Um áudio de 1 minuto contando a visita, mais as fotos do talhão.',r:'Relatório em PDF com o que foi visto, as fotos e as recomendações organizadas.',chat:[['o',{a:'22,15,7,3,17,7,10,8,9,7,7,8,3,15,4,9,3,3,3,4,5,12,6,4,11,11,10,8,3,4,9,8,8,3',n:2,f:'d90c9013-f204-45db-bf2b-ab27a81834c9.jpg',d:'0:07'},'Fala, Germo. Faz o relatório da visita de hoje no talhão 3 e olha essa foto da folha aí, que mancha é essa?'],['i','Relatório da visita pronto, com as 4 fotos e as recomendações.',{f:['PDF','#C8402F','Visita_Talhao3.pdf','PDF · 3 páginas']}]]},
- {k:'agronomo',c:'#D93A2B',t:'#C8402F',d:'Tira dúvidas técnicas da lavoura e olha a foto da planta para apontar as causas possíveis.',p:'A foto da folha com a pergunta: "Apareceu essa mancha na soja. O que pode ser?"',r:'As causas mais prováveis, o que observar na lavoura e quando chamar o seu agrônomo.',warn:'Orienta, mas não emite receita agronômica. Receita de defensivo só com profissional habilitado.',chat:[['o',{ph:1},'Apareceu essa mancha na folha da soja. O que pode ser?'],['i','As manchas pequenas e marrons, com amarelado em volta, indicam ferrugem asiática. Olhe o verso da folha: se tiver pontinhos em relevo, chame o seu agrônomo para confirmar antes de aplicar.']]},
- {k:'vendas',c:'#F2C230',t:'#B88F0E',d:'Escreve a mensagem certa para responder, cobrar e fechar a venda com o seu cliente.',p:'"O cliente sumiu depois do orçamento. O que eu mando?"',r:'Mensagem pronta para copiar e enviar, no tom certo para o seu cliente.',chat:[['o','O cliente sumiu depois do orçamento. O que eu mando?'],['i','Manda assim: "Oi, Carlos! Passando para saber se ficou alguma dúvida no orçamento. Consigo segurar esse valor até sexta. Posso reservar para você?"']]},
- {k:'viral',c:'#F26B1D',t:'#D9590E',d:'Desenvolve o roteiro do reels, do carrossel e do post a partir de um tema seu.',p:'"Me dá um roteiro de reels sobre o plantio do milho safrinha."',r:'Roteiro com gancho, falas cena a cena e a legenda pronta para postar.',chat:[['o','Me dá um roteiro de reels sobre o plantio do milho safrinha.'],['i','Gancho (0 a 3 s): "Plantou o milho depois do dia 10? Então assiste isso." Depois 4 cenas, a chamada final e a legenda. Quer que eu deixe com 30 ou com 60 segundos?']]},
- {k:'vitrine',c:'#3AA0FF',t:'#2585E0',d:'Monta a bio do seu perfil e o design dos seus posts, prontos para publicar.',p:'"Melhora a bio do meu perfil de agrônoma."',r:'3 opções de bio e a arte do post em imagem, no tamanho certo para o Instagram.',chat:[['o','Melhora a bio do meu perfil de agrônoma.'],['i','Opção 1: "Engenheira agrônoma em Castro, PR · Manejo de soja e milho · Visitas técnicas pelo WhatsApp". Mandei também as outras 2 e a arte do post de apresentação.',{f:['IMG','#3AA0FF','Post_Apresentacao.png','Imagem · 1080 × 1350']}]]},
- {k:'apresenta',c:'#7B5CFF',t:'#6846F0',d:'Cria a apresentação, o arquivo e o portfólio a partir do que você descrever.',p:'"Faz uma apresentação do meu estágio na cooperativa, com 8 slides."',r:'Apresentação pronta em arquivo, para abrir no celular ou no computador e apresentar.',chat:[['o','Faz uma apresentação do meu estágio na cooperativa, com 8 slides.'],['i','Pronto. Capa, objetivos, atividades, resultados e agradecimentos, em 8 slides.',{f:['PPT','#7B5CFF','Estagio_Cooperativa.pptx','Apresentação · 8 slides']}],['o','Melhora o slide 2.']]},
- {k:'juridico',c:'#8E2443',t:'#8E2443',d:'Lê o contrato ou o documento rural e explica em linguagem simples o que importa.',p:'O PDF do contrato com o pedido: "Analisa esse contrato de arrendamento."',r:'Os pontos de atenção explicados, o que vale negociar e quando falar com um advogado.',warn:'Explica e aponta riscos, mas não substitui o advogado. Quando o caso pede, ele avisa.',chat:[['o','Analisa esse contrato de arrendamento.',{f:['PDF','#C8402F','Contrato_Arrendamento.pdf','PDF · 6 páginas']}],['i','Achei 3 pontos de atenção: o prazo é menor que o mínimo da lei para lavoura temporária, o reajuste não diz o índice e não fala de quem paga o ITR. Antes de assinar, vale levar ao seu advogado.']]},
- {k:'contabil',c:'#24408E',t:'#24408E',d:'Tira dúvidas de imposto, nota do produtor e custos, sem palavra difícil.',p:'"Quanto de imposto eu pago na venda da soja?"',r:'A explicação do cálculo com o seu caso e o que levar para o seu contador.',warn:'Orienta e organiza. A declaração e o fechamento continuam com o seu contador.',chat:[['o','Quanto de imposto eu pago na venda da soja?'],['i','Na venda como pessoa física, o comprador desconta o Funrural da nota. Te mostro a conta com o valor da sua venda e o que separar para a declaração do ano. Quer que eu monte?']]}
+ {k:'planilha',c:'#19E35F',t:'#13A94B',d:'Me diz o que você precisa e eu monto a planilha inteira: salário, gastos, estoque, custo da safra.',p:'"Monta o controle de gastos da safra de soja, separado por insumo."',r:'Planilha pronta, com as fórmulas, para abrir no Excel ou no Google Planilhas.',chat:[['o','Monta o controle de gastos da safra de soja, separado por insumo.'],['i','Montei com semente, adubo, defensivo, diesel e mão de obra, já com o total por hectare.',{f:['XLSX','#1D8A4A','Gastos_Safra_Soja.xlsx','Planilha · 5 abas']}]]},
+ {k:'clima',c:'#1FC7B6',t:'#16A898',d:'Eu acompanho o tempo da sua propriedade e te aviso antes da geada, da chuva forte e do vento.',p:'"Vai dar para pulverizar amanhã cedo?"',r:'Previsão por hora para a sua região e aviso automático no WhatsApp quando vem geada.',chat:[['i','Aviso de geada: na madrugada de quinta a mínima fica entre 1 °C e 3 °C na sua região. Vale proteger as mudas até quarta à noite.'],['o','Obrigado. E a chuva da semana?'],['i','Entre 15 e 25 mm no sábado, concentrados à tarde.']]},
+ {k:'campo',c:'#A0673A',t:'#8A5A2F',d:'Você me manda o áudio e as fotos da visita e eu escrevo o relatório técnico para você.',p:'Um áudio de 1 minuto contando a visita, mais as fotos do talhão.',r:'Relatório em PDF com o que foi visto, as fotos e as recomendações organizadas.',chat:[['o',{a:'22,15,7,3,17,7,10,8,9,7,7,8,3,15,4,9,3,3,3,4,5,12,6,4,11,11,10,8,3,4,9,8,8,3',n:2,f:'d90c9013-f204-45db-bf2b-ab27a81834c9.jpg',d:'0:07'},'Fala, Germo. Faz o relatório da visita de hoje no talhão 3 e olha essa foto da folha aí, que mancha é essa?'],['i','Relatório da visita pronto, com as 4 fotos e as recomendações.',{f:['PDF','#C8402F','Visita_Talhao3.pdf','PDF · 3 páginas']}]]},
+ {k:'agronomo',c:'#D93A2B',t:'#C8402F',d:'Eu tiro as suas dúvidas da lavoura e olho a foto da planta para apontar as causas possíveis.',p:'A foto da folha com a pergunta: "Apareceu essa mancha na soja. O que pode ser?"',r:'As causas mais prováveis, o que observar na lavoura e quando chamar o seu agrônomo.',warn:'Orienta, mas não emite receita agronômica. Receita de defensivo só com profissional habilitado.',chat:[['o',{ph:1},'Apareceu essa mancha na folha da soja. O que pode ser?'],['i','As manchas pequenas e marrons, com amarelado em volta, indicam ferrugem asiática. Olhe o verso da folha: se tiver pontinhos em relevo, chame o seu agrônomo para confirmar antes de aplicar.']]},
+ {k:'vendas',c:'#F2C230',t:'#B88F0E',d:'Eu escrevo a mensagem certa para você responder, cobrar e fechar a venda com o seu cliente.',p:'"O cliente sumiu depois do orçamento. O que eu mando?"',r:'Mensagem pronta para copiar e enviar, no tom certo para o seu cliente.',chat:[['o','O cliente sumiu depois do orçamento. O que eu mando?'],['i','Manda assim: "Oi, Carlos! Passando para saber se ficou alguma dúvida no orçamento. Consigo segurar esse valor até sexta. Posso reservar para você?"']]},
+ {k:'viral',c:'#F26B1D',t:'#D9590E',d:'Você me conta o tema e eu desenvolvo o roteiro do reels, do carrossel e do post.',p:'"Me dá um roteiro de reels sobre o plantio do milho safrinha."',r:'Roteiro com gancho, falas cena a cena e a legenda pronta para postar.',chat:[['o','Me dá um roteiro de reels sobre o plantio do milho safrinha.'],['i','Gancho (0 a 3 s): "Plantou o milho depois do dia 10? Então assiste isso." Depois 4 cenas, a chamada final e a legenda. Quer que eu deixe com 30 ou com 60 segundos?']]},
+ {k:'vitrine',c:'#3AA0FF',t:'#2585E0',d:'Eu monto a bio do seu perfil e o design dos seus posts, prontos para publicar.',p:'"Melhora a bio do meu perfil de agrônoma."',r:'3 opções de bio e a arte do post em imagem, no tamanho certo para o Instagram.',chat:[['o','Melhora a bio do meu perfil de agrônoma.'],['i','Opção 1: "Engenheira agrônoma em Castro, PR · Manejo de soja e milho · Visitas técnicas pelo WhatsApp". Mandei também as outras 2 e a arte do post de apresentação.',{f:['IMG','#3AA0FF','Post_Apresentacao.png','Imagem · 1080 × 1350']}]]},
+ {k:'apresenta',c:'#7B5CFF',t:'#6846F0',d:'Você me descreve o que quer e eu crio a apresentação, o arquivo e o portfólio.',p:'"Faz uma apresentação do meu estágio na cooperativa, com 8 slides."',r:'Apresentação pronta em arquivo, para abrir no celular ou no computador e apresentar.',chat:[['o','Faz uma apresentação do meu estágio na cooperativa, com 8 slides.'],['i','Pronto. Capa, objetivos, atividades, resultados e agradecimentos, em 8 slides.',{f:['PPT','#7B5CFF','Estagio_Cooperativa.pptx','Apresentação · 8 slides']}],['o','Melhora o slide 2.']]},
+ {k:'juridico',c:'#8E2443',t:'#8E2443',d:'Eu leio o seu contrato ou documento rural e explico em linguagem simples o que importa.',p:'O PDF do contrato com o pedido: "Analisa esse contrato de arrendamento."',r:'Os pontos de atenção explicados, o que vale negociar e quando falar com um advogado.',warn:'Explica e aponta riscos, mas não substitui o advogado. Quando o caso pede, ele avisa.',chat:[['o','Analisa esse contrato de arrendamento.',{f:['PDF','#C8402F','Contrato_Arrendamento.pdf','PDF · 6 páginas']}],['i','Achei 3 pontos de atenção: o prazo é menor que o mínimo da lei para lavoura temporária, o reajuste não diz o índice e não fala de quem paga o ITR. Antes de assinar, vale levar ao seu advogado.']]},
+ {k:'contabil',c:'#24408E',t:'#24408E',d:'Eu tiro as suas dúvidas de imposto, nota do produtor e custos, sem palavra difícil.',p:'"Quanto de imposto eu pago na venda da soja?"',r:'A explicação do cálculo com o seu caso e o que levar para o seu contador.',warn:'Orienta e organiza. A declaração e o fechamento continuam com o seu contador.',chat:[['o','Quanto de imposto eu pago na venda da soja?'],['i','Na venda como pessoa física, o comprador desconta o Funrural da nota. Te mostro a conta com o valor da sua venda e o que separar para a declaração do ano. Quer que eu monte?']]}
 ];
 
 function bub(m,ag){const side=m[0];let body='';let extra=m[2]||null;const content=m[1];
@@ -957,7 +903,8 @@ $('pick').innerHTML=AG.map((a,i)=>`<button class="ag" role="tab" id="ag-${a.k}" 
 function showAg(i){cur=i;const a=AG[i];if(window._apReady&&curAp&&curAp.closest('#det')){player.pause();stopAp()}
   document.querySelectorAll('.ag').forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});
   const d=$('det');d.style.setProperty('--c',a.t);d.style.setProperty('--cs',hex2(a.c,.2));d.setAttribute('aria-labelledby','ag-'+a.k);
-  d.innerHTML=`<div class="top"><div><span class="eyebrow" style="color:${a.t}">Ajudante ${i+1} de 10</span><div class="nm">Eu sou o <i>${label(a.k)}</i>.</div><p class="ds">${esc(a.d)}</p></div><img src="/img/${a.k}.webp" alt="Personagem do ajudante ${label(a.k)}"></div>
+  d.innerHTML=`<div class="top"><div><span class="eyebrow" style="color:${a.t}">Ajudante ${i+1} de 10</span><div class="nm">Eu sou o <i>${label(a.k)}</i>.</div><p class="ds">${esc(a.d)}</p></div><img class="pop" src="/img/${a.k}.webp" alt="Personagem do ajudante ${label(a.k)}"></div>
+  ${(()=>{const e=document.querySelector('#entregas').content.querySelector('[data-k="'+a.k+'"]');return e?`<div class="ent"><div class="eh"><small>Exemplo de entrega</small><b>${esc(e.dataset.t)}</b><span>${esc(e.dataset.p)}</span></div><div class="pv">${e.innerHTML}</div></div>`:''})()}
   <div class="rows"><div><small>Você pede</small><p>${esc(a.p)}</p></div><div><small>Você recebe</small><p>${esc(a.r)}</p></div></div>
   ${a.warn?`<div class="warn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>${esc(a.warn)}</div>`:''}
   <div class="chat">${a.chat.map(m=>bub(m,a)).join('')}</div>`;}
@@ -1052,7 +999,7 @@ wf.addEventListener('submit',async e=>{e.preventDefault();
 
 /* herói no celular: ajudantes que respondem ao toque */
 (function(){const say=$('msay');let t;document.querySelectorAll('.mc').forEach(b=>b.addEventListener('click',()=>{const n=b.querySelector('b').textContent;say.innerHTML='<i style="color:'+getComputedStyle(b).getPropertyValue('--c')+'">'+n+':</i> '+b.dataset.say;say.classList.add('on');b.classList.add('hop');clearTimeout(t);t=setTimeout(()=>{say.classList.remove('on')},2400);setTimeout(()=>b.classList.remove('hop'),350)}));
-  let k=0;const mcs=[...document.querySelectorAll('.mc')];if(matchMedia('(max-width:640px)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){setTimeout(function cyc(){if(k<mcs.length){mcs[k++].click();setTimeout(cyc,2800)}},1200)}})();
+  let k=0;const mcs=[...document.querySelectorAll('.mc')];if(!matchMedia('(prefers-reduced-motion:reduce)').matches){setTimeout(function cyc(){if(k<mcs.length){mcs[k++].click();setTimeout(cyc,2800)}},1200)}})();
 </script>
 </body>
 </html>
