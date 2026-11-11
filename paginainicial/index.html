@@ -205,6 +205,52 @@ section{padding-block:clamp(64px,9vw,112px)}
 .convo{background:var(--wa-bg);background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1.4px);background-size:14px 14px;border-radius:30px;padding:20px;display:flex;flex-direction:column;gap:7px;box-shadow:0 0 0 1.5px var(--ring),0 26px 54px rgba(21,32,26,.07)}
 .convo .bub{max-width:82%}
 @media (max-width:860px){.case{grid-template-columns:minmax(0,1fr)}}
+.persona{display:flex;align-items:center;gap:14px}
+.persona img{width:64px;height:64px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px #fff,0 0 0 4.5px var(--ring)}
+.persona b{display:block;font-size:17px}
+.persona small{display:block;font-size:14px;color:var(--mute);font-weight:600}
+.listen{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:var(--verde-lab);background:var(--ok-bg,#E3F8EA);border-radius:999px;padding:9px 14px;align-self:flex-start}
+.listen i{width:8px;height:8px;border-radius:50%;background:var(--broto)}
+.convo .sep{align-self:center;font-size:11.5px;font-weight:700;color:#54656F;background:#fff;border-radius:8px;padding:4px 10px;margin:6px 0 2px;box-shadow:0 1px 1px rgba(0,0,0,.06)}
+.ap{display:flex;align-items:center;gap:10px;min-width:240px}
+.ap .face{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none}
+.ap button{width:34px;height:34px;border-radius:50%;border:0;background:transparent;cursor:pointer;display:grid;place-items:center;flex:none;color:#54656F}
+.ap button:hover{background:rgba(0,0,0,.05)}
+.ap .wv{flex:1;display:flex;align-items:center;gap:2px;height:28px;cursor:pointer}
+.ap .wv i{display:block;flex:1;max-width:4px;min-width:2px;border-radius:2px;background:#9DB3A6;transition:background .1s}
+.ap .wv i.on{background:#2E7D4F}
+.ap .tm{font-size:11px;color:#667781;font-variant-numeric:tabular-nums;min-width:30px;text-align:right}
+.ap.playing button{color:#0F8A3D}
+.att-img{display:block;width:230px;max-width:100%;height:160px;object-fit:cover;border-radius:8px;margin:-2px -4px 4px}
+.chip2{display:inline-flex;margin-top:6px;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700;background:#E6F7F5;color:#0F7F73}
+.pbtn{display:block;margin-top:8px;text-align:center;border-radius:8px;padding:8px;font-size:12.5px;font-weight:700;color:#008069;background:rgba(0,128,105,.07)}
+.qt{margin-top:6px;border-left:3px solid #F2C230;background:#FFF8E1;border-radius:6px;padding:7px 9px;font-size:13px}
+.xl{margin-top:6px;border-radius:8px;overflow:hidden;box-shadow:0 0 0 1px #DDE5DF;font-size:12px;background:#fff}
+.xl .t{background:#1D8A4A;color:#fff;font-weight:700;padding:6px 9px;font-size:12px}
+.xl table{width:100%;border-collapse:collapse;min-width:0}
+.xl td{padding:4px 9px;border-top:1px solid #EEF2EF;white-space:nowrap;font-size:12px}
+.xl tr.h td{background:#F2F7F3;font-weight:800;color:#3E5247;border-top:0}
+.xl tr.tt td{font-weight:800;background:#F2F7F3}
+.xl td.r{text-align:right;font-variant-numeric:tabular-nums}
+.sld{position:relative;height:150px;border-radius:8px;overflow:hidden;background-size:cover;background-position:center;margin-top:4px;color:#fff}
+.sld::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,30,20,.9) 0%,rgba(10,30,20,.55) 60%,rgba(10,30,20,.1) 100%)}
+.sld>*{position:absolute}
+.sld .k{left:12px;top:12px;font-size:9.5px;font-weight:800;letter-spacing:.12em;color:#4ADE80}
+.sld .h{left:12px;top:28px;font-size:21px;font-weight:700;line-height:1.05;font-family:var(--display)}
+.sld .s{left:12px;top:78px;font-size:11px;opacity:.9}
+.sld .f{left:12px;bottom:9px;font-size:10px;opacity:.85}
+.sld .n{right:10px;bottom:9px;font-size:10px;opacity:.8}
+.ig{margin-top:6px;background:#fff;border-radius:8px;box-shadow:0 0 0 1px #E5E7EB;padding:10px;color:#111;font-size:12px}
+.ig .u{display:flex;justify-content:space-between;font-weight:800;font-size:13px}
+.ig .row{display:flex;align-items:center;gap:14px;margin-top:8px}
+.ig .row img{width:48px;height:48px;border-radius:50%;object-fit:cover;padding:2px;background:linear-gradient(45deg,#F9CE34,#EE2A7B,#6228D7)}
+.ig .st{display:flex;gap:14px;text-align:center;color:#444;font-size:11px}
+.ig .st b{display:block;font-size:13px;color:#111}
+.ig .bio{margin-top:6px;line-height:1.35}
+.ig .bio span{color:#777}
+.ig .gr{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:8px}
+.ig .gr div{aspect-ratio:1;background-size:cover;background-position:center}
+
 
 /* por que whatsapp */
 .why{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
@@ -417,7 +463,7 @@ footer a:hover{color:var(--ink)}
   <!-- EXEMPLOS -->
   <section class="how" id="exemplos">
     <div class="in">
-      <div class="head c rv"><span class="eyebrow">Exemplos</span><h2>Um dia comum, <span class="g">com os ajudantes certos.</span></h2><p class="lead">Veja como 3 pessoas diferentes usariam a Germo no dia a dia.</p></div>
+      <div class="head c rv"><span class="eyebrow">Exemplos</span><h2>Um dia comum, <span class="g">com os ajudantes certos.</span></h2><p class="lead">Áudios de verdade, do jeito que o campo fala. Escolha um perfil, aperte o play e veja o que cada ajudante devolve.</p></div>
       <div class="tabs" role="tablist" aria-label="Perfis" id="ctabs"></div>
       <div class="case rv" id="case" role="tabpanel"></div>
     </div>
@@ -584,20 +630,57 @@ $('pick').addEventListener('click',e=>{const b=e.target.closest('.ag');if(b)show
 $('pick').addEventListener('keydown',e=>{const n={ArrowRight:1,ArrowDown:5,ArrowLeft:-1,ArrowUp:-5}[e.key];if(n==null)return;e.preventDefault();const i=(cur+n+AG.length)%AG.length;showAg(i);$('pick').children[i].focus()});
 showAg(0);
 
-/* exemplos por perfil */
+/* exemplos por perfil: áudios reais */
+const CF='https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/';
+const AU={1:'e8f8eb32-5f6a-41ed-b014-f165af741b04.mp3',2:'cd51c40f-74f3-4b63-a029-ee5b179ec27b.mp3',3:'e8d648cd-6e19-48f0-92ce-7fd7036e28fd.mp3',4:'99125ce3-17b0-436c-9967-243802849497.mp3',5:'950622f2-3c4b-4b26-969a-edca0e9c2e64.mp3'};
+const WV={1:'16,22,5,6,8,9,3,4,9,4,10,11,13,12,10,12,12,3,3,3,5,10,11,13,8,11,13,5,17,15,6,3,7,3',2:'22,15,7,3,17,7,10,8,9,7,7,8,3,15,4,9,3,3,3,4,5,12,6,4,11,11,10,8,3,4,9,8,8,3',3:'22,17,12,5,3,11,9,14,9,11,12,11,15,13,13,5,12,16,5,5,3,3,7,13,15,10,9,13,9,7,14,7,10,10',4:'22,13,3,10,13,15,17,11,9,14,15,16,8,19,17,3,3,8,16,9,3,21,18,18,9,16,9,4,3,7,12,18,18,7',5:'18,6,3,8,6,10,11,7,12,7,10,10,10,7,3,4,5,13,7,6,14,22,14,9,6,5,4,3,6,12,12,12,13,3'};
+const DUR={1:8,2:7,3:6,4:6,5:8};
+const IMG={prod:'b35e47d7-6dcd-4b71-a619-fbc9ddd53496.jpg',agro:'d90c9013-f204-45db-bf2b-ab27a81834c9.jpg',carol:'7af549aa-108b-4040-ae4a-e073c7355e67.jpg',folha:'c8e33c43-86d9-45cf-987a-05a4898b7db7.jpg',slide:'8893e629-9efd-4cb3-b43c-8995d8d5c082.jpg',p1:'00d166ab-5d3b-4c25-be6f-0f517ea7e486.jpg',p2:'ade59910-6f95-4642-b6dd-975d04d95b1a.jpg',p3:'4776f6f1-eae2-4533-996a-6cdee69ec0d1.jpg'};
+const tOut=h=>`<span class="t">${h} ${tick}</span>`,tIn=h=>`<span class="t">${h}</span>`;
+const play='<svg width="16" height="18" viewBox="0 0 14 16" aria-hidden="true"><path d="M1 1.2v13.6L13 8z" fill="currentColor"/></svg>',pause='<svg width="16" height="18" viewBox="0 0 14 16" aria-hidden="true"><rect x="1" y="1" width="4" height="14" rx="1" fill="currentColor"/><rect x="9" y="1" width="4" height="14" rx="1" fill="currentColor"/></svg>';
+const fmt=s=>'0:'+String(Math.max(0,Math.round(s))).padStart(2,'0');
+const audioB=(n,face,tr,h)=>`<div class="bub o"><div class="ap" data-a="${n}"><img class="face" src="${CF+IMG[face]}" alt=""><button type="button" aria-label="Ouvir o áudio">${play}</button><span class="wv" aria-hidden="true">${WV[n].split(',').map(v=>`<i style="height:${v}px"></i>`).join('')}</span><span class="tm">${fmt(DUR[n])}</span></div><span class="tr">"${esc(tr)}"</span>${tOut(h)}</div>`;
+const who=k=>{const a=AG.find(x=>x.k===k);return `<span class="who" style="color:${a.t}">${label(k)}</span>`};
+const inB=(k,html,h)=>`<div class="bub i">${who(k)}${html}${tIn(h)}</div>`;
+const doc=(c,e,n,sz)=>`<div class="file"><span class="fi" style="background:${c}">${e}</span><span><b>${esc(n)}</b><small>${esc(sz)}</small></span></div>`;
+const XLT=`<div class="xl"><div class="t">Salários da equipe.xlsx</div><table><tr class="h"><td>Funcionário</td><td>Função</td><td class="r">Salário</td></tr><tr><td>João Silva</td><td>Tratorista</td><td class="r">2.900,00</td></tr><tr><td>Maria Souza</td><td>Ordenha</td><td class="r">2.450,00</td></tr><tr><td>Pedro Lima</td><td>Operador</td><td class="r">3.100,00</td></tr><tr><td>Ana Costa</td><td>Escritório</td><td class="r">2.700,00</td></tr><tr class="tt"><td>Total</td><td></td><td class="r">11.150,00</td></tr></table></div>`;
 const CASES=[
- {n:'Produtor rural',h:'João cuida de 300 hectares de soja e milho.',p:'Ele não tem escritório nem tempo para computador. Resolve tudo pelo celular, entre uma tarefa e outra, quase sempre por áudio.',u:['clima','planilha','contabil','juridico'],chat:[['o',{a:'6,10,15,9,13,18,12,7,14,16,10,8,12,6'},'"Vai gear essa semana? E monta a planilha do salário dos meus funcionários."','clima'],['i','Geada possível na madrugada de quinta, mínima entre 1 °C e 3 °C. Já te aviso de novo na quarta.',null,'clima'],['i','E a planilha do salário está pronta.',{f:['XLSX','#1D8A4A','Salarios_Fazenda.xlsx','Planilha · 4 funcionários']},'planilha'],['o','Analisa esse contrato de arrendamento que me mandaram.',{f:['PDF','#C8402F','Contrato_Arrendamento.pdf','PDF · 6 páginas']}],['i','Achei 3 pontos de atenção. O principal: o prazo está abaixo do mínimo da lei. Vale levar ao seu advogado antes de assinar.',null,'juridico']]},
- {n:'Engenheiro agrônomo',h:'Rafael atende 20 produtores na região.',p:'Passa o dia na estrada, de visita em visita. À noite, ainda precisava escrever relatório, responder cliente e cuidar do Instagram.',u:['campo','agronomo','viral','vendas'],chat:[['o',{a:'9,14,8,16,12,18,10,6,15,11,13,7,17,9'},'"Visita no talhão 3 do seu Antônio, soja em R3, lagarta na bordadura..."'],['i','Relatório da visita pronto para mandar ao seu Antônio.',{f:['PDF','#C8402F','Visita_Antonio_T3.pdf','PDF · 3 páginas']},'campo'],['o','O cliente da semana passada sumiu depois do orçamento.'],['i','Manda assim: "Oi, Paulo! Ficou alguma dúvida no orçamento? Consigo encaixar a sua visita na terça." Quer uma versão mais curta?',null,'vendas']]},
- {n:'Profissional do campo',h:'Carolina terminou o estágio numa cooperativa.',p:'Precisava apresentar o que fez e quer começar a mostrar o trabalho no Instagram para conseguir as primeiras consultorias.',u:['apresenta','vitrine'],chat:[['o','Faz a apresentação do meu estágio na cooperativa, com 8 slides.'],['i','Pronto, em 8 slides: capa, objetivos, atividades, resultados e agradecimentos.',{f:['PPT','#7B5CFF','Estagio_Cooperativa.pptx','Apresentação · 8 slides']},'apresenta'],['o','Agora melhora a bio do meu perfil.'],['i','Opção 1: "Zootecnista · Bem-estar animal e manejo de leite · Consultoria pelo WhatsApp". Mandei mais 2 opções.',null,'vitrine']]}
+ {n:'Produtor rural',face:'prod',who:'Produtor rural',sub:'Pecuária de leite e lavoura · 2 áudios',h:'Resolve tudo por áudio, entre uma tarefa e outra.',p:'Ele não tem escritório nem tempo para computador. Num áudio pede a previsão do tempo e a planilha da equipe. No outro, tira a dúvida do imposto e manda o contrato de arrendamento para analisar.',u:['clima','planilha','contabil','juridico'],
+  chat:()=>'<span class="sep">Hoje · 06:10</span>'+audioB(1,'prod','Ô Germo, bom dia! Me avisa se vai chover amanhã aqui na fazenda e já me faz uma planilha com o salário dos meus funcionários.','06:10')
+   +inB('clima','Chuva forte amanhã a partir das 15h, cerca de 40 mm. Dá tempo de recolher o feno.<br><span class="chip2">Amanhã · 15h · 40 mm</span>','06:10')
+   +inB('planilha','Pronto, a planilha da equipe:'+XLT,'06:11')
+   +'<span class="sep">Hoje · 18:40</span><div class="bub o">'+doc('#C8402F','PDF','Contrato de arrendamento.pdf','PDF · 6 páginas')+tOut('18:40')+'</div>'
+   +audioB(5,'prod','Germo, como é que funciona o imposto pro produtor rural? E analisa esse contrato de arrendamento aqui e me fala o que eu devo fazer.','18:40')
+   +inB('contabil','Você declara a atividade rural no IR com o Livro Caixa. Monto o seu resumo do ano?<span class="pbtn">Falar com um contador parceiro</span>','18:41')
+   +inB('juridico','Li o contrato. Faltam a cláusula de renovação e quem paga o ITR. Peça para incluir antes de assinar.<span class="pbtn">Falar com um advogado parceiro</span>','18:41')},
+ {n:'Engenheiro agrônomo',face:'agro',who:'Engenheiro agrônomo',sub:'Consultoria de campo · 2 áudios',h:'Passa o dia na estrada, de visita em visita.',p:'Grava o áudio da visita e manda a foto da folha ali mesmo, na lavoura. No caminho de volta, pede o roteiro do reels e a mensagem para o cliente que sumiu depois do orçamento.',u:['campo','agronomo','viral','vendas'],
+  chat:()=>'<span class="sep">Hoje · 11:25</span><div class="bub o"><img class="att-img" src="'+CF+IMG.folha+'" alt="Foto de folha de soja com manchas amareladas" loading="lazy">'+tOut('11:25')+'</div>'
+   +audioB(2,'agro','Fala, Germo. Faz o relatório da visita de hoje no talhão 3 e olha essa foto da folha aí, que mancha é essa?','11:25')
+   +inB('campo','Relatório da visita pronto.'+doc('#C8402F','PDF','Relatório de visita · Talhão 3.pdf','PDF · 2 páginas'),'11:26')
+   +inB('agronomo','Pode ser ferrugem asiática. Olhe o verso da folha: se tiver pontinhos marrons, é ela.<span class="pbtn">Falar com um agrônomo parceiro</span>','11:26')
+   +'<span class="sep">Hoje · 17:52</span>'+audioB(4,'agro','Germo, me faz um roteiro de reels da colheita de soja. E um cliente sumiu depois do orçamento, o que eu mando pra ele?','17:52')
+   +inB('viral','<b>0 a 3 s</b> Você sabe quanto perde na colheita?<br><b>3 a 15 s</b> Mostre as perdas no chão.<br><b>15 a 30 s</b> Uma dica e o convite para salvar.','17:53')
+   +inB('vendas','Manda assim:<div class="qt">Oi, Carlos! Separei as 40 sacas que você pediu e seguro o preço até sexta. Fechamos?</div>','17:53')},
+ {n:'Profissional do campo',face:'carol',who:'Carolina Souza',sub:'Técnica agrícola · 1 áudio',h:'Terminou o estágio e quer mostrar o trabalho.',p:'Num áudio só, a Carolina pede a apresentação do relatório de estágio e a bio nova do perfil, para começar a mostrar o que faz e conseguir as primeiras consultorias.',u:['apresenta','vitrine'],
+  chat:()=>'<span class="sep">Hoje · 20:15</span>'+audioB(3,'carol','Oi, Germo! Cria a apresentação do meu relatório de estágio e arruma a bio do meu perfil, por favor?','20:15')
+   +inB('apresenta',`<div class="sld" style="background-image:url(${CF+IMG.slide})"><span class="k">ESTÁGIO SUPERVISIONADO</span><span class="h">Relatório de<br>Estágio</span><span class="s">Fazenda Santa Rita · Safra 25/26</span><span class="f">Carolina Souza · Técnica agrícola</span><span class="n">1/12</span></div>`+doc('#D24726','PPT','Apresentação do estágio.pptx','Apresentação · 12 slides'),'20:16')
+   +inB('vitrine',`Bio e posts prontos:<div class="ig"><div class="u"><span>carol.nocampo</span><span style="color:#666">···</span></div><div class="row"><img src="${CF+IMG.carol}" alt=""><div class="st"><div><b>126</b>posts</div><div><b>3.480</b>seguidores</div><div><b>410</b>seguindo</div></div></div><div class="bio"><b>Carolina Souza</b><br><span>Técnica agrícola</span><br>Hortaliças e soja no PR · Estágio na Fazenda Santa Rita</div><div class="gr"><div style="background-image:url(${CF+IMG.p1})"></div><div style="background-image:url(${CF+IMG.p2})"></div><div style="background-image:url(${CF+IMG.p3})"></div></div></div>`,'20:16')}
 ];
-let cc=0;
+let cc=0;const player=new Audio();player.preload='none';let curAp=null;
+function stopAp(){if(curAp){curAp.classList.remove('playing');curAp.querySelector('button').innerHTML=play;curAp.querySelector('button').setAttribute('aria-label','Ouvir o áudio');curAp.querySelectorAll('.wv i').forEach(i=>i.classList.remove('on'));curAp.querySelector('.tm').textContent=fmt(DUR[curAp.dataset.a])}curAp=null}
+player.addEventListener('timeupdate',()=>{if(!curAp||!player.duration)return;const f=player.currentTime/player.duration;const bars=curAp.querySelectorAll('.wv i');const k=Math.round(f*bars.length);bars.forEach((b,i)=>b.classList.toggle('on',i<k));curAp.querySelector('.tm').textContent=fmt(player.currentTime)});
+player.addEventListener('ended',stopAp);
+function toggleAp(ap,seek){if(curAp===ap&&!player.paused&&seek==null){player.pause();ap.classList.remove('playing');ap.querySelector('button').innerHTML=play;return}
+  if(curAp!==ap){player.pause();stopAp();curAp=ap;player.src=CF+AU[ap.dataset.a]}
+  const go=()=>{if(seek!=null&&player.duration)player.currentTime=seek*player.duration;player.play().catch(()=>{})};
+  if(seek!=null&&!player.duration)player.addEventListener('loadedmetadata',function f(){player.removeEventListener('loadedmetadata',f);go()});
+  go();ap.classList.add('playing');ap.querySelector('button').innerHTML=pause;ap.querySelector('button').setAttribute('aria-label','Pausar o áudio')}
 $('ctabs').innerHTML=CASES.map((c,i)=>`<button class="tab" role="tab" id="ct${i}" aria-selected="${i===0}" aria-controls="case" data-i="${i}">${c.n}</button>`).join('');
-function showCase(i){cc=i;const c=CASES[i];document.querySelectorAll('.tab').forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});$('case').setAttribute('aria-labelledby','ct'+i);
-  $('case').innerHTML=`<div class="tx"><span class="eyebrow">${esc(c.n)}</span><h3 style="font-size:clamp(26px,3vw,34px);font-weight:500;letter-spacing:-.035em">${esc(c.h)}</h3><p>${esc(c.p)}</p><p style="font-weight:700;color:var(--ink)">Os ajudantes que ele mais usaria:</p><div class="used">${c.u.map(k=>`<span><img src="/img/${k}.webp" alt="">${label(k)}</span>`).join('')}</div></div>
-  <div class="convo">${c.chat.map(m=>{const ag=m[3]?AG.find(a=>a.k===m[3]):null;const mm=[m[0],m[1],m[2]];return bub(mm,ag)}).join('')}</div>`;
-  if(i===2)$('case').querySelector('.tx p[style]').textContent='Os ajudantes que ela mais usaria:';}
+function showCase(i){cc=i;const c=CASES[i];player.pause();stopAp();document.querySelectorAll('#ctabs .tab').forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});$('case').setAttribute('aria-labelledby','ct'+i);
+  $('case').innerHTML=`<div class="tx"><div class="persona"><img src="${CF+IMG[c.face]}" alt="Foto de ${esc(c.who)}"><span><b>${esc(c.who)}</b><small>${esc(c.sub)}</small></span></div><h3 style="font-size:clamp(26px,3vw,34px);font-weight:500;letter-spacing:-.035em">${esc(c.h)}</h3><p>${esc(c.p)}</p><span class="listen"><i></i>Toque no play para ouvir o áudio</span><p style="font-weight:700;color:var(--ink);margin-top:4px">Ajudantes que responderam:</p><div class="used">${c.u.map(k=>`<span><img src="/img/${k}.webp" alt="">${label(k)}</span>`).join('')}</div></div><div class="convo">${c.chat()}</div>`;}
 $('ctabs').addEventListener('click',e=>{const b=e.target.closest('.tab');if(b)showCase(+b.dataset.i)});
 $('ctabs').addEventListener('keydown',e=>{const n={ArrowRight:1,ArrowLeft:-1}[e.key];if(n==null)return;e.preventDefault();const i=(cc+n+CASES.length)%CASES.length;showCase(i);$('ctabs').children[i].focus()});
+$('case').addEventListener('click',e=>{const ap=e.target.closest('.ap');if(!ap)return;const wv=e.target.closest('.wv');if(wv){const r=wv.getBoundingClientRect();toggleAp(ap,Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)))}else if(e.target.closest('button'))toggleAp(ap)});
 showCase(0);
 
 /* entrada suave das seções */
