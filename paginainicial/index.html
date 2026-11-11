@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Germo · 10 ajudantes do agro no WhatsApp</title>
+<meta name="description" content="Você manda uma mensagem, um áudio ou uma foto no WhatsApp da Germo e o ajudante certo devolve o trabalho pronto: planilha, relatório da visita, post, previsão do tempo da propriedade.">
+<meta property="og:title" content="Germo · 10 ajudantes do agro no WhatsApp">
+<meta property="og:description" content="Planilha, relatório, post, contrato, previsão do tempo. Você pede no WhatsApp e recebe pronto.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%2319E35F%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Manrope:wght@400..800&display=swap">
+<style>
+:root{
+  --bg:#FFFFFF; --soft:#F5F8F5; --tint:#D6F7E0; --hero1:#E9FBEF; --hero2:#B7EFCB;
+  --ink:#15201A; --ink2:#2E3A33; --mute:#55605A; --ring:#E4EAE4; --pill:#DCE8DE; --line:#ECEFEC;
+  --broto:#19E35F; --verde:#13A94B; --verde-lab:#0F8A3D; --noite:#15201A; --on-noite:#F4F5F0;
+  --wa-bg:#EFEAE2; --wa-out:#D9FDD3; --wa-in:#FFFFFF; --wa-green:#008069;
+  --display:"Archivo",system-ui,sans-serif; --body:"Manrope",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{background:var(--bg);scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;font-family:var(--body);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--broto);outline-offset:3px}
+.in{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.num{font-variant-numeric:tabular-nums}
+
+/* tipografia */
+.eyebrow{font-family:var(--display);font-stretch:112%;font-weight:700;letter-spacing:.1em;font-size:12.5px;color:var(--verde-lab);text-transform:uppercase}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1{font-family:var(--display);font-weight:500;letter-spacing:-.045em;line-height:1;font-size:clamp(42px,6.4vw,76px)}
+h1 .g,h2 .g{color:var(--verde)}
+h2{font-family:var(--display);font-weight:500;letter-spacing:-.04em;line-height:1.04;font-size:clamp(32px,4.4vw,52px)}
+h3{font-family:var(--display);font-weight:600;letter-spacing:-.025em;line-height:1.15;font-size:22px}
+.lead{font-size:clamp(17px,1.6vw,19px);line-height:1.55;color:var(--ink2);margin:0;max-width:56ch}
+.muted{color:var(--mute)}
+section{padding-block:clamp(64px,9vw,112px)}
+.head{display:flex;flex-direction:column;gap:14px;max-width:760px;margin-bottom:clamp(32px,4vw,48px)}
+.head.c{margin-inline:auto;text-align:center;align-items:center}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;border-radius:999px;padding:16px 26px;font-weight:700;font-size:16px;text-decoration:none;white-space:nowrap;transition:transform .15s ease,filter .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.pr{background:var(--broto);color:#0A0C0B}
+.btn.pr:hover{filter:brightness(.96)}
+.btn.ol{background:#fff;color:var(--ink);box-shadow:0 0 0 1.5px var(--ring)}
+.btn.dk{background:var(--noite);color:var(--on-noite)}
+.btn .ar{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--noite);color:var(--broto);font-size:14px}
+.btn.dk .ar{background:var(--broto);color:var(--noite)}
+.pl{display:inline-flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:10px 18px;font-size:14.5px;font-weight:600;box-shadow:0 0 0 1.5px var(--pill),0 10px 24px rgba(21,32,26,.05)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--broto);flex:none}
+
+/* barra do topo */
+.nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.sc{border-bottom-color:var(--ring)}
+.nav .in{display:flex;align-items:center;gap:22px;height:72px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.gm{width:36px;height:36px;border-radius:9px;background:var(--broto);display:grid;place-items:center}
+.wm{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:22px;letter-spacing:-.01em}
+.wm b{color:var(--broto)}
+.links{display:flex;gap:4px;margin-left:10px}
+.links a{text-decoration:none;font-weight:600;font-size:15px;color:var(--ink2);padding:10px 14px;border-radius:999px}
+.links a:hover{background:var(--soft)}
+.nav .sp{flex:1}
+.nav .btn{padding:12px 20px;font-size:15px}
+@media (max-width:920px){.links{display:none}}
+@media (max-width:420px){.nav .btn{padding:11px 16px;font-size:14px}.wm{font-size:20px}}
+
+/* herói */
+.hero{padding-block:clamp(36px,6vw,72px) clamp(56px,7vw,96px);background:radial-gradient(70% 80% at 85% 40%,rgba(214,247,224,.9) 0%,rgba(214,247,224,0) 70%)}
+.hero .in{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,5vw,64px);align-items:center}
+.hero .tx{display:flex;flex-direction:column;gap:24px;min-width:0}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap}
+.chk{display:flex;gap:18px;flex-wrap:wrap;font-size:14.5px;font-weight:600;color:var(--ink2)}
+.chk span{display:inline-flex;align-items:center;gap:8px}
+.chk svg{color:var(--verde);flex:none}
+@media (max-width:900px){.hero .in{grid-template-columns:minmax(0,1fr)}}
+
+/* celular */
+.phone-wrap{position:relative;display:flex;justify-content:center;padding:10px 0}
+.phone{position:relative;width:min(340px,100%);border-radius:44px;background:#0B0F0D;padding:10px;box-shadow:0 40px 80px -30px rgba(21,32,26,.45),0 0 0 1px rgba(0,0,0,.06)}
+.screen{border-radius:35px;overflow:hidden;background:var(--wa-bg);display:flex;flex-direction:column;height:600px}
+.wa-top{display:flex;align-items:center;gap:10px;padding:34px 14px 10px;background:#F6F6F6;border-bottom:1px solid #E2E2E2}
+.wa-top .bk{color:#007AFF;font-size:22px;line-height:1}
+.wa-av{width:36px;height:36px;border-radius:50%;background:var(--broto);display:grid;place-items:center;flex:none}
+.wa-top b{display:flex;align-items:center;gap:5px;font-size:15px;font-weight:700}
+.wa-top small{display:block;font-size:12px;color:#667781;font-weight:500}
+.ver{width:15px;height:15px;flex:none}
+.wa-body{flex:1;overflow:hidden;padding:12px 10px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;background-color:var(--wa-bg);background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1.4px);background-size:14px 14px}
+.day{align-self:center;background:#fff;border-radius:8px;padding:4px 10px;font-size:11.5px;font-weight:600;color:#54656F;box-shadow:0 1px 1px rgba(0,0,0,.06);margin-bottom:4px}
+.bub{max-width:86%;border-radius:12px;padding:7px 9px 5px;font-size:13.5px;line-height:1.38;box-shadow:0 1px 1px rgba(0,0,0,.08);position:relative}
+.bub.o{align-self:flex-end;background:var(--wa-out);border-top-right-radius:4px}
+.bub.i{align-self:flex-start;background:var(--wa-in);border-top-left-radius:4px}
+.bub .who{display:block;font-size:12.5px;font-weight:800;margin-bottom:2px}
+.bub .t{display:block;text-align:right;font-size:10.5px;color:#667781;margin-top:2px}
+.bub .t svg{display:inline-block;vertical-align:-2px;margin-left:2px}
+.aud{display:flex;align-items:center;gap:9px;min-width:210px}
+.aud .pp{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#54656F;flex:none}
+.wave{flex:1;display:flex;align-items:center;gap:2px;height:24px}
+.wave i{display:block;width:3px;border-radius:2px;background:#8FA79A}
+.aud .face{width:34px;height:34px;border-radius:50%;background:#C9D6CE;display:grid;place-items:center;font-size:12px;font-weight:800;color:#3E5247;flex:none}
+.tr{display:block;font-size:12.5px;color:#3E5247;font-style:italic;margin-top:5px;padding-top:5px;border-top:1px solid rgba(0,0,0,.06)}
+.file{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.04);border-radius:8px;padding:9px 10px;margin-top:6px}
+.file .fi{width:30px;height:36px;border-radius:5px;display:grid;place-items:center;font-size:9.5px;font-weight:800;color:#fff;flex:none}
+.file b{display:block;font-size:13px;font-weight:700}
+.file small{display:block;font-size:11.5px;color:#667781}
+.photo{border-radius:8px;overflow:hidden;margin:-2px -4px 4px;height:120px;background:linear-gradient(135deg,#5F8F3E,#97B85B 55%,#C8B45A);position:relative}
+.photo::after{content:"";position:absolute;left:38%;top:30%;width:34px;height:26px;border-radius:50%;background:radial-gradient(#6E4A1E 30%,#9C7A2E 60%,transparent 70%);box-shadow:30px 22px 0 -6px #7B5523,-18px 36px 0 -9px #7B5523}
+.wa-in{display:flex;align-items:center;gap:8px;padding:8px 10px 18px;background:#F6F6F6;border-top:1px solid #E2E2E2}
+.wa-in span{flex:1;background:#fff;border-radius:18px;padding:8px 14px;font-size:13px;color:#8696A0;box-shadow:0 0 0 1px #E2E2E2}
+.wa-in i{width:32px;height:32px;border-radius:50%;background:var(--wa-green);display:grid;place-items:center;flex:none}
+.peek{position:absolute;width:96px;filter:drop-shadow(0 16px 14px rgba(21,32,26,.2));pointer-events:none}
+.peek.a{left:max(0px,calc(50% - 250px));bottom:46px;transform:rotate(-8deg)}
+.peek.b{right:max(0px,calc(50% - 246px));top:70px;transform:rotate(7deg);width:86px}
+@media (max-width:520px){.peek{display:none}.screen{height:560px}}
+.typing{display:inline-flex;gap:3px;padding:4px 2px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#9AA6A0;animation:ty 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes ty{0%,60%,100%{opacity:.35;transform:none}30%{opacity:1;transform:translateY(-2px)}}
+.js .seq>*{opacity:0;transform:translateY(6px);transition:opacity .35s ease,transform .35s ease}
+.js .seq>.on{opacity:1;transform:none}
+
+/* faixa 96% */
+.stat{padding-block:0}
+.stat .box{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(20px,4vw,48px);align-items:center;background:var(--noite);color:var(--on-noite);border-radius:36px;padding:clamp(28px,4vw,44px) clamp(24px,4vw,52px);overflow:hidden;position:relative}
+.stat .big{font-family:var(--display);font-weight:600;letter-spacing:-.05em;line-height:.9;font-size:clamp(72px,10vw,128px);color:var(--broto)}
+.stat p{margin:0;font-size:clamp(18px,2vw,23px);line-height:1.4;font-weight:600;max-width:34ch}
+.stat small{display:block;margin-top:10px;font-size:13px;color:#93A29A;font-weight:600}
+.stat .grp{display:flex;align-items:flex-end}
+.stat .grp img{height:118px;width:auto;margin-left:-26px;filter:drop-shadow(0 12px 10px rgba(0,0,0,.35))}
+.stat .grp img:first-child{margin-left:0}
+@media (max-width:900px){.stat .box{grid-template-columns:minmax(0,1fr)}.stat .grp{display:none}}
+
+/* o que é */
+.what{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.what .tx{display:flex;flex-direction:column;gap:18px}
+.what .tx p{margin:0;font-size:18px;line-height:1.6;color:var(--ink2)}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.fact{background:var(--soft);border-radius:26px;padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.fact b{font-family:var(--display);font-weight:600;letter-spacing:-.04em;font-size:40px;line-height:1}
+.fact span{font-size:15px;font-weight:600;color:var(--ink2);line-height:1.4}
+.fact.dk{background:var(--noite);color:var(--on-noite)}
+.fact.dk b{color:var(--broto)}
+.fact.dk span{color:#C9D3CC}
+@media (max-width:860px){.what{grid-template-columns:minmax(0,1fr)}}
+
+/* como funciona */
+.how{background:linear-gradient(180deg,#fff 0%,var(--soft) 18%,var(--soft) 82%,#fff 100%)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
+.step{background:#fff;border-radius:28px;padding:24px;box-shadow:0 0 0 1.5px var(--ring),0 22px 44px rgba(21,32,26,.05);display:flex;flex-direction:column;gap:12px;min-width:0}
+.step .n{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--noite);color:var(--broto);font-family:var(--display);font-weight:800;font-size:17px}
+.step p{margin:0;font-size:15.5px;line-height:1.5;color:var(--ink2)}
+.step .ex{margin-top:auto;background:var(--wa-bg);border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:5px}
+.step .ex .bub{max-width:100%;font-size:12.5px}
+@media (max-width:980px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.steps{grid-template-columns:minmax(0,1fr)}}
+
+/* ajudantes */
+.team{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(20px,3vw,40px);align-items:start}
+.pick{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.ag{position:relative;border:0;cursor:pointer;background:#fff;border-radius:22px;padding:12px 6px 10px;display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:0 0 0 1.5px var(--ring);transition:box-shadow .2s,transform .2s;min-width:0}
+.ag:hover{transform:translateY(-2px)}
+.ag img{height:78px;width:auto;object-fit:contain;filter:drop-shadow(0 8px 7px rgba(21,32,26,.16));transition:transform .25s}
+.ag span{font-weight:700;font-size:13.5px}
+.ag[aria-selected="true"]{box-shadow:0 0 0 2.5px var(--c),0 18px 34px rgba(21,32,26,.08)}
+.ag[aria-selected="true"] img{transform:scale(1.08)}
+.ag::after{content:"";position:absolute;inset:auto 0 0;height:4px;border-radius:0 0 22px 22px;background:var(--c);opacity:0;transition:opacity .2s}
+.ag[aria-selected="true"]::after{opacity:1}
+.hint{margin-top:14px;font-size:14px;color:var(--mute);font-weight:600}
+.det{background:#fff;border-radius:32px;box-shadow:0 0 0 1.5px var(--ring),0 26px 54px rgba(21,32,26,.08);overflow:hidden;min-width:0}
+.det .top{display:grid;grid-template-columns:minmax(0,1fr) 130px;gap:12px;padding:28px 28px 0;background:linear-gradient(180deg,var(--cs) 0%,#fff 100%)}
+.det .top img{height:150px;width:auto;justify-self:center;align-self:end;filter:drop-shadow(0 14px 12px rgba(21,32,26,.2))}
+.det .nm{font-family:var(--display);font-weight:600;letter-spacing:-.04em;font-size:clamp(34px,4vw,46px);line-height:1;margin:8px 0 10px}
+.det .nm i{font-style:normal;color:var(--c)}
+.det .ds{margin:0;font-size:16.5px;line-height:1.5;color:var(--ink2)}
+.det .rows{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid var(--line);margin-top:22px}
+.det .rows>div{padding:18px 28px;display:flex;flex-direction:column;gap:6px}
+.det .rows>div+div{border-left:1px solid var(--line)}
+.det .rows small{font-family:var(--display);font-stretch:112%;font-weight:700;letter-spacing:.08em;font-size:11.5px;color:var(--mute);text-transform:uppercase}
+.det .rows p{margin:0;font-size:15px;line-height:1.45;font-weight:600}
+.det .chat{background:var(--wa-bg);background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1.4px);background-size:14px 14px;padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);min-height:190px}
+.det .warn{display:flex;gap:10px;align-items:flex-start;padding:14px 28px;border-top:1px solid var(--line);font-size:13.5px;line-height:1.45;color:var(--ink2);font-weight:600;background:#FFF8E6}
+.det .warn svg{flex:none;color:#B07A12;margin-top:1px}
+@media (max-width:980px){.team{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){.pick{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}.ag{padding:8px 2px;border-radius:16px}.ag img{height:52px}.ag span{font-size:11px}.det .top{grid-template-columns:minmax(0,1fr) 92px;padding:22px 20px 0}.det .top img{height:112px}.det .rows{grid-template-columns:minmax(0,1fr)}.det .rows>div{padding:14px 20px}.det .rows>div+div{border-left:0;border-top:1px solid var(--line)}.det .warn{padding:14px 20px}}
+
+/* exemplos por perfil */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:28px}
+.tab{border:0;cursor:pointer;border-radius:999px;padding:12px 20px;font-weight:700;font-size:15px;background:#fff;box-shadow:0 0 0 1.5px var(--ring)}
+.tab[aria-selected="true"]{background:var(--noite);color:var(--on-noite);box-shadow:none}
+.case{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(20px,4vw,48px);align-items:center}
+.case .tx{display:flex;flex-direction:column;gap:14px}
+.case .tx p{margin:0;font-size:17px;line-height:1.55;color:var(--ink2)}
+.used{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.used span{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:6px 14px 6px 6px;font-weight:700;font-size:14px;box-shadow:0 0 0 1.5px var(--ring)}
+.used img{width:30px;height:30px;object-fit:contain}
+.convo{background:var(--wa-bg);background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1.4px);background-size:14px 14px;border-radius:30px;padding:20px;display:flex;flex-direction:column;gap:7px;box-shadow:0 0 0 1.5px var(--ring),0 26px 54px rgba(21,32,26,.07)}
+.convo .bub{max-width:82%}
+@media (max-width:860px){.case{grid-template-columns:minmax(0,1fr)}}
+
+/* por que whatsapp */
+.why{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.wy{border-radius:28px;padding:26px;background:var(--soft);display:flex;flex-direction:column;gap:12px;min-width:0}
+.wy .ic{width:46px;height:46px;border-radius:14px;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 1.5px var(--ring);color:var(--verde-lab)}
+.wy p{margin:0;font-size:15.5px;line-height:1.5;color:var(--ink2)}
+@media (max-width:980px){.why{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.why{grid-template-columns:minmax(0,1fr)}}
+
+/* entregas */
+.outs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:40px}
+.out{background:#fff;border-radius:22px;padding:18px 16px;box-shadow:0 0 0 1.5px var(--ring);display:flex;flex-direction:column;gap:10px;min-width:0}
+.out .fi{width:34px;height:42px;border-radius:7px;display:grid;place-items:center;font-size:10.5px;font-weight:800;color:#fff}
+.out b{font-size:15px}
+.out span{font-size:13.5px;color:var(--mute);font-weight:600;line-height:1.4}
+@media (max-width:980px){.outs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:520px){.outs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* cuidados */
+.care{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.cr{border-radius:28px;padding:26px 28px;box-shadow:0 0 0 1.5px var(--ring);display:flex;gap:18px;align-items:flex-start;background:#fff}
+.cr .fig{display:flex;flex:none}
+.cr .fig img{height:76px;width:auto;margin-left:-14px}
+.cr .fig img:first-child{margin-left:0}
+.cr p{margin:6px 0 0;font-size:15.5px;line-height:1.5;color:var(--ink2)}
+@media (max-width:860px){.care{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:480px){.cr{flex-direction:column}}
+
+/* planos: lista de espera */
+.plans{background:radial-gradient(80% 70% at 50% 100%,rgba(214,247,224,.95) 0%,rgba(214,247,224,0) 75%)}
+.wait{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;background:#fff;border-radius:40px;overflow:hidden;box-shadow:0 0 0 1.5px var(--ring),0 40px 80px -30px rgba(21,32,26,.25)}
+.wait .l{background:var(--noite);color:var(--on-noite);padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden}
+.wait .l .eyebrow{color:var(--broto)}
+.wait .l h3{font-size:clamp(28px,3vw,38px);font-weight:500;letter-spacing:-.04em;line-height:1.05}
+.wait .l p{margin:0;font-size:16.5px;line-height:1.55;color:#C9D3CC}
+.soon{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.soon div{display:flex;align-items:center;gap:12px;border-radius:18px;padding:14px 16px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);font-weight:600;font-size:15px}
+.soon svg{color:var(--broto);flex:none}
+.wait .crew{display:flex;align-items:flex-end;margin-top:auto;padding-top:14px}
+.wait .crew img{height:84px;width:auto;margin-left:-18px;filter:drop-shadow(0 10px 8px rgba(0,0,0,.35))}
+.wait .crew img:first-child{margin-left:0}
+.wait .r{padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;gap:16px}
+.f{display:flex;flex-direction:column;gap:14px}
+.f label{display:flex;flex-direction:column;gap:7px;font-size:12.5px;font-weight:800;letter-spacing:.06em;color:var(--mute);text-transform:uppercase}
+.f input{border:0;border-radius:16px;background:var(--soft);box-shadow:0 0 0 1.5px var(--ring);padding:15px 16px;font-weight:600;font-size:16px;color:var(--ink);text-transform:none;letter-spacing:0;outline:0;transition:box-shadow .15s}
+.f input:focus{box-shadow:0 0 0 2.5px var(--broto);background:#fff}
+.f input.erro{box-shadow:0 0 0 2px #D64545}
+.f .btn{margin-top:4px;width:100%}
+.f .btn:disabled{opacity:.6;cursor:default;transform:none}
+.isca{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.seals{display:flex;gap:8px;flex-wrap:wrap}
+.seals span{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:700;background:var(--soft);color:var(--ink2)}
+.seals i{display:block;width:7px;height:7px;border-radius:50%;background:var(--broto)}
+.fmsg{margin:0;font-size:14px;font-weight:700;color:#C23B3B;min-height:0}
+.fmsg:empty{display:none}
+.ok{display:none;flex-direction:column;align-items:flex-start;gap:14px}
+.ok b{font-family:var(--display);font-weight:600;letter-spacing:-.03em;font-size:30px;line-height:1.1}
+.ok p{margin:0;font-size:16px;line-height:1.5;color:var(--ink2)}
+.ok .tick{width:56px;height:56px;border-radius:50%;background:var(--broto);display:grid;place-items:center}
+.done .f,.done .rh{display:none}
+.done .ok{display:flex}
+@media (max-width:860px){.wait{grid-template-columns:minmax(0,1fr);border-radius:32px}}
+
+/* perguntas */
+.faq{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq details{background:#fff;border-radius:22px;box-shadow:0 0 0 1.5px var(--ring);overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;font-weight:700;font-size:17px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:30px;height:30px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-style:normal;font-weight:700;transition:transform .2s}
+.faq details[open] summary i{transform:rotate(45deg);background:var(--broto)}
+.faq details p{margin:0;padding:0 24px 22px;font-size:16px;line-height:1.6;color:var(--ink2)}
+
+/* final */
+.end{padding-top:0}
+.end .box{background:linear-gradient(160deg,var(--hero1) 0%,var(--hero2) 100%);border-radius:40px;padding:clamp(36px,5vw,64px) clamp(24px,5vw,64px) 0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;overflow:hidden;box-shadow:0 0 0 1.5px var(--pill)}
+.end .acts{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.lineup{display:flex;align-items:flex-end;justify-content:center;margin-top:18px;max-width:100%}
+.lineup img{height:clamp(70px,11vw,132px);width:auto;margin:0 -6px;filter:drop-shadow(0 14px 12px rgba(21,32,26,.18))}
+.lineup img:nth-child(odd){transform:translateY(8px)}
+footer{padding-block:40px calc(40px + env(safe-area-inset-bottom,0px))}
+footer .in{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;color:var(--mute);font-size:14px;font-weight:600}
+footer nav{display:flex;gap:18px;flex-wrap:wrap}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.rv.vis{opacity:1;transform:none}
+.nojs .rv{opacity:1;transform:none}
+</style>
+</head>
+<body class="nojs">
+<header class="nav" id="nav">
+  <div class="in">
+    <a class="logo" href="#topo" aria-label="Germo, início"><span class="gm" aria-hidden="true"><svg width="26" height="26" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="24"/><circle cx="360" cy="279" r="24" fill="#0A0C0B"/></svg></span><span class="wm">GERMO<b>.</b></span></a>
+    <nav class="links" aria-label="Seções">
+      <a href="#como">Como funciona</a>
+      <a href="#ajudantes">Os 10 ajudantes</a>
+      <a href="#exemplos">Exemplos</a>
+      <a href="#planos">Planos</a>
+      <a href="#perguntas">Perguntas</a>
+    </nav>
+    <span class="sp"></span>
+    <a class="btn pr" href="#planos">Entrar na lista</a>
+  </div>
+</header>
+
+<main id="topo">
+  <!-- HERÓI -->
+  <section class="hero">
+    <div class="in">
+      <div class="tx">
+        <span class="pl" style="align-self:flex-start"><i class="dot"></i>Pré-lançamento · lista de espera aberta</span>
+        <h1>10 ajudantes do agro <span class="g">no WhatsApp.</span></h1>
+        <p class="lead">Você manda uma mensagem, um áudio ou uma foto no WhatsApp da Germo. O ajudante certo responde e devolve o trabalho pronto: a planilha, o relatório da visita, o post, a análise do contrato, a previsão do tempo da sua propriedade.</p>
+        <div class="acts">
+          <a class="btn pr" href="#planos">Entrar na lista de espera <span class="ar" aria-hidden="true">→</span></a>
+          <a class="btn ol" href="#como">Ver como funciona</a>
+        </div>
+        <div class="chk">
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Nada para baixar</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Sem senha</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Funciona por áudio</span>
+        </div>
+      </div>
+
+      <div class="phone-wrap" aria-label="Exemplo de conversa no WhatsApp da Germo">
+        <img class="peek a" src="/img/planilha.webp" alt="" width="126" height="240">
+        <img class="peek b" src="/img/clima.webp" alt="" width="164" height="240">
+        <div class="phone">
+          <div class="screen">
+            <div class="wa-top">
+              <span class="bk" aria-hidden="true">‹</span>
+              <span class="wa-av" aria-hidden="true"><svg width="22" height="22" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="28"/><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></span>
+              <div><b>Germo <svg class="ver" viewBox="0 0 24 24" aria-label="verificado"><path fill="#25D366" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path d="m8 12.3 2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>10 ajudantes · online</small></div>
+            </div>
+            <div class="wa-body seq" id="heroChat">
+              <div class="day">Hoje</div>
+              <div class="bub o"><div class="aud"><span class="face">JP</span><span class="pp"><svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M1 1.2v13.6L13 8z" fill="#54656F"/></svg></span><span class="wave" data-w="5,9,14,8,18,12,6,15,20,11,7,13,17,9,5,12,16,8,6,10"></span></div><span class="tr">"Monta uma planilha de salário dos meus 4 funcionários, com hora extra."</span><span class="t">06:12 <svg width="16" height="11" viewBox="0 0 16 11" aria-hidden="true"><path d="M1 6l3 3 6-7M6 9l1 1 7-8" fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round"/></svg></span></div>
+              <div class="bub i"><span class="who" style="color:#13A94B">planilha</span>Pronto. Montei com nome, função, salário, horas extras e o total do mês. É só abrir.<div class="file"><span class="fi" style="background:#1D8A4A">XLSX</span><span><b>Salarios_Fazenda.xlsx</b><small>Planilha · 4 funcionários</small></span></div><span class="t">06:12</span></div>
+              <div class="bub o">E amanhã cedo, dá para pulverizar?<span class="t">06:13 <svg width="16" height="11" viewBox="0 0 16 11" aria-hidden="true"><path d="M1 6l3 3 6-7M6 9l1 1 7-8" fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round"/></svg></span></div>
+              <div class="bub i"><span class="who" style="color:#16A898">clima</span>Amanhã das 6h às 9h o vento fica entre 4 e 8 km/h e não tem chuva prevista. Depois das 10h o vento passa de 15 km/h. Melhor janela: até as 9h.<span class="t">06:13</span></div>
+            </div>
+            <div class="wa-in" aria-hidden="true"><span>Mensagem</span><i><svg width="14" height="18" viewBox="0 0 14 18"><rect x="4" y="1" width="6" height="10" rx="3" fill="#fff"/><path d="M1.5 8.5a5.5 5.5 0 0 0 11 0M7 14v3" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 96% -->
+  <section class="stat">
+    <div class="in">
+      <div class="box rv">
+        <div class="big num">96%</div>
+        <div><p>das pessoas do campo usam o WhatsApp. Por isso nós colocamos os ajudantes onde você já está, e não em mais um aplicativo.</p><small>Fonte: 9ª Pesquisa ABMRA, Hábitos do Produtor Rural.</small></div>
+        <div class="grp" aria-hidden="true"><img src="/img/viral.webp" alt=""><img src="/img/campo.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/vitrine.webp" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE É -->
+  <section id="oque">
+    <div class="in what">
+      <div class="tx rv">
+        <span class="eyebrow">O que é a Germo</span>
+        <h2>Um número de WhatsApp com <span class="g">10 ajudantes</span> trabalhando para você.</h2>
+        <p>Cada ajudante é uma inteligência artificial treinada para um tipo de trabalho do agro. Um monta planilha, outro escreve o relatório da visita, outro acompanha o tempo da sua propriedade, outro explica o contrato.</p>
+        <p>Você não precisa decorar qual chamar. Escreve do seu jeito, ou manda um áudio, e a Germo passa o pedido para o ajudante certo. Ele responde no mesmo chat, com o próprio nome, e entrega pronto.</p>
+      </div>
+      <div class="facts rv">
+        <div class="fact dk"><b class="num">1</b><span>número de WhatsApp. Todos os ajudantes respondem no mesmo chat.</span></div>
+        <div class="fact"><b class="num">10</b><span>ajudantes, cada um com uma função do dia a dia do agro.</span></div>
+        <div class="fact"><b class="num">4</b><span>jeitos de pedir: texto, áudio, foto ou PDF.</span></div>
+        <div class="fact"><b class="num">0</b><span>aplicativo novo, cadastro em site ou senha para lembrar.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="how" id="como">
+    <div class="in">
+      <div class="head rv"><span class="eyebrow">Como funciona</span><h2>Do primeiro "oi" ao trabalho pronto, <span class="g">em 4 passos.</span></h2><p class="lead">Tudo acontece dentro do WhatsApp. Você não instala nada e não aprende nenhum sistema.</p></div>
+      <div class="steps">
+        <div class="step rv"><span class="n">1</span><h3>Você assina</h3><p>Escolhe o plano e paga pelo Pix. Na hora chega a mensagem de boas-vindas no WhatsApp da Germo.</p>
+          <div class="ex" aria-hidden="true"><div class="bub i"><span class="who" style="color:#0F8A3D">Germo</span>Bem-vindo à Germo. Os seus ajudantes já estão prontos.</div></div></div>
+        <div class="step rv"><span class="n">2</span><h3>Você se apresenta</h3><p>Conta quem você é, o que faz e onde fica a sua propriedade. Com isso, os ajudantes já sabem com quem estão falando.</p>
+          <div class="ex" aria-hidden="true"><div class="bub o">Sou produtor de soja e milho em Castro, PR. Tenho 4 funcionários.</div></div></div>
+        <div class="step rv"><span class="n">3</span><h3>Você pede</h3><p>Do seu jeito: escreve, grava um áudio, manda a foto da planta ou o PDF do contrato. Pode chamar o ajudante pelo nome ou não.</p>
+          <div class="ex" aria-hidden="true"><div class="bub o">Faz um relatório da visita de hoje no talhão 3.</div></div></div>
+        <div class="step rv"><span class="n">4</span><h3>Você recebe pronto</h3><p>O ajudante responde no mesmo chat com o trabalho feito: arquivo, imagem ou mensagem pronta para usar. Pediu ajuste, ele refaz.</p>
+          <div class="ex" aria-hidden="true"><div class="bub i"><span class="who" style="color:#8A5A2F">campo</span>Relatório pronto, com as fotos e as recomendações.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AJUDANTES -->
+  <section id="ajudantes">
+    <div class="in">
+      <div class="head rv"><span class="eyebrow">Os 10 ajudantes</span><h2>Conheça cada um e <span class="g">veja o que ele entrega.</span></h2><p class="lead">Toque num ajudante para ver o que ele faz, um exemplo de pedido e o que você recebe de volta.</p></div>
+      <div class="team">
+        <div class="rv">
+          <div class="pick" role="tablist" aria-label="Escolha um ajudante" id="pick"></div>
+          <p class="hint">Os 10 ficam juntos no mesmo WhatsApp. Você usa quantos precisar, quando precisar.</p>
+        </div>
+        <div class="det rv" id="det" role="tabpanel" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXEMPLOS -->
+  <section class="how" id="exemplos">
+    <div class="in">
+      <div class="head c rv"><span class="eyebrow">Exemplos</span><h2>Um dia comum, <span class="g">com os ajudantes certos.</span></h2><p class="lead">Veja como 3 pessoas diferentes usariam a Germo no dia a dia.</p></div>
+      <div class="tabs" role="tablist" aria-label="Perfis" id="ctabs"></div>
+      <div class="case rv" id="case" role="tabpanel"></div>
+    </div>
+  </section>
+
+  <!-- POR QUE WHATSAPP -->
+  <section>
+    <div class="in">
+      <div class="head rv"><span class="eyebrow">Por que no WhatsApp</span><h2>O lugar onde o agro <span class="g">já resolve tudo.</span></h2></div>
+      <div class="why">
+        <div class="wy rv"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M12 8v6M9 11h6"/></svg></span><h3>Nada para instalar</h3><p>Sem aplicativo novo, sem site para entrar e sem senha. É só um contato salvo no seu celular.</p></div>
+        <div class="wy rv"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2.5" width="6" height="12" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></span><h3>Pede por áudio</h3><p>Está no trator ou no meio da lavoura? Grava um áudio. O ajudante entende e responde do mesmo jeito que se você tivesse escrito.</p></div>
+        <div class="wy rv"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9a14 14 0 0 1 19 0M6 12.5a9 9 0 0 1 12 0M9.5 16a4 4 0 0 1 5 0"/><circle cx="12" cy="19.3" r="1" fill="currentColor"/></svg></span><h3>Sinal fraco não atrapalha</h3><p>Mandou com pouco sinal? A mensagem sai quando a internet voltar e a resposta fica guardada no chat.</p></div>
+        <div class="wy rv"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16v11H9l-5 4z"/><path d="M8.5 10h7M8.5 13h4"/></svg></span><h3>Tudo num chat só</h3><p>Os 10 ajudantes respondem no mesmo número. O histórico fica junto e você acha qualquer arquivo pela busca do WhatsApp.</p></div>
+      </div>
+      <div class="outs">
+        <div class="out rv"><span class="fi" style="background:#1D8A4A">XLSX</span><b>Planilha</b><span>Com fórmulas, para abrir no Excel ou no Google Planilhas.</span></div>
+        <div class="out rv"><span class="fi" style="background:#C8402F">PDF</span><b>Relatório</b><span>Visita técnica com fotos e recomendações.</span></div>
+        <div class="out rv"><span class="fi" style="background:#7B5CFF">PPT</span><b>Apresentação</b><span>Slides prontos para apresentar.</span></div>
+        <div class="out rv"><span class="fi" style="background:#3AA0FF">IMG</span><b>Post</b><span>A arte do post pronta para publicar.</span></div>
+        <div class="out rv"><span class="fi" style="background:#C99A12">TXT</span><b>Mensagem</b><span>Para copiar e mandar ao cliente.</span></div>
+        <div class="out rv"><span class="fi" style="background:#16A898">AVISO</span><b>Alerta do tempo</b><span>Chega sozinho antes da geada e da chuva forte.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUIDADOS -->
+  <section style="padding-top:0">
+    <div class="in">
+      <div class="head rv"><span class="eyebrow">Com responsabilidade</span><h2>Os ajudantes orientam. <span class="g">O profissional decide.</span></h2></div>
+      <div class="care">
+        <div class="cr rv"><div class="fig" aria-hidden="true"><img src="/img/agronomo.webp" alt=""><img src="/img/juridico.webp" alt=""><img src="/img/contabil.webp" alt=""></div><div><h3>Agrônomo, jurídico e contábil</h3><p>Explicam, organizam e mostram os pontos de atenção em linguagem simples. Quando o assunto pede um profissional, eles avisam. Receita de defensivo só com agrônomo habilitado.</p></div></div>
+        <div class="cr rv"><div class="fig" aria-hidden="true"><img src="/img/clima.webp" alt=""></div><div><h3>Previsão em faixa, sem promessa</h3><p>O clima mostra a previsão da sua região em faixas, como "entre 1 °C e 3 °C", porque tempo não é certeza. Ele avisa antes, e a decisão de mexer na lavoura continua sendo sua.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANOS: LISTA DE ESPERA -->
+  <section class="plans" id="planos">
+    <div class="in">
+      <div class="head c rv"><span class="eyebrow">Planos</span><h2>Os planos saem <span class="g">no lançamento.</span></h2><p class="lead">Enquanto isso, a lista de espera está aberta. Quem entra agora recebe a oferta de lançamento antes de todo mundo, direto no WhatsApp.</p></div>
+      <div class="wait rv" id="wait">
+        <div class="l">
+          <span class="eyebrow">Lista de espera</span>
+          <h3>Seja um dos primeiros a ter os 10 ajudantes.</h3>
+          <p>Nós vamos abrir aos poucos. A lista define quem entra primeiro.</p>
+          <div class="soon">
+            <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Acesso antes do lançamento aberto</div>
+            <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Oferta de lançamento só para a lista</div>
+            <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Aviso direto no seu WhatsApp</div>
+          </div>
+          <div class="crew" aria-hidden="true"><img src="/img/planilha.webp" alt=""><img src="/img/clima.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/apresenta.webp" alt=""></div>
+        </div>
+        <div class="r">
+          <div class="rh"><h3>Deixe o seu contato</h3><p class="muted" style="margin:6px 0 0;font-size:15px;line-height:1.5">Leva 10 segundos. Nós só usamos para avisar sobre a Germo.</p></div>
+          <form class="f" id="wf" novalidate>
+            <label for="fn">Nome<input id="fn" name="nome" autocomplete="name" placeholder="Seu nome"></label>
+            <label for="fw">WhatsApp com DDD<input id="fw" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(41) 99999-0000"></label>
+            <label for="fc">Cidade<input id="fc" name="cidade" autocomplete="address-level2" placeholder="Ex.: Castro, PR"></label>
+            <input class="isca" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <p class="fmsg" id="fmsg" role="status" aria-live="polite"></p>
+            <button class="btn dk" type="submit" id="fb">Entrar na lista de espera <span class="ar" aria-hidden="true">→</span></button>
+            <div class="seals"><span><i></i>Sem custo para entrar</span><span><i></i>Sem compromisso</span><span><i></i>Sem spam</span></div>
+          </form>
+          <div class="ok" role="status"><span class="tick" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0A0C0B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><b>Pronto, você está na lista.</b><p>Nós vamos te avisar no WhatsApp assim que a Germo abrir, com a oferta de lançamento.</p><a class="btn ol" href="#ajudantes">Rever os ajudantes</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERGUNTAS -->
+  <section id="perguntas">
+    <div class="in">
+      <div class="head c rv"><span class="eyebrow">Perguntas</span><h2>Ficou alguma dúvida?</h2></div>
+      <div class="faq">
+        <details class="rv"><summary>Preciso baixar algum aplicativo?<i aria-hidden="true">+</i></summary><p>Não. A Germo funciona dentro do WhatsApp que você já usa. Depois de assinar, é só salvar o número da Germo e conversar.</p></details>
+        <details class="rv"><summary>Como eu chamo o ajudante certo?<i aria-hidden="true">+</i></summary><p>Não precisa escolher. Você escreve ou grava um áudio do seu jeito e a Germo entende qual ajudante resolve. Se preferir, pode chamar pelo nome, por exemplo: "planilha, monta o controle de gastos da safra".</p></details>
+        <details class="rv"><summary>Funciona com áudio e com foto?<i aria-hidden="true">+</i></summary><p>Sim. Você pode mandar texto, áudio, foto ou PDF. O campo escreve o relatório a partir do seu áudio, o agrônomo olha a foto da planta e o jurídico lê o contrato em PDF.</p></details>
+        <details class="rv"><summary>O que exatamente eu recebo de volta?<i aria-hidden="true">+</i></summary><p>Depende do pedido: planilha pronta, relatório em PDF, apresentação, a arte do post, uma mensagem para copiar e enviar ou o aviso do tempo. Tudo chega no mesmo chat. Se quiser mudar alguma coisa, é só pedir que o ajudante refaz.</p></details>
+        <details class="rv"><summary>Os ajudantes substituem o agrônomo, o advogado ou o contador?<i aria-hidden="true">+</i></summary><p>Não. Eles explicam, organizam e adiantam o trabalho, e avisam quando o assunto precisa de um profissional. Receita de defensivo, por exemplo, só com agrônomo habilitado.</p></details>
+        <details class="rv"><summary>Quanto custa?<i aria-hidden="true">+</i></summary><p>Os planos saem no lançamento. Quem está na lista de espera recebe a oferta de lançamento antes de todo mundo, no WhatsApp. Entrar na lista não tem custo.</p></details>
+        <details class="rv"><summary>Quando a Germo lança?<i aria-hidden="true">+</i></summary><p>Em breve. Nós vamos abrir aos poucos, começando por quem está na lista de espera.</p></details>
+        <details class="rv"><summary>Para quem é a Germo?<i aria-hidden="true">+</i></summary><p>Para quem vive o agro: produtor rural, engenheiro agrônomo, técnico, consultor, estudante e profissional do campo. Se você resolve o seu trabalho pelo WhatsApp, a Germo é para você.</p></details>
+      </div>
+      <p class="muted" style="text-align:center;margin:28px 0 0;font-weight:600">Outra dúvida? <a href="https://wa.me/5541988840707?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20Germo." target="_blank" rel="noopener" style="color:var(--verde-lab)">Fale com a nossa equipe no WhatsApp</a></p>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="end">
+    <div class="in">
+      <div class="box rv">
+        <span class="eyebrow">Germo · para quem faz o agro</span>
+        <h2>Os ajudantes estão prontos. <span class="g">Falta você.</span></h2>
+        <p class="lead" style="margin:0 auto">Entre na lista de espera e receba a Germo antes do lançamento.</p>
+        <div class="acts"><a class="btn dk" href="#planos">Entrar na lista de espera <span class="ar" aria-hidden="true">→</span></a></div>
+        <div class="lineup" aria-hidden="true"><img src="/img/viral.webp" alt=""><img src="/img/vitrine.webp" alt=""><img src="/img/apresenta.webp" alt=""><img src="/img/planilha.webp" alt=""><img src="/img/campo.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/clima.webp" alt=""><img src="/img/agronomo.webp" alt=""><img src="/img/juridico.webp" alt=""><img src="/img/contabil.webp" alt=""></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="in">
+    <span class="wm" style="font-size:17px;color:var(--ink)">GERMO<b>.</b></span>
+    <nav aria-label="Rodapé"><a href="/">germobr.link</a><a href="https://instagram.com/germo.br" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/5541988840707?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20a%20Germo." target="_blank" rel="noopener">Central de Ajuda</a></nav>
+    <span>germo.br · Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+<script>
+document.body.classList.remove('nojs');document.documentElement.classList.add('js');
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const tick='<svg width="16" height="11" viewBox="0 0 16 11" aria-hidden="true"><path d="M1 6l3 3 6-7M6 9l1 1 7-8" fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round"/></svg>';
+const wave=s=>s.split(',').map(h=>`<i style="height:${h}px"></i>`).join('');
+document.querySelectorAll('.wave[data-w]').forEach(w=>w.innerHTML=wave(w.dataset.w));
+
+/* barra do topo */
+const nav=$('nav');addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>8),{passive:true});
+
+/* conversa do herói entrando em sequência */
+(function(){const box=$('heroChat');const items=[...box.children];const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(rm){items.forEach(i=>i.classList.add('on'));return}
+  let i=0;const next=()=>{if(i>=items.length)return;const el=items[i++];
+    if(el.classList.contains('i')){const t=document.createElement('div');t.className='bub i on';t.innerHTML='<span class="typing"><i></i><i></i><i></i></span>';box.insertBefore(t,el);setTimeout(()=>{t.remove();el.classList.add('on');setTimeout(next,900)},1100)}
+    else{el.classList.add('on');setTimeout(next,el.classList.contains('day')?300:800)}};
+  setTimeout(next,400);})();
+
+/* ajudantes */
+const AG=[
+ {k:'planilha',c:'#19E35F',t:'#13A94B',d:'Monta a planilha inteira do que você precisar: salário, controle de gastos, estoque, custo da safra.',p:'"Monta o controle de gastos da safra de soja, separado por insumo."',r:'Planilha pronta, com as fórmulas, para abrir no Excel ou no Google Planilhas.',chat:[['o','Monta o controle de gastos da safra de soja, separado por insumo.'],['i','Montei com semente, adubo, defensivo, diesel e mão de obra, já com o total por hectare.',{f:['XLSX','#1D8A4A','Gastos_Safra_Soja.xlsx','Planilha · 5 abas']}]]},
+ {k:'clima',c:'#1FC7B6',t:'#16A898',d:'Acompanha o tempo da sua propriedade e te avisa antes da geada, da chuva forte e do vento.',p:'"Vai dar para pulverizar amanhã cedo?"',r:'Previsão por hora para a sua região e aviso automático no WhatsApp quando vem geada.',chat:[['i','Aviso de geada: na madrugada de quinta a mínima fica entre 1 °C e 3 °C na sua região. Vale proteger as mudas até quarta à noite.'],['o','Obrigado. E a chuva da semana?'],['i','Entre 15 e 25 mm no sábado, concentrados à tarde.']]},
+ {k:'campo',c:'#A0673A',t:'#8A5A2F',d:'Escreve o relatório da visita técnica a partir do seu áudio e das fotos da lavoura.',p:'Um áudio de 1 minuto contando a visita, mais as fotos do talhão.',r:'Relatório em PDF com o que foi visto, as fotos e as recomendações organizadas.',chat:[['o',{a:'8,12,16,9,14,18,10,6,13,17,11,7,15,9,12'},'"Visitei o talhão 3, soja em R3, um pouco de lagarta na bordadura..."'],['i','Relatório da visita pronto, com as 4 fotos e as recomendações.',{f:['PDF','#C8402F','Visita_Talhao3.pdf','PDF · 3 páginas']}]]},
+ {k:'agronomo',c:'#D93A2B',t:'#C8402F',d:'Tira dúvidas técnicas da lavoura e olha a foto da planta para apontar as causas possíveis.',p:'A foto da folha com a pergunta: "Apareceu essa mancha na soja. O que pode ser?"',r:'As causas mais prováveis, o que observar na lavoura e quando chamar o seu agrônomo.',warn:'Orienta, mas não emite receita agronômica. Receita de defensivo só com profissional habilitado.',chat:[['o',{ph:1},'Apareceu essa mancha na folha da soja. O que pode ser?'],['i','Pelo formato e pela cor, pode ser mancha parda ou início de ferrugem. Olhe o verso da folha: se tiver pontinhos marrons em relevo, chame o seu agrônomo para confirmar antes de aplicar.']]},
+ {k:'vendas',c:'#F2C230',t:'#B88F0E',d:'Escreve a mensagem certa para responder, cobrar e fechar a venda com o seu cliente.',p:'"O cliente sumiu depois do orçamento. O que eu mando?"',r:'Mensagem pronta para copiar e enviar, no tom certo para o seu cliente.',chat:[['o','O cliente sumiu depois do orçamento. O que eu mando?'],['i','Manda assim: "Oi, Carlos! Passando para saber se ficou alguma dúvida no orçamento. Consigo segurar esse valor até sexta. Posso reservar para você?"']]},
+ {k:'viral',c:'#F26B1D',t:'#D9590E',d:'Desenvolve o roteiro do reels, do carrossel e do post a partir de um tema seu.',p:'"Me dá um roteiro de reels sobre o plantio do milho safrinha."',r:'Roteiro com gancho, falas cena a cena e a legenda pronta para postar.',chat:[['o','Me dá um roteiro de reels sobre o plantio do milho safrinha.'],['i','Gancho (0 a 3 s): "Plantou o milho depois do dia 10? Então assiste isso." Depois 4 cenas, a chamada final e a legenda. Quer que eu deixe com 30 ou com 60 segundos?']]},
+ {k:'vitrine',c:'#3AA0FF',t:'#2585E0',d:'Monta a bio do seu perfil e o design dos seus posts, prontos para publicar.',p:'"Melhora a bio do meu perfil de agrônoma."',r:'3 opções de bio e a arte do post em imagem, no tamanho certo para o Instagram.',chat:[['o','Melhora a bio do meu perfil de agrônoma.'],['i','Opção 1: "Engenheira agrônoma em Castro, PR · Manejo de soja e milho · Visitas técnicas pelo WhatsApp". Mandei também as outras 2 e a arte do post de apresentação.',{f:['IMG','#3AA0FF','Post_Apresentacao.png','Imagem · 1080 × 1350']}]]},
+ {k:'apresenta',c:'#7B5CFF',t:'#6846F0',d:'Cria a apresentação, o arquivo e o portfólio a partir do que você descrever.',p:'"Faz uma apresentação do meu estágio na cooperativa, com 8 slides."',r:'Apresentação pronta em arquivo, para abrir no celular ou no computador e apresentar.',chat:[['o','Faz uma apresentação do meu estágio na cooperativa, com 8 slides.'],['i','Pronto. Capa, objetivos, atividades, resultados e agradecimentos, em 8 slides.',{f:['PPT','#7B5CFF','Estagio_Cooperativa.pptx','Apresentação · 8 slides']}],['o','Melhora o slide 2.']]},
+ {k:'juridico',c:'#8E2443',t:'#8E2443',d:'Lê o contrato ou o documento rural e explica em linguagem simples o que importa.',p:'O PDF do contrato com o pedido: "Analisa esse contrato de arrendamento."',r:'Os pontos de atenção explicados, o que vale negociar e quando falar com um advogado.',warn:'Explica e aponta riscos, mas não substitui o advogado. Quando o caso pede, ele avisa.',chat:[['o','Analisa esse contrato de arrendamento.',{f:['PDF','#C8402F','Contrato_Arrendamento.pdf','PDF · 6 páginas']}],['i','Achei 3 pontos de atenção: o prazo é menor que o mínimo da lei para lavoura temporária, o reajuste não diz o índice e não fala de quem paga o ITR. Antes de assinar, vale levar ao seu advogado.']]},
+ {k:'contabil',c:'#24408E',t:'#24408E',d:'Tira dúvidas de imposto, nota do produtor e custos, sem palavra difícil.',p:'"Quanto de imposto eu pago na venda da soja?"',r:'A explicação do cálculo com o seu caso e o que levar para o seu contador.',warn:'Orienta e organiza. A declaração e o fechamento continuam com o seu contador.',chat:[['o','Quanto de imposto eu pago na venda da soja?'],['i','Na venda como pessoa física, o comprador desconta o Funrural da nota. Te mostro a conta com o valor da sua venda e o que separar para a declaração do ano. Quer que eu monte?']]}
+];
+
+function bub(m,ag){const side=m[0];let body='';let extra=m[2]||null;const content=m[1];
+  if(typeof content==='object'&&content){
+    if(content.a){body=`<div class="aud"><span class="face">EU</span><span class="pp"><svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M1 1.2v13.6L13 8z" fill="#54656F"/></svg></span><span class="wave">${wave(content.a)}</span></div><span class="tr">${esc(m[2])}</span>`;extra=null}
+    else if(content.ph){body=`<div class="photo" role="img" aria-label="Foto de folha com mancha"></div>${esc(m[2])}`;extra=null}
+  }else body=esc(content);
+  if(extra&&extra.f){const f=extra.f;body+=`<div class="file"><span class="fi" style="background:${f[1]}">${f[0]}</span><span><b>${esc(f[2])}</b><small>${esc(f[3])}</small></span></div>`}
+  const who=side==='i'&&ag?`<span class="who" style="color:${ag.t}">${ag.k==='agronomo'?'agrônomo':ag.k==='juridico'?'jurídico':ag.k==='contabil'?'contábil':ag.k}</span>`:'';
+  return `<div class="bub ${side}">${who}${body}<span class="t">${side==='o'?'09:41 '+tick:'09:41'}</span></div>`}
+const label=k=>({agronomo:'agrônomo',juridico:'jurídico',contabil:'contábil'}[k]||k);
+const hex2=(h,a)=>{const n=parseInt(h.slice(1),16);return `rgba(${n>>16},${n>>8&255},${n&255},${a})`};
+let cur=0;
+$('pick').innerHTML=AG.map((a,i)=>`<button class="ag" role="tab" id="ag-${a.k}" aria-selected="${i===0}" aria-controls="det" style="--c:${a.c}" data-i="${i}"><img src="/img/${a.k}.webp" alt="" loading="lazy"><span>${label(a.k)}</span></button>`).join('');
+function showAg(i){cur=i;const a=AG[i];
+  document.querySelectorAll('.ag').forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});
+  const d=$('det');d.style.setProperty('--c',a.t);d.style.setProperty('--cs',hex2(a.c,.2));d.setAttribute('aria-labelledby','ag-'+a.k);
+  d.innerHTML=`<div class="top"><div><span class="eyebrow" style="color:${a.t}">Ajudante ${i+1} de 10</span><div class="nm">Eu sou o <i>${label(a.k)}</i>.</div><p class="ds">${esc(a.d)}</p></div><img src="/img/${a.k}.webp" alt="Personagem do ajudante ${label(a.k)}"></div>
+  <div class="rows"><div><small>Você pede</small><p>${esc(a.p)}</p></div><div><small>Você recebe</small><p>${esc(a.r)}</p></div></div>
+  ${a.warn?`<div class="warn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>${esc(a.warn)}</div>`:''}
+  <div class="chat">${a.chat.map(m=>bub(m,a)).join('')}</div>`;}
+$('pick').addEventListener('click',e=>{const b=e.target.closest('.ag');if(b)showAg(+b.dataset.i)});
+$('pick').addEventListener('keydown',e=>{const n={ArrowRight:1,ArrowDown:5,ArrowLeft:-1,ArrowUp:-5}[e.key];if(n==null)return;e.preventDefault();const i=(cur+n+AG.length)%AG.length;showAg(i);$('pick').children[i].focus()});
+showAg(0);
+
+/* exemplos por perfil */
+const CASES=[
+ {n:'Produtor rural',h:'João cuida de 300 hectares de soja e milho.',p:'Ele não tem escritório nem tempo para computador. Resolve tudo pelo celular, entre uma tarefa e outra, quase sempre por áudio.',u:['clima','planilha','contabil','juridico'],chat:[['o',{a:'6,10,15,9,13,18,12,7,14,16,10,8,12,6'},'"Vai gear essa semana? E monta a planilha do salário dos meus funcionários."','clima'],['i','Geada possível na madrugada de quinta, mínima entre 1 °C e 3 °C. Já te aviso de novo na quarta.',null,'clima'],['i','E a planilha do salário está pronta.',{f:['XLSX','#1D8A4A','Salarios_Fazenda.xlsx','Planilha · 4 funcionários']},'planilha'],['o','Analisa esse contrato de arrendamento que me mandaram.',{f:['PDF','#C8402F','Contrato_Arrendamento.pdf','PDF · 6 páginas']}],['i','Achei 3 pontos de atenção. O principal: o prazo está abaixo do mínimo da lei. Vale levar ao seu advogado antes de assinar.',null,'juridico']]},
+ {n:'Engenheiro agrônomo',h:'Rafael atende 20 produtores na região.',p:'Passa o dia na estrada, de visita em visita. À noite, ainda precisava escrever relatório, responder cliente e cuidar do Instagram.',u:['campo','agronomo','viral','vendas'],chat:[['o',{a:'9,14,8,16,12,18,10,6,15,11,13,7,17,9'},'"Visita no talhão 3 do seu Antônio, soja em R3, lagarta na bordadura..."'],['i','Relatório da visita pronto para mandar ao seu Antônio.',{f:['PDF','#C8402F','Visita_Antonio_T3.pdf','PDF · 3 páginas']},'campo'],['o','O cliente da semana passada sumiu depois do orçamento.'],['i','Manda assim: "Oi, Paulo! Ficou alguma dúvida no orçamento? Consigo encaixar a sua visita na terça." Quer uma versão mais curta?',null,'vendas']]},
+ {n:'Profissional do campo',h:'Carolina terminou o estágio numa cooperativa.',p:'Precisava apresentar o que fez e quer começar a mostrar o trabalho no Instagram para conseguir as primeiras consultorias.',u:['apresenta','vitrine'],chat:[['o','Faz a apresentação do meu estágio na cooperativa, com 8 slides.'],['i','Pronto, em 8 slides: capa, objetivos, atividades, resultados e agradecimentos.',{f:['PPT','#7B5CFF','Estagio_Cooperativa.pptx','Apresentação · 8 slides']},'apresenta'],['o','Agora melhora a bio do meu perfil.'],['i','Opção 1: "Zootecnista · Bem-estar animal e manejo de leite · Consultoria pelo WhatsApp". Mandei mais 2 opções.',null,'vitrine']]}
+];
+let cc=0;
+$('ctabs').innerHTML=CASES.map((c,i)=>`<button class="tab" role="tab" id="ct${i}" aria-selected="${i===0}" aria-controls="case" data-i="${i}">${c.n}</button>`).join('');
+function showCase(i){cc=i;const c=CASES[i];document.querySelectorAll('.tab').forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});$('case').setAttribute('aria-labelledby','ct'+i);
+  $('case').innerHTML=`<div class="tx"><span class="eyebrow">${esc(c.n)}</span><h3 style="font-size:clamp(26px,3vw,34px);font-weight:500;letter-spacing:-.035em">${esc(c.h)}</h3><p>${esc(c.p)}</p><p style="font-weight:700;color:var(--ink)">Os ajudantes que ele mais usaria:</p><div class="used">${c.u.map(k=>`<span><img src="/img/${k}.webp" alt="">${label(k)}</span>`).join('')}</div></div>
+  <div class="convo">${c.chat.map(m=>{const ag=m[3]?AG.find(a=>a.k===m[3]):null;const mm=[m[0],m[1],m[2]];return bub(mm,ag)}).join('')}</div>`;
+  if(i===2)$('case').querySelector('.tx p[style]').textContent='Os ajudantes que ela mais usaria:';}
+$('ctabs').addEventListener('click',e=>{const b=e.target.closest('.tab');if(b)showCase(+b.dataset.i)});
+$('ctabs').addEventListener('keydown',e=>{const n={ArrowRight:1,ArrowLeft:-1}[e.key];if(n==null)return;e.preventDefault();const i=(cc+n+CASES.length)%CASES.length;showCase(i);$('ctabs').children[i].focus()});
+showCase(0);
+
+/* entrada suave das seções */
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('vis');io.unobserve(en.target)}}),{rootMargin:'0px 0px -8% 0px'}):null;
+document.querySelectorAll('.rv').forEach(el=>io?io.observe(el):el.classList.add('vis'));
+
+/* lista de espera */
+const URL_PLANILHA="https://script.google.com/macros/s/AKfycbwFZGzhpXW8fAUdNYUvxYoQhVjRmIm-I8Qynyp70Pi396rTL8psG7z0NyNCm7HUa7TQ/exec";
+const wf=$('wf'),fw=$('fw'),fn=$('fn'),fc=$('fc'),fm=$('fmsg');
+fw.addEventListener('input',()=>{fw.classList.remove('erro');fm.textContent='';if(fw.value.trim().startsWith('+'))return;
+  let d=fw.value.replace(/\D/g,'').slice(0,11);fw.value=d.length>6?`(${d.slice(0,2)}) ${d.slice(2,d.length-4)}-${d.slice(-4)}`:d.length>2?`(${d.slice(0,2)}) ${d.slice(2)}`:d});
+fn.addEventListener('input',()=>{fn.classList.remove('erro');fm.textContent=''});
+wf.addEventListener('submit',async e=>{e.preventDefault();
+  if(!fn.value.trim()){fn.classList.add('erro');fm.textContent='Digite o seu nome.';fn.focus();return}
+  const dig=fw.value.replace(/\D/g,'');const ok=fw.value.trim().startsWith('+')?dig.length>=8:dig.length>=10;
+  if(!ok){fw.classList.add('erro');fm.textContent='Digite o seu WhatsApp com DDD.';fw.focus();return}
+  if(wf.site.value)return;
+  $('fb').disabled=true;const q=new URLSearchParams(location.search);
+  try{await fetch(URL_PLANILHA,{method:'POST',mode:'no-cors',body:new URLSearchParams({nome:fn.value.trim(),whatsapp:fw.value.trim(),cidade:fc.value.trim(),
+    origem:q.get('origem')||q.get('utm_source')||'paginainicial',campanha:q.get('utm_campaign')||'landing-page'})})}catch(_){}
+  $('wait').classList.add('done');});
+</script>
+</body>
+</html>

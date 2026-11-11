@@ -1,5 +1,8 @@
 {
   "redirects": [
-    { "source": "/folder", "destination": "/?utm_source=folder&utm_campaign=folder-impresso", "permanent": false }
+    { "source": "/folder", "destination": "/?utm_source=folder&utm_campaign=folder-impresso", "permanent": false },
+    { "source": "/p%C3%A1ginainicial", "destination": "/paginainicial", "permanent": true },
+    { "source": "/páginainicial", "destination": "/paginainicial", "permanent": true },
+    { "source": "/inicio", "destination": "/paginainicial", "permanent": false }
   ]
 }
