@@ -169,23 +169,48 @@ section{padding-block:clamp(64px,9vw,112px)}
 .what{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
 .what .tx{display:flex;flex-direction:column;gap:18px}
 .what .tx p{margin:0;font-size:18px;line-height:1.6;color:var(--ink2)}
+
+/* fatos */
 .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.fact{background:var(--soft);border-radius:26px;padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
-.fact b{font-family:var(--display);font-weight:600;letter-spacing:-.04em;font-size:40px;line-height:1}
-.fact span{font-size:15px;font-weight:600;color:var(--ink2);line-height:1.4}
-.fact.dk{background:var(--noite);color:var(--on-noite)}
+.fact{background:#fff;border-radius:24px;box-shadow:0 0 0 1.5px var(--ring);padding:20px 20px 18px;display:flex;flex-direction:column;gap:6px;min-width:0;overflow:hidden}
+.fact .top{display:flex;align-items:baseline;gap:8px}
+.fact b{font-family:var(--display);font-stretch:112%;font-weight:600;letter-spacing:-.05em;font-size:46px;line-height:.9}
+.fact .top em{font-style:normal;font-family:var(--display);font-stretch:112%;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--verde-lab)}
+.fact>span{font-size:14.5px;font-weight:600;color:var(--ink2);line-height:1.4}
+.fact .vis{margin-top:auto;padding-top:12px;min-height:46px;display:flex;align-items:flex-end}
+.fact.dk{background:var(--noite);color:var(--on-noite);box-shadow:none}
 .fact.dk b{color:var(--broto)}
-.fact.dk span{color:#C9D3CC}
+.fact.dk .top em{color:var(--broto)}
+.fact.dk>span{color:#C9D3CC}
+.ct{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.08);border-radius:14px;padding:8px 12px 8px 8px;width:100%}
+.ct .av{width:30px;height:30px;border-radius:50%;background:var(--broto);display:grid;place-items:center;flex:none}
+.ct b{font-family:var(--body);font-size:13px;font-weight:700;letter-spacing:0;line-height:1.2;color:#fff;display:flex;align-items:center;gap:4px}
+.ct small{display:block;font-size:11px;color:#9FB0A5;font-weight:600}
+.crew10{display:flex;align-items:flex-end}
+.crew10 img{height:40px;width:auto;margin-left:-9px;filter:drop-shadow(0 4px 4px rgba(21,32,26,.15))}
+.crew10 img:first-child{margin-left:0}
+.ways{display:flex;gap:6px;flex-wrap:wrap}
+.ways span{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700;background:var(--wa-out);color:#1F4D2C}
+.ways svg{flex:none}
+.noapp{display:flex;gap:8px;align-items:center}
+.noapp i{width:30px;height:30px;border-radius:9px;background:var(--soft);box-shadow:0 0 0 1.5px var(--ring);position:relative}
+.noapp i::after{content:"";position:absolute;left:-3px;right:-3px;top:50%;height:2px;background:#C8402F;transform:rotate(-35deg)}
+.noapp span{font-size:12px;font-weight:700;color:var(--mute)}
+/* passos */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.step{background:#fff;border-radius:28px;padding:22px 22px 20px;box-shadow:0 0 0 1.5px var(--ring),0 22px 44px rgba(21,32,26,.05);display:flex;flex-direction:column;gap:10px;min-width:0}
+.step .pg{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.step .pg small{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:12px;letter-spacing:.08em;color:var(--verde-lab);white-space:nowrap}
+.step .pg span{flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.step .pg span i{height:4px;border-radius:3px;background:var(--line)}
+.step .pg span i.on{background:var(--broto)}
+.step p{margin:0;font-size:15.5px;line-height:1.5;color:var(--ink2)}
+.step .ex{margin-top:auto;background:var(--wa-bg);border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:5px}
+.step .ex .bub{max-width:100%;font-size:12.5px}
 @media (max-width:860px){.what{grid-template-columns:minmax(0,1fr)}}
 
 /* como funciona */
 .how{background:linear-gradient(180deg,#fff 0%,var(--soft) 18%,var(--soft) 82%,#fff 100%)}
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
-.step{background:#fff;border-radius:28px;padding:24px;box-shadow:0 0 0 1.5px var(--ring),0 22px 44px rgba(21,32,26,.05);display:flex;flex-direction:column;gap:12px;min-width:0}
-.step .n{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--noite);color:var(--broto);font-family:var(--display);font-weight:800;font-size:17px}
-.step p{margin:0;font-size:15.5px;line-height:1.5;color:var(--ink2)}
-.step .ex{margin-top:auto;background:var(--wa-bg);border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:5px}
-.step .ex .bub{max-width:100%;font-size:12.5px}
 @media (max-width:980px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.steps{grid-template-columns:minmax(0,1fr)}}
 
@@ -278,9 +303,26 @@ section{padding-block:clamp(64px,9vw,112px)}
 
 /* por que whatsapp */
 .why{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.wy{border-radius:28px;padding:26px;background:var(--soft);display:flex;flex-direction:column;gap:12px;min-width:0}
-.wy .ic{width:46px;height:46px;border-radius:14px;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 1.5px var(--ring);color:var(--verde-lab)}
-.wy p{margin:0;font-size:15.5px;line-height:1.5;color:var(--ink2)}
+.wy{border-radius:28px;padding:0;background:#fff;box-shadow:0 0 0 1.5px var(--ring);display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.wy .sc{height:118px;background:var(--wa-bg);background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1.4px);background-size:14px 14px;display:flex;align-items:center;justify-content:center;padding:14px;border-bottom:1px solid var(--line)}
+.wy .tx2{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px}
+.wy p{margin:0;font-size:15px;line-height:1.5;color:var(--ink2)}
+.wy .ct{background:#fff;box-shadow:0 1px 1px rgba(0,0,0,.08);max-width:230px}
+.wy .ct b{color:#111}
+.wy .ct small{color:#667781}
+.wy .ct .add{margin-left:auto;font-size:11px;font-weight:800;color:#008069}
+.vn{display:flex;align-items:center;gap:8px;background:var(--wa-out);border-radius:12px;border-top-right-radius:0;padding:8px 10px;box-shadow:0 1px 1px rgba(0,0,0,.08);width:100%;max-width:230px}
+.vn .pl{width:0;height:0;border-left:10px solid #54656F;border-top:6px solid transparent;border-bottom:6px solid transparent;flex:none;box-shadow:none;padding:0;background:none;border-radius:0}
+.vn .wv2{flex:1;display:flex;align-items:center;gap:2px;height:22px}
+.vn .wv2 i{flex:1;max-width:3px;border-radius:2px;background:#7FA08C}
+.vn small{font-size:10.5px;color:#667781;font-variant-numeric:tabular-nums}
+.sig{width:100%;max-width:230px;display:flex;flex-direction:column;gap:6px}
+.sig .b{align-self:flex-end;background:var(--wa-out);border-radius:10px;border-top-right-radius:0;padding:6px 9px;font-size:12px;box-shadow:0 1px 1px rgba(0,0,0,.08);display:flex;align-items:flex-end;gap:8px}
+.sig .b small{font-size:10px;color:#667781;display:inline-flex;align-items:center;gap:3px;white-space:nowrap}
+.sig .b.w{opacity:.75}
+.one{width:100%;max-width:230px;background:#fff;border-radius:10px;border-top-left-radius:0;padding:8px 10px;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.one .crew10 img{height:34px;margin-left:-8px}
+.one small{display:block;font-size:11px;font-weight:700;color:#667781;margin-top:4px}
 @media (max-width:980px){.why{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.why{grid-template-columns:minmax(0,1fr)}}
 
@@ -414,11 +456,14 @@ section{padding-block:clamp(64px,9vw,112px)}
 @media (max-width:420px){.ficha dl{grid-template-columns:minmax(0,1fr)}.ficha dl div:nth-child(odd){border-right:0}.ficha .who10{flex-direction:column;align-items:flex-start}}
 
 /* garantia */
-.guar{display:flex;align-items:center;gap:22px;margin-top:20px;background:#fff;border-radius:28px;padding:22px 28px;box-shadow:0 0 0 1.5px var(--pill),0 18px 40px rgba(21,32,26,.06)}
-.guar .sh{flex:none;width:64px;height:64px;border-radius:20px;background:var(--noite);display:grid;place-items:center;color:var(--broto)}
+.guar{display:flex;align-items:center;gap:26px;margin-top:20px;background:#fff;border-radius:28px;padding:22px 30px 22px 26px;box-shadow:0 0 0 1.5px var(--pill),0 18px 40px rgba(21,32,26,.06)}
+.guar .d7{flex:none;display:flex;align-items:center;gap:10px;padding-right:26px;border-right:1.5px solid var(--line)}
+.guar .d7 b{font-family:var(--display);font-stretch:125%;font-weight:700;font-size:64px;line-height:.85;letter-spacing:-.06em;color:var(--verde)}
+.guar .d7 span{font-family:var(--display);font-stretch:112%;font-weight:700;font-size:12px;letter-spacing:.1em;line-height:1.25;color:var(--ink);text-transform:uppercase}
+.guar .d7 span em{font-style:normal;display:block;color:var(--mute)}
 .guar b{display:block;font-family:var(--display);font-weight:600;font-size:22px;letter-spacing:-.025em}
 .guar p{margin:4px 0 0;font-size:15.5px;line-height:1.5;color:var(--ink2)}
-@media (max-width:560px){.guar{flex-direction:column;align-items:flex-start;padding:22px}}
+@media (max-width:560px){.guar{flex-direction:column;align-items:flex-start;padding:22px}.guar .d7{border-right:0;padding-right:0}}
 
 /* cuidados */
 .care{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
@@ -576,10 +621,10 @@ footer a:hover{color:var(--ink)}
         <p>Você não precisa decorar qual chamar. Escreve do seu jeito, ou manda um áudio, e a Germo passa o pedido para o ajudante certo. Ele responde no mesmo chat, com o próprio nome, e entrega pronto.</p>
       </div>
       <div class="facts rv">
-        <div class="fact dk"><b class="num">1</b><span>número de WhatsApp. Todos os ajudantes respondem no mesmo chat.</span></div>
-        <div class="fact"><b class="num">10</b><span>ajudantes, cada um com uma função do dia a dia do agro.</span></div>
-        <div class="fact"><b class="num">4</b><span>jeitos de pedir: texto, áudio, foto ou PDF.</span></div>
-        <div class="fact"><b class="num">0</b><span>aplicativo novo, cadastro em site ou senha para lembrar.</span></div>
+        <div class="fact dk"><div class="top"><b class="num">1</b><em>número</em></div><span>Todos os ajudantes respondem no mesmo chat do WhatsApp.</span><div class="vis"><div class="ct"><span class="av"><svg width="18" height="18" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="28"/><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></span><span><b>Germo <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path d="m8 12.3 2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>10 ajudantes · online</small></span></div></div></div>
+        <div class="fact"><div class="top"><b class="num">10</b><em>ajudantes</em></div><span>Cada um com uma função do dia a dia do agro.</span><div class="vis"><div class="crew10" aria-hidden="true"><img src="/img/planilha.webp" alt=""><img src="/img/clima.webp" alt=""><img src="/img/campo.webp" alt=""><img src="/img/agronomo.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/viral.webp" alt=""><img src="/img/vitrine.webp" alt=""><img src="/img/apresenta.webp" alt=""><img src="/img/juridico.webp" alt=""><img src="/img/contabil.webp" alt=""></div></div></div>
+        <div class="fact"><div class="top"><b class="num">4</b><em>jeitos de pedir</em></div><span>Do jeito que você já usa o WhatsApp.</span><div class="vis"><div class="ways"><span>Texto</span><span>Áudio</span><span>Foto</span><span>PDF</span></div></div></div>
+        <div class="fact"><div class="top"><b class="num">0</b><em>aplicativo novo</em></div><span>Nada de cadastro em site nem senha para lembrar.</span><div class="vis"><div class="noapp" aria-hidden="true"><i></i><i></i><i></i><span>Nada para baixar</span></div></div></div>
       </div>
     </div>
   </section>
@@ -589,13 +634,13 @@ footer a:hover{color:var(--ink)}
     <div class="in">
       <div class="head rv"><span class="eyebrow">Como funciona</span><h2>Do primeiro "oi" ao trabalho pronto, <span class="g">em 4 passos.</span></h2><p class="lead">Tudo acontece dentro do WhatsApp. Você não instala nada e não aprende nenhum sistema.</p></div>
       <div class="steps">
-        <div class="step rv"><span class="n">1</span><h3>Você adiciona o seu número</h3><p>Escolhe o plano e coloca o seu número. Na hora chega a mensagem de boas-vindas no WhatsApp da Germo.</p>
+        <div class="step rv"><div class="pg"><small>PASSO 1 DE 4</small><span aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></span></div><h3>Você adiciona o seu número</h3><p>Escolhe o plano e coloca o seu número. Na hora chega a mensagem de boas-vindas no WhatsApp da Germo.</p>
           <div class="ex" aria-hidden="true"><div class="bub i"><span class="who" style="color:#0F8A3D">Germo</span>Bem-vindo à Germo. Os seus ajudantes já estão prontos.</div></div></div>
-        <div class="step rv"><span class="n">2</span><h3>Você se apresenta</h3><p>Conta quem você é, o que faz e onde fica a sua propriedade. Adiciona documentos, se precisar. Com isso, os ajudantes já sabem com quem estão falando.</p>
+        <div class="step rv"><div class="pg"><small>PASSO 2 DE 4</small><span aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i></span></div><h3>Você se apresenta</h3><p>Conta quem você é, o que faz e onde fica a sua propriedade. Adiciona documentos, se precisar. Com isso, os ajudantes já sabem com quem estão falando.</p>
           <div class="ex" aria-hidden="true"><div class="bub o">Sou produtor de soja e milho em Castro, PR. Tenho 4 funcionários.</div></div></div>
-        <div class="step rv"><span class="n">3</span><h3>Você pede</h3><p>Do seu jeito: escreve, grava um áudio, manda a foto da planta ou o PDF do contrato. Manda referências, se quiser.</p>
+        <div class="step rv"><div class="pg"><small>PASSO 3 DE 4</small><span aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div><h3>Você pede</h3><p>Do seu jeito: escreve, grava um áudio, manda a foto da planta ou o PDF do contrato. Manda referências, se quiser.</p>
           <div class="ex" aria-hidden="true"><div class="bub o">Faz um relatório da visita de hoje no talhão 3.</div></div></div>
-        <div class="step rv"><span class="n">4</span><h3>Você recebe pronto</h3><p>O ajudante responde no mesmo chat com o trabalho feito: arquivo, imagem ou mensagem pronta para usar. Pediu ajuste, ele refaz.</p>
+        <div class="step rv"><div class="pg"><small>PASSO 4 DE 4</small><span aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div><h3>Você recebe pronto</h3><p>O ajudante responde no mesmo chat com o trabalho feito: arquivo, imagem ou mensagem pronta para usar. Pediu ajuste, ele refaz.</p>
           <div class="ex" aria-hidden="true"><div class="bub i"><span class="who" style="color:#8A5A2F">campo</span>Relatório pronto, com as fotos e as recomendações.</div></div></div>
       </div>
     </div>
@@ -655,10 +700,10 @@ footer a:hover{color:var(--ink)}
     <div class="in">
       <div class="head rv"><span class="eyebrow">Por que no WhatsApp</span><h2>O lugar onde o agro <span class="g">já resolve tudo.</span></h2></div>
       <div class="why">
-        <div class="wy rv"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M12 8v6M9 11h6"/></svg></span><h3>Nada para instalar</h3><p>Sem aplicativo novo, sem site para entrar e sem senha. É só um contato salvo no seu celular.</p></div>
-        <div class="wy rv"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2.5" width="6" height="12" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></span><h3>Pede por áudio</h3><p>Está no trator ou no meio da lavoura? Grava um áudio. O ajudante entende e responde do mesmo jeito que se você tivesse escrito.</p></div>
-        <div class="wy rv"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9a14 14 0 0 1 19 0M6 12.5a9 9 0 0 1 12 0M9.5 16a4 4 0 0 1 5 0"/><circle cx="12" cy="19.3" r="1" fill="currentColor"/></svg></span><h3>Sinal fraco não atrapalha</h3><p>Mandou com pouco sinal? A mensagem sai quando a internet voltar e a resposta fica guardada no chat.</p></div>
-        <div class="wy rv"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16v11H9l-5 4z"/><path d="M8.5 10h7M8.5 13h4"/></svg></span><h3>Tudo num chat só</h3><p>Os 10 ajudantes respondem no mesmo número. O histórico fica junto e você acha qualquer arquivo pela busca do WhatsApp.</p></div>
+        <div class="wy rv"><div class="sc" aria-hidden="true"><div class="ct"><span class="av"><svg width="18" height="18" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="28"/><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></span><span><b>Germo <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path d="m8 12.3 2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>Conta comercial</small></span><span class="add">Salvo</span></div></div><div class="tx2"><h3>Nada para instalar</h3><p>Sem aplicativo novo, sem site para entrar e sem senha. É só um contato salvo no seu celular.</p></div></div>
+        <div class="wy rv"><div class="sc" aria-hidden="true"><div class="vn"><span class="pl"></span><span class="wv2" aria-hidden="true"><i style="height:6px"></i><i style="height:11px"></i><i style="height:16px"></i><i style="height:9px"></i><i style="height:14px"></i><i style="height:19px"></i><i style="height:12px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:18px"></i><i style="height:10px"></i><i style="height:8px"></i><i style="height:13px"></i><i style="height:17px"></i><i style="height:9px"></i><i style="height:6px"></i><i style="height:12px"></i><i style="height:15px"></i><i style="height:8px"></i><i style="height:5px"></i></span><small>0:14</small></div></div><div class="tx2"><h3>Pede por áudio</h3><p>Está no trator ou no meio da lavoura? Grava um áudio. O ajudante entende e responde do mesmo jeito que se você tivesse escrito.</p></div></div>
+        <div class="wy rv"><div class="sc" aria-hidden="true"><div class="sig"><div class="b w">Me avisa da chuva<small><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#667781" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></small></div><div class="b">Me avisa da chuva<small>06:42 <svg width="15" height="10" viewBox="0 0 16 11" aria-hidden="true"><path d="M1 6l3 3 6-7M6 9l1 1 7-8" fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round"/></svg></small></div></div></div><div class="tx2"><h3>Sinal fraco não atrapalha</h3><p>Mandou com pouco sinal? A mensagem sai quando a internet voltar e a resposta fica guardada no chat.</p></div></div>
+        <div class="wy rv"><div class="sc" aria-hidden="true"><div class="one"><div class="crew10" aria-hidden="true"><img src="/img/planilha.webp" alt=""><img src="/img/clima.webp" alt=""><img src="/img/campo.webp" alt=""><img src="/img/agronomo.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/viral.webp" alt=""><img src="/img/vitrine.webp" alt=""><img src="/img/apresenta.webp" alt=""><img src="/img/juridico.webp" alt=""><img src="/img/contabil.webp" alt=""></div><small>Germo · 10 ajudantes no mesmo chat</small></div></div><div class="tx2"><h3>Tudo num chat só</h3><p>Os 10 ajudantes respondem no mesmo número. O histórico fica junto e você acha qualquer arquivo pela busca do WhatsApp.</p></div></div>
       </div>
     </div>
   </section>
@@ -736,7 +781,7 @@ footer a:hover{color:var(--ink)}
           <div class="ok" role="status"><span class="tick" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0A0C0B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><b>Pronto, você está na lista.</b><p>Nós vamos te avisar no WhatsApp assim que a Germo abrir, com a oferta de lançamento.</p><a class="btn ol" href="#ajudantes">Rever os ajudantes</a></div>
         </div>
       </div>
-      <div class="guar rv"><span class="sh" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 4.5 5.6v5.6c0 4.6 3.1 8.6 7.5 10 4.4-1.4 7.5-5.4 7.5-10V5.6z"/><path d="m8.6 12.2 2.4 2.4 4.6-4.8"/></svg></span><div><b>7 dias para testar, com o seu dinheiro de volta.</b><p>Assinou e não gostou? Nos primeiros 7 dias, é só mandar "cancelar" no WhatsApp da Germo que nós devolvemos todo o valor. Sem burocracia.</p></div></div>
+      <div class="guar rv"><div class="d7" aria-hidden="true"><b>7</b><span>dias<em>de teste</em></span></div><div><b>7 dias para testar, com o seu dinheiro de volta.</b><p>Assinou e não gostou? Nos primeiros 7 dias, é só mandar "cancelar" no WhatsApp da Germo que nós devolvemos todo o valor. Sem burocracia.</p></div></div>
     </div>
   </section>
 
