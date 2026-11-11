@@ -533,6 +533,32 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap}
 footer a{text-decoration:none}
 footer a:hover{color:var(--ink)}
 
+
+.mcrew{display:none}
+@media (max-width:640px){
+  .hero{padding-top:8px}
+  .hero .tx{align-items:center;text-align:center;gap:18px}
+  .hpill,.hcta{display:none!important}
+  .hero h1{font-size:44px}
+  .hero .lead{font-size:17px;margin-inline:auto}
+  .chk{justify-content:center}
+  .hero .acts{width:100%}
+  .mcrew{display:block;position:relative;width:100%;height:150px;margin-bottom:-6px}
+  .mc{position:absolute;bottom:0;border:0;background:none;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;-webkit-tap-highlight-color:transparent;animation:mcb 4s ease-in-out infinite}
+  .mc img{height:100%;width:auto;filter:drop-shadow(0 10px 8px rgba(21,32,26,.18));transition:transform .25s cubic-bezier(.2,1.6,.4,1)}
+  .mc b{display:none}
+  .mc.hop img{transform:translateY(-14px) scale(1.06)}
+  .mc0{left:4%;height:92px;bottom:6px;transform:rotate(-8deg);animation-delay:-.4s}
+  .mc1{left:21%;height:112px;bottom:22px;animation-delay:-1.6s}
+  .mc2{left:50%;margin-left:-34px;height:132px;bottom:2px;z-index:2;animation-delay:-.9s}
+  .mc3{right:21%;height:110px;bottom:24px;animation-delay:-2.4s}
+  .mc4{right:4%;height:94px;bottom:6px;transform:rotate(8deg);animation-delay:-3.1s}
+  .msay{position:absolute;left:50%;top:-4px;transform:translate(-50%,-6px);background:#fff;border-radius:14px;padding:8px 13px;font-size:13.5px;font-weight:700;color:var(--ink);white-space:nowrap;box-shadow:0 0 0 1.5px var(--pill),0 10px 22px rgba(21,32,26,.1);opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:3}
+  .msay.on{opacity:1;transform:translate(-50%,0)}
+  .msay i{font-style:normal;font-weight:800}
+}
+@keyframes mcb{50%{translate:0 -6px}}
+@media (prefers-reduced-motion:reduce){.mc{animation:none}}
 /* celular: prático para quem está no campo */
 .dots{display:none}
 @media (max-width:640px){
@@ -608,11 +634,12 @@ footer a:hover{color:var(--ink)}
   <section class="hero">
     <div class="in">
       <div class="tx">
-        <span class="pl" style="align-self:flex-start"><i class="dot"></i>Pré-lançamento · lista de espera aberta</span>
+        <div class="mcrew" aria-hidden="true"><button type="button" class="mc mc0" data-say="Escrevo o roteiro do seu reels." style="--c:#F26B1D" tabindex="-1"><img src="/img/viral.webp" alt=""><b>viral</b></button><button type="button" class="mc mc1" data-say="Faço o design do seu post." style="--c:#3AA0FF" tabindex="-1"><img src="/img/vitrine.webp" alt=""><b>vitrine</b></button><button type="button" class="mc mc2" data-say="Monto a sua planilha." style="--c:#13A94B" tabindex="-1"><img src="/img/planilha.webp" alt=""><b>planilha</b></button><button type="button" class="mc mc3" data-say="Te aviso antes da chuva." style="--c:#16A898" tabindex="-1"><img src="/img/clima.webp" alt=""><b>clima</b></button><button type="button" class="mc mc4" data-say="Escrevo a mensagem que vende." style="--c:#B88F0E" tabindex="-1"><img src="/img/vendas.webp" alt=""><b>vendas</b></button><span class="msay" id="msay"></span></div>
+        <span class="pl hpill" style="align-self:flex-start"><i class="dot"></i>Pré-lançamento · lista de espera aberta</span>
         <h1>10 ajudantes,<br><span class="g">no seu WhatsApp.</span></h1>
         <p class="lead">Você manda uma mensagem, um áudio ou uma foto no WhatsApp da Germo. O ajudante certo responde e devolve o trabalho pronto: a planilha, o relatório da visita, o post, a análise do contrato, a previsão do tempo da sua propriedade e muito mais.</p>
         <div class="acts">
-          <a class="btn pr" href="#planos">Entrar na lista de espera <span class="ar" aria-hidden="true">→</span></a>
+          <a class="btn pr hcta" href="#planos">Entrar na lista de espera <span class="ar" aria-hidden="true">→</span></a>
           <a class="btn ol" href="#como">Ver como funciona</a>
         </div>
         <div class="chk">
@@ -1014,6 +1041,10 @@ wf.addEventListener('submit',async e=>{e.preventDefault();
     el.addEventListener('scroll',()=>{let k=0,best=1e9;kids.forEach((c,i)=>{const v=Math.abs(c.offsetLeft-el.offsetLeft-el.scrollLeft-16);if(v<best){best=v;k=i}});dots.forEach((x,i)=>x.classList.toggle('on',i===k));num.textContent=k+1},{passive:true});});
 
 })();
+
+/* herói no celular: ajudantes que respondem ao toque */
+(function(){const say=$('msay');let t;document.querySelectorAll('.mc').forEach(b=>b.addEventListener('click',()=>{const n=b.querySelector('b').textContent;say.innerHTML='<i style="color:'+getComputedStyle(b).getPropertyValue('--c')+'">'+n+':</i> '+b.dataset.say;say.classList.add('on');b.classList.add('hop');clearTimeout(t);t=setTimeout(()=>{say.classList.remove('on')},2400);setTimeout(()=>b.classList.remove('hop'),350)}));
+  let k=0;const mcs=[...document.querySelectorAll('.mc')];if(matchMedia('(max-width:640px)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){setTimeout(function cyc(){if(k<mcs.length){mcs[k++].click();setTimeout(cyc,2800)}},1200)}})();
 </script>
 </body>
 </html>
