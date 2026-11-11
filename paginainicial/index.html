@@ -906,8 +906,7 @@ function showAg(i){cur=i;const a=AG[i];if(window._apReady&&curAp&&curAp.closest(
   d.innerHTML=`<div class="top"><div><span class="eyebrow" style="color:${a.t}">Ajudante ${i+1} de 10</span><div class="nm">Eu sou o <i>${label(a.k)}</i>.</div><p class="ds">${esc(a.d)}</p></div><img class="pop" src="/img/${a.k}.webp" alt="Personagem do ajudante ${label(a.k)}"></div>
   ${(()=>{const e=document.querySelector('#entregas').content.querySelector('[data-k="'+a.k+'"]');return e?`<div class="ent"><div class="eh"><small>Exemplo de entrega</small><b>${esc(e.dataset.t)}</b><span>${esc(e.dataset.p)}</span></div><div class="pv">${e.innerHTML}</div></div>`:''})()}
   <div class="rows"><div><small>Você pede</small><p>${esc(a.p)}</p></div><div><small>Você recebe</small><p>${esc(a.r)}</p></div></div>
-  ${a.warn?`<div class="warn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>${esc(a.warn)}</div>`:''}
-  <div class="chat">${a.chat.map(m=>bub(m,a)).join('')}</div>`;}
+  ${a.warn?`<div class="warn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>${esc(a.warn)}</div>`:''}`;}
 $('pick').addEventListener('click',e=>{const b=e.target.closest('.ag');if(b)showAg(+b.dataset.i)});
 $('pick').addEventListener('keydown',e=>{const n={ArrowRight:1,ArrowDown:5,ArrowLeft:-1,ArrowUp:-5}[e.key];if(n==null)return;e.preventDefault();const i=(cur+n+AG.length)%AG.length;showAg(i);$('pick').children[i].focus()});
 showAg(0);
