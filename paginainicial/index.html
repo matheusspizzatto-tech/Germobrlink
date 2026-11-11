@@ -36,7 +36,7 @@ button,input,select{font:inherit;color:inherit}
 /* tipografia */
 .eyebrow{font-family:var(--display);font-stretch:112%;font-weight:700;letter-spacing:.1em;font-size:12.5px;color:var(--verde-lab);text-transform:uppercase}
 h1,h2,h3{margin:0;text-wrap:balance}
-h1{font-family:var(--display);font-weight:500;letter-spacing:-.045em;line-height:1;font-size:clamp(42px,6.4vw,76px)}
+h1{font-family:var(--display);font-weight:500;letter-spacing:-.045em;line-height:1;font-size:clamp(40px,5.6vw,68px)}
 h1 .g,h2 .g{color:var(--verde)}
 h2{font-family:var(--display);font-weight:500;letter-spacing:-.04em;line-height:1.04;font-size:clamp(32px,4.4vw,52px)}
 h3{font-family:var(--display);font-weight:600;letter-spacing:-.025em;line-height:1.15;font-size:22px}
@@ -115,8 +115,12 @@ section{padding-block:clamp(64px,9vw,112px)}
 .bub .who{display:block;font-size:12.5px;font-weight:800;margin-bottom:2px}
 .bub .t{display:block;text-align:right;font-size:10.5px;color:#667781;margin-top:2px}
 .bub .t svg{display:inline-block;vertical-align:-2px;margin-left:2px}
-.wa-body .ap{min-width:226px;gap:8px}
-.wa-body .ap .face{width:36px;height:36px}
+.wa-body .ap{min-width:0;width:220px;gap:6px}
+.wa-body .ap .face{width:32px;height:32px}
+.wa-body .ap button{width:28px;height:28px}
+.wa-body .ap .wv{gap:1px}
+.wa-body .ap .wv i{min-width:1.5px;max-width:3px}
+.wa-body .ap .tm{min-width:26px}
 .tr{display:block;font-size:12.5px;color:#3E5247;font-style:italic;margin-top:5px;padding-top:5px;border-top:1px solid rgba(0,0,0,.06)}
 .file{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.04);border-radius:8px;padding:9px 10px;margin-top:6px}
 .file .fi{width:30px;height:36px;border-radius:5px;display:grid;place-items:center;font-size:9.5px;font-weight:800;color:#fff;flex:none}
@@ -142,7 +146,7 @@ section{padding-block:clamp(64px,9vw,112px)}
 .js .agw:not(.on){opacity:0}
 .nojs .agw{opacity:1;transform:none}
 @media (max-width:1100px){.agw.l{left:0}.agw.r{right:0}}
-@media (max-width:560px){.stage-h{min-height:640px}.screen{height:600px}.phone{width:300px;border-radius:52px}.screen{border-radius:42px}.agw img{height:92px}.agw .lb{font-size:11.5px;padding:5px 10px 5px 8px}.agw.l{left:-4px;top:120px}.agw.r{right:-4px;bottom:40px}.ring{display:none}}
+@media (max-width:560px){.stage-h{min-height:0;padding:96px 0 84px}.screen{height:640px}.phone{width:300px;border-radius:52px}.screen{border-radius:42px}.agw img{height:92px}.agw .lb{font-size:11.5px;padding:5px 10px 5px 8px}.agw.l{left:0;top:0;flex-direction:row;align-items:flex-end}.agw.r{right:0;bottom:0;flex-direction:row-reverse;align-items:flex-end}.agw .sh{display:none}.ring{display:none}}
 .typing{display:inline-flex;gap:3px;padding:4px 2px}
 .typing i{width:6px;height:6px;border-radius:50%;background:#9AA6A0;animation:ty 1.2s infinite}
 .typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
@@ -385,7 +389,7 @@ footer a:hover{color:var(--ink)}
     <div class="in">
       <div class="tx">
         <span class="pl" style="align-self:flex-start"><i class="dot"></i>Pré-lançamento · lista de espera aberta</span>
-        <h1>10 ajudantes, <span class="g">no seu WhatsApp.</span></h1>
+        <h1>10 ajudantes,<br><span class="g">no seu WhatsApp.</span></h1>
         <p class="lead">Você manda uma mensagem, um áudio ou uma foto no WhatsApp da Germo. O ajudante certo responde e devolve o trabalho pronto: a planilha, o relatório da visita, o post, a análise do contrato, a previsão do tempo da sua propriedade e muito mais.</p>
         <div class="acts">
           <a class="btn pr" href="#planos">Entrar na lista de espera <span class="ar" aria-hidden="true">→</span></a>
