@@ -86,8 +86,8 @@ section{padding-block:clamp(64px,9vw,112px)}
 
 /* celular */
 .stage-h{position:relative;min-height:700px;display:flex;align-items:center;justify-content:center}
-.disc{position:absolute;width:min(560px,100%);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 50% 38%,#F2FDF5 0%,#D3F6DF 45%,#B5EDC9 100%)}
-.ring{position:absolute;width:min(660px,118%);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1.5px dashed #BFE8CD}
+.disc{display:none!important;position:absolute;width:min(560px,100%);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 50% 38%,#F2FDF5 0%,#D3F6DF 45%,#B5EDC9 100%)}
+.ring{display:none!important;position:absolute;width:min(660px,118%);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1.5px dashed #BFE8CD}
 .phone{position:relative;z-index:2;width:330px;max-width:calc(100% - 24px);border-radius:58px;padding:11px;background:linear-gradient(150deg,#3A403C 0%,#151917 22%,#0B0E0C 60%,#262B28 100%);box-shadow:inset 0 0 0 1.5px #5A615C,inset 0 0 0 4px #0E1210,0 60px 90px -36px rgba(21,32,26,.55),0 22px 40px -22px rgba(21,32,26,.4)}
 .phone::before{content:"";position:absolute;left:-3px;top:150px;width:4px;height:58px;border-radius:3px 0 0 3px;background:#2A2F2C;box-shadow:0 72px 0 #2A2F2C,0 -52px 0 -0px #2A2F2C}
 .phone::after{content:"";position:absolute;right:-3px;top:200px;width:4px;height:92px;border-radius:0 3px 3px 0;background:#2A2F2C}
@@ -599,6 +599,26 @@ footer a:hover{color:var(--ink)}
 @media (max-width:640px){.det .eh{padding:14px 20px 0}.det .ent .pv{padding:14px 16px 20px}.det .ent .pv .ig-wrap{flex-direction:column}.pick .ag img{height:64px}}
 @media (max-width:980px) and (min-width:641px){#whats .why{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
+
+/* cartão da lista de espera, versão nova */
+.wait .l{position:relative;overflow:hidden;padding-bottom:250px}
+.wait .l h3{font-size:clamp(30px,3.2vw,42px)}
+.soon{gap:12px;margin-top:4px}
+.soon div{background:none;box-shadow:none;padding:0;border-radius:0;font-size:16px;font-weight:600;color:#E6ECE8}
+.soon svg{width:22px;height:22px;padding:4px;border-radius:50%;background:rgba(25,227,95,.16);box-sizing:content-box}
+.whug{position:absolute;right:-8px;bottom:-34px;width:min(310px,72%);height:auto;filter:drop-shadow(0 20px 24px rgba(0,0,0,.45));pointer-events:none}
+.wait .r{justify-content:center}
+.wait .r .rh h3{font-size:26px}
+.f label{font-size:12px}
+.f input{padding:16px 16px;font-size:16.5px;border-radius:16px;width:100%}
+.ipt{position:relative;display:block}
+.ipt img{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:6px;pointer-events:none}
+.ipt input{padding-left:48px}
+.f .btn.pr{padding:18px 24px;font-size:17px}
+.f .btn.pr .ar{background:var(--noite);color:var(--broto)}
+.seals{justify-content:center}
+@media (max-width:860px){.wait .l{padding-bottom:220px}.whug{width:250px;right:50%;transform:translateX(50%);bottom:-30px}}
+
 /* celular: prático para quem está no campo */
 .dots{display:none}
 @media (max-width:640px){
@@ -748,6 +768,24 @@ footer a:hover{color:var(--ink)}
     </div>
   </section>
 
+  <!-- O QUE É -->
+  <section id="oque">
+    <div class="in what">
+      <div class="tx rv">
+        <span class="eyebrow">O que é a Germo</span>
+        <h2>Um número de WhatsApp com <span class="g">10 ajudantes</span> trabalhando para você.</h2>
+        <p>Cada ajudante é uma inteligência artificial treinada para um tipo de trabalho do agro. Um monta planilha, outro escreve o relatório da visita, outro acompanha o tempo da sua propriedade, outro explica o contrato.</p>
+        <p>Você não precisa decorar qual chamar. Escreve do seu jeito, ou manda um áudio, e a Germo passa o pedido para o ajudante certo. Ele responde no mesmo chat, com o próprio nome, e entrega pronto.</p>
+      </div>
+      <div class="facts rv">
+        <div class="fact dk"><div class="top"><b class="num">1</b><em>número</em></div><span>Todos os ajudantes respondem no mesmo chat do WhatsApp.</span><div class="vis"><div class="ct"><span class="av"><svg width="18" height="18" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="28"/><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></span><span><b>Germo <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path d="m8 12.3 2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>10 ajudantes · online</small></span></div></div></div>
+        <div class="fact"><div class="top"><b class="num">10</b><em>ajudantes</em></div><span>Cada um com uma função do dia a dia do agro.</span><div class="vis vis-hug"><img class="hug" src="/img/abracados.webp" alt="Os 10 ajudantes da Germo abraçados" loading="lazy"></div></div>
+        <div class="fact"><div class="top"><b class="num">4</b><em>jeitos de pedir</em></div><span>Do jeito que você já usa o WhatsApp.</span><div class="vis"><div class="ways"><span>Texto</span><span>Áudio</span><span>Foto</span><span>PDF</span></div></div></div>
+        <div class="fact"><div class="top"><b class="num">0</b><em>aplicativo novo</em></div><span>Nada de cadastro em site nem senha para lembrar.</span><div class="vis"><div class="nopw" aria-hidden="true"><span class="fld"><small>Senha</small><i>••••••</i></span><span class="tg">Não precisa</span></div></div></div>
+      </div>
+    </div>
+  </section>
+
   <!-- COMO FUNCIONA -->
   <section class="how" id="como">
     <div class="in">
@@ -791,17 +829,17 @@ footer a:hover{color:var(--ink)}
             <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Oferta de lançamento só para a lista</div>
             <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Aviso direto no seu WhatsApp</div>
           </div>
-          <div class="crew" aria-hidden="true"><img src="/img/planilha.webp" alt=""><img src="/img/clima.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/apresenta.webp" alt=""></div>
+          <img class="whug" src="/img/abracados.webp" alt="" aria-hidden="true">
         </div>
         <div class="r">
           <div class="rh"><h3>Deixe o seu contato</h3><p class="muted" style="margin:6px 0 0;font-size:15px;line-height:1.5">Leva 10 segundos. Nós só usamos para avisar sobre a Germo.</p></div>
           <form class="f" id="wf" novalidate>
             <label for="fn">Nome<input id="fn" name="nome" autocomplete="name" placeholder="Seu nome"></label>
-            <label for="fw">WhatsApp com DDD<input id="fw" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(41) 99999-0000"></label>
+            <label for="fw">WhatsApp com DDD<span class="ipt"><img src="/wa.png" alt="" width="22" height="22"><input id="fw" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(41) 99999-0000"></span></label>
             <label for="fc">Cidade<input id="fc" name="cidade" autocomplete="address-level2" placeholder="Ex.: Castro, PR"></label>
             <input class="isca" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
             <p class="fmsg" id="fmsg" role="status" aria-live="polite"></p>
-            <button class="btn dk" type="submit" id="fb">Entrar na lista de espera <span class="ar" aria-hidden="true">→</span></button>
+            <button class="btn pr" type="submit" id="fb">Entrar na lista de espera <span class="ar" aria-hidden="true">→</span></button>
             <div class="seals"><span><i></i>Sem custo para entrar</span><span><i></i>Sem compromisso</span><span><i></i>Sem spam</span></div>
           </form>
           <div class="ok" role="status"><span class="tick" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0A0C0B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><b>Pronto, você está na lista.</b><p>Nós vamos te avisar no WhatsApp assim que a Germo abrir, com a oferta de lançamento.</p><a class="btn ol" href="#ajudantes">Rever os ajudantes</a></div>
@@ -838,10 +876,9 @@ footer a:hover{color:var(--ink)}
   <section class="end">
     <div class="in">
       <div class="box rv">
-        <span class="eyebrow">Germo · para quem faz o agro</span>
         <h2>Os ajudantes estão prontos. <span class="g">Falta você.</span></h2>
         <p class="lead" style="margin:0 auto">Entre na lista de espera e receba a Germo antes do lançamento.</p>
-        <img class="endhug" src="/img/abracados.webp" alt="Os 10 ajudantes da Germo abraçados">
+        <div class="lineup" aria-hidden="true"><img src="/img/viral.webp" alt=""><img src="/img/vitrine.webp" alt=""><img src="/img/apresenta.webp" alt=""><img src="/img/planilha.webp" alt=""><img src="/img/campo.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/clima.webp" alt=""><img src="/img/agronomo.webp" alt=""><img src="/img/juridico.webp" alt=""><img src="/img/contabil.webp" alt=""></div>
       </div>
     </div>
   </section>
