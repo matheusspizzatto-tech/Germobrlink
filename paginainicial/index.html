@@ -326,16 +326,17 @@ section{padding-block:clamp(64px,9vw,112px)}
 .slide .dt span b{display:block;font-family:"Archivo",sans-serif;font-stretch:75%;font-size:16px;letter-spacing:0;color:#F3EEE3;font-weight:700;margin-top:2px;line-height:1.1}
 .slide .r{background-size:cover;background-position:center}
 .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.th{aspect-ratio:16/9;border-radius:14px;background:#fff;box-shadow:0 0 0 1.5px var(--ring),0 12px 24px -14px rgba(21,32,26,.25);padding:10px 11px;display:flex;flex-direction:column;justify-content:space-between;color:var(--ink);overflow:hidden}
-.th small{font-family:var(--display);font-stretch:112%;font-size:7.5px;font-weight:700;letter-spacing:.1em;color:var(--verde-lab)}
-.th b{font-family:var(--display);font-weight:600;font-size:11.5px;line-height:1.1;letter-spacing:-.02em}
-.th .bars{display:flex;align-items:flex-end;gap:4px;height:28px}
-.th .bars i{flex:1;background:var(--tint);border-radius:3px 3px 0 0}
-.th .bars i:last-child{background:var(--broto)}
-.th .stp{display:flex;gap:4px;align-items:center;font-size:7px;font-weight:700;color:var(--ink2)}
-.th .stp i{flex:1;height:2px;border-radius:2px;background:var(--broto)}
-.th.dk{background:var(--noite);color:var(--on-noite);box-shadow:0 12px 24px -14px rgba(21,32,26,.4)}
-.th.dk small{color:var(--broto)}
+.th{aspect-ratio:16/9;border-radius:6px;background:#1F2A20;box-shadow:0 12px 24px -12px rgba(30,20,10,.45);padding:10px 11px;display:flex;flex-direction:column;justify-content:space-between;color:#F3EEE3;overflow:hidden;position:relative}
+.th small{font-family:"Archivo",sans-serif;font-stretch:75%;font-size:7.5px;font-weight:700;letter-spacing:.18em;color:#C9A66B;position:relative}
+.th b{font-family:"Bricolage Grotesque",var(--body);font-weight:600;font-size:11.5px;line-height:1.1;letter-spacing:-.03em;position:relative}
+.th b i{font-style:normal;color:#E2C38A}
+.th .bars{display:flex;align-items:flex-end;gap:4px;height:28px;border-bottom:1px solid rgba(243,238,227,.2)}
+.th .bars i{flex:1;background:rgba(243,238,227,.22);border-radius:2px 2px 0 0}
+.th .bars i:last-child{background:#C9A66B}
+.th .stp{display:flex;gap:4px;align-items:center;font-size:7px;font-weight:700;color:#D9D2C1}
+.th .stp i{flex:1;height:1px;background:#C9A66B}
+.th.ph{background-size:cover;background-position:center}
+.th.ph::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,28,21,.92) 0%,rgba(20,28,21,.6) 100%)}
 .doc2{width:172px;height:220px;background:#fff;border-radius:4px;box-shadow:0 14px 30px -12px rgba(21,32,26,.28);padding:14px 14px 12px;display:flex;flex-direction:column;gap:6px;font-size:7.5px;color:#3E5247;transform:rotate(-1.5deg)}
 .doc2 .hd{border-bottom:1px solid #E6EAE7;padding-bottom:6px;margin-bottom:2px}
 .doc2 .hd small{display:block;font-size:6.5px;font-weight:800;letter-spacing:.14em;color:#8A948E}
@@ -634,7 +635,7 @@ footer a:hover{color:var(--ink)}
         </div></div><div class="ft"><img src="/img/vitrine.webp" alt=""><span><b>Post e legenda para vender a colheita</b><small>Produtora de morango · Atibaia, SP</small></span></div></div>
         <div class="dl big rv"><div class="pv"><div class="deck">
           <div class="slide" role="img" aria-label="Slide de apresentação de café especial para compradores"><div class="l"><small>SÍTIO BOA VISTA · SAFRA 26/27</small><b>Café de altitude, <i>colhido a dedo.</i></b><div class="dt"><span>ALTITUDE<b>1.250 m</b></span><span>VARIEDADE<b>Catuaí Amarelo</b></span><span>PONTUAÇÃO<b>86 SCA</b></span></div></div><div class="r" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/bfc22dc9-8a9d-4738-819b-17cc0cbf958b.jpg)"></div></div>
-          <div class="thumbs" aria-hidden="true"><div class="th"><small>02 · PRODUÇÃO</small><div class="bars"><i style="height:40%"></i><i style="height:55%"></i><i style="height:50%"></i><i style="height:72%"></i><i style="height:92%"></i></div><b>5 safras em alta</b></div><div class="th"><small>03 · PROCESSO</small><div class="stp">Colheita<i></i>Terreiro<i></i>Tulha</div><b>Do pé à saca, sem pressa</b></div><div class="th dk"><small>04 · AMOSTRAS</small><b>Peça a sua amostra de 250 g</b><small style="color:#9FB0A5">SUL DE MINAS</small></div></div>
+          <div class="thumbs" aria-hidden="true"><div class="th"><small>02 · PRODUÇÃO</small><div class="bars"><i style="height:40%"></i><i style="height:55%"></i><i style="height:50%"></i><i style="height:72%"></i><i style="height:92%"></i></div><b>5 safras <i>em alta</i></b></div><div class="th"><small>03 · PROCESSO</small><div class="stp">Colheita<i></i>Terreiro<i></i>Tulha</div><b>Do pé à saca, <i>sem pressa</i></b></div><div class="th ph" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/bfc22dc9-8a9d-4738-819b-17cc0cbf958b.jpg)"><small>04 · AMOSTRAS</small><b>Peça a sua <i>amostra de 250 g</i></b><small style="color:#B9B29F">SUL DE MINAS</small></div></div>
         </div></div><div class="ft"><img src="/img/apresenta.webp" alt=""><span><b>Apresentação para compradores</b><small>Cafeicultor · Sul de Minas</small></span></div></div>
         <div class="dl rv"><div class="pv"><div class="doc2"><div class="hd"><small>CONTRATO · 9 PÁGINAS</small><b>Parceria pecuária, gado de corte</b></div><div class="ln"></div><div class="ln s"></div><div class="mk">Atenção: a divisão dos bezerros não está definida</div><div class="ln"></div><div class="ln"></div><div class="ln s"></div><div class="mk">Falta: quem paga vacina, sal e veterinário</div><div class="ln"></div><div class="ln s"></div><div class="ft2"><span>jurídico</span><span>2 pontos de atenção</span></div></div></div><div class="ft"><img src="/img/juridico.webp" alt=""><span><b>Contrato de parceria analisado</b><small>Pecuarista · Mato Grosso</small></span></div></div>
         <div class="dl rv"><div class="pv"><div class="ir"><div class="t">Resumo do ano · Livro Caixa<small>2026</small></div><div class="rw"><span>Receita bruta</span><b>R$ 612.400</b></div><div class="rw"><span>Despesas da atividade</span><b>R$ 514.000</b></div><div class="rw"><span>Resultado real</span><b>R$ 98.400</b></div><div class="cmp"><b>Base menor: resultado real</b>Os 20% da receita dariam R$ 122.480. Leve este resumo ao seu contador.</div></div></div><div class="ft"><img src="/img/contabil.webp" alt=""><span><b>Resumo para o imposto de renda</b><small>Granja de ovos · Bastos, SP</small></span></div></div>
