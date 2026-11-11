@@ -75,7 +75,7 @@ section{padding-block:clamp(64px,9vw,112px)}
 @media (max-width:420px){.nav .btn{padding:11px 16px;font-size:14px}.wm{font-size:20px}}
 
 /* herói */
-.hero{padding-block:clamp(36px,6vw,72px) clamp(56px,7vw,96px);background:radial-gradient(70% 80% at 85% 40%,rgba(214,247,224,.9) 0%,rgba(214,247,224,0) 70%)}
+.hero{overflow:hidden;padding-block:clamp(36px,6vw,72px) clamp(56px,7vw,96px);background:radial-gradient(70% 80% at 85% 40%,rgba(214,247,224,.9) 0%,rgba(214,247,224,0) 70%)}
 .hero .in{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,5vw,64px);align-items:center}
 .hero .tx{display:flex;flex-direction:column;gap:24px;min-width:0}
 .hero .acts{display:flex;gap:12px;flex-wrap:wrap}
@@ -85,42 +85,64 @@ section{padding-block:clamp(64px,9vw,112px)}
 @media (max-width:900px){.hero .in{grid-template-columns:minmax(0,1fr)}}
 
 /* celular */
-.phone-wrap{position:relative;display:flex;justify-content:center;padding:10px 0}
-.phone{position:relative;width:min(340px,100%);border-radius:44px;background:#0B0F0D;padding:10px;box-shadow:0 40px 80px -30px rgba(21,32,26,.45),0 0 0 1px rgba(0,0,0,.06)}
-.screen{border-radius:35px;overflow:hidden;background:var(--wa-bg);display:flex;flex-direction:column;height:600px}
-.wa-top{display:flex;align-items:center;gap:10px;padding:34px 14px 10px;background:#F6F6F6;border-bottom:1px solid #E2E2E2}
-.wa-top .bk{color:#007AFF;font-size:22px;line-height:1}
+.stage-h{position:relative;min-height:700px;display:flex;align-items:center;justify-content:center}
+.disc{position:absolute;width:min(560px,100%);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 50% 38%,#F2FDF5 0%,#D3F6DF 45%,#B5EDC9 100%)}
+.ring{position:absolute;width:min(660px,118%);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1.5px dashed #BFE8CD}
+.phone{position:relative;z-index:2;width:330px;max-width:calc(100% - 24px);border-radius:58px;padding:11px;background:linear-gradient(150deg,#3A403C 0%,#151917 22%,#0B0E0C 60%,#262B28 100%);box-shadow:inset 0 0 0 1.5px #5A615C,inset 0 0 0 4px #0E1210,0 60px 90px -36px rgba(21,32,26,.55),0 22px 40px -22px rgba(21,32,26,.4)}
+.phone::before{content:"";position:absolute;left:-3px;top:150px;width:4px;height:58px;border-radius:3px 0 0 3px;background:#2A2F2C;box-shadow:0 72px 0 #2A2F2C,0 -52px 0 -0px #2A2F2C}
+.phone::after{content:"";position:absolute;right:-3px;top:200px;width:4px;height:92px;border-radius:0 3px 3px 0;background:#2A2F2C}
+.screen{position:relative;border-radius:47px;overflow:hidden;background:var(--wa-bg);display:flex;flex-direction:column;height:660px}
+.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:104px;height:31px;border-radius:20px;background:#000;z-index:4}
+.sb{display:flex;justify-content:space-between;align-items:center;padding:15px 28px 4px 32px;background:#F6F6F6;font:600 15px/1 -apple-system,BlinkMacSystemFont,"SF Pro Text",var(--body);letter-spacing:-.01em;color:#000}
+.sb .ic{display:flex;gap:5px;align-items:center}
+.wa-top{display:flex;align-items:center;gap:9px;padding:10px 12px 9px 8px;background:#F6F6F6;border-bottom:.5px solid #D6D6D6}
+.wa-top .bk{display:flex;align-items:center;gap:1px;color:#007AFF;font-size:16px;font-weight:500}
 .wa-av{width:36px;height:36px;border-radius:50%;background:var(--broto);display:grid;place-items:center;flex:none}
-.wa-top b{display:flex;align-items:center;gap:5px;font-size:15px;font-weight:700}
-.wa-top small{display:block;font-size:12px;color:#667781;font-weight:500}
+.wa-top .nm{flex:1;min-width:0}
+.wa-top b{display:flex;align-items:center;gap:4px;font-size:15.5px;font-weight:700;color:#000}
+.wa-top small{display:block;font-size:12px;color:#667781;font-weight:500;margin-top:1px}
+.wa-top .act{display:flex;gap:16px;color:#007AFF;padding-right:6px}
 .ver{width:15px;height:15px;flex:none}
-.wa-body{flex:1;overflow:hidden;padding:12px 10px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;background-color:var(--wa-bg);background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1.4px);background-size:14px 14px}
+.wa-body{flex:1;overflow:hidden;padding:10px 12px 12px;display:flex;flex-direction:column;justify-content:flex-end;gap:5px;background-color:#EFEAE2;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='%23B9A98C' stroke-opacity='.28' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 30c6-10 18-10 22 0-8 2-16 6-22 0z'/%3E%3Cpath d='M29 30v12'/%3E%3Ccircle cx='98' cy='24' r='7'/%3E%3Cpath d='M92 70l6-10 6 10-6 10z'/%3E%3Cpath d='M30 92c0-6 8-6 8 0 0-6 8-6 8 0 0 6-8 11-8 11s-8-5-8-11z'/%3E%3Cpath d='M100 104h18M109 95v18'/%3E%3Cpath d='M60 58c4 0 6 3 6 6s-3 6-6 6-6-2-6-6'/%3E%3Cpath d='M62 120c3-6 9-6 12 0'/%3E%3Ccircle cx='128' cy='62' r='3'/%3E%3Ccircle cx='8' cy='124' r='3'/%3E%3C/g%3E%3C/svg%3E");background-size:140px}
 .day{align-self:center;background:#fff;border-radius:8px;padding:4px 10px;font-size:11.5px;font-weight:600;color:#54656F;box-shadow:0 1px 1px rgba(0,0,0,.06);margin-bottom:4px}
 .bub{max-width:86%;border-radius:12px;padding:7px 9px 5px;font-size:13.5px;line-height:1.38;box-shadow:0 1px 1px rgba(0,0,0,.08);position:relative}
 .bub.o{align-self:flex-end;background:var(--wa-out);border-top-right-radius:4px}
 .bub.i{align-self:flex-start;background:var(--wa-in);border-top-left-radius:4px}
+.wa-body .bub.o{border-top-right-radius:0}.wa-body .bub.i{border-top-left-radius:0}
+.wa-body .bub.o::after,.wa-body .bub.i::after{content:"";position:absolute;top:0;width:8px;height:13px;background:inherit}
+.wa-body .bub.o::after{right:-7px;clip-path:polygon(0 0,100% 0,0 100%)}
+.wa-body .bub.i::after{left:-7px;clip-path:polygon(0 0,100% 0,100% 100%)}
 .bub .who{display:block;font-size:12.5px;font-weight:800;margin-bottom:2px}
 .bub .t{display:block;text-align:right;font-size:10.5px;color:#667781;margin-top:2px}
 .bub .t svg{display:inline-block;vertical-align:-2px;margin-left:2px}
-.aud{display:flex;align-items:center;gap:9px;min-width:210px}
-.aud .pp{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#54656F;flex:none}
-.wave{flex:1;display:flex;align-items:center;gap:2px;height:24px}
-.wave i{display:block;width:3px;border-radius:2px;background:#8FA79A}
-.aud .face{width:34px;height:34px;border-radius:50%;background:#C9D6CE;display:grid;place-items:center;font-size:12px;font-weight:800;color:#3E5247;flex:none}
+.wa-body .ap{min-width:226px;gap:8px}
+.wa-body .ap .face{width:36px;height:36px}
 .tr{display:block;font-size:12.5px;color:#3E5247;font-style:italic;margin-top:5px;padding-top:5px;border-top:1px solid rgba(0,0,0,.06)}
 .file{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.04);border-radius:8px;padding:9px 10px;margin-top:6px}
 .file .fi{width:30px;height:36px;border-radius:5px;display:grid;place-items:center;font-size:9.5px;font-weight:800;color:#fff;flex:none}
 .file b{display:block;font-size:13px;font-weight:700}
 .file small{display:block;font-size:11.5px;color:#667781}
 .photo{border-radius:8px;overflow:hidden;margin:-2px -4px 4px;height:120px;background:linear-gradient(135deg,#5F8F3E,#97B85B 55%,#C8B45A);position:relative}
-.photo::after{content:"";position:absolute;left:38%;top:30%;width:34px;height:26px;border-radius:50%;background:radial-gradient(#6E4A1E 30%,#9C7A2E 60%,transparent 70%);box-shadow:30px 22px 0 -6px #7B5523,-18px 36px 0 -9px #7B5523}
-.wa-in{display:flex;align-items:center;gap:8px;padding:8px 10px 18px;background:#F6F6F6;border-top:1px solid #E2E2E2}
-.wa-in span{flex:1;background:#fff;border-radius:18px;padding:8px 14px;font-size:13px;color:#8696A0;box-shadow:0 0 0 1px #E2E2E2}
-.wa-in i{width:32px;height:32px;border-radius:50%;background:var(--wa-green);display:grid;place-items:center;flex:none}
-.peek{position:absolute;width:96px;filter:drop-shadow(0 16px 14px rgba(21,32,26,.2));pointer-events:none}
-.peek.a{left:max(0px,calc(50% - 250px));bottom:46px;transform:rotate(-8deg)}
-.peek.b{right:max(0px,calc(50% - 246px));top:70px;transform:rotate(7deg);width:86px}
-@media (max-width:520px){.peek{display:none}.screen{height:560px}}
+.wa-in{display:flex;align-items:center;gap:12px;padding:8px 14px 4px;background:#F6F6F6;border-top:.5px solid #D6D6D6;color:#007AFF}
+.wa-in span{flex:1;display:flex;justify-content:flex-end;background:#fff;border-radius:18px;padding:6px 10px;height:32px;box-shadow:0 0 0 1px #E2E2E2;color:#8696A0}
+.hi{height:26px;background:#F6F6F6;display:grid;place-items:center}
+.hi i{width:124px;height:5px;border-radius:3px;background:#111}
+.agw{position:absolute;z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;pointer-events:none;opacity:0;transform:translateY(14px) scale(.9);transition:opacity .5s ease,transform .6s cubic-bezier(.2,1.4,.4,1)}
+.agw.on{opacity:1;transform:none}
+.agw img{height:150px;width:auto;filter:drop-shadow(0 18px 14px rgba(21,32,26,.22));animation:bob 4.5s ease-in-out infinite}
+.agw.r img{animation-delay:-2.2s}
+.agw .sh{width:70%;height:12px;border-radius:50%;background:radial-gradient(rgba(21,32,26,.22),rgba(21,32,26,0) 70%);margin-top:-6px;animation:shd 4.5s ease-in-out infinite}
+.agw.r .sh{animation-delay:-2.2s}
+.agw .lb{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:7px 13px 7px 10px;font-size:13px;font-weight:700;white-space:nowrap;box-shadow:0 0 0 1.5px var(--pill),0 10px 22px rgba(21,32,26,.08)}
+.agw .lb i{width:9px;height:9px;border-radius:50%}
+.agw.l{left:calc(50% - 300px);top:190px}
+.agw.r{right:calc(50% - 300px);bottom:70px}
+@keyframes bob{50%{transform:translateY(-10px)}}
+@keyframes shd{50%{transform:scale(.82);opacity:.7}}
+.js .agw:not(.on){opacity:0}
+.nojs .agw{opacity:1;transform:none}
+@media (max-width:1100px){.agw.l{left:0}.agw.r{right:0}}
+@media (max-width:560px){.stage-h{min-height:640px}.screen{height:600px}.phone{width:300px;border-radius:52px}.screen{border-radius:42px}.agw img{height:92px}.agw .lb{font-size:11.5px;padding:5px 10px 5px 8px}.agw.l{left:-4px;top:120px}.agw.r{right:-4px;bottom:40px}.ring{display:none}}
 .typing{display:inline-flex;gap:3px;padding:4px 2px}
 .typing i{width:6px;height:6px;border-radius:50%;background:#9AA6A0;animation:ty 1.2s infinite}
 .typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
@@ -363,37 +385,41 @@ footer a:hover{color:var(--ink)}
     <div class="in">
       <div class="tx">
         <span class="pl" style="align-self:flex-start"><i class="dot"></i>Pré-lançamento · lista de espera aberta</span>
-        <h1>10 ajudantes do agro <span class="g">no WhatsApp.</span></h1>
-        <p class="lead">Você manda uma mensagem, um áudio ou uma foto no WhatsApp da Germo. O ajudante certo responde e devolve o trabalho pronto: a planilha, o relatório da visita, o post, a análise do contrato, a previsão do tempo da sua propriedade.</p>
+        <h1>10 ajudantes, <span class="g">no seu WhatsApp.</span></h1>
+        <p class="lead">Você manda uma mensagem, um áudio ou uma foto no WhatsApp da Germo. O ajudante certo responde e devolve o trabalho pronto: a planilha, o relatório da visita, o post, a análise do contrato, a previsão do tempo da sua propriedade e muito mais.</p>
         <div class="acts">
           <a class="btn pr" href="#planos">Entrar na lista de espera <span class="ar" aria-hidden="true">→</span></a>
           <a class="btn ol" href="#como">Ver como funciona</a>
         </div>
         <div class="chk">
-          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Nada para baixar</span>
-          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Sem senha</span>
-          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Funciona por áudio</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Não instale nada</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Sem login e senha</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Somente o seu WhatsApp</span>
         </div>
       </div>
 
-      <div class="phone-wrap" aria-label="Exemplo de conversa no WhatsApp da Germo">
-        <img class="peek a" src="/img/planilha.webp" alt="" width="126" height="240">
-        <img class="peek b" src="/img/clima.webp" alt="" width="164" height="240">
+      <div class="stage-h" aria-label="Exemplo de conversa no WhatsApp da Germo">
+        <div class="ring" aria-hidden="true"></div><div class="disc" aria-hidden="true"></div>
+        <div class="agw l" data-k="clima" aria-hidden="true"><img src="/img/clima.webp" alt=""><span class="sh"></span><span class="lb"><i style="background:#1FC7B6"></i>clima respondeu</span></div>
+        <div class="agw r" data-k="planilha" aria-hidden="true"><img src="/img/planilha.webp" alt=""><span class="sh"></span><span class="lb"><i style="background:#19E35F"></i>planilha respondeu</span></div>
         <div class="phone">
           <div class="screen">
+            <span class="island" aria-hidden="true"></span>
+            <div class="sb" aria-hidden="true"><span>06:11</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#000"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#000"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#000"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#000"/></svg><svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.4 1.4a4.5 4.5 0 0 0-6.4 0zM1 4.4a9.9 9.9 0 0 1 14 0l-1.4 1.4a7.9 7.9 0 0 0-11.2 0z" fill="#000"/></svg><svg width="26" height="12" viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3.5" fill="none" stroke="#000" stroke-opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#000"/><path d="M24 4v4a2 2 0 0 0 0-4z" fill="#000" fill-opacity=".4"/></svg></span></div>
             <div class="wa-top">
-              <span class="bk" aria-hidden="true">‹</span>
+              <span class="bk" aria-hidden="true"><svg width="12" height="20" viewBox="0 0 12 20"><path d="M10 2 2 10l8 8" fill="none" stroke="#007AFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>3</span>
               <span class="wa-av" aria-hidden="true"><svg width="22" height="22" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="28"/><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></span>
-              <div><b>Germo <svg class="ver" viewBox="0 0 24 24" aria-label="verificado"><path fill="#25D366" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path d="m8 12.3 2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>10 ajudantes · online</small></div>
+              <div class="nm"><b>Germo <svg class="ver" viewBox="0 0 24 24" aria-label="verificado"><path fill="#25D366" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path d="m8 12.3 2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>online</small></div>
+              <span class="act" aria-hidden="true"><svg width="24" height="18" viewBox="0 0 24 18"><rect x="1.2" y="3" width="14" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 7.5 6-3.5v10l-6-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><svg width="20" height="20" viewBox="0 0 24 24"><path d="M6.6 3.5 9 3l2 4.6-1.9 1.5a11 11 0 0 0 5.8 5.8l1.5-1.9L21 15l-.5 2.4A2.5 2.5 0 0 1 18 19.5C10.5 19.2 4.8 13.5 4.5 6a2.5 2.5 0 0 1 2.1-2.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
             </div>
             <div class="wa-body seq" id="heroChat">
               <div class="day">Hoje</div>
-              <div class="bub o"><div class="aud"><span class="face">JP</span><span class="pp"><svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M1 1.2v13.6L13 8z" fill="#54656F"/></svg></span><span class="wave" data-w="5,9,14,8,18,12,6,15,20,11,7,13,17,9,5,12,16,8,6,10"></span></div><span class="tr">"Monta uma planilha de salário dos meus 4 funcionários, com hora extra."</span><span class="t">06:12 <svg width="16" height="11" viewBox="0 0 16 11" aria-hidden="true"><path d="M1 6l3 3 6-7M6 9l1 1 7-8" fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round"/></svg></span></div>
-              <div class="bub i"><span class="who" style="color:#13A94B">planilha</span>Pronto. Montei com nome, função, salário, horas extras e o total do mês. É só abrir.<div class="file"><span class="fi" style="background:#1D8A4A">XLSX</span><span><b>Salarios_Fazenda.xlsx</b><small>Planilha · 4 funcionários</small></span></div><span class="t">06:12</span></div>
-              <div class="bub o">E amanhã cedo, dá para pulverizar?<span class="t">06:13 <svg width="16" height="11" viewBox="0 0 16 11" aria-hidden="true"><path d="M1 6l3 3 6-7M6 9l1 1 7-8" fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round"/></svg></span></div>
-              <div class="bub i"><span class="who" style="color:#16A898">clima</span>Amanhã das 6h às 9h o vento fica entre 4 e 8 km/h e não tem chuva prevista. Depois das 10h o vento passa de 15 km/h. Melhor janela: até as 9h.<span class="t">06:13</span></div>
+              <div class="bub o"><div class="ap" data-a="1"><img class="face" src="https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/b35e47d7-6dcd-4b71-a619-fbc9ddd53496.jpg" alt=""><button type="button" aria-label="Ouvir o áudio"><svg width="16" height="18" viewBox="0 0 14 16" aria-hidden="true"><path d="M1 1.2v13.6L13 8z" fill="currentColor"/></svg></button><span class="wv" aria-hidden="true"></span><span class="tm">0:08</span></div><span class="tr">"Ô Germo, bom dia! Me avisa se vai chover amanhã aqui na fazenda e já me faz uma planilha com o salário dos meus funcionários."</span><span class="t">06:10 <svg width="16" height="11" viewBox="0 0 16 11" aria-hidden="true"><path d="M1 6l3 3 6-7M6 9l1 1 7-8" fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round"/></svg></span></div>
+              <div class="bub i" data-ag="clima"><span class="who" style="color:#16A898">clima</span>Chuva forte amanhã a partir das 15h, cerca de 40 mm. Dá tempo de recolher o feno.<br><span class="chip2">Amanhã · 15h · 40 mm</span><span class="t">06:10</span></div>
+              <div class="bub i" data-ag="planilha"><span class="who" style="color:#13A94B">planilha</span>Pronto, montei a planilha da equipe com o total do mês.<div class="file"><span class="fi" style="background:#1D8A4A">XLSX</span><span><b>Salários da equipe.xlsx</b><small>Planilha · 4 funcionários</small></span></div><span class="t">06:11</span></div>
             </div>
-            <div class="wa-in" aria-hidden="true"><span>Mensagem</span><i><svg width="14" height="18" viewBox="0 0 14 18"><rect x="4" y="1" width="6" height="10" rx="3" fill="#fff"/><path d="M1.5 8.5a5.5 5.5 0 0 0 11 0M7 14v3" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></i></div>
+            <div class="wa-in" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M10 3v14M3 10h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#8696A0" stroke-width="1.8"/><path d="M8.5 14.5a4.5 4.5 0 0 0 7 0" fill="none" stroke="#8696A0" stroke-width="1.8" stroke-linecap="round"/><circle cx="9" cy="10" r="1.2" fill="#8696A0"/><circle cx="15" cy="10" r="1.2" fill="#8696A0"/></svg></span><svg width="22" height="20" viewBox="0 0 24 22"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H8l1.6-2.2h4.8L16 5h2.5A2.5 2.5 0 0 1 21 7.5v9A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><svg width="16" height="22" viewBox="0 0 16 22"><rect x="4.5" y="1" width="7" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M1.5 10a6.5 6.5 0 0 0 13 0M8 16.5V21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <div class="hi" aria-hidden="true"><i></i></div>
           </div>
         </div>
       </div>
@@ -587,9 +613,9 @@ const nav=$('nav');addEventListener('scroll',()=>nav.classList.toggle('sc',scrol
 
 /* conversa do herói entrando em sequência */
 (function(){const box=$('heroChat');const items=[...box.children];const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(rm){items.forEach(i=>i.classList.add('on'));return}
+  if(rm){items.forEach(i=>i.classList.add('on'));document.querySelectorAll('.agw').forEach(w=>w.classList.add('on'));return}
   let i=0;const next=()=>{if(i>=items.length)return;const el=items[i++];
-    if(el.classList.contains('i')){const t=document.createElement('div');t.className='bub i on';t.innerHTML='<span class="typing"><i></i><i></i><i></i></span>';box.insertBefore(t,el);setTimeout(()=>{t.remove();el.classList.add('on');setTimeout(next,900)},1100)}
+    if(el.classList.contains('i')){const t=document.createElement('div');t.className='bub i on';t.innerHTML='<span class="typing"><i></i><i></i><i></i></span>';box.insertBefore(t,el);setTimeout(()=>{t.remove();el.classList.add('on');if(el.dataset.ag){const w=document.querySelector('.agw[data-k="'+el.dataset.ag+'"]');if(w)w.classList.add('on')}setTimeout(next,900)},1100)}
     else{el.classList.add('on');setTimeout(next,el.classList.contains('day')?300:800)}};
   setTimeout(next,400);})();
 
@@ -676,12 +702,14 @@ function toggleAp(ap,seek){if(curAp===ap&&!player.paused&&seek==null){player.pau
   if(seek!=null&&!player.duration)player.addEventListener('loadedmetadata',function f(){player.removeEventListener('loadedmetadata',f);go()});
   go();ap.classList.add('playing');ap.querySelector('button').innerHTML=pause;ap.querySelector('button').setAttribute('aria-label','Pausar o áudio')}
 $('ctabs').innerHTML=CASES.map((c,i)=>`<button class="tab" role="tab" id="ct${i}" aria-selected="${i===0}" aria-controls="case" data-i="${i}">${c.n}</button>`).join('');
-function showCase(i){cc=i;const c=CASES[i];player.pause();stopAp();document.querySelectorAll('#ctabs .tab').forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});$('case').setAttribute('aria-labelledby','ct'+i);
+function showCase(i){cc=i;const c=CASES[i];if(curAp&&curAp.closest('#case')){player.pause();stopAp()}document.querySelectorAll('#ctabs .tab').forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});$('case').setAttribute('aria-labelledby','ct'+i);
   $('case').innerHTML=`<div class="tx"><div class="persona"><img src="${CF+IMG[c.face]}" alt="Foto de ${esc(c.who)}"><span><b>${esc(c.who)}</b><small>${esc(c.sub)}</small></span></div><h3 style="font-size:clamp(26px,3vw,34px);font-weight:500;letter-spacing:-.035em">${esc(c.h)}</h3><p>${esc(c.p)}</p><span class="listen"><i></i>Toque no play para ouvir o áudio</span><p style="font-weight:700;color:var(--ink);margin-top:4px">Ajudantes que responderam:</p><div class="used">${c.u.map(k=>`<span><img src="/img/${k}.webp" alt="">${label(k)}</span>`).join('')}</div></div><div class="convo">${c.chat()}</div>`;}
 $('ctabs').addEventListener('click',e=>{const b=e.target.closest('.tab');if(b)showCase(+b.dataset.i)});
 $('ctabs').addEventListener('keydown',e=>{const n={ArrowRight:1,ArrowLeft:-1}[e.key];if(n==null)return;e.preventDefault();const i=(cc+n+CASES.length)%CASES.length;showCase(i);$('ctabs').children[i].focus()});
 $('case').addEventListener('click',e=>{const ap=e.target.closest('.ap');if(!ap)return;const wv=e.target.closest('.wv');if(wv){const r=wv.getBoundingClientRect();toggleAp(ap,Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)))}else if(e.target.closest('button'))toggleAp(ap)});
 showCase(0);
+document.querySelectorAll('#heroChat .ap').forEach(ap=>{ap.querySelector('.wv').innerHTML=WV[ap.dataset.a].split(',').map(v=>`<i style="height:${v}px"></i>`).join('')});
+$('heroChat').addEventListener('click',e=>{const ap=e.target.closest('.ap');if(!ap)return;const wv=e.target.closest('.wv');if(wv){const r=wv.getBoundingClientRect();toggleAp(ap,Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)))}else if(e.target.closest('button'))toggleAp(ap)});
 
 /* entrada suave das seções */
 const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('vis');io.unobserve(en.target)}}),{rootMargin:'0px 0px -8% 0px'}):null;
