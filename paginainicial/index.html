@@ -192,10 +192,11 @@ section{padding-block:clamp(64px,9vw,112px)}
 .ways{display:flex;gap:6px;flex-wrap:wrap}
 .ways span{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700;background:var(--wa-out);color:#1F4D2C}
 .ways svg{flex:none}
-.noapp{display:flex;gap:8px;align-items:center}
-.noapp i{width:30px;height:30px;border-radius:9px;background:var(--soft);box-shadow:0 0 0 1.5px var(--ring);position:relative}
-.noapp i::after{content:"";position:absolute;left:-3px;right:-3px;top:50%;height:2px;background:#C8402F;transform:rotate(-35deg)}
-.noapp span{font-size:12px;font-weight:700;color:var(--mute)}
+.nopw{display:flex;align-items:center;gap:8px;width:100%}
+.nopw .fld{flex:1;min-width:0;display:flex;align-items:center;gap:8px;border-radius:12px;padding:8px 12px;background:var(--soft);box-shadow:0 0 0 1.5px var(--ring)}
+.nopw .fld small{font-size:11px;font-weight:700;color:var(--mute)}
+.nopw .fld i{font-style:normal;letter-spacing:.12em;color:#9AA6A0;text-decoration:line-through;text-decoration-color:#C8402F;text-decoration-thickness:2px}
+.nopw .tg{flex:none;font-size:11.5px;font-weight:800;color:var(--verde-lab);background:#E3F8EA;border-radius:999px;padding:6px 10px}
 /* passos */
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .step{background:#fff;border-radius:28px;padding:22px 22px 20px;box-shadow:0 0 0 1.5px var(--ring),0 22px 44px rgba(21,32,26,.05);display:flex;flex-direction:column;gap:10px;min-width:0}
@@ -624,7 +625,7 @@ footer a:hover{color:var(--ink)}
         <div class="fact dk"><div class="top"><b class="num">1</b><em>número</em></div><span>Todos os ajudantes respondem no mesmo chat do WhatsApp.</span><div class="vis"><div class="ct"><span class="av"><svg width="18" height="18" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="28"/><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></span><span><b>Germo <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path d="m8 12.3 2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>10 ajudantes · online</small></span></div></div></div>
         <div class="fact"><div class="top"><b class="num">10</b><em>ajudantes</em></div><span>Cada um com uma função do dia a dia do agro.</span><div class="vis"><div class="crew10" aria-hidden="true"><img src="/img/planilha.webp" alt=""><img src="/img/clima.webp" alt=""><img src="/img/campo.webp" alt=""><img src="/img/agronomo.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/viral.webp" alt=""><img src="/img/vitrine.webp" alt=""><img src="/img/apresenta.webp" alt=""><img src="/img/juridico.webp" alt=""><img src="/img/contabil.webp" alt=""></div></div></div>
         <div class="fact"><div class="top"><b class="num">4</b><em>jeitos de pedir</em></div><span>Do jeito que você já usa o WhatsApp.</span><div class="vis"><div class="ways"><span>Texto</span><span>Áudio</span><span>Foto</span><span>PDF</span></div></div></div>
-        <div class="fact"><div class="top"><b class="num">0</b><em>aplicativo novo</em></div><span>Nada de cadastro em site nem senha para lembrar.</span><div class="vis"><div class="noapp" aria-hidden="true"><i></i><i></i><i></i><span>Nada para baixar</span></div></div></div>
+        <div class="fact"><div class="top"><b class="num">0</b><em>aplicativo novo</em></div><span>Nada de cadastro em site nem senha para lembrar.</span><div class="vis"><div class="nopw" aria-hidden="true"><span class="fld"><small>Senha</small><i>••••••••</i></span><span class="tg">Não precisa</span></div></div></div>
       </div>
     </div>
   </section>
