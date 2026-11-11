@@ -193,9 +193,9 @@ section{padding-block:clamp(64px,9vw,112px)}
 .ways span{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700;background:var(--wa-out);color:#1F4D2C}
 .ways svg{flex:none}
 .nopw{display:flex;align-items:center;gap:8px;width:100%;flex-wrap:wrap}
-.nopw .fld{flex:1 1 120px;min-width:0;display:flex;align-items:center;gap:8px;border-radius:12px;padding:8px 12px;background:var(--soft);box-shadow:0 0 0 1.5px var(--ring)}
+.nopw .fld{flex:1 1 120px;min-width:0;overflow:hidden;white-space:nowrap;display:flex;align-items:center;gap:8px;border-radius:12px;padding:8px 12px;background:var(--soft);box-shadow:0 0 0 1.5px var(--ring)}
 .nopw .fld small{font-size:11px;font-weight:700;color:var(--mute)}
-.nopw .fld i{font-style:normal;letter-spacing:.12em;color:#9AA6A0;text-decoration:line-through;text-decoration-color:#C8402F;text-decoration-thickness:2px}
+.nopw .fld i{font-style:normal;letter-spacing:.08em;overflow:hidden;color:#9AA6A0;text-decoration:line-through;text-decoration-color:#C8402F;text-decoration-thickness:2px}
 .nopw .tg{flex:none;font-size:11.5px;font-weight:800;color:var(--verde-lab);background:#E3F8EA;border-radius:999px;padding:6px 10px}
 /* passos */
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
@@ -535,7 +535,6 @@ footer a:hover{color:var(--ink)}
 
 /* celular: prático para quem está no campo */
 .dots{display:none}
-.mcta{display:none}
 @media (max-width:640px){
   body{font-size:16px}
   section{padding-block:56px}
@@ -569,10 +568,18 @@ footer a:hover{color:var(--ink)}
   .faq details p{padding:0 18px 20px;font-size:16px}
   footer nav a{display:inline-block;padding:10px 0}
   footer .in{flex-direction:column;align-items:flex-start;gap:8px}
-  .mcta{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:40;align-items:center;justify-content:center;gap:10px;background:var(--broto);color:#0A0C0B;border-radius:999px;padding:17px 20px;font-weight:800;font-size:17px;text-decoration:none;box-shadow:0 14px 30px -10px rgba(21,32,26,.45);transform:translateY(140%);transition:transform .3s ease}
-  .mcta.show{transform:none}
-  .mcta span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--noite);color:var(--broto);font-size:15px}
-  body{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  .convo .bub{max-width:92%}
+  .convo .ap{min-width:0;width:100%;gap:6px}
+  .convo .ap .face{width:34px;height:34px}
+  .convo .ap .wv{gap:1px;min-width:0}
+  .convo .ap .wv i{min-width:1.5px;max-width:3px}
+  .convo .ap .tm{min-width:28px;font-size:11px}
+  .island{width:80px;height:26px;top:10px}
+  .sb{padding:13px 20px 4px 26px;font-size:13.5px}
+  .sb .ic{gap:3px}
+  .sb .ic svg{transform:scale(.85)}
+  .crew10{overflow:hidden;max-width:100%}
+  .crew10 img{height:32px;margin-left:-11px}
 }
 
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
@@ -667,7 +674,7 @@ footer a:hover{color:var(--ink)}
         <div class="fact dk"><div class="top"><b class="num">1</b><em>número</em></div><span>Todos os ajudantes respondem no mesmo chat do WhatsApp.</span><div class="vis"><div class="ct"><span class="av"><svg width="18" height="18" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="28"/><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></span><span><b>Germo <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path d="m8 12.3 2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>10 ajudantes · online</small></span></div></div></div>
         <div class="fact"><div class="top"><b class="num">10</b><em>ajudantes</em></div><span>Cada um com uma função do dia a dia do agro.</span><div class="vis"><div class="crew10" aria-hidden="true"><img src="/img/planilha.webp" alt=""><img src="/img/clima.webp" alt=""><img src="/img/campo.webp" alt=""><img src="/img/agronomo.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/viral.webp" alt=""><img src="/img/vitrine.webp" alt=""><img src="/img/apresenta.webp" alt=""><img src="/img/juridico.webp" alt=""><img src="/img/contabil.webp" alt=""></div></div></div>
         <div class="fact"><div class="top"><b class="num">4</b><em>jeitos de pedir</em></div><span>Do jeito que você já usa o WhatsApp.</span><div class="vis"><div class="ways"><span>Texto</span><span>Áudio</span><span>Foto</span><span>PDF</span></div></div></div>
-        <div class="fact"><div class="top"><b class="num">0</b><em>aplicativo novo</em></div><span>Nada de cadastro em site nem senha para lembrar.</span><div class="vis"><div class="nopw" aria-hidden="true"><span class="fld"><small>Senha</small><i>••••••••</i></span><span class="tg">Não precisa</span></div></div></div>
+        <div class="fact"><div class="top"><b class="num">0</b><em>aplicativo novo</em></div><span>Nada de cadastro em site nem senha para lembrar.</span><div class="vis"><div class="nopw" aria-hidden="true"><span class="fld"><small>Senha</small><i>••••••</i></span><span class="tg">Não precisa</span></div></div></div>
       </div>
     </div>
   </section>
@@ -854,14 +861,12 @@ footer a:hover{color:var(--ink)}
         <span class="eyebrow">Germo · para quem faz o agro</span>
         <h2>Os ajudantes estão prontos. <span class="g">Falta você.</span></h2>
         <p class="lead" style="margin:0 auto">Entre na lista de espera e receba a Germo antes do lançamento.</p>
-        <div class="acts"><a class="btn dk" href="#planos">Entrar na lista de espera <span class="ar" aria-hidden="true">→</span></a></div>
         <div class="lineup" aria-hidden="true"><img src="/img/viral.webp" alt=""><img src="/img/vitrine.webp" alt=""><img src="/img/apresenta.webp" alt=""><img src="/img/planilha.webp" alt=""><img src="/img/campo.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/clima.webp" alt=""><img src="/img/agronomo.webp" alt=""><img src="/img/juridico.webp" alt=""><img src="/img/contabil.webp" alt=""></div>
       </div>
     </div>
   </section>
 </main>
 
-<a class="mcta" id="mcta" href="#planos">Entrar na lista de espera <span aria-hidden="true">→</span></a>
 <footer>
   <div class="in">
     <span class="wm" style="font-size:17px;color:var(--ink)">GERMO<b>.</b></span>
@@ -1007,9 +1012,7 @@ wf.addEventListener('submit',async e=>{e.preventDefault();
     d.innerHTML='<span>'+kids.map((_,i)=>'<i'+(i?'':' class="on"')+'></i>').join('')+'</span><em style="font-style:normal"><b>1</b> de '+kids.length+' · arraste para o lado</em>';
     el.after(d);const dots=d.querySelectorAll('i'),num=d.querySelector('b');
     el.addEventListener('scroll',()=>{let k=0,best=1e9;kids.forEach((c,i)=>{const v=Math.abs(c.offsetLeft-el.offsetLeft-el.scrollLeft-16);if(v<best){best=v;k=i}});dots.forEach((x,i)=>x.classList.toggle('on',i===k));num.textContent=k+1},{passive:true});});
-  const m=$('mcta');const pl=$('planos');const hero=document.querySelector('.hero');let inPlans=false,pastHero=false;
-  const upd=()=>m.classList.toggle('show',pastHero&&!inPlans);
-  if('IntersectionObserver' in window){new IntersectionObserver(e=>{inPlans=e[0].isIntersecting;upd()}).observe(pl);new IntersectionObserver(e=>{pastHero=!e[0].isIntersecting;upd()}).observe(hero.querySelector('.acts'))}
+
 })();
 </script>
 </body>
