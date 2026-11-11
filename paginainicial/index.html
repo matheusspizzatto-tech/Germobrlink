@@ -533,6 +533,48 @@ footer nav{display:flex;gap:18px;flex-wrap:wrap}
 footer a{text-decoration:none}
 footer a:hover{color:var(--ink)}
 
+/* celular: prático para quem está no campo */
+.dots{display:none}
+.mcta{display:none}
+@media (max-width:640px){
+  body{font-size:16px}
+  section{padding-block:56px}
+  .head{margin-bottom:24px}
+  .hero{padding-top:24px}
+  .hero .acts{flex-direction:column}
+  .hero .acts .btn,.end .acts .btn{width:100%;padding:18px 22px;font-size:17px}
+  .chk{gap:10px 16px;font-size:15px}
+  .steps,.why,.gal{display:flex;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;gap:12px;margin:0 -16px;padding:4px 16px 6px;scroll-padding-left:16px;scrollbar-width:none;align-items:flex-start}
+  .steps::-webkit-scrollbar,.why::-webkit-scrollbar,.gal::-webkit-scrollbar,.pick::-webkit-scrollbar,#ctabs::-webkit-scrollbar{display:none}
+  .steps>*,.why>*,.gal>*{flex:0 0 86%;scroll-snap-align:start}
+  .gal>.dl.big{flex-basis:90%}
+  .step,.wy,.dl{min-height:100%}
+  .dots{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px;font-size:13.5px;font-weight:700;color:var(--mute)}
+  .dots span{display:flex;gap:5px}
+  .dots i{width:7px;height:7px;border-radius:4px;background:var(--pill);transition:width .2s,background .2s}
+  .dots i.on{width:20px;background:var(--verde)}
+  .dots b{color:var(--ink);font-weight:800}
+  .pick{display:flex;overflow-x:auto;gap:8px;margin:0 -16px;padding:4px 16px 10px;scroll-snap-type:x proximity;scrollbar-width:none}
+  .pick .ag{flex:0 0 84px;padding:10px 4px 9px;border-radius:18px;scroll-snap-align:start}
+  .pick .ag img{height:60px}
+  .pick .ag span{font-size:13px}
+  #ctabs{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;margin:0 -16px 22px;padding:2px 16px 6px;scrollbar-width:none}
+  #ctabs .tab{flex:none;padding:13px 18px}
+  .ap button{width:44px;height:44px}
+  .wa-body .ap button{width:40px;height:40px}
+  .dl .pv .doc2{zoom:1.22}
+  .dl .ft b{font-size:16px}
+  .dl .ft small{font-size:13.5px}
+  .faq summary{padding:20px 18px;font-size:17px;min-height:64px}
+  .faq details p{padding:0 18px 20px;font-size:16px}
+  footer nav a{display:inline-block;padding:10px 0}
+  footer .in{flex-direction:column;align-items:flex-start;gap:8px}
+  .mcta{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:40;align-items:center;justify-content:center;gap:10px;background:var(--broto);color:#0A0C0B;border-radius:999px;padding:17px 20px;font-weight:800;font-size:17px;text-decoration:none;box-shadow:0 14px 30px -10px rgba(21,32,26,.45);transform:translateY(140%);transition:transform .3s ease}
+  .mcta.show{transform:none}
+  .mcta span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--noite);color:var(--broto);font-size:15px}
+  body{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+}
+
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .rv.vis{opacity:1;transform:none}
 .nojs .rv{opacity:1;transform:none}
@@ -819,6 +861,7 @@ footer a:hover{color:var(--ink)}
   </section>
 </main>
 
+<a class="mcta" id="mcta" href="#planos">Entrar na lista de espera <span aria-hidden="true">→</span></a>
 <footer>
   <div class="in">
     <span class="wm" style="font-size:17px;color:var(--ink)">GERMO<b>.</b></span>
@@ -957,6 +1000,17 @@ wf.addEventListener('submit',async e=>{e.preventDefault();
   try{await fetch(URL_PLANILHA,{method:'POST',mode:'no-cors',body:new URLSearchParams({nome:fn.value.trim(),whatsapp:fw.value.trim(),cidade:fc.value.trim(),
     origem:q.get('origem')||q.get('utm_source')||'paginainicial',campanha:q.get('utm_campaign')||'landing-page'})})}catch(_){}
   $('wait').classList.add('done');});
+
+/* celular: carrosséis com indicador e botão fixo */
+(function(){
+  document.querySelectorAll('.steps,.why,.gal').forEach(el=>{const kids=[...el.children];const d=document.createElement('div');d.className='dots';d.setAttribute('aria-hidden','true');
+    d.innerHTML='<span>'+kids.map((_,i)=>'<i'+(i?'':' class="on"')+'></i>').join('')+'</span><em style="font-style:normal"><b>1</b> de '+kids.length+' · arraste para o lado</em>';
+    el.after(d);const dots=d.querySelectorAll('i'),num=d.querySelector('b');
+    el.addEventListener('scroll',()=>{let k=0,best=1e9;kids.forEach((c,i)=>{const v=Math.abs(c.offsetLeft-el.offsetLeft-el.scrollLeft-16);if(v<best){best=v;k=i}});dots.forEach((x,i)=>x.classList.toggle('on',i===k));num.textContent=k+1},{passive:true});});
+  const m=$('mcta');const pl=$('planos');const hero=document.querySelector('.hero');let inPlans=false,pastHero=false;
+  const upd=()=>m.classList.toggle('show',pastHero&&!inPlans);
+  if('IntersectionObserver' in window){new IntersectionObserver(e=>{inPlans=e[0].isIntersecting;upd()}).observe(pl);new IntersectionObserver(e=>{pastHero=!e[0].isIntersecting;upd()}).observe(hero.querySelector('.acts'))}
+})();
 </script>
 </body>
 </html>
