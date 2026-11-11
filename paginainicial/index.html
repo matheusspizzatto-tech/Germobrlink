@@ -11,7 +11,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%2319E35F%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Manrope:wght@400..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Manrope:wght@400..800&display=swap">
 <style>
 :root{
   --bg:#FFFFFF; --soft:#F5F8F5; --tint:#D6F7E0; --hero1:#E9FBEF; --hero2:#B7EFCB;
@@ -285,65 +285,103 @@ section{padding-block:clamp(64px,9vw,112px)}
 @media (max-width:560px){.why{grid-template-columns:minmax(0,1fr)}}
 
 /* entregas */
-.outs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:40px}
-.out{background:#fff;border-radius:22px;padding:18px 16px;box-shadow:0 0 0 1.5px var(--ring);display:flex;flex-direction:column;gap:10px;min-width:0}
-.out .fi{width:34px;height:42px;border-radius:7px;display:grid;place-items:center;font-size:10.5px;font-weight:800;color:#fff}
-.out b{font-size:15px}
-.out span{font-size:13.5px;color:var(--mute);font-weight:600;line-height:1.4}
-@media (max-width:980px){.outs{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:520px){.outs{grid-template-columns:repeat(2,minmax(0,1fr))}}
-
-
-/* entregas */
 .gal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .dl{background:#fff;border-radius:26px;box-shadow:0 0 0 1.5px var(--ring),0 22px 44px rgba(21,32,26,.05);overflow:hidden;display:flex;flex-direction:column;min-width:0}
-.dl .pv{height:230px;background:var(--soft);padding:16px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.dl .ft{display:flex;align-items:center;gap:10px;padding:14px 16px;border-top:1px solid var(--line)}
-.dl .ft img{width:30px;height:34px;object-fit:contain;flex:none}
-.dl .ft b{display:block;font-size:15px}
-.dl .ft small{display:block;font-size:12.5px;color:var(--mute);font-weight:600}
-.mini-xl{width:100%;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 8px 20px rgba(21,32,26,.08);font-size:11px}
-.mini-xl .t{background:#1D8A4A;color:#fff;font-weight:700;padding:7px 10px}
-.mini-xl table{width:100%;border-collapse:collapse;min-width:0}
-.mini-xl td{padding:5px 10px;border-top:1px solid #EEF2EF;white-space:nowrap;font-size:11px}
-.mini-xl tr.h td{background:#F2F7F3;font-weight:800;color:#3E5247;border-top:0}
-.mini-xl tr.tt td{font-weight:800;background:#F2F7F3}
-.mini-xl td.r{text-align:right;font-variant-numeric:tabular-nums}
-.page{width:150px;height:200px;background:#fff;border-radius:6px;box-shadow:0 10px 24px rgba(21,32,26,.12);padding:12px;display:flex;flex-direction:column;gap:6px;font-size:7.5px;color:#3E5247;transform:rotate(-2deg)}
-.page .hd{display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:8px;color:#15201A}
-.page .hd i{font-style:normal;background:#C8402F;color:#fff;border-radius:3px;padding:1px 4px;font-size:6.5px}
-.page .ln{height:4px;border-radius:2px;background:#E7ECE8}
-.page .ln.s{width:60%}
-.page .ph{height:52px;border-radius:4px;background-size:cover;background-position:center}
-.page .rc{font-weight:800;color:#15201A;font-size:7.5px;margin-top:2px}
-.page .mk{background:#FFF1B8;border-radius:2px;padding:2px 3px;color:#5C4A00;font-weight:700}
-.sld2{width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;position:relative;background-size:cover;background-position:center;color:#fff;box-shadow:0 10px 24px rgba(21,32,26,.15)}
-.sld2::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,30,20,.9) 0%,rgba(10,30,20,.55) 60%,rgba(10,30,20,.1) 100%)}
-.sld2>*{position:absolute}
-.sld2 .k{left:12px;top:12px;font-size:8.5px;font-weight:800;letter-spacing:.12em;color:#4ADE80}
-.sld2 .h{left:12px;top:26px;font-size:19px;font-weight:700;line-height:1.05;font-family:var(--display)}
-.sld2 .f{left:12px;bottom:9px;font-size:9px;opacity:.85}
-.sld2 .n{right:10px;bottom:9px;font-size:9px;opacity:.8}
-.post{width:156px;aspect-ratio:4/5;border-radius:8px;overflow:hidden;position:relative;background-size:cover;background-position:center;box-shadow:0 10px 24px rgba(21,32,26,.15);color:#fff}
-.post::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(10,30,20,.85) 100%)}
-.post span{position:absolute;left:10px;right:10px;bottom:12px;font-family:var(--display);font-weight:700;font-size:15px;line-height:1.05}
-.post small{position:absolute;left:10px;top:10px;font-size:8px;font-weight:800;letter-spacing:.08em;background:#fff;color:#15201A;border-radius:999px;padding:3px 7px}
-.scr{width:100%;background:#fff;border-radius:10px;box-shadow:0 8px 20px rgba(21,32,26,.08);padding:12px;font-size:11.5px;line-height:1.45;display:flex;flex-direction:column;gap:7px}
-.scr div{display:grid;grid-template-columns:52px 1fr;gap:6px}
-.scr b{color:#D9590E;font-variant-numeric:tabular-nums}
-.wamsg{width:100%;background:#EFEAE2;border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:6px}
-.wamsg .bb{align-self:flex-start;max-width:92%;background:#fff;border-radius:10px;border-top-left-radius:0;padding:7px 9px;font-size:11.5px;line-height:1.4;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.dl.big{grid-column:span 2}
+.dl .pv{height:250px;background:var(--soft);padding:18px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.dl.big .pv{height:440px;padding:26px}
+.dl .ft{display:flex;align-items:center;gap:12px;padding:14px 18px;border-top:1px solid var(--line);margin-top:auto}
+.dl .ft img{width:30px;height:36px;object-fit:contain;flex:none}
+.dl .ft b{display:block;font-size:15px;line-height:1.25}
+.dl .ft small{display:block;font-size:12.5px;color:var(--mute);font-weight:600;margin-top:2px}
+.ig-wrap{display:flex;gap:22px;align-items:center;max-width:100%}
+.ig-post{width:300px;flex:none;aspect-ratio:4/5;position:relative;overflow:hidden;border-radius:4px;box-shadow:0 24px 50px -18px rgba(60,10,10,.45);background:#7A1420}
+.ig-post .ph{position:absolute;inset:0 0 34% 0;background-size:cover;background-position:center 30%}
+.ig-post .bd{position:absolute;left:0;right:0;bottom:0;height:34%;background:#7A1420;color:#FBEFE6;padding:14px 18px 16px;display:flex;flex-direction:column;justify-content:space-between}
+.ig-post .bd small{font:700 9px/1 var(--body);letter-spacing:.22em;color:#F6B9A8}
+.ig-post .bd b{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:25px;line-height:1.02;letter-spacing:-.02em}
+.ig-post .bd b i{font-style:italic;color:#FFD3C2}
+.ig-post .bd .ftp{display:flex;justify-content:space-between;font-size:9.5px;font-weight:600;color:#F6CFC2;letter-spacing:.02em}
+.ig-post .mk{position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:7px;background:rgba(251,239,230,.94);border-radius:999px;padding:5px 11px 5px 5px;font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:13px;color:#7A1420}
+.ig-post .mk i{width:20px;height:20px;border-radius:50%;background:#7A1420;display:grid;place-items:center;font-style:normal;font-size:9px;color:#FBEFE6;font-family:var(--body);font-weight:800}
+.ig-post .tag{position:absolute;top:14px;right:14px;background:#7A1420;color:#FBEFE6;border-radius:4px;padding:6px 8px;text-align:center;line-height:1}
+.ig-post .tag b{display:block;font-family:"Fraunces",Georgia,serif;font-size:19px;font-weight:500}
+.ig-post .tag small{font-size:8px;font-weight:700;letter-spacing:.1em}
+.cap{flex:1;min-width:0;max-width:300px;background:#fff;border-radius:16px;box-shadow:0 0 0 1px #ECEFEC,0 14px 30px rgba(21,32,26,.06);padding:16px;font-size:13px;line-height:1.5;color:#2E3A33}
+.cap .u{display:flex;align-items:center;gap:8px;font-weight:800;font-size:12.5px;color:#111;margin-bottom:8px}
+.cap .u i{width:24px;height:24px;border-radius:50%;background:#7A1420;display:grid;place-items:center;color:#FBEFE6;font-style:normal;font-size:9px}
+.cap p{margin:0 0 8px}
+.cap .hs{color:#1E5FA8;font-weight:600}
+.cap .lbl{display:inline-flex;margin-bottom:8px;font-size:10.5px;font-weight:800;letter-spacing:.06em;color:var(--verde-lab);background:#E3F8EA;border-radius:999px;padding:4px 9px}
+.deck{width:100%;max-width:560px;display:flex;flex-direction:column;gap:12px}
+.slide{width:100%;aspect-ratio:16/9;display:grid;grid-template-columns:1.05fr 1fr;border-radius:6px;overflow:hidden;box-shadow:0 24px 50px -20px rgba(30,20,10,.45);background:#1F2A20;color:#F3EEE3}
+.slide .l{padding:20px 22px;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.slide .l small{font-family:"Archivo",sans-serif;font-stretch:75%;font-weight:700;font-size:10px;letter-spacing:.2em;color:#C9A66B}
+.slide .l b{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:27px;line-height:1.02;letter-spacing:-.02em}
+.slide .l b i{color:#E2C38A}
+.slide .dt{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(243,238,227,.2);padding-top:9px;gap:6px}
+.slide .dt span{font-size:8px;letter-spacing:.12em;color:#B9B29F;font-weight:700}
+.slide .dt span b{display:block;font-family:"Archivo",sans-serif;font-stretch:75%;font-size:16px;letter-spacing:0;color:#F3EEE3;font-weight:700;margin-top:2px;line-height:1.1}
+.slide .r{background-size:cover;background-position:center}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.th{aspect-ratio:16/9;border-radius:4px;background:#F3EEE3;box-shadow:0 8px 18px -8px rgba(30,20,10,.3);padding:9px 10px;display:flex;flex-direction:column;justify-content:space-between;color:#1F2A20;overflow:hidden}
+.th small{font-family:"Archivo",sans-serif;font-stretch:75%;font-size:7.5px;font-weight:700;letter-spacing:.16em;color:#9A7A3E}
+.th b{font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:11.5px;line-height:1.1}
+.th .bars{display:flex;align-items:flex-end;gap:5px;height:30px}
+.th .bars i{flex:1;background:#C9D2C4;border-radius:2px 2px 0 0}
+.th .bars i:last-child{background:#1F2A20}
+.th .stp{display:flex;gap:4px;align-items:center;font-size:7px;font-weight:700}
+.th .stp i{flex:1;height:2px;background:#C9A66B}
+.th.dk{background:#1F2A20;color:#F3EEE3}
+.th.dk small{color:#C9A66B}
+.doc2{width:172px;height:220px;background:#fff;border-radius:4px;box-shadow:0 14px 30px -12px rgba(21,32,26,.28);padding:14px 14px 12px;display:flex;flex-direction:column;gap:6px;font-size:7.5px;color:#3E5247;transform:rotate(-1.5deg)}
+.doc2 .hd{border-bottom:1px solid #E6EAE7;padding-bottom:6px;margin-bottom:2px}
+.doc2 .hd small{display:block;font-size:6.5px;font-weight:800;letter-spacing:.14em;color:#8A948E}
+.doc2 .hd b{display:block;font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:11.5px;color:#15201A;line-height:1.15;margin-top:2px}
+.doc2 .ln{height:3.5px;border-radius:2px;background:#E9EDEA;flex:none}
+.doc2 .ln.s{width:62%}
+.doc2 .mk{background:#FFF4C9;border-left:2px solid #E0A800;padding:4px 5px;font-weight:700;color:#5C4A00;font-size:7.2px;line-height:1.3}
+.doc2 .ph{height:54px;border-radius:3px;background-size:cover;background-position:center;flex:none}
+.doc2 .kv{display:flex;justify-content:space-between;font-weight:700;color:#15201A}
+.doc2 .ok{color:#13A94B}
+.doc2 .ft2{margin-top:auto;display:flex;justify-content:space-between;font-size:6.5px;color:#8A948E;font-weight:700}
+.ir{width:100%;background:#fff;border-radius:12px;box-shadow:0 10px 24px rgba(21,32,26,.08);overflow:hidden;font-size:11.5px}
+.ir .t{padding:10px 12px;background:#24408E;color:#fff;font-weight:700;display:flex;justify-content:space-between}
+.ir .t small{font-weight:600;opacity:.8}
+.ir .rw{display:flex;justify-content:space-between;padding:7px 12px;border-top:1px solid #EEF1F6;font-variant-numeric:tabular-nums}
+.ir .rw b{font-weight:800}
+.ir .cmp{margin:8px 12px 12px;border-radius:8px;background:#EEF3FF;padding:8px 10px;font-size:10.5px;line-height:1.45;color:#24408E}
+.ir .cmp b{display:block;font-size:11px}
+.leite{width:100%;background:#fff;border-radius:12px;box-shadow:0 10px 24px rgba(21,32,26,.08);overflow:hidden;font-size:11px}
+.leite .t{background:#1D8A4A;color:#fff;font-weight:700;padding:8px 12px;display:flex;justify-content:space-between}
+.leite .t small{opacity:.85;font-weight:600}
+.leite table{width:100%;border-collapse:collapse;min-width:0}
+.leite td{padding:6px 12px;border-top:1px solid #EEF2EF;white-space:nowrap;font-variant-numeric:tabular-nums;font-size:11px}
+.leite tr.h td{background:#F2F7F3;font-weight:800;color:#3E5247;border-top:0;font-size:10px}
+.leite td.r{text-align:right}
+.leite .dn{color:#C8402F;font-weight:800}
+.leite tr.tt td{font-weight:800;background:#F2F7F3}
+.wamsg{width:100%;background:#EFEAE2;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px}
+.wamsg .bb{align-self:flex-start;max-width:94%;background:#fff;border-radius:10px;border-top-left-radius:0;padding:7px 9px;font-size:11.5px;line-height:1.4;box-shadow:0 1px 1px rgba(0,0,0,.08)}
 .wamsg .bb.o{align-self:flex-end;background:#D9FDD3;border-radius:10px;border-top-right-radius:0}
 .wamsg .bb b{display:block;font-size:10.5px;font-weight:800}
-.alrt{width:100%;background:#fff;border-radius:12px;box-shadow:0 8px 20px rgba(21,32,26,.08);padding:12px;display:flex;flex-direction:column;gap:8px;font-size:11.5px}
-.alrt .tp{display:flex;align-items:center;gap:8px;font-weight:800;color:#0F7F73;font-size:11px;letter-spacing:.05em}
-.alrt .tp i{width:8px;height:8px;border-radius:50%;background:#1FC7B6}
+.wamsg .bb .wn{display:block;margin-top:6px;padding-top:6px;border-top:1px solid #EEE;font-size:10px;color:#8A6200;font-weight:700}
+.alrt{width:100%;background:#fff;border-radius:12px;box-shadow:0 10px 24px rgba(21,32,26,.08);padding:12px;display:flex;flex-direction:column;gap:9px;font-size:11.5px;line-height:1.4}
+.alrt .tp{display:flex;align-items:center;gap:8px;font-weight:800;color:#2B5FA8;font-size:10.5px;letter-spacing:.06em}
+.alrt .tp i{width:8px;height:8px;border-radius:50%;background:#5B8DEF}
 .alrt .days{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;text-align:center}
-.alrt .days div{background:#F2F8F7;border-radius:8px;padding:6px 2px;font-size:10px;font-weight:700;color:#3E5247}
-.alrt .days b{display:block;font-size:12px;color:#15201A;margin-top:2px}
-.alrt .days div.hot{background:#1FC7B6;color:#fff}.alrt .days div.hot b{color:#fff}
-@media (max-width:1020px){.gal{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.gal{grid-template-columns:minmax(0,1fr)}}
+.alrt .days div{background:#F1F5FC;border-radius:8px;padding:6px 2px;font-size:9.5px;font-weight:700;color:#3E5247}
+.alrt .days b{display:block;font-size:11.5px;color:#15201A;margin-top:2px;font-variant-numeric:tabular-nums}
+.alrt .days div.hot{background:#2B5FA8;color:#fff}.alrt .days div.hot b{color:#fff}
+.reel{display:flex;gap:14px;align-items:center;width:100%}
+.reel .ph{width:104px;flex:none;aspect-ratio:9/16;border-radius:12px;background-size:cover;background-position:center;position:relative;overflow:hidden;box-shadow:0 14px 28px -12px rgba(40,25,0,.5)}
+.reel .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 40%,rgba(0,0,0,.65))}
+.reel .ph span{position:absolute;left:8px;right:8px;bottom:10px;z-index:1;color:#fff;font-family:"Archivo",sans-serif;font-weight:800;font-size:11px;line-height:1.15}
+.reel .ph span i{font-style:normal;background:#F2C230;color:#15201A;padding:0 3px}
+.reel ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;font-size:11px;line-height:1.35;color:#2E3A33;min-width:0}
+.reel ol b{display:block;font-size:10px;color:#D9590E;font-variant-numeric:tabular-nums}
+@media (max-width:1080px){.gal{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.gal{grid-template-columns:minmax(0,1fr)}.dl.big{grid-column:auto}.dl.big .pv{height:auto;padding:22px 16px}.ig-wrap{flex-direction:column}.ig-post{width:min(300px,100%)}.cap{max-width:none;width:100%}.slide .l b{font-size:20px}.slide .l{padding:12px}.slide .dt span b{font-size:12px}.th b{font-size:9.5px}}
 
 /* memória */
 .mem{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
@@ -586,17 +624,26 @@ footer a:hover{color:var(--ink)}
   <!-- ENTREGAS -->
   <section id="entregas">
     <div class="in">
-      <div class="head rv"><span class="eyebrow">O que você recebe</span><h2>Trabalho pronto, <span class="g">não só resposta.</span></h2><p class="lead">Cada ajudante devolve o arquivo feito, no próprio chat do WhatsApp. É só abrir, usar, mandar ou publicar.</p></div>
+      <div class="head rv"><span class="eyebrow">O que você recebe</span><h2>Trabalho pronto, <span class="g">para o seu tipo de agro.</span></h2><p class="lead">Do morango ao gado, do café à horta. Veja o que os ajudantes entregariam em 10 situações reais do campo, direto no WhatsApp.</p></div>
       <div class="gal">
-        <div class="dl rv"><div class="pv"><div class="mini-xl"><div class="t">Salários da equipe.xlsx</div><table><tr class="h"><td>Funcionário</td><td class="r">Salário</td></tr><tr><td>João Silva</td><td class="r">2.900,00</td></tr><tr><td>Maria Souza</td><td class="r">2.450,00</td></tr><tr><td>Pedro Lima</td><td class="r">3.100,00</td></tr><tr><td>Ana Costa</td><td class="r">2.700,00</td></tr><tr class="tt"><td>Total</td><td class="r">11.150,00</td></tr></table></div></div><div class="ft"><img src="/img/planilha.webp" alt=""><span><b>Planilha pronta</b><small>Com as fórmulas, abre no Excel</small></span></div></div>
-        <div class="dl rv"><div class="pv"><div class="page"><div class="hd">Relatório de visita<i>PDF</i></div><div class="ln"></div><div class="ln s"></div><div class="ph" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/c8e33c43-86d9-45cf-987a-05a4898b7db7.jpg)"></div><div class="rc">Talhão 3 · Soja em R3</div><div class="ln"></div><div class="ln s"></div><div class="rc">Recomendações</div><div class="ln"></div><div class="ln s"></div></div></div><div class="ft"><img src="/img/campo.webp" alt=""><span><b>Relatório da visita</b><small>Do seu áudio para o PDF</small></span></div></div>
-        <div class="dl rv"><div class="pv"><div class="sld2" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/8893e629-9efd-4cb3-b43c-8995d8d5c082.jpg)"><span class="k">ESTÁGIO SUPERVISIONADO</span><span class="h">Relatório de<br>Estágio</span><span class="f">Carolina Souza · Técnica agrícola</span><span class="n">1/12</span></div></div><div class="ft"><img src="/img/apresenta.webp" alt=""><span><b>Apresentação</b><small>Slides prontos para apresentar</small></span></div></div>
-        <div class="dl rv"><div class="pv"><div class="post" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/ade59910-6f95-4642-b6dd-975d04d95b1a.jpg)"><small>CAROL.NOCAMPO</small><span>3 sinais de que a sua soja precisa de atenção</span></div></div><div class="ft"><img src="/img/vitrine.webp" alt=""><span><b>Post e bio</b><small>A arte no tamanho do Instagram</small></span></div></div>
-        <div class="dl rv"><div class="pv"><div class="scr"><div><b>0 a 3 s</b><span>Você sabe quanto perde na colheita?</span></div><div><b>3 a 15 s</b><span>Mostre as perdas no chão.</span></div><div><b>15 a 30 s</b><span>Uma dica e o convite para salvar.</span></div></div></div><div class="ft"><img src="/img/viral.webp" alt=""><span><b>Roteiro de reels</b><small>Cena a cena, com legenda</small></span></div></div>
-        <div class="dl rv"><div class="pv"><div class="wamsg"><div class="bb o">O cliente sumiu depois do orçamento.</div><div class="bb"><b style="color:#B88F0E">vendas</b>Oi, Carlos! Separei as 40 sacas que você pediu e seguro o preço até sexta. Fechamos?</div></div></div><div class="ft"><img src="/img/vendas.webp" alt=""><span><b>Mensagem de venda</b><small>Pronta para copiar e mandar</small></span></div></div>
-        <div class="dl rv"><div class="pv"><div class="alrt"><div class="tp"><i></i>AVISO DO CLIMA</div><span>Chuva forte amanhã a partir das 15h, cerca de 40 mm.</span><div class="days"><div>Hoje<b>0 mm</b></div><div class="hot">Qui<b>40 mm</b></div><div>Sex<b>8 mm</b></div><div>Sáb<b>0 mm</b></div><div>Dom<b>2 mm</b></div></div></div></div><div class="ft"><img src="/img/clima.webp" alt=""><span><b>Aviso do tempo</b><small>Chega antes da chuva e da geada</small></span></div></div>
-        <div class="dl rv"><div class="pv"><div class="page" style="transform:rotate(2deg)"><div class="hd">Contrato de arrendamento<i>PDF</i></div><div class="ln"></div><div class="ln s"></div><div class="ln"></div><span class="mk">Falta: cláusula de renovação</span><div class="ln"></div><div class="ln s"></div><span class="mk">Falta: quem paga o ITR</span><div class="ln"></div><div class="ln s"></div></div></div><div class="ft"><img src="/img/juridico.webp" alt=""><span><b>Contrato analisado</b><small>Os pontos de atenção marcados</small></span></div></div>
+        <div class="dl big rv"><div class="pv"><div class="ig-wrap">
+          <div class="ig-post" role="img" aria-label="Post de Instagram de uma produtora de morango"><div class="ph" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/8b42cec8-a51b-44e3-b668-79895802a247.jpg)"></div><span class="mk"><i>SA</i>Morangos Serra Azul</span><span class="tag"><b>1 kg</b><small>R$ 25</small></span><div class="bd"><small>COLHEITA DE HOJE</small><b>Do pé para a sua mesa <i>em menos de 24 horas.</i></b><span class="ftp"><span>Encomendas pelo WhatsApp</span><span>Atibaia, SP</span></span></div></div>
+          <div class="cap"><span class="lbl">LEGENDA PRONTA</span><div class="u"><i>SA</i>morangosserraazul</div><p>Colhemos hoje cedo, no ponto certo, e separamos as caixas de quem encomendou. Sem câmara fria e sem atravessador: sai do nosso pé direto para a sua casa.</p><p>Caixa de 1 kg por R$ 25. Encomendas até quinta, entrega no sábado em Atibaia e Bragança.</p><span class="hs">#morangos #atibaia #docampoparaamesa</span></div>
+        </div></div><div class="ft"><img src="/img/vitrine.webp" alt=""><span><b>Post e legenda para vender a colheita</b><small>Produtora de morango · Atibaia, SP</small></span></div></div>
+        <div class="dl big rv"><div class="pv"><div class="deck">
+          <div class="slide" role="img" aria-label="Slide de apresentação de café especial para compradores"><div class="l"><small>SÍTIO BOA VISTA · SAFRA 26/27</small><b>Café de altitude, <i>colhido a dedo.</i></b><div class="dt"><span>ALTITUDE<b>1.250 m</b></span><span>VARIEDADE<b>Catuaí Amarelo</b></span><span>PONTUAÇÃO<b>86 SCA</b></span></div></div><div class="r" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/bfc22dc9-8a9d-4738-819b-17cc0cbf958b.jpg)"></div></div>
+          <div class="thumbs" aria-hidden="true"><div class="th"><small>02 · PRODUÇÃO</small><div class="bars"><i style="height:40%"></i><i style="height:55%"></i><i style="height:50%"></i><i style="height:72%"></i><i style="height:92%"></i></div><b>5 safras em alta</b></div><div class="th"><small>03 · PROCESSO</small><div class="stp">Colheita<i></i>Terreiro<i></i>Tulha</div><b>Do pé à saca, sem pressa</b></div><div class="th dk"><small>04 · AMOSTRAS</small><b>Peça a sua amostra de 250 g</b><small style="color:#B9B29F">SUL DE MINAS</small></div></div>
+        </div></div><div class="ft"><img src="/img/apresenta.webp" alt=""><span><b>Apresentação para compradores</b><small>Cafeicultor · Sul de Minas</small></span></div></div>
+        <div class="dl rv"><div class="pv"><div class="doc2"><div class="hd"><small>CONTRATO · 9 PÁGINAS</small><b>Parceria pecuária, gado de corte</b></div><div class="ln"></div><div class="ln s"></div><div class="mk">Atenção: a divisão dos bezerros não está definida</div><div class="ln"></div><div class="ln"></div><div class="ln s"></div><div class="mk">Falta: quem paga vacina, sal e veterinário</div><div class="ln"></div><div class="ln s"></div><div class="ft2"><span>jurídico</span><span>2 pontos de atenção</span></div></div></div><div class="ft"><img src="/img/juridico.webp" alt=""><span><b>Contrato de parceria analisado</b><small>Pecuarista · Mato Grosso</small></span></div></div>
+        <div class="dl rv"><div class="pv"><div class="ir"><div class="t">Resumo do ano · Livro Caixa<small>2026</small></div><div class="rw"><span>Receita bruta</span><b>R$ 612.400</b></div><div class="rw"><span>Despesas da atividade</span><b>R$ 514.000</b></div><div class="rw"><span>Resultado real</span><b>R$ 98.400</b></div><div class="cmp"><b>Base menor: resultado real</b>Os 20% da receita dariam R$ 122.480. Leve este resumo ao seu contador.</div></div></div><div class="ft"><img src="/img/contabil.webp" alt=""><span><b>Resumo para o imposto de renda</b><small>Granja de ovos · Bastos, SP</small></span></div></div>
+        <div class="dl rv"><div class="pv"><div class="leite"><div class="t">Ordenha de novembro<small>litros por dia</small></div><table><tr class="h"><td>Vaca</td><td class="r">Hoje</td><td class="r">Média 30 dias</td></tr><tr><td>Mimosa</td><td class="r">28,0</td><td class="r">27,4</td></tr><tr><td>Estrela</td><td class="r">31,5</td><td class="r">30,1</td></tr><tr><td>Pintada</td><td class="r dn">21,0</td><td class="r">24,8</td></tr><tr><td>Morena</td><td class="r">26,2</td><td class="r">25,9</td></tr><tr class="tt"><td>Total</td><td class="r">106,7</td><td class="r">108,2</td></tr></table></div></div><div class="ft"><img src="/img/planilha.webp" alt=""><span><b>Controle de ordenha</b><small>Pecuária de leite · Castro, PR</small></span></div></div>
+        <div class="dl rv"><div class="pv"><div class="doc2" style="transform:rotate(1.5deg)"><div class="hd"><small>RELATÓRIO DE VISITA · PDF</small><b>Estufa 2, tomate italiano</b></div><div class="ph" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/0a91882a-0f7b-49a7-94da-d8e9cd4daf60.jpg)"></div><div class="kv"><span>Fase</span><span>Frutificação</span></div><div class="kv"><span>Irrigação</span><span class="ok">Em dia</span></div><div class="mk">Desbrotar as plantas da linha 4 nesta semana</div><div class="ln"></div><div class="ln s"></div><div class="ft2"><span>campo</span><span>3 páginas</span></div></div></div><div class="ft"><img src="/img/campo.webp" alt=""><span><b>Relatório da visita na estufa</b><small>Técnica agrícola · Caçador, SC</small></span></div></div>
+        <div class="dl rv"><div class="pv"><div class="wamsg"><div class="bb o">A folha do café está com mancha marrom por cima e parece que tem algo dentro.</div><div class="bb"><b style="color:#C8402F">agrônomo</b>Pelo que você descreveu, pode ser bicho-mineiro. Puxe a pele da mancha: se soltar como papel e tiver uma lagartinha, é ele.<span class="wn">Para a receita do controle, chame o seu agrônomo.</span></div></div></div><div class="ft"><img src="/img/agronomo.webp" alt=""><span><b>Dúvida na lavoura de café</b><small>Cafeicultor · Cerrado Mineiro</small></span></div></div>
+        <div class="dl rv"><div class="pv"><div class="alrt"><div class="tp"><i></i>AVISO DE GEADA</div><span>Madrugada de sábado: mínima entre 0 °C e 2 °C no seu vinhedo. Vale cobrir as mudas na sexta à tarde.</span><div class="days"><div>Qua<b>9 °C</b></div><div>Qui<b>7 °C</b></div><div>Sex<b>4 °C</b></div><div class="hot">Sáb<b>1 °C</b></div><div>Dom<b>5 °C</b></div></div></div></div><div class="ft"><img src="/img/clima.webp" alt=""><span><b>Aviso de geada antes da hora</b><small>Viticultor · Serra Gaúcha</small></span></div></div>
+        <div class="dl rv"><div class="pv"><div class="wamsg"><div class="bb o">Quero vender verdura toda semana para o mercado da Renata. O que eu mando?</div><div class="bb"><b style="color:#B88F0E">vendas</b>Manda assim: "Oi, Renata! Consigo entregar 30 maços de alface e 20 de rúcula toda terça e sexta, colhidos no dia. Fecho a semana por R$ 180. Começamos nesta sexta?"</div></div></div><div class="ft"><img src="/img/vendas.webp" alt=""><span><b>Proposta para um mercado</b><small>Horta orgânica · Ibiúna, SP</small></span></div></div>
+        <div class="dl rv"><div class="pv"><div class="reel"><div class="ph" style="background-image:url(https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/1d315eac-5808-4c3a-9b3b-15ab9ecdddf6.jpg)"><span>Como tiramos o mel <i>sem machucar</i> as abelhas</span></div><ol><li><b>0 a 3 s</b>Close no favo escorrendo. "Você sabe de onde vem esse mel?"</li><li><b>3 a 20 s</b>A fumaça, o quadro e a centrífuga, em 3 cortes.</li><li><b>20 a 30 s</b>O pote pronto e o convite para encomendar.</li></ol></div></div><div class="ft"><img src="/img/viral.webp" alt=""><span><b>Roteiro de reels</b><small>Apicultor · Interior de SP</small></span></div></div>
       </div>
+
     </div>
   </section>
 
