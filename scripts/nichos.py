@@ -167,6 +167,9 @@ for _s in ("pecuaria-leite", "graos", "tecnicos"):
     N[_s]["cat"] = "para"
 N.update(paginas(F, TXT, tabela, contas, msg, dias, doc, slide, post, roteiro, contrato))
 CATS = {"para": ("Soluções", [s for s, *_ in NICHOS_MENU]), "tarefa": ("Tarefas", [s for s, *_ in TAREFAS]), "ajudante": ("Ajudantes", [k for k, *_ in AGENTES])}
+from chats import CHATS
+for _k, _v in CHATS.items():
+    if _k in N: N[_k]["chat"] = _v
 ROT = {s: t for s, t, *_ in NICHOS_MENU}
 ROT.update({s: t for s, t, _ in TAREFAS})
 ROT.update({k: "Ajudante " + nome(k) for k, *_ in AGENTES})
