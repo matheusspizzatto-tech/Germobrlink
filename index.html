@@ -126,17 +126,6 @@ a{color:inherit;text-decoration:none}
   </form>
   <p class="wz-msg" id="wzmsg" role="status" aria-live="polite"></p>
 
-  <a class="card comm" href="#whats" id="cardwz">
-    <div class="txt">
-      <div class="lab">Lista de espera</div>
-      <h2>Receba antes do lançamento</h2>
-      <p>Seja um dos primeiros a usar os 10 ajudantes do agro no WhatsApp.</p>
-    </div>
-    <div class="art" aria-hidden="true"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/b2c200f9-161f-4f07-b362-f1d32a570a72.webp" alt=""></div>
-    <div class="perks"><span><i></i>Acesso antecipado</span><span><i></i>Aviso direto no WhatsApp</span><span><i></i>Sem custo para entrar</span></div>
-    <div class="go"><span aria-hidden="true">↑</span>Coloque seu WhatsApp acima</div>
-  </a>
-
   <a class="card site" href="/paginainicial">
     <div class="txt">
       <div class="lab">Site oficial</div>
@@ -169,7 +158,6 @@ wz.addEventListener('input',()=>{
   let d=wz.value.replace(/\D/g,'').slice(0,11);
   wz.value=d.length>6?`(${d.slice(0,2)}) ${d.slice(2,d.length-4)}-${d.slice(-4)}`:d.length>2?`(${d.slice(0,2)}) ${d.slice(2)}`:d;
 });
-document.getElementById('cardwz').addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});setTimeout(()=>wz.focus(),250);});
 fz.addEventListener('submit',async e=>{
   e.preventDefault();
   const dig=wz.value.replace(/\D/g,'');
