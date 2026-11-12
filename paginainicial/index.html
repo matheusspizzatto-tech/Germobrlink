@@ -70,6 +70,16 @@ section{padding-block:clamp(64px,9vw,112px)}
 .links a{text-decoration:none;font-weight:600;font-size:15px;color:var(--ink2);padding:10px 14px;border-radius:999px}
 .links a:hover{background:var(--soft)}
 .nav .sp{flex:1}
+.ncta{display:inline-flex;align-items:center;gap:10px;background:#15201A;color:#F4F5F0;border-radius:999px;padding:6px 6px 6px 16px;font-weight:700;font-size:14.5px;letter-spacing:-.01em;white-space:nowrap;box-shadow:0 8px 20px -8px rgba(21,32,26,.55);transition:transform .2s,box-shadow .2s}
+.ncta:hover{transform:translateY(-1px);box-shadow:0 12px 24px -8px rgba(21,32,26,.6)}
+.ncta i{position:relative;width:8px;height:8px;border-radius:50%;background:var(--broto);flex:none}
+.ncta i:after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--broto);animation:nping 1.8s ease-out infinite}
+@keyframes nping{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.8);opacity:0}}
+.ncta span{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--broto);flex:none;transition:transform .2s}
+.ncta:hover span{transform:translateX(2px)}
+.wm b{font-weight:800}
+@media (max-width:420px){.ncta{font-size:13.5px;gap:8px;padding:5px 5px 5px 13px}.ncta span{width:30px;height:30px}}
+
 .nav .btn{padding:12px 20px;font-size:15px}
 @media (max-width:920px){.links{display:none}}
 @media (max-width:420px){.nav .btn{padding:11px 16px;font-size:14px}.wm{font-size:20px}}
@@ -693,7 +703,7 @@ footer a:hover{color:var(--ink)}
 <body class="nojs">
 <header class="nav" id="nav">
   <div class="in">
-    <a class="logo" href="#topo" aria-label="Germo, início"><span class="gm" aria-hidden="true"><svg width="26" height="26" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="24"/><circle cx="360" cy="279" r="24" fill="#0A0C0B"/></svg></span><span class="wm">GERMO<b>.</b></span></a>
+    <a class="logo" href="#topo" aria-label="Germo, início"><span class="gm" aria-hidden="true"><svg width="26" height="26" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="24"/><circle cx="360" cy="279" r="24" fill="#0A0C0B"/></svg></span><span class="wm">germo<b>.br</b></span></a>
     <nav class="links" aria-label="Seções">
       <a href="#como">Como funciona</a>
       <a href="#ajudantes">Os 10 ajudantes</a>
@@ -702,7 +712,7 @@ footer a:hover{color:var(--ink)}
       <a href="#perguntas">Perguntas</a>
     </nav>
     <span class="sp"></span>
-    <a class="btn pr" href="#planos">Entrar na lista</a>
+    <a class="ncta" href="#planos"><i aria-hidden="true"></i>Entrar na lista<span aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#15201A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
   </div>
 </header>
 
@@ -713,7 +723,7 @@ footer a:hover{color:var(--ink)}
       <div class="tx">
         <div class="mcrew" aria-hidden="true"><button type="button" class="mc mc0" style="--c:#F26B1D" tabindex="-1"><img src="/img/viral.webp" alt=""><b>viral</b></button><button type="button" class="mc mc1" style="--c:#3AA0FF" tabindex="-1"><img src="/img/vitrine.webp" alt=""><b>vitrine</b></button><button type="button" class="mc mc2" style="--c:#8E2443" tabindex="-1"><img src="/img/juridico.webp" alt=""><b>jurídico</b></button><button type="button" class="mc mc3" style="--c:#24408E" tabindex="-1"><img src="/img/contabil.webp" alt=""><b>contábil</b></button><button type="button" class="mc mc4" style="--c:#B88F0E" tabindex="-1"><img src="/img/vendas.webp" alt=""><b>vendas</b></button></div>
         <span class="pl hpill" style="align-self:flex-start;display:none"><i class="dot"></i>Pré-lançamento · lista de espera aberta</span>
-        <h1>10 ajudantes,<br><span class="g">no seu WhatsApp.</span></h1>
+        <h1>10 ajudantes<br><span class="g">no seu WhatsApp.</span></h1>
         <p class="lead lead-l">Você manda uma mensagem, um áudio ou uma foto no WhatsApp da Germo. O ajudante certo responde e devolve o trabalho pronto: a planilha, o relatório da visita, o post, a análise do contrato, a previsão do tempo da sua propriedade e muito mais.</p>
         <p class="lead lead-s">Mande um áudio, uma foto ou uma mensagem. O ajudante certo devolve o trabalho pronto no seu WhatsApp.</p>
         <div class="acts">
