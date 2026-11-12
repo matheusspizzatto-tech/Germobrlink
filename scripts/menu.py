@@ -18,19 +18,19 @@ NOME = {"agronomo": "agrônomo", "juridico": "jurídico", "contabil": "contábil
 NICHOS_MENU = [
     ("graos", "Grãos", "Soja, milho e trigo", True),
     ("pecuaria-leite", "Pecuária de leite", "Ordenha, custos e laticínio", True),
-    ("pecuaria-corte", "Pecuária de corte", "Rebanho, pesagem e venda", False),
-    ("cafe", "Café", "Da florada à saca", False),
-    ("hortifruti", "Hortifrúti e orgânicos", "Feira, mercado e entrega", False),
+    ("pecuaria-corte", "Pecuária de corte", "Rebanho, pesagem e venda", True),
+    ("cafe", "Café", "Da florada à saca", True),
+    ("hortifruti", "Hortifrúti e orgânicos", "Feira, mercado e entrega", True),
     ("tecnicos", "Técnicos e agrônomos", "Visitas, relatórios e clientes", True),
-    ("estudantes", "Estudantes de agronomia", "Estágio, TCC e apresentações", False),
-    ("creators", "Criadores de conteúdo do agro", "Roteiros, posts e parcerias", False),
+    ("estudantes", "Estudantes de agronomia", "Estágio, TCC e apresentações", True),
+    ("creators", "Criadores de conteúdo do agro", "Roteiros, posts e parcerias", True),
 ]
 TAREFAS = [
-    ("Vender a produção", "Propostas e comparação de preço"),
-    ("Imposto e papelada", "Livro caixa e imposto de renda"),
-    ("Contratos e arrendamento", "Leitura e pontos de atenção"),
-    ("Instagram e vendas online", "Posts, legendas e reels"),
-    ("Controle de custos", "Custo por hectare e por litro"),
+    ("vender-producao", "Vender a produção", "Propostas e comparação de preço"),
+    ("imposto-papelada", "Imposto e papelada", "Livro caixa e imposto de renda"),
+    ("contratos", "Contratos e arrendamento", "Leitura e pontos de atenção"),
+    ("instagram", "Instagram e vendas online", "Posts, legendas e reels"),
+    ("controle-custos", "Controle de custos", "Custo por hectare e por litro"),
 ]
 
 CHEV = '<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
@@ -63,11 +63,11 @@ def panel_html(home="/paginainicial", atual=None):
          f'<span class="mi off"><b>{t} <em>em breve</em></b><small>{d}</small></span>')
         for s, t, d, live in NICHOS_MENU)
     col2 = "".join(
-        f'<a class="mi mag" href="{home}#ajudantes"><img src="/img/{k}.webp" alt="" loading="lazy" width="30" height="30">'
+        f'<a class="mi mag{" cur" if k == atual else ""}" href="/ajudante/{k}"><img src="/img/{k}.webp" alt="" loading="lazy" width="30" height="30">'
         f'<span><b style="--c:{c}">{nome(k)}</b><small>{d}</small></span></a>'
         for k, c, d in AGENTES)
     col3 = "".join(
-        f'<span class="mi off"><b>{t} <em>em breve</em></b><small>{d}</small></span>' for t, d in TAREFAS)
+        f'<a class="mi{" cur" if s == atual else ""}" href="/tarefa/{s}"><b>{t}</b><small>{d}</small></a>' for s, t, d in TAREFAS)
     return (
         '<div class="mega" id="mega" hidden><div class="in"><div class="mcols">'
         f'<div class="mcol"><p class="mh">Para quem faz o agro</p><div class="ml">{col1}</div></div>'

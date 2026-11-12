@@ -1,13 +1,18 @@
 # Gera as páginas de nicho em /para/<slug>/index.html a partir de um modelo único.
 # Uso: python3 scripts/nichos.py   (rodar na raiz do repositório)
 import os, html
-from menu import links_html, burger_html, panel_html, MENU_CSS, MENU_JS, nome
+import json
+from menu import links_html, burger_html, panel_html, MENU_CSS, MENU_JS, nome, NICHOS_MENU, TAREFAS, AGENTES
+from dados_extra import paginas
 
 CF = "https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/"
 COR = {"planilha": "#19E35F", "clima": "#1FC7B6", "campo": "#A0673A", "agronomo": "#D93A2B", "vendas": "#F2C230",
        "viral": "#F26B1D", "vitrine": "#3AA0FF", "apresenta": "#7B5CFF", "juridico": "#8E2443", "contabil": "#24408E"}
 TXT = {"planilha": "#0F8A3D", "clima": "#0E8C80", "campo": "#8A5530", "agronomo": "#C8402F", "vendas": "#9A7708",
        "viral": "#C9520F", "vitrine": "#1F7FD6", "apresenta": "#5B3FE0", "juridico": "#8E2443", "contabil": "#24408E"}
+
+_FJ = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fotos.json")))
+F = {k: CF + v for k, v in _FJ.items()}
 
 # ---------- maquetes do que fica pronto ----------
 def tabela(titulo, sub, cab, linhas, total=None, destaque=None):
@@ -45,6 +50,14 @@ def slide(tag, titulo, num, rot, foto):
 def post(marca, ini, chamada, titulo, foto, legenda):
     return (f'<div class="mk igp"><div class="igh"><span class="iga">{ini}</span><b>{marca}</b></div><div class="igi" style="background-image:url({foto})">'
             f'<div class="igt"><small>{chamada}</small><b>{titulo}</b></div></div><p class="igc"><b>{marca}</b> {legenda}</p></div>')
+
+def roteiro(titulo, foto, passos):
+    li = "".join(f"<li><b>{t}</b>{x}</li>" for t, x in passos)
+    return f'<div class="mk reel"><div class="ph" style="background-image:url({foto})"><span>{titulo}</span></div><ol>{li}</ol></div>'
+
+def contrato(tag, titulo, marcas, rodape):
+    m = "".join(f'<div class="ln"></div><div class="ln s"></div><div class="mkr">{x}</div>' for x in marcas)
+    return f'<div class="mk docm ctr"><div class="dh"><small>{tag}</small><b>{titulo}</b></div>{m}<div class="ln"></div><div class="ft2"><span>jurídico</span><span>{rodape}</span></div></div>'
 
 # ---------- conteúdo dos nichos ----------
 N = {}
@@ -150,8 +163,13 @@ N["tecnicos"] = dict(
          ("Funciona sem sinal no campo?", "Sim. Você grava o áudio e tira as fotos no campo, e o WhatsApp envia quando pegar sinal. O relatório chega assim que a mensagem sai."),
          ("Serve para estudante e estagiário?", "Sim. O mesmo ajudante monta o relatório de estágio e a apresentação para a banca.")],
 )
-ORDEM = ["graos", "pecuaria-leite", "tecnicos"]
-ROT = {"graos": "Grãos", "pecuaria-leite": "Pecuária de leite", "tecnicos": "Técnicos e agrônomos"}
+for _s in ("pecuaria-leite", "graos", "tecnicos"):
+    N[_s]["cat"] = "para"
+N.update(paginas(F, TXT, tabela, contas, msg, dias, doc, slide, post, roteiro, contrato))
+CATS = {"para": ("Soluções", [s for s, *_ in NICHOS_MENU]), "tarefa": ("Tarefas", [s for s, *_ in TAREFAS]), "ajudante": ("Ajudantes", [k for k, *_ in AGENTES])}
+ROT = {s: t for s, t, *_ in NICHOS_MENU}
+ROT.update({s: t for s, t, _ in TAREFAS})
+ROT.update({k: "Ajudante " + nome(k) for k, *_ in AGENTES})
 
 LOGO = '<svg width="24" height="24" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="24"/><circle cx="360" cy="279" r="24" fill="#0A0C0B"/></svg>'
 CHK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>'
@@ -240,6 +258,10 @@ section{padding-block:clamp(56px,8vw,104px)}
 .igi{aspect-ratio:1/1;background-size:cover;background-position:center;position:relative}.igt{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(255,255,255,.94);border-radius:10px;padding:8px 10px}
 .igt small{display:block;font-size:9.5px;font-weight:800;letter-spacing:.08em;color:var(--verde-lab)}.igt b{font-family:var(--display);font-size:14px;letter-spacing:-.01em;line-height:1.2}
 .igc{margin:0;padding:9px 11px 11px;font-size:12px;line-height:1.4;color:var(--ink2)}
+.reel{overflow:hidden}.reel .ph{height:120px;background-size:cover;background-position:center;position:relative}.reel .ph span{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(255,255,255,.94);border-radius:10px;padding:7px 9px;font-weight:800;font-size:12.5px;line-height:1.25}
+.reel ol{margin:0;padding:10px 14px 12px 14px;list-style:none;display:flex;flex-direction:column;gap:7px}.reel li{font-size:12px;line-height:1.4;color:var(--ink2)}.reel li b{display:block;font-size:10.5px;color:var(--verde-lab);letter-spacing:.04em}
+.ctr .mkr{margin:8px 0;background:#FFF6DC;border-left:3px solid #E0B12E;border-radius:6px;padding:7px 9px;font-size:12px;font-weight:700;color:#7A5B00}.ctr .ft2{display:flex;justify-content:space-between;margin-top:10px;font-size:11px;font-weight:800;color:var(--mute)}
+.hag{position:absolute;right:-18px;bottom:-26px;height:56%;width:auto;filter:drop-shadow(0 18px 18px rgba(21,32,26,.35));pointer-events:none}
 /* faixa com foto */
 .band{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
 .band .ph{aspect-ratio:4/3.2;border-radius:32px;background-size:cover;background-position:center}
@@ -280,7 +302,7 @@ footer{padding-block:36px calc(36px + env(safe-area-inset-bottom,0px));border-to
 .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}.rv.on{opacity:1;transform:none}.nojs .rv{opacity:1;transform:none}
 @media (max-width:980px){.hg,.band{grid-template-columns:minmax(0,1fr)}.hp{margin:10px 0 40px}.wa{left:12px}.ents,.ags{grid-template-columns:repeat(2,minmax(0,1fr))}.dores,.steps,.outras{grid-template-columns:minmax(0,1fr)}.band .ph{order:-1}}
 @media (max-width:640px){.ents,.ags{grid-template-columns:minmax(0,1fr)}.wait{grid-template-columns:minmax(0,1fr);border-radius:28px}.wait .l{border-right:0;border-bottom:1.5px solid #D3EEDC}
- .hp .ph,.band .ph{border-radius:24px}.hp .ph{aspect-ratio:1/1.08}.hp{margin-bottom:96px}.wa{width:calc(100% - 24px);bottom:-84px}.cta .btn{width:100%}.ags{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ag{padding:16px 14px}.ag img{height:70px}.ag b{font-size:17px}.ag p{font-size:13.5px}
+ .hag{height:46%;right:-6px;bottom:-14px} .hp .ph,.band .ph{border-radius:24px}.hp .ph{aspect-ratio:1/1.08}.hp{margin-bottom:96px}.wa{width:calc(100% - 24px);bottom:-84px}.cta .btn{width:100%}.ags{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ag{padding:16px 14px}.ag img{height:70px}.ag b{font-size:17px}.ag p{font-size:13.5px}
  .ent .pv{min-height:0;padding:20px 16px}.crumb{margin-bottom:16px}}
 """
 
@@ -309,9 +331,12 @@ def pagina(slug, d):
     peds = "".join(f'<div class="ped">"{p}"</div>' for p in d["pedidos"])
     ags = "".join(f'<div class="ag rv" style="--c:{COR[k]}"><img src="/img/{k}.webp" alt="" loading="lazy"><b>{nome(k)}</b><p>{t}</p></div>' for k, t in d["ajudantes"])
     faq = "".join(f'<details><summary>{q}<i aria-hidden="true">+</i></summary><p>{a}</p></details>' for q, a in d["faq"])
+    cat = d["cat"]; cat_nome, lista = CATS[cat]
+    i0 = lista.index(slug); viz = [lista[(i0 + j) % len(lista)] for j in range(1, len(lista))][:3]
     outras = "".join(
-        f'<a class="outra{" cur" if s == slug else ""}" href="/para/{s}"><span class="th" style="background-image:url({N[s]["foto"]})"></span><span><b>{ROT[s]}</b><small>{"Você está aqui" if s == slug else "Ver a página"}</small></span></a>'
-        for s in ORDEM)
+        f'<a class="outra" href="/{cat}/{s}"><span class="th" style="background-image:url({N[s]["foto"]})"></span><span><b>{ROT[s]}</b><small>Ver a página</small></span></a>'
+        for s in viz)
+    hag = f'<img class="hag" src="/img/{d["ag"]}.webp" alt="" style="--c:{COR[d["ag"]]}">' if d.get("ag") else ""
     return f"""<!doctype html>
 <html lang="pt-BR" class="nojs">
 <head>
@@ -344,7 +369,7 @@ def pagina(slug, d):
 <main>
 <section class="hero">
   <div class="in">
-    <div class="crumb"><a href="/paginainicial">Germo</a><i>/</i><span>Soluções</span><i>/</i><span>{ROT[slug]}</span></div>
+    <div class="crumb"><a href="/paginainicial">Germo</a><i>/</i><span>{cat_nome}</span><i>/</i><span>{ROT[slug]}</span></div>
     <div class="hg">
       <div class="ht">
         <span class="eyebrow">{d["eyebrow"]}</span>
@@ -354,7 +379,7 @@ def pagina(slug, d):
         <div class="chk"><span>{CHK}Não instale nada</span><span>{CHK}Sem login e senha</span><span>{CHK}Somente o seu WhatsApp</span></div>
       </div>
       <div class="hp">
-        <div class="ph" role="img" aria-label="{e(d["foto_alt"])}" style="background-image:url({d["foto"]})"></div>
+        <div class="ph" role="img" aria-label="{e(d["foto_alt"])}" style="background-image:url({d["foto"]})"></div>{hag}
         <div class="wa" aria-label="Exemplo de conversa no WhatsApp da Germo">
           <div class="wh"><img src="/img/{chat_ag}.webp" alt="">Germo · WhatsApp</div>
           <div class="b o">{chat_o}</div>
@@ -443,7 +468,7 @@ def pagina(slug, d):
 
 <section style="padding-top:0">
   <div class="in">
-    <div class="head rv"><span class="eyebrow">Outras soluções</span><h2 style="font-size:clamp(26px,3vw,34px)">A Germo também é para…</h2></div>
+    <div class="head rv"><span class="eyebrow">Veja também</span><h2 style="font-size:clamp(26px,3vw,34px)">{ {"para":"A Germo também é para…","tarefa":"Outras tarefas que a Germo resolve","ajudante":"Conheça outros ajudantes"}[cat] }</h2></div>
     <div class="outras rv">{outras}</div>
   </div>
 </section>
@@ -456,7 +481,7 @@ def pagina(slug, d):
     <span>germo.br · Todos os direitos reservados.</span>
   </div>
 </footer>
-<script>const ORIGEM="para-{slug}";{JS}{MENU_JS}</script>
+<script>const ORIGEM="{cat}-{slug}";{JS}{MENU_JS}</script>
 </body>
 </html>
 """
@@ -464,9 +489,9 @@ def pagina(slug, d):
 
 if __name__ == "__main__":
     raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    for slug in ORDEM:
-        pasta = os.path.join(raiz, "para", slug)
+    for slug, d in N.items():
+        pasta = os.path.join(raiz, d["cat"], slug)
         os.makedirs(pasta, exist_ok=True)
         with open(os.path.join(pasta, "index.html"), "w") as f:
-            f.write(pagina(slug, N[slug]))
+            f.write(pagina(slug, d))
         print("ok", slug)
