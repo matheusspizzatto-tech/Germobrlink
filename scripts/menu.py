@@ -63,7 +63,7 @@ def panel_html(home="/paginainicial", atual=None):
          f'<span class="mi off"><b>{t} <em>em breve</em></b><small>{d}</small></span>')
         for s, t, d, live in NICHOS_MENU)
     col2 = "".join(
-        f'<a class="mi ag" href="{home}#ajudantes"><img src="/img/{k}.webp" alt="" loading="lazy" width="30" height="30">'
+        f'<a class="mi mag" href="{home}#ajudantes"><img src="/img/{k}.webp" alt="" loading="lazy" width="30" height="30">'
         f'<span><b style="--c:{c}">{nome(k)}</b><small>{d}</small></span></a>'
         for k, c, d in AGENTES)
     col3 = "".join(
@@ -87,7 +87,7 @@ MENU_CSS = """
 .mtr[aria-expanded="true"] svg{transform:rotate(180deg)}
 .mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-top:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(21,32,26,.28);opacity:0;transform:translateY(-6px);transition:opacity .18s ease,transform .18s ease}
 .mega.on{opacity:1;transform:none}
-.mega .in{padding-top:30px;padding-bottom:22px}
+.nav .mega .in{display:block;height:auto;padding-top:30px;padding-bottom:22px}
 .mcols{display:grid;grid-template-columns:1fr 1.55fr 1fr;gap:48px}
 .mh{margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--line);font-size:12.5px;font-weight:600;color:var(--mute);letter-spacing:.01em}
 .ml{display:flex;flex-direction:column;gap:2px}
@@ -100,10 +100,10 @@ a.mi:hover{background:var(--soft)}
 .mi.off b{color:#8A938D}
 .mi.off small{color:#A3ABA6}
 .mi em{font-style:normal;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#8A938D;background:var(--soft);border-radius:999px;padding:2px 7px;margin-left:4px;vertical-align:2px}
-.mi.ag{flex-direction:row;align-items:center;gap:10px}
-.mi.ag img{width:30px;height:30px;object-fit:contain;flex:none}
-.mi.ag span{display:flex;flex-direction:column;gap:1px;min-width:0}
-.mi.ag b:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--c);margin-right:7px;vertical-align:2px}
+.mi.mag{flex-direction:row;align-items:center;gap:10px}
+.mi.mag img{width:30px;height:30px;object-fit:contain;flex:none}
+.mi.mag span{display:flex;flex-direction:column;gap:1px;min-width:0}
+.mi.mag b:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--c);margin-right:7px;vertical-align:2px}
 .mfoot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;color:var(--mute);font-weight:500}
 .mfoot a{color:var(--verde-lab);font-weight:700;text-decoration:none}
 .mbtn{display:none;width:42px;height:42px;border-radius:50%;border:0;background:var(--soft);cursor:pointer;flex:none;flex-direction:column;align-items:center;justify-content:center;gap:5px}
@@ -112,17 +112,17 @@ a.mi:hover{background:var(--soft)}
 .mbtn[aria-expanded="true"] i:last-child{transform:translateY(-3.4px) rotate(-45deg)}
 @media (max-width:920px){
   .mbtn{display:flex}
-  .mega{position:fixed;top:72px;bottom:0;overflow-y:auto;border-top:1px solid var(--line);box-shadow:none;-webkit-overflow-scrolling:touch}
-  .mega .in{padding-top:8px;padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))}
+  .mega{position:absolute;top:100%;height:calc(100vh - 72px);height:calc(100dvh - 72px);overflow-y:auto;overscroll-behavior:contain;border-top:1px solid var(--line);box-shadow:none;-webkit-overflow-scrolling:touch}
+  .nav .mega .in{padding-top:8px;padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))}
   .mcols{grid-template-columns:1fr;gap:0}
   .mcol{border-bottom:1px solid var(--line);padding:18px 0 12px}
   .mh{border:0;padding:0;margin-bottom:8px}
   .ml.g2{grid-template-columns:1fr 1fr;gap:0 10px}
-  .mi.ag small{display:none}
+  .mi.mag small{display:none}
   .mfoot{flex-direction:column;align-items:flex-start;border:0;margin-top:6px}
   body.mopen{overflow:hidden}
 }
-@media (max-width:420px){.nav .in{gap:10px}}
+@media (max-width:420px){.nav .in{gap:8px}.mbtn{width:38px;height:38px}.ncta i{display:none}.ncta{padding-left:13px!important}.wm{font-size:19px!important}}
 """
 
 MENU_JS = """
