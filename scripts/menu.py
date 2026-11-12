@@ -24,24 +24,24 @@ NICHOS_MENU = [
     ("fruticultura", "Fruticultura", "Pomar, colheita e atacado", True),
     ("avicultura-suinocultura", "Avicultura e suinocultura", "Lotes, ração e acerto", True),
     ("cana", "Cana e usinas", "ATR, custo e contrato", True),
-    ("madeira", "Madeira: pínus e eucalipto", "Inventário, corte e venda", True),
+    ("madeira", "Pínus e eucalipto", "Inventário, corte e venda", True),
     ("mel", "Mel e apicultura", "Colmeias, florada e venda", True),
     ("agroindustria", "Agroindústrias e fábricas", "Produção, custo e clientes", True),
     ("tecnicos", "Técnicos e agrônomos", "Visitas, relatórios e clientes", True),
-    ("estudantes", "Estudantes de agronomia", "Estágio, TCC e apresentações", True),
-    ("creators", "Criadores de conteúdo do agro", "Roteiros, posts e parcerias", True),
+    ("estudantes", "Estudantes de agronomia", "Estágio, TCC e slides", True),
+    ("creators", "Criadores de conteúdo", "Roteiros, posts e parcerias", True),
 ]
 TAREFAS = [
-    ("vender-producao", "Vender a produção", "Propostas e comparação de preço"),
-    ("imposto-papelada", "Imposto, taxas e termos", "Dúvidas de imposto explicadas"),
+    ("vender-producao", "Vender a produção", "Propostas e melhor preço"),
+    ("imposto-papelada", "Impostos e taxas", "Dúvidas explicadas"),
     ("contratos", "Contratos e leis", "Como fazer e o que diz a lei"),
     ("controle-custos", "Custos e taxas", "Para onde vai o seu dinheiro"),
-    ("credito-rural", "Crédito rural", "Pronaf, custeio e investimento"),
-    ("licencas-ambientais", "Licenças ambientais", "CAR, outorga e licenças"),
+    ("credito-rural", "Crédito rural", "Pronaf e financiamento"),
+    ("licencas-ambientais", "Licenças ambientais", "CAR e outorga"),
     ("clima-safra", "Clima e safra", "Janela de plantio e alertas"),
     ("cobranca", "Cobrança de clientes", "Quem deve e como cobrar"),
-    ("equipe", "Equipe e funcionários", "Salários, escala e combinados"),
-    ("instagram", "Instagram e vendas online", "Posts, legendas e reels"),
+    ("equipe", "Equipe e funcionários", "Salários e escala"),
+    ("instagram", "Instagram e vendas", "Posts, legendas e reels"),
 ]
 
 CHEV = '<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
@@ -78,7 +78,7 @@ def _agentes(atual):
 def panel_html(home="/paginainicial", atual=None):
     nichos = "".join(f'<a class="mi{" cur" if s == atual else ""}" href="/para/{s}"><b>{t}</b><small>{d}</small></a>' for s, t, d, live in NICHOS_MENU)
     tarefas = "".join(f'<a class="mi{" cur" if s == atual else ""}" href="/tarefa/{s}"><b>{t}</b><small>{d}</small></a>' for s, t, d in TAREFAS)
-    foot = f'<div class="mfoot"><span>Todos os ajudantes ficam no mesmo WhatsApp.</span><a href="{home}#planos">Entrar na lista de espera →</a></div>'
+    foot = f'<div class="mfoot"><span>Todos os ajudantes ficam no mesmo número de WhatsApp.</span><a href="{home}#planos">Entrar na lista de espera →</a></div>'
     return (
         '<div class="mega" id="mega" hidden><div class="in"><div class="mcols">'
         f'<div class="mcol"><p class="mh">Para quem faz o agro</p><div class="ml g3">{nichos}</div></div>'
@@ -86,7 +86,7 @@ def panel_html(home="/paginainicial", atual=None):
         f'<div class="mcol monly"><p class="mh">Os 10 ajudantes</p><div class="ml g2">{_agentes(atual)}</div></div>'
         f'</div>{foot}</div></div>'
         '<div class="mega" id="mega2" hidden><div class="in">'
-        f'<p class="mh">Os 10 ajudantes · cada um com uma função, todos no mesmo WhatsApp</p><div class="ml g5">{_agentes(atual)}</div>'
+        f'<p class="mh">Os 10 ajudantes · cada um com uma função, todos no mesmo número de WhatsApp</p><div class="ml g5">{_agentes(atual)}</div>'
         f'{foot}</div></div>'
     )
 
@@ -139,6 +139,21 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
   .mega .mfoot{margin:26px -34px 0;padding:16px 34px;border-top:1px solid var(--line);background:#F7F9F7}
   .mega .mfoot a{color:var(--ink)}
   .mega .mfoot a:hover{color:var(--verde-lab)}
+}
+
+/* menu compacto e alinhado */
+@media (min-width:921px){
+  .mega{width:min(1060px,calc(100% - 32px))}
+  .nav .mega .in{padding:26px 30px 0}
+  .mega .mcols{grid-template-columns:auto auto;justify-content:space-between;gap:0}
+  .mega .mcol+.mcol{border-left:1px solid var(--line);padding-left:30px;margin-left:30px}
+  .mega .ml.g3{grid-template-columns:repeat(3,200px);gap:0 8px}
+  .mega .ml.g2t{grid-template-columns:repeat(2,190px);gap:0 8px}
+  .mega .mi{padding:8px 10px;margin:0 -10px}
+  .mega .mi b{font-size:14px;white-space:nowrap}
+  .mega .mi small{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mega .mh{margin-bottom:10px;padding-bottom:10px}
+  .mega .mfoot{margin:22px -30px 0;padding:14px 30px}
 }
 /* topo no celular: menu à esquerda, logo no centro, botão à direita */
 @media (max-width:920px){.nav>.in{display:grid!important;grid-template-columns:auto 1fr auto;gap:10px}.nav>.in .sp{display:none}.mbtn{order:-1;grid-column:1;grid-row:1}.nav>.in .logo{grid-column:2;grid-row:1;justify-self:center}.nav>.in .ncta{grid-column:3;grid-row:1}}
