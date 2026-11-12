@@ -556,9 +556,6 @@ footer a:hover{color:var(--ink)}
 .mcrew .mc2{left:40%;height:136px;bottom:0;z-index:2}
 .mcrew .mc3{left:62%;height:112px;bottom:20px}
 .mcrew .mc4{left:82%;height:96px;bottom:4px;transform:rotate(8deg)}
-.msay{position:absolute;left:0;top:-6px;background:#fff;border-radius:14px;padding:8px 13px;font-size:13.5px;font-weight:700;color:var(--ink);white-space:nowrap;box-shadow:0 0 0 1.5px var(--pill),0 10px 22px rgba(21,32,26,.1);opacity:0;transition:opacity .2s;pointer-events:none;z-index:3}
-.msay.on{opacity:1}
-.msay i{font-style:normal;font-weight:800}
 .lead-s{display:none}
 @media (max-width:640px){
   .hero{padding-top:8px}
@@ -579,9 +576,6 @@ footer a:hover{color:var(--ink)}
   .mc2{left:50%;margin-left:-34px;height:132px;bottom:2px;z-index:2;animation-delay:-.9s}
   .mc3{right:21%;height:110px;bottom:24px;animation-delay:-2.4s}
   .mc4{right:4%;height:94px;bottom:6px;transform:rotate(8deg);animation-delay:-3.1s}
-  .msay{position:absolute;left:50%;top:-4px;transform:translate(-50%,-6px);background:#fff;border-radius:14px;padding:8px 13px;font-size:13.5px;font-weight:700;color:var(--ink);white-space:nowrap;box-shadow:0 0 0 1.5px var(--pill),0 10px 22px rgba(21,32,26,.1);opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:3}
-  .msay.on{opacity:1;transform:translate(-50%,0)}
-  .msay i{font-style:normal;font-weight:800}
 }
 @keyframes mcb{50%{translate:0 -6px}}
 @media (prefers-reduced-motion:reduce){.mc{animation:none}}
@@ -711,7 +705,7 @@ footer a:hover{color:var(--ink)}
   <section class="hero">
     <div class="in">
       <div class="tx">
-        <div class="mcrew" aria-hidden="true"><button type="button" class="mc mc0" data-say="Escrevo o roteiro do seu reels." style="--c:#F26B1D" tabindex="-1"><img src="/img/viral.webp" alt=""><b>viral</b></button><button type="button" class="mc mc1" data-say="Faço o design do seu post." style="--c:#3AA0FF" tabindex="-1"><img src="/img/vitrine.webp" alt=""><b>vitrine</b></button><button type="button" class="mc mc2" data-say="Leio o seu contrato e aponto o que importa." style="--c:#8E2443" tabindex="-1"><img src="/img/juridico.webp" alt=""><b>jurídico</b></button><button type="button" class="mc mc3" data-say="Tiro a sua dúvida de imposto." style="--c:#24408E" tabindex="-1"><img src="/img/contabil.webp" alt=""><b>contábil</b></button><button type="button" class="mc mc4" data-say="Escrevo a mensagem que vende." style="--c:#B88F0E" tabindex="-1"><img src="/img/vendas.webp" alt=""><b>vendas</b></button><span class="msay" id="msay"></span></div>
+        <div class="mcrew" aria-hidden="true"><button type="button" class="mc mc0" style="--c:#F26B1D" tabindex="-1"><img src="/img/viral.webp" alt=""><b>viral</b></button><button type="button" class="mc mc1" style="--c:#3AA0FF" tabindex="-1"><img src="/img/vitrine.webp" alt=""><b>vitrine</b></button><button type="button" class="mc mc2" style="--c:#8E2443" tabindex="-1"><img src="/img/juridico.webp" alt=""><b>jurídico</b></button><button type="button" class="mc mc3" style="--c:#24408E" tabindex="-1"><img src="/img/contabil.webp" alt=""><b>contábil</b></button><button type="button" class="mc mc4" style="--c:#B88F0E" tabindex="-1"><img src="/img/vendas.webp" alt=""><b>vendas</b></button></div>
         <span class="pl hpill" style="align-self:flex-start;display:none"><i class="dot"></i>Pré-lançamento · lista de espera aberta</span>
         <h1>10 ajudantes,<br><span class="g">no seu WhatsApp.</span></h1>
         <p class="lead lead-l">Você manda uma mensagem, um áudio ou uma foto no WhatsApp da Germo. O ajudante certo responde e devolve o trabalho pronto: a planilha, o relatório da visita, o post, a análise do contrato, a previsão do tempo da sua propriedade e muito mais.</p>
@@ -1051,8 +1045,7 @@ wf.addEventListener('submit',async e=>{e.preventDefault();
 })();
 
 /* herói no celular: ajudantes que respondem ao toque */
-(function(){const say=$('msay');let t;document.querySelectorAll('.mc').forEach(b=>b.addEventListener('click',()=>{const n=b.querySelector('b').textContent;say.innerHTML='<i style="color:'+getComputedStyle(b).getPropertyValue('--c')+'">'+n+':</i> '+b.dataset.say;say.classList.add('on');b.classList.add('hop');clearTimeout(t);t=setTimeout(()=>{say.classList.remove('on')},2400);setTimeout(()=>b.classList.remove('hop'),350)}));
-  let k=0;const mcs=[...document.querySelectorAll('.mc')];if(!matchMedia('(prefers-reduced-motion:reduce)').matches){setTimeout(function cyc(){if(k<mcs.length){mcs[k++].click();setTimeout(cyc,2800)}},1200)}})();
+document.querySelectorAll('.mc').forEach(b=>b.addEventListener('click',()=>{b.classList.add('hop');setTimeout(()=>b.classList.remove('hop'),350)}));
 </script>
 </body>
 </html>
