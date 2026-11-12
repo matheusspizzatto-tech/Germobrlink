@@ -163,7 +163,7 @@ section{padding-block:clamp(64px,9vw,112px)}
 @keyframes ty{0%,60%,100%{opacity:.35;transform:none}30%{opacity:1;transform:translateY(-2px)}}
 .js .seq>*{opacity:0;transform:translateY(6px);transition:opacity .35s ease,transform .35s ease}
 .js .seq>.on{opacity:1;transform:none}
-#heroChat.wait .ap button{animation:vnp 1.8s ease-in-out infinite;background:#1FAA59;color:#fff;box-shadow:0 3px 8px rgba(31,170,89,.35)}
+#heroChat.hwait .ap button{animation:vnp 1.8s ease-in-out infinite;background:#1FAA59;color:#fff;box-shadow:0 3px 8px rgba(31,170,89,.35)}
 
 
 /* faixa 96% */
@@ -937,10 +937,10 @@ const nav=$('nav');addEventListener('scroll',()=>nav.classList.toggle('sc',scrol
   const ans=items.filter(el=>el.classList.contains('i'));const pre=items.filter(el=>!el.classList.contains('i'));
   const show=el=>{el.classList.add('on');if(el.dataset.ag){const w=document.querySelector('.agw[data-k="'+el.dataset.ag+'"]');if(w)w.classList.add('on')}};
   const reveal=(el,now)=>{if(el._r)return;el._r=1;if(now){show(el);return}const t=document.createElement('div');t.className='bub i on';t.innerHTML='<span class="typing"><i></i><i></i><i></i></span>';box.insertBefore(t,el);el._t=t;setTimeout(()=>{t.remove();show(el)},1100)};
-  let i=0;const next=()=>{if(i>=pre.length){box.classList.add('wait');return}const el=pre[i++];el.classList.add('on');setTimeout(next,el.classList.contains('day')?300:800)};
+  let i=0;const next=()=>{if(i>=pre.length){box.classList.add('hwait');return}const el=pre[i++];el.classList.add('on');setTimeout(next,el.classList.contains('day')?300:800)};
   setTimeout(next,400);
   const AT=[3.3,6.4];const hap=box.querySelector('.ap');
-  window._heroHook=()=>{player.addEventListener('timeupdate',()=>{if(curAp!==hap)return;box._pl=1;box.classList.remove('wait');ans.forEach((el,k)=>{if(player.currentTime>=AT.at(k))reveal(el)})});
+  window._heroHook=()=>{player.addEventListener('timeupdate',()=>{if(curAp!==hap)return;box._pl=1;box.classList.remove('hwait');ans.forEach((el,k)=>{if(player.currentTime>=AT.at(k))reveal(el)})});
   player.addEventListener('ended',()=>{if(box._pl)ans.forEach(el=>{if(!el._r)reveal(el,true)})})};
 })();
 
