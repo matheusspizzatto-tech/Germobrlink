@@ -64,8 +64,8 @@ def burger_html():
 
 def _agentes(atual):
     return "".join(
-        f'<a class="mi mag{" cur" if k == atual else ""}" href="/ajudante/{k}"><img src="/img/{k}.webp" alt="" loading="lazy" width="40" height="40">'
-        f'<span><b style="--c:{c}">{nome(k)}</b><small>{d}</small></span></a>'
+        f'<a class="mi mag{" cur" if k == atual else ""}" style="--c:{c}" href="/ajudante/{k}"><img src="/img/{k}.webp" alt="" loading="lazy" width="40" height="40">'
+        f'<span><b>{nome(k)}</b><small>{d}</small></span></a>'
         for k, c, d in AGENTES)
 
 
@@ -115,6 +115,14 @@ a.mi:hover{background:var(--soft)}
 .mi.mag img{width:30px;height:30px;object-fit:contain;flex:none}
 .mi.mag span{display:flex;flex-direction:column;gap:1px;min-width:0}
 .mi.mag b:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--c);margin-right:7px;vertical-align:2px}
+.mi.mag{transition:background .2s ease,box-shadow .2s ease}
+a.mi.mag:hover,a.mi.mag:focus-visible{background:color-mix(in srgb,var(--c) 11%,#fff);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--c) 32%,transparent)}
+.mi.mag img{transition:transform .25s cubic-bezier(.2,1.6,.4,1)}
+a.mi.mag:hover img{transform:translateY(-3px) rotate(-4deg)}
+a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
+/* topo no celular: menu à esquerda, logo no centro, botão à direita */
+@media (max-width:920px){.nav>.in{display:grid!important;grid-template-columns:auto 1fr auto;gap:10px}.nav>.in .sp{display:none}.mbtn{order:-1;grid-column:1;grid-row:1}.nav>.in .logo{grid-column:2;grid-row:1;justify-self:center}.nav>.in .ncta{grid-column:3;grid-row:1}}
+@media (max-width:400px){.nav>.in .logo .gm{display:none}}
 .mfoot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;color:var(--mute);font-weight:500}
 .mfoot a{color:var(--verde-lab);font-weight:700;text-decoration:none}
 .mbtn{display:none;width:42px;height:42px;border-radius:50%;border:0;background:var(--soft);cursor:pointer;flex:none;flex-direction:column;align-items:center;justify-content:center;gap:5px}
