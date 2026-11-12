@@ -82,7 +82,7 @@ def panel_html(home="/paginainicial", atual=None):
     return (
         '<div class="mega" id="mega" hidden><div class="in"><div class="mcols">'
         f'<div class="mcol"><p class="mh">Para quem faz o agro</p><div class="ml g3">{nichos}</div></div>'
-        f'<div class="mcol"><p class="mh">Por tarefa</p><div class="ml">{tarefas}</div></div>'
+        f'<div class="mcol"><p class="mh">Por tarefa</p><div class="ml g2t">{tarefas}</div></div>'
         f'<div class="mcol monly"><p class="mh">Os 10 ajudantes</p><div class="ml g2">{_agentes(atual)}</div></div>'
         f'</div>{foot}</div></div>'
         '<div class="mega" id="mega2" hidden><div class="in">'
@@ -100,7 +100,8 @@ MENU_CSS = """
 .mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-top:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(21,32,26,.28);opacity:0;transform:translateY(-6px);transition:opacity .18s ease,transform .18s ease}
 .mega.on{opacity:1;transform:none}
 .nav .mega .in{display:block;height:auto;padding-top:30px;padding-bottom:22px}
-.mcols{display:grid;grid-template-columns:3fr 1fr;gap:56px}
+.mcols{display:grid;grid-template-columns:3fr 2fr;gap:48px}
+.ml.g2t{display:grid;grid-template-columns:repeat(2,1fr);gap:2px 22px}
 .monly{display:none}
 .ml.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 22px}
 .ml.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:6px 14px}
@@ -141,7 +142,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
   .nav .mega .in{padding-top:8px;padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))}
   .mcols{grid-template-columns:1fr;gap:0}
   .monly{display:block}
-  .ml.g3{grid-template-columns:1fr}
+  .ml.g3,.ml.g2t{grid-template-columns:1fr}
   #mega2{display:none!important}
   .mcol{border-bottom:1px solid var(--line);padding:18px 0 12px}
   .mh{border:0;padding:0;margin-bottom:8px}
