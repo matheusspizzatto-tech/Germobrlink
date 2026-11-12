@@ -21,16 +21,21 @@ NICHOS_MENU = [
     ("pecuaria-corte", "Pecuária de corte", "Rebanho, pesagem e venda", True),
     ("cafe", "Café", "Da florada à saca", True),
     ("hortifruti", "Hortifrúti e orgânicos", "Feira, mercado e entrega", True),
+    ("madeira", "Madeira: pínus e eucalipto", "Inventário, corte e venda", True),
+    ("mel", "Mel e apicultura", "Colmeias, florada e venda", True),
+    ("agroindustria", "Agroindústrias e fábricas", "Produção, custo e clientes", True),
     ("tecnicos", "Técnicos e agrônomos", "Visitas, relatórios e clientes", True),
     ("estudantes", "Estudantes de agronomia", "Estágio, TCC e apresentações", True),
     ("creators", "Criadores de conteúdo do agro", "Roteiros, posts e parcerias", True),
 ]
 TAREFAS = [
     ("vender-producao", "Vender a produção", "Propostas e comparação de preço"),
-    ("imposto-papelada", "Imposto e papelada", "Livro caixa e imposto de renda"),
-    ("contratos", "Contratos e arrendamento", "Leitura e pontos de atenção"),
+    ("imposto-papelada", "Imposto, taxas e termos", "Dúvidas de imposto explicadas"),
+    ("contratos", "Contratos e leis", "Como fazer e o que diz a lei"),
+    ("controle-custos", "Custos e taxas", "Para onde vai o seu dinheiro"),
+    ("credito-rural", "Crédito rural", "Pronaf, custeio e investimento"),
+    ("equipe", "Equipe e funcionários", "Salários, escala e combinados"),
     ("instagram", "Instagram e vendas online", "Posts, legendas e reels"),
-    ("controle-custos", "Controle de custos", "Custo por hectare e por litro"),
 ]
 
 CHEV = '<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
@@ -43,9 +48,9 @@ def nome(k):
 def links_html(home="/paginainicial"):
     return (
         '<nav class="links" aria-label="Seções">'
-        f'<button type="button" class="mtr" id="mtr" aria-expanded="false" aria-controls="mega">Soluções {CHEV}</button>'
+        f'<button type="button" class="mtr" id="mtr" data-p="mega" aria-expanded="false" aria-controls="mega">Soluções {CHEV}</button>'
+        f'<button type="button" class="mtr" id="atr" data-p="mega2" aria-expanded="false" aria-controls="mega2">Os 10 ajudantes {CHEV}</button>'
         f'<a href="{home}#como">Como funciona</a>'
-        f'<a href="{home}#ajudantes">Os 10 ajudantes</a>'
         f'<a href="{home}#exemplos">Exemplos</a>'
         f'<a href="{home}#perguntas">Perguntas</a>'
         '</nav>'
@@ -57,25 +62,26 @@ def burger_html():
             '<i></i><i></i></button>')
 
 
-def panel_html(home="/paginainicial", atual=None):
-    col1 = "".join(
-        (f'<a class="mi{" cur" if s == atual else ""}" href="/para/{s}"><b>{t}</b><small>{d}</small></a>' if live else
-         f'<span class="mi off"><b>{t} <em>em breve</em></b><small>{d}</small></span>')
-        for s, t, d, live in NICHOS_MENU)
-    col2 = "".join(
-        f'<a class="mi mag{" cur" if k == atual else ""}" href="/ajudante/{k}"><img src="/img/{k}.webp" alt="" loading="lazy" width="30" height="30">'
+def _agentes(atual):
+    return "".join(
+        f'<a class="mi mag{" cur" if k == atual else ""}" href="/ajudante/{k}"><img src="/img/{k}.webp" alt="" loading="lazy" width="40" height="40">'
         f'<span><b style="--c:{c}">{nome(k)}</b><small>{d}</small></span></a>'
         for k, c, d in AGENTES)
-    col3 = "".join(
-        f'<a class="mi{" cur" if s == atual else ""}" href="/tarefa/{s}"><b>{t}</b><small>{d}</small></a>' for s, t, d in TAREFAS)
+
+
+def panel_html(home="/paginainicial", atual=None):
+    nichos = "".join(f'<a class="mi{" cur" if s == atual else ""}" href="/para/{s}"><b>{t}</b><small>{d}</small></a>' for s, t, d, live in NICHOS_MENU)
+    tarefas = "".join(f'<a class="mi{" cur" if s == atual else ""}" href="/tarefa/{s}"><b>{t}</b><small>{d}</small></a>' for s, t, d in TAREFAS)
+    foot = f'<div class="mfoot"><span>Todos os ajudantes ficam no mesmo WhatsApp.</span><a href="{home}#planos">Entrar na lista de espera →</a></div>'
     return (
         '<div class="mega" id="mega" hidden><div class="in"><div class="mcols">'
-        f'<div class="mcol"><p class="mh">Para quem faz o agro</p><div class="ml">{col1}</div></div>'
-        f'<div class="mcol two"><p class="mh">Os 10 ajudantes</p><div class="ml g2">{col2}</div></div>'
-        f'<div class="mcol"><p class="mh">Por tarefa</p><div class="ml">{col3}</div></div>'
-        '</div>'
-        f'<div class="mfoot"><span>Todos os ajudantes ficam no mesmo WhatsApp.</span><a href="{home}#planos">Entrar na lista de espera →</a></div>'
-        '</div></div>'
+        f'<div class="mcol"><p class="mh">Para quem faz o agro</p><div class="ml g3">{nichos}</div></div>'
+        f'<div class="mcol"><p class="mh">Por tarefa</p><div class="ml">{tarefas}</div></div>'
+        f'<div class="mcol monly"><p class="mh">Os 10 ajudantes</p><div class="ml g2">{_agentes(atual)}</div></div>'
+        f'</div>{foot}</div></div>'
+        '<div class="mega" id="mega2" hidden><div class="in">'
+        f'<p class="mh">Os 10 ajudantes · cada um com uma função, todos no mesmo WhatsApp</p><div class="ml g5">{_agentes(atual)}</div>'
+        f'{foot}</div></div>'
     )
 
 
@@ -88,7 +94,12 @@ MENU_CSS = """
 .mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-top:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(21,32,26,.28);opacity:0;transform:translateY(-6px);transition:opacity .18s ease,transform .18s ease}
 .mega.on{opacity:1;transform:none}
 .nav .mega .in{display:block;height:auto;padding-top:30px;padding-bottom:22px}
-.mcols{display:grid;grid-template-columns:1fr 1.55fr 1fr;gap:48px}
+.mcols{display:grid;grid-template-columns:3fr 1fr;gap:56px}
+.monly{display:none}
+.ml.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 22px}
+.ml.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:6px 14px}
+.ml.g5 .mi.mag{flex-direction:column;align-items:flex-start;gap:8px;padding:12px}
+.ml.g5 .mi.mag img{width:52px;height:52px}
 .mh{margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--line);font-size:12.5px;font-weight:600;color:var(--mute);letter-spacing:.01em}
 .ml{display:flex;flex-direction:column;gap:2px}
 .ml.g2{display:grid;grid-template-columns:1fr 1fr;gap:2px 18px}
@@ -115,6 +126,9 @@ a.mi:hover{background:var(--soft)}
   .mega{position:absolute;top:100%;height:calc(100vh - 72px);height:calc(100dvh - 72px);overflow-y:auto;overscroll-behavior:contain;border-top:1px solid var(--line);box-shadow:none;-webkit-overflow-scrolling:touch}
   .nav .mega .in{padding-top:8px;padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))}
   .mcols{grid-template-columns:1fr;gap:0}
+  .monly{display:block}
+  .ml.g3{grid-template-columns:1fr}
+  #mega2{display:none!important}
   .mcol{border-bottom:1px solid var(--line);padding:18px 0 12px}
   .mh{border:0;padding:0;margin-bottom:8px}
   .ml.g2{grid-template-columns:1fr 1fr;gap:0 10px}
@@ -126,15 +140,17 @@ a.mi:hover{background:var(--soft)}
 """
 
 MENU_JS = """
-(function(){const mega=document.getElementById('mega'),tr=document.getElementById('mtr'),mb=document.getElementById('mbtn');if(!mega)return;
-  let t;const open=()=>{clearTimeout(t);if(!mega.hidden&&mega.classList.contains('on'))return;mega.hidden=false;requestAnimationFrame(()=>mega.classList.add('on'));tr&&tr.setAttribute('aria-expanded','true');mb&&mb.setAttribute('aria-expanded','true');if(matchMedia('(max-width:920px)').matches)document.body.classList.add('mopen')};
-  const close=()=>{mega.classList.remove('on');tr&&tr.setAttribute('aria-expanded','false');mb&&mb.setAttribute('aria-expanded','false');document.body.classList.remove('mopen');t=setTimeout(()=>{mega.hidden=true},180)};
-  const isOpen=()=>!mega.hidden&&mega.classList.contains('on');
-  tr&&tr.addEventListener('click',()=>isOpen()?close():open());
-  mb&&mb.addEventListener('click',()=>isOpen()?close():open());
-  if(matchMedia('(hover:hover)').matches){let h;const wrap=[tr,mega];wrap.forEach(el=>el&&el.addEventListener('mouseenter',()=>{clearTimeout(h);h=setTimeout(open,90)}));wrap.forEach(el=>el&&el.addEventListener('mouseleave',()=>{clearTimeout(h);h=setTimeout(close,220)}))}
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&isOpen()){close();(tr||mb).focus()}});
-  document.addEventListener('click',e=>{if(isOpen()&&!mega.contains(e.target)&&e.target!==tr&&!tr?.contains(e.target)&&!mb?.contains(e.target))close()});
-  mega.addEventListener('click',e=>{if(e.target.closest('a'))close()});
+(function(){const mb=document.getElementById('mbtn');const trs=[...document.querySelectorAll('.mtr[data-p]')];const pans=[...document.querySelectorAll('.mega')];if(!pans.length)return;
+  let cur=null,t={};const mobile=()=>matchMedia('(max-width:920px)').matches;
+  const trOf=p=>trs.find(x=>x.dataset.p===p.id);
+  const close=p=>{if(!p)return;p.classList.remove('on');const tr=trOf(p);tr&&tr.setAttribute('aria-expanded','false');if(p.id==='mega'&&mb)mb.setAttribute('aria-expanded','false');clearTimeout(t[p.id]);t[p.id]=setTimeout(()=>{if(!p.classList.contains('on'))p.hidden=true},180);if(cur===p)cur=null;document.body.classList.remove('mopen')};
+  const open=p=>{if(cur&&cur!==p){cur.classList.remove('on');cur.hidden=true;const o=trOf(cur);o&&o.setAttribute('aria-expanded','false')}clearTimeout(t[p.id]);p.hidden=false;requestAnimationFrame(()=>p.classList.add('on'));const tr=trOf(p);tr&&tr.setAttribute('aria-expanded','true');if(p.id==='mega'&&mb&&mobile()){mb.setAttribute('aria-expanded','true');document.body.classList.add('mopen')}cur=p};
+  const isOpen=p=>p&&!p.hidden&&p.classList.contains('on');
+  trs.forEach(tr=>{const p=document.getElementById(tr.dataset.p);tr.addEventListener('click',()=>isOpen(p)?close(p):open(p));
+    if(matchMedia('(hover:hover)').matches){let h;[tr,p].forEach(el=>{el.addEventListener('mouseenter',()=>{clearTimeout(h);clearTimeout(t[p.id]);h=setTimeout(()=>open(p),90)});el.addEventListener('mouseleave',()=>{clearTimeout(h);h=setTimeout(()=>{if(cur===p)close(p)},220)})})}});
+  mb&&mb.addEventListener('click',()=>{const p=document.getElementById('mega');isOpen(p)?close(p):open(p)});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const p=cur;close(p);(trOf(p)||mb).focus()}});
+  document.addEventListener('click',e=>{if(cur&&!cur.contains(e.target)&&!trs.some(x=>x.contains(e.target))&&!mb?.contains(e.target))close(cur)});
+  pans.forEach(p=>p.addEventListener('click',e=>{if(e.target.closest('a'))close(p)}));
 })();
 """
