@@ -41,7 +41,7 @@ TAREFAS = [
     ("clima-safra", "Clima e safra", "Janela de plantio e alertas"),
     ("cobranca", "Cobrança de clientes", "Quem deve e como cobrar"),
     ("equipe", "Equipe e funcionários", "Salários e escala"),
-    ("instagram", "Instagram e vendas", "Posts, legendas e reels"),
+    ("instagram", "Instagram e vendas online", "Posts, legendas e reels"),
 ]
 
 CHEV = '<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
