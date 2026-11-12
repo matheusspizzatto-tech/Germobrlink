@@ -732,22 +732,62 @@ footer a:hover{color:var(--ink)}
 .ncta{background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(14px) saturate(1.5);backdrop-filter:blur(14px) saturate(1.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 0 0 1.5px rgba(21,32,26,.08),0 10px 24px -12px rgba(21,32,26,.35)}
 .ncta:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 0 0 1.5px rgba(19,169,75,.25),0 14px 28px -12px rgba(21,32,26,.4)}
 .ncta span{position:relative;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 4px 10px -4px rgba(19,169,75,.6)}
+
+/* menu Soluções */
+.mtr{display:inline-flex;align-items:center;gap:6px;border:0;background:none;cursor:pointer;font-weight:600;font-size:15px;color:var(--ink2);padding:10px 14px;border-radius:999px}
+.mtr:hover,.mtr[aria-expanded="true"]{background:var(--soft)}
+.mtr svg{transition:transform .2s}
+.mtr[aria-expanded="true"] svg{transform:rotate(180deg)}
+.mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-top:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(21,32,26,.28);opacity:0;transform:translateY(-6px);transition:opacity .18s ease,transform .18s ease}
+.mega.on{opacity:1;transform:none}
+.mega .in{padding-top:30px;padding-bottom:22px}
+.mcols{display:grid;grid-template-columns:1fr 1.55fr 1fr;gap:48px}
+.mh{margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--line);font-size:12.5px;font-weight:600;color:var(--mute);letter-spacing:.01em}
+.ml{display:flex;flex-direction:column;gap:2px}
+.ml.g2{display:grid;grid-template-columns:1fr 1fr;gap:2px 18px}
+.mi{display:flex;flex-direction:column;gap:2px;padding:9px 10px;margin:0 -10px;border-radius:12px;text-decoration:none;color:var(--ink)}
+a.mi:hover{background:var(--soft)}
+.mi b{font-size:14.5px;font-weight:600;letter-spacing:-.01em}
+.mi small{font-size:13px;color:var(--mute);font-weight:500;line-height:1.35}
+.mi.cur b{color:var(--verde-lab)}
+.mi.off b{color:#8A938D}
+.mi.off small{color:#A3ABA6}
+.mi em{font-style:normal;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#8A938D;background:var(--soft);border-radius:999px;padding:2px 7px;margin-left:4px;vertical-align:2px}
+.mi.ag{flex-direction:row;align-items:center;gap:10px}
+.mi.ag img{width:30px;height:30px;object-fit:contain;flex:none}
+.mi.ag span{display:flex;flex-direction:column;gap:1px;min-width:0}
+.mi.ag b:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--c);margin-right:7px;vertical-align:2px}
+.mfoot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;color:var(--mute);font-weight:500}
+.mfoot a{color:var(--verde-lab);font-weight:700;text-decoration:none}
+.mbtn{display:none;width:42px;height:42px;border-radius:50%;border:0;background:var(--soft);cursor:pointer;flex:none;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.mbtn i{display:block;width:16px;height:1.8px;border-radius:2px;background:var(--ink);transition:transform .2s}
+.mbtn[aria-expanded="true"] i:first-child{transform:translateY(3.4px) rotate(45deg)}
+.mbtn[aria-expanded="true"] i:last-child{transform:translateY(-3.4px) rotate(-45deg)}
+@media (max-width:920px){
+  .mbtn{display:flex}
+  .mega{position:fixed;top:72px;bottom:0;overflow-y:auto;border-top:1px solid var(--line);box-shadow:none;-webkit-overflow-scrolling:touch}
+  .mega .in{padding-top:8px;padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))}
+  .mcols{grid-template-columns:1fr;gap:0}
+  .mcol{border-bottom:1px solid var(--line);padding:18px 0 12px}
+  .mh{border:0;padding:0;margin-bottom:8px}
+  .ml.g2{grid-template-columns:1fr 1fr;gap:0 10px}
+  .mi.ag small{display:none}
+  .mfoot{flex-direction:column;align-items:flex-start;border:0;margin-top:6px}
+  body.mopen{overflow:hidden}
+}
+@media (max-width:420px){.nav .in{gap:10px}}
 </style>
 </head>
 <body class="nojs">
 <header class="nav" id="nav">
   <div class="in">
     <a class="logo" href="#topo" aria-label="Germo, início"><span class="gm" aria-hidden="true"><svg width="26" height="26" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="24"/><circle cx="360" cy="279" r="24" fill="#0A0C0B"/></svg></span><span class="wm">germo<b>.br</b></span></a>
-    <nav class="links" aria-label="Seções">
-      <a href="#como">Como funciona</a>
-      <a href="#ajudantes">Os 10 ajudantes</a>
-      <a href="#exemplos">Exemplos</a>
-      <a href="#planos">Planos</a>
-      <a href="#perguntas">Perguntas</a>
-    </nav>
+    <nav class="links" aria-label="Seções"><button type="button" class="mtr" id="mtr" aria-expanded="false" aria-controls="mega">Soluções <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><a href="#como">Como funciona</a><a href="#ajudantes">Os 10 ajudantes</a><a href="#exemplos">Exemplos</a><a href="#planos">Planos</a><a href="#perguntas">Perguntas</a></nav>
     <span class="sp"></span>
+    <button type="button" class="mbtn" id="mbtn" aria-label="Abrir o menu" aria-expanded="false" aria-controls="mega"><i></i><i></i></button>
     <a class="ncta" href="#planos"><i aria-hidden="true"></i>Entrar na lista<span aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#15201A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
   </div>
+  <div class="mega" id="mega" hidden><div class="in"><div class="mcols"><div class="mcol"><p class="mh">Para quem faz o agro</p><div class="ml"><a class="mi" href="/para/graos"><b>Grãos</b><small>Soja, milho e trigo</small></a><a class="mi" href="/para/pecuaria-leite"><b>Pecuária de leite</b><small>Ordenha, custos e laticínio</small></a><span class="mi off"><b>Pecuária de corte <em>em breve</em></b><small>Rebanho, pesagem e venda</small></span><span class="mi off"><b>Café <em>em breve</em></b><small>Da florada à saca</small></span><span class="mi off"><b>Hortifrúti e orgânicos <em>em breve</em></b><small>Feira, mercado e entrega</small></span><a class="mi" href="/para/tecnicos"><b>Técnicos e agrônomos</b><small>Visitas, relatórios e clientes</small></a><span class="mi off"><b>Estudantes de agronomia <em>em breve</em></b><small>Estágio, TCC e apresentações</small></span><span class="mi off"><b>Criadores de conteúdo do agro <em>em breve</em></b><small>Roteiros, posts e parcerias</small></span></div></div><div class="mcol two"><p class="mh">Os 10 ajudantes</p><div class="ml g2"><a class="mi ag" href="#ajudantes"><img src="/img/planilha.webp" alt="" loading="lazy" width="30" height="30"><span><b style="--c:#19E35F">planilha</b><small>Controle da fazenda sem abrir o computador</small></span></a><a class="mi ag" href="#ajudantes"><img src="/img/clima.webp" alt="" loading="lazy" width="30" height="30"><span><b style="--c:#1FC7B6">clima</b><small>Chuva e geada antes da hora</small></span></a><a class="mi ag" href="#ajudantes"><img src="/img/campo.webp" alt="" loading="lazy" width="30" height="30"><span><b style="--c:#A0673A">campo</b><small>Relatório de visita em PDF</small></span></a><a class="mi ag" href="#ajudantes"><img src="/img/agronomo.webp" alt="" loading="lazy" width="30" height="30"><span><b style="--c:#D93A2B">agrônomo</b><small>Dúvida da lavoura respondida</small></span></a><a class="mi ag" href="#ajudantes"><img src="/img/vendas.webp" alt="" loading="lazy" width="30" height="30"><span><b style="--c:#F2C230">vendas</b><small>Proposta pronta para mandar</small></span></a><a class="mi ag" href="#ajudantes"><img src="/img/viral.webp" alt="" loading="lazy" width="30" height="30"><span><b style="--c:#F26B1D">viral</b><small>Roteiro de reels</small></span></a><a class="mi ag" href="#ajudantes"><img src="/img/vitrine.webp" alt="" loading="lazy" width="30" height="30"><span><b style="--c:#3AA0FF">vitrine</b><small>Post e legenda</small></span></a><a class="mi ag" href="#ajudantes"><img src="/img/apresenta.webp" alt="" loading="lazy" width="30" height="30"><span><b style="--c:#7B5CFF">apresenta</b><small>Slides em minutos</small></span></a><a class="mi ag" href="#ajudantes"><img src="/img/juridico.webp" alt="" loading="lazy" width="30" height="30"><span><b style="--c:#8E2443">jurídico</b><small>Contrato lido e explicado</small></span></a><a class="mi ag" href="#ajudantes"><img src="/img/contabil.webp" alt="" loading="lazy" width="30" height="30"><span><b style="--c:#24408E">contábil</b><small>Imposto de renda do produtor</small></span></a></div></div><div class="mcol"><p class="mh">Por tarefa</p><div class="ml"><span class="mi off"><b>Vender a produção <em>em breve</em></b><small>Propostas e comparação de preço</small></span><span class="mi off"><b>Imposto e papelada <em>em breve</em></b><small>Livro caixa e imposto de renda</small></span><span class="mi off"><b>Contratos e arrendamento <em>em breve</em></b><small>Leitura e pontos de atenção</small></span><span class="mi off"><b>Instagram e vendas online <em>em breve</em></b><small>Posts, legendas e reels</small></span><span class="mi off"><b>Controle de custos <em>em breve</em></b><small>Custo por hectare e por litro</small></span></div></div></div><div class="mfoot"><span>Todos os ajudantes ficam no mesmo WhatsApp.</span><a href="#planos">Entrar na lista de espera →</a></div></div></div>
 </header>
 
 <main id="topo">
@@ -1093,6 +1133,18 @@ wf.addEventListener('submit',async e=>{e.preventDefault();
 
 /* herói no celular: ajudantes que respondem ao toque */
 document.querySelectorAll('.mc').forEach(b=>b.addEventListener('click',()=>{b.classList.add('hop');setTimeout(()=>b.classList.remove('hop'),350)}));
+
+(function(){const mega=document.getElementById('mega'),tr=document.getElementById('mtr'),mb=document.getElementById('mbtn');if(!mega)return;
+  let t;const open=()=>{clearTimeout(t);if(!mega.hidden&&mega.classList.contains('on'))return;mega.hidden=false;requestAnimationFrame(()=>mega.classList.add('on'));tr&&tr.setAttribute('aria-expanded','true');mb&&mb.setAttribute('aria-expanded','true');if(matchMedia('(max-width:920px)').matches)document.body.classList.add('mopen')};
+  const close=()=>{mega.classList.remove('on');tr&&tr.setAttribute('aria-expanded','false');mb&&mb.setAttribute('aria-expanded','false');document.body.classList.remove('mopen');t=setTimeout(()=>{mega.hidden=true},180)};
+  const isOpen=()=>!mega.hidden&&mega.classList.contains('on');
+  tr&&tr.addEventListener('click',()=>isOpen()?close():open());
+  mb&&mb.addEventListener('click',()=>isOpen()?close():open());
+  if(matchMedia('(hover:hover)').matches){let h;const wrap=[tr,mega];wrap.forEach(el=>el&&el.addEventListener('mouseenter',()=>{clearTimeout(h);h=setTimeout(open,90)}));wrap.forEach(el=>el&&el.addEventListener('mouseleave',()=>{clearTimeout(h);h=setTimeout(close,220)}))}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&isOpen()){close();(tr||mb).focus()}});
+  document.addEventListener('click',e=>{if(isOpen()&&!mega.contains(e.target)&&e.target!==tr&&!tr?.contains(e.target)&&!mb?.contains(e.target))close()});
+  mega.addEventListener('click',e=>{if(e.target.closest('a'))close()});
+})();
 </script>
 </body>
 </html>
