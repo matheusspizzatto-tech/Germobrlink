@@ -116,16 +116,6 @@ a{color:inherit;text-decoration:none}
     <h1 class="tag"><span>10 ajudantes do agro</span> <span class="g">no WhatsApp.</span></h1>
   </header>
 
-  <form class="wz" id="wz" novalidate>
-    <label for="whats" class="sr">Seu WhatsApp com DDD</label>
-    <img class="wz-ic" src="/wa.png" alt="" width="36" height="36">
-    <input id="whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="Seu WhatsApp com DDD">
-    <input class="isca" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <button type="submit" id="wzb" aria-label="Entrar na lista de espera"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#15201A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
-    <div class="wz-ok" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#13A94B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.2 3 3 6-6"></path></svg>Pronto, você está na lista. Vamos te avisar no WhatsApp.</div>
-  </form>
-  <p class="wz-msg" id="wzmsg" role="status" aria-live="polite"></p>
-
   <a class="card site" href="/paginainicial">
     <div class="txt">
       <div class="lab">Site oficial</div>
@@ -149,29 +139,5 @@ a{color:inherit;text-decoration:none}
 
   <footer class="foot"><span class="wm">GERMO<b>.</b></span><span>germo.br · Todos os direitos reservados.</span></footer>
 </main>
-<script>
-const URL_PLANILHA="https://script.google.com/macros/s/AKfycbwFZGzhpXW8fAUdNYUvxYoQhVjRmIm-I8Qynyp70Pi396rTL8psG7z0NyNCm7HUa7TQ/exec";
-const fz=document.getElementById('wz'),wz=document.getElementById('whats'),msg=document.getElementById('wzmsg');
-wz.addEventListener('input',()=>{
-  fz.classList.remove('erro');msg.textContent='';
-  if(wz.value.trim().startsWith('+'))return;
-  let d=wz.value.replace(/\D/g,'').slice(0,11);
-  wz.value=d.length>6?`(${d.slice(0,2)}) ${d.slice(2,d.length-4)}-${d.slice(-4)}`:d.length>2?`(${d.slice(0,2)}) ${d.slice(2)}`:d;
-});
-fz.addEventListener('submit',async e=>{
-  e.preventDefault();
-  const dig=wz.value.replace(/\D/g,'');
-  const ok=wz.value.trim().startsWith('+')?dig.length>=8:dig.length>=10;
-  if(!ok){fz.classList.add('erro');msg.textContent='Digite seu WhatsApp com DDD.';wz.focus();return;}
-  if(fz.site.value)return;
-  document.getElementById('wzb').disabled=true;
-  const q=new URLSearchParams(location.search);
-  try{await fetch(URL_PLANILHA,{method:'POST',mode:'no-cors',body:new URLSearchParams({
-    nome:'',whatsapp:wz.value.trim(),cidade:'',
-    origem:q.get('origem')||q.get('utm_source')||'germobr.link',
-    campanha:q.get('utm_campaign')||'link-bio'})})}catch(_){}
-  fz.classList.add('ok');
-});
-</script>
 </body>
 </html>
