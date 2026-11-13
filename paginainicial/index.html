@@ -774,6 +774,17 @@ footer a:hover{color:var(--ink)}
 @keyframes tapb{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 @keyframes tapp{0%{box-shadow:0 0 0 0 rgba(31,170,89,.5)}100%{box-shadow:0 0 0 8px rgba(31,170,89,0)}}
 @media (prefers-reduced-motion:reduce){.dc,.tapme,.tapme i{animation:none!important}}
+
+/* ajudantes no computador: título na coluna da esquerda, exemplo sobe */
+@media (min-width:981px){
+  #ajudantes>.in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);column-gap:clamp(20px,3vw,40px);align-items:start}
+  #ajudantes .head{grid-column:1;grid-row:1;margin-bottom:0;max-width:none}
+  #ajudantes .head h2{font-size:clamp(38px,3.7vw,54px)}
+  #ajudantes .head .lead{font-size:17px;text-wrap:pretty}
+  #ajudantes .team{display:contents}
+  #ajudantes .team>.rv:first-child{grid-column:1;grid-row:2;margin-top:32px}
+  #ajudantes .det{grid-column:2;grid-row:1/span 2}
+}
 /* menu Soluções */
 .mtr{display:inline-flex;align-items:center;gap:6px;border:0;background:none;cursor:pointer;font-weight:600;font-size:15px;color:var(--ink2);padding:10px 14px;border-radius:999px}
 .mtr:hover,.mtr[aria-expanded="true"]{background:var(--soft)}
