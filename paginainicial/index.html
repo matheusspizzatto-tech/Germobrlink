@@ -785,6 +785,19 @@ footer a:hover{color:var(--ink)}
   #ajudantes .team>.rv:first-child{grid-column:1;grid-row:2;margin-top:32px}
   #ajudantes .det{grid-column:2;grid-row:1/span 2}
 }
+
+/* exemplos no computador: título e perfis à esquerda, conversa sobe à direita */
+@media (min-width:861px){
+  #exemplos>.in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);grid-template-rows:auto auto 1fr;column-gap:clamp(20px,4vw,48px);align-items:start}
+  #exemplos .head{grid-column:1;grid-row:1;margin-bottom:0;max-width:none;text-align:left;align-items:flex-start}
+  #exemplos .head h2{font-size:clamp(36px,3.4vw,50px)}
+  #exemplos .head .lead{font-size:17px;margin-inline:0;text-wrap:pretty}
+  #exemplos .tabs{grid-column:1;grid-row:2;justify-content:flex-start;flex-wrap:nowrap;gap:6px;margin:28px 0 0}
+  #exemplos .tab{padding:11px 16px;font-size:14.5px;white-space:nowrap}
+  #exemplos .case{display:contents}
+  #exemplos .case>.tx{grid-column:1;grid-row:3;margin-top:36px;position:sticky;top:96px}
+  #exemplos .case>:not(.tx){grid-column:2;grid-row:1/span 3}
+}
 /* menu Soluções */
 .mtr{display:inline-flex;align-items:center;gap:6px;border:0;background:none;cursor:pointer;font-weight:600;font-size:15px;color:var(--ink2);padding:10px 14px;border-radius:999px}
 .mtr:hover,.mtr[aria-expanded="true"]{background:var(--soft)}
