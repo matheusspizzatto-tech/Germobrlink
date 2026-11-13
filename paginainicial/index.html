@@ -744,6 +744,36 @@ footer a:hover{color:var(--ink)}
 .ind{display:flex;flex-direction:column;gap:10px;margin-top:4px;padding-top:16px;border-top:1px solid var(--line);width:100%}.ind span{font-weight:700;font-size:15px}
 .btn.indw{position:static;box-shadow:none;background:#25D366;color:#fff;justify-content:center;width:100%;white-space:normal;text-align:center;padding:15px 20px}.btn.indw svg{flex:none}
 .lk{font-weight:700;color:var(--verde-lab);text-decoration:none;font-size:15px}
+
+/* hero no computador (v2) */
+.dcrew,.tapme{display:none}
+@media (min-width:901px){
+  .hero{min-height:calc(100vh - 73px);min-height:calc(100svh - 73px);display:flex;align-items:center;padding-block:clamp(24px,3vw,40px)}
+  .hero>.in{width:100%}
+  .hero .in{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(24px,3vw,48px)}
+  .hero .tx{gap:26px;max-width:640px}
+  .hero .mcrew{display:none!important}
+  .hero h1{font-size:clamp(56px,5.4vw,84px);letter-spacing:-.05em}
+  .hero h1 .g{white-space:nowrap}
+  .hero .lead-l{font-size:17.5px;line-height:1.6;color:var(--mute);max-width:560px}
+  .hero .lead-l .lk{display:block;margin-bottom:8px;font-family:var(--display);font-weight:600;font-size:clamp(21px,1.75vw,25px);line-height:1.25;letter-spacing:-.02em;color:var(--ink)}
+  .stage-h{min-height:700px}
+  #heroChat .bub.o{overflow:visible}
+  .dcrew{display:block;position:absolute;inset:0;pointer-events:none}
+  .dc{position:absolute;width:auto;filter:drop-shadow(0 16px 14px rgba(21,32,26,.22));animation:bob 4.6s ease-in-out infinite}
+  .dc0{left:calc(50% - 250px);bottom:36px;height:150px;z-index:4;transform:rotate(-6deg);animation-delay:-.6s}
+  .dc1{right:calc(50% - 250px);top:56px;height:128px;z-index:4;transform:rotate(7deg);animation-delay:-1.8s}
+  .dc2{left:calc(50% - 232px);top:-6px;height:104px;z-index:1;filter:blur(1.4px) drop-shadow(0 10px 10px rgba(21,32,26,.16));opacity:.9;animation-delay:-2.9s}
+  .dc3{left:calc(50% - 95px);bottom:-18px;height:118px;z-index:5;animation-delay:-1.1s}
+  .dc4{right:calc(50% - 205px);top:330px;height:96px;z-index:1;filter:blur(1.2px) drop-shadow(0 10px 10px rgba(21,32,26,.16));opacity:.9;animation-delay:-3.6s}
+  .agw.l{left:calc(50% - 300px);top:250px}
+  .agw.r{right:calc(50% - 300px);bottom:150px}
+  #heroChat.hwait .tapme{display:inline-flex;position:absolute;right:0;top:calc(100% + 8px);white-space:nowrap;font-style:normal;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:#fff;color:#13A94B;font-size:12.5px;font-weight:700;box-shadow:0 6px 16px -6px rgba(21,32,26,.25);animation:tapb 1.8s ease-in-out infinite}
+  .tapme i{width:8px;height:8px;border-radius:50%;background:#1FAA59;box-shadow:0 0 0 0 rgba(31,170,89,.5);animation:tapp 1.8s ease-out infinite}
+}
+@keyframes tapb{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes tapp{0%{box-shadow:0 0 0 0 rgba(31,170,89,.5)}100%{box-shadow:0 0 0 8px rgba(31,170,89,0)}}
+@media (prefers-reduced-motion:reduce){.dc,.tapme,.tapme i{animation:none!important}}
 /* menu Soluções */
 .mtr{display:inline-flex;align-items:center;gap:6px;border:0;background:none;cursor:pointer;font-weight:600;font-size:15px;color:var(--ink2);padding:10px 14px;border-radius:999px}
 .mtr:hover,.mtr[aria-expanded="true"]{background:var(--soft)}
@@ -879,7 +909,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
         <div class="mcrew" aria-hidden="true"><button type="button" class="mc mc0" style="--c:#F26B1D" tabindex="-1"><img src="/img/viral.webp" alt=""><b>viral</b></button><button type="button" class="mc mc1" style="--c:#3AA0FF" tabindex="-1"><img src="/img/vitrine.webp" alt=""><b>vitrine</b></button><button type="button" class="mc mc2" style="--c:#8E2443" tabindex="-1"><img src="/img/juridico.webp" alt=""><b>jurídico</b></button><button type="button" class="mc mc3" style="--c:#24408E" tabindex="-1"><img src="/img/contabil.webp" alt=""><b>contábil</b></button><button type="button" class="mc mc4" style="--c:#B88F0E" tabindex="-1"><img src="/img/vendas.webp" alt=""><b>vendas</b></button></div>
         <span class="pl hpill" style="align-self:flex-start;display:none"><i class="dot"></i>Pré-lançamento · lista de espera aberta</span>
         <h1>10 ajudantes<br><span class="g">no seu WhatsApp.</span></h1>
-        <p class="lead lead-l">Você manda o áudio. O trabalho volta pronto.<br>O ajudante certo devolve: a planilha, o relatório da visita, o post, a análise do contrato, a previsão do tempo da sua propriedade e muito mais.</p>
+        <p class="lead lead-l"><b class="lk">Você manda o áudio. O trabalho volta pronto.</b>O ajudante certo devolve: a planilha, o relatório da visita, o post, a análise do contrato, a previsão do tempo da sua propriedade e muito mais.</p>
         <p class="lead lead-s">Você manda o áudio. O trabalho volta pronto no seu WhatsApp: planilha, relatório, contrato e proposta.</p>
         <div class="acts">
           <a class="btn pr hcta" href="#planos">Entrar na lista de espera <span class="ar" aria-hidden="true">→</span></a>
@@ -893,7 +923,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
       </div>
 
       <div class="stage-h" aria-label="Exemplo de conversa no WhatsApp da Germo">
-        <div class="ring" aria-hidden="true"></div><div class="disc" aria-hidden="true"></div>
+        <div class="ring" aria-hidden="true"></div><div class="disc" aria-hidden="true"></div><div class="dcrew" aria-hidden="true"><img class="dc dc0" src="/img/viral.webp" alt="" width="160" height="160"><img class="dc dc1" src="/img/vitrine.webp" alt="" width="160" height="160"><img class="dc dc2" src="/img/juridico.webp" alt="" width="160" height="160"><img class="dc dc3" src="/img/contabil.webp" alt="" width="160" height="160"><img class="dc dc4" src="/img/vendas.webp" alt="" width="160" height="160"></div>
         <div class="agw l" data-k="clima" aria-hidden="true"><img src="/img/clima.webp" alt=""><span class="sh"></span><span class="lb"><i style="background:#1FC7B6"></i>clima respondeu</span></div>
         <div class="agw r" data-k="planilha" aria-hidden="true"><img src="/img/planilha.webp" alt=""><span class="sh"></span><span class="lb"><i style="background:#19E35F"></i>planilha respondeu</span></div>
         <div class="phone">
@@ -908,7 +938,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
             </div>
             <div class="wa-body seq" id="heroChat">
               <div class="day">Hoje</div>
-              <div class="bub o"><div class="ap" data-a="1"><img class="face" src="https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/b35e47d7-6dcd-4b71-a619-fbc9ddd53496.jpg" alt=""><button type="button" aria-label="Ouvir o áudio"><svg width="16" height="18" viewBox="0 0 14 16" aria-hidden="true"><path d="M1 1.2v13.6L13 8z" fill="currentColor"/></svg></button><span class="wv" aria-hidden="true"></span><span class="tm">0:08</span></div><span class="tr">"Ô Germo, bom dia! Me avisa se vai chover amanhã aqui na fazenda e já me faz uma planilha com o salário dos meus funcionários."</span><span class="t">06:10 <svg width="16" height="11" viewBox="0 0 16 11" aria-hidden="true"><path d="M1 6l3 3 6-7M6 9l1 1 7-8" fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round"/></svg></span></div>
+              <div class="bub o"><div class="ap" data-a="1"><img class="face" src="https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/b35e47d7-6dcd-4b71-a619-fbc9ddd53496.jpg" alt=""><button type="button" aria-label="Ouvir o áudio"><svg width="16" height="18" viewBox="0 0 14 16" aria-hidden="true"><path d="M1 1.2v13.6L13 8z" fill="currentColor"/></svg></button><span class="wv" aria-hidden="true"></span><span class="tm">0:08</span></div><span class="tr">"Ô Germo, bom dia! Me avisa se vai chover amanhã aqui na fazenda e já me faz uma planilha com o salário dos meus funcionários."</span><span class="t">06:10 <svg width="16" height="11" viewBox="0 0 16 11" aria-hidden="true"><path d="M1 6l3 3 6-7M6 9l1 1 7-8" fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="tapme" aria-hidden="true"><i></i>Toque no play para ouvir</span></div>
               <div class="bub i" data-ag="clima"><span class="who" style="color:#16A898">clima</span>Chuva forte amanhã a partir das 15h, cerca de 40 mm. Dá tempo de recolher o feno.<br><span class="chip2">Amanhã · 15h · 40 mm</span><span class="t">06:10</span></div>
               <div class="bub i" data-ag="planilha"><span class="who" style="color:#13A94B">planilha</span>Pronto, montei a planilha da equipe com o total do mês.<div class="file"><span class="fi" style="background:#1D8A4A">XLSX</span><span><b>Salários da equipe.xlsx</b><small>Planilha · 4 funcionários</small></span></div><span class="t">06:11</span></div>
             </div>
