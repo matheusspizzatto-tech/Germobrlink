@@ -7,7 +7,13 @@
 <meta name="description" content="Controle de produção, ficha técnica, custo do produto, pedidos de clientes e apresentação para distribuidores, tudo pelo WhatsApp.">
 <meta property="og:title" content="Germo para agroindústrias e fábricas">
 <meta property="og:description" content="Controle de produção, ficha técnica, custo do produto, pedidos de clientes e apresentação para distribuidores, tudo pelo WhatsApp.">
-<meta property="og:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/90bbab14-f0ea-4e04-9a5c-405031ab3b43.webp">
+<meta property="og:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/19b5b717-4549-4765-9a36-a0c75bd651c9.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://www.germobr.link/para/agroindustria"><meta property="og:type" content="website"><meta property="og:site_name" content="Germo">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.germobr.link/para/agroindustria">
+<script defer src="/_vercel/insights/script.js"></script>
+<script src="/assets/germo.js"></script>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -125,6 +131,10 @@ section{padding-block:clamp(56px,8vw,104px)}
 .f input:focus{box-shadow:0 0 0 2.5px var(--broto);background:#fff}.f input.erro{box-shadow:0 0 0 2px #D64545}.f .btn{margin-top:4px;width:100%}.f .btn:disabled{opacity:.6}
 .isca{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}.fmsg{margin:0;font-size:14px;font-weight:700;color:#C23B3B}.fmsg:empty{display:none}
 .ok{display:none;flex-direction:column;gap:12px}.ok b{font-family:var(--display);font-weight:600;font-size:28px;letter-spacing:-.03em}.ok p{margin:0;color:var(--ink2);line-height:1.5}.done .f,.done .rh{display:none}.done .ok{display:flex}
+.priv{margin:2px 0 0;font-size:12.5px;color:var(--mute);line-height:1.45}.priv a{color:var(--mute)}
+.ind{display:flex;flex-direction:column;gap:10px;margin-top:6px;padding-top:16px;border-top:1px solid var(--line)}.ind span{font-weight:700;font-size:15px}
+.btn.wa{background:#25D366;color:#fff;justify-content:center}.btn.wa img{filter:brightness(0) invert(1)}
+.lk{font-weight:700;color:var(--verde-lab);text-decoration:none;font-size:15px}
 .rh h3{font-size:24px}.rh p{margin:6px 0 0;color:var(--mute);font-size:14.5px}
 /* perguntas */
 .faq{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
@@ -334,8 +344,9 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
           <input class="isca" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
           <p class="fmsg" id="fmsg" role="status" aria-live="polite"></p>
           <button class="btn pr" type="submit" id="fb">Entrar na lista de espera <span class="ar" aria-hidden="true">→</span></button>
+          <p class="priv">Usamos o seu contato só para avisar sobre a Germo. <a href="/privacidade">Política de privacidade</a></p>
         </form>
-        <div class="ok" role="status"><b>Pronto, você está na lista.</b><p>Nós vamos te avisar no WhatsApp assim que a Germo abrir, com a oferta de lançamento.</p><a class="btn ol" href="/paginainicial">Conhecer a Germo</a></div>
+        <div class="ok" role="status"><b>Pronto, você está na lista.</b><p>Nós vamos te avisar no WhatsApp assim que a Germo abrir, com a oferta de lançamento.</p><div class="ind"><span>Conhece alguém que também ia gostar?</span><a class="btn wa" data-indicar href="https://wa.me/" target="_blank" rel="noopener"><img src="/wa.png" alt="" width="20" height="20">Mandar para um amigo no WhatsApp</a></div><a class="lk" href="/paginainicial">Conhecer a Germo →</a></div>
       </div>
     </div>
   </div>
@@ -359,7 +370,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
 <footer>
   <div class="in">
     <span class="wm" style="font-size:17px">germo<b>.br</b></span>
-    <nav aria-label="Rodapé"><a href="/paginainicial">Página inicial</a><a href="https://instagram.com/germo.br" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/5541988840707?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20a%20Germo." target="_blank" rel="noopener">Central de Ajuda</a></nav>
+    <nav aria-label="Rodapé"><a href="/paginainicial">Página inicial</a><a href="/privacidade">Privacidade</a><a href="https://instagram.com/germo.br" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/5541988840707?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20a%20Germo." target="_blank" rel="noopener">Central de Ajuda</a></nav>
     <span>germo.br · Todos os direitos reservados.</span>
   </div>
 </footer>
@@ -373,7 +384,7 @@ fn.addEventListener('input',()=>{fn.classList.remove('erro');fm.textContent=''})
 wf.addEventListener('submit',async e=>{e.preventDefault();if(!fn.value.trim()){fn.classList.add('erro');fm.textContent='Digite o seu nome.';fn.focus();return}
  const dig=fw.value.replace(/\D/g,'');const ok=fw.value.trim().startsWith('+')?dig.length>=8:dig.length>=10;if(!ok){fw.classList.add('erro');fm.textContent='Digite o seu WhatsApp com DDD.';fw.focus();return}
  if(wf.site.value)return;$('fb').disabled=true;const q=new URLSearchParams(location.search);
- try{await fetch(URL_PLANILHA,{method:'POST',mode:'no-cors',body:new URLSearchParams({nome:fn.value.trim(),whatsapp:fw.value.trim(),cidade:fc.value.trim(),origem:q.get('origem')||q.get('utm_source')||ORIGEM,campanha:q.get('utm_campaign')||'pagina-nicho'})})}catch(_){}
+ try{await fetch(URL_PLANILHA,{method:'POST',mode:'no-cors',body:new URLSearchParams({nome:fn.value.trim(),whatsapp:fw.value.trim(),cidade:fc.value.trim(),origem:(window.germoOrigem&&germoOrigem())||ORIGEM,campanha:(window.germoOrigem&&germoOrigem())?ORIGEM:(q.get('utm_campaign')||'pagina-nicho')})})}catch(_){}
  $('wait').classList.add('done')});
 
 (function(){const mb=document.getElementById('mbtn');const trs=[...document.querySelectorAll('.mtr[data-p]')];const pans=[...document.querySelectorAll('.mega')];if(!pans.length)return;

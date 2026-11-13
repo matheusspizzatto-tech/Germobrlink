@@ -11,6 +11,8 @@ COR = {"planilha": "#19E35F", "clima": "#1FC7B6", "campo": "#A0673A", "agronomo"
 TXT = {"planilha": "#0F8A3D", "clima": "#0E8C80", "campo": "#8A5530", "agronomo": "#C8402F", "vendas": "#9A7708",
        "viral": "#C9520F", "vitrine": "#1F7FD6", "apresenta": "#5B3FE0", "juridico": "#8E2443", "contabil": "#24408E"}
 
+_OGF = os.path.join(os.path.dirname(os.path.abspath(__file__)), "og.json")
+OG = json.load(open(_OGF)) if os.path.exists(_OGF) else {}
 _FJ = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fotos.json")))
 F = {k: CF + v for k, v in _FJ.items()}
 
@@ -145,7 +147,7 @@ N["tecnicos"] = dict(
     entregas=[
         ("campo", "Relatório de visita em PDF", "Com as suas fotos, a fase da lavoura e o que você recomendou.",
          doc("RELATÓRIO DE VISITA · PDF", "Fazenda Boa Vista · Talhão 2", CF + "848e5dee-a7b6-4e07-91ac-dc4f0a1bb466.webp",
-             [("Cultura e fase", "Soja · R3", False), ("Ocorrência", "Ferrugem em reboleira", False), ("Recomendação", "Registrada", True)],
+             [("Cultura e fase", "Soja · R3", False), ("Ocorrência", "Ferrugem em reboleira", False), ("Recomendação", "Fungicida em 3 dias", True)],
              "Retorno em 7 dias para avaliar a aplicação")),
         ("apresenta", "Apresentação de resultados", "A safra do cliente em slides prontos para a reunião.",
          slide("SAFRA 25/26 · FAZENDA BOA VISTA", "Resultado da safra", "68", "sacas por hectare", CF + "8d1cbb5f-96f0-49d8-958e-0442b9b5b015.webp")),
@@ -290,6 +292,10 @@ section{padding-block:clamp(56px,8vw,104px)}
 .f input:focus{box-shadow:0 0 0 2.5px var(--broto);background:#fff}.f input.erro{box-shadow:0 0 0 2px #D64545}.f .btn{margin-top:4px;width:100%}.f .btn:disabled{opacity:.6}
 .isca{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}.fmsg{margin:0;font-size:14px;font-weight:700;color:#C23B3B}.fmsg:empty{display:none}
 .ok{display:none;flex-direction:column;gap:12px}.ok b{font-family:var(--display);font-weight:600;font-size:28px;letter-spacing:-.03em}.ok p{margin:0;color:var(--ink2);line-height:1.5}.done .f,.done .rh{display:none}.done .ok{display:flex}
+.priv{margin:2px 0 0;font-size:12.5px;color:var(--mute);line-height:1.45}.priv a{color:var(--mute)}
+.ind{display:flex;flex-direction:column;gap:10px;margin-top:6px;padding-top:16px;border-top:1px solid var(--line)}.ind span{font-weight:700;font-size:15px}
+.btn.wa{background:#25D366;color:#fff;justify-content:center}.btn.wa img{filter:brightness(0) invert(1)}
+.lk{font-weight:700;color:var(--verde-lab);text-decoration:none;font-size:15px}
 .rh h3{font-size:24px}.rh p{margin:6px 0 0;color:var(--mute);font-size:14.5px}
 /* perguntas */
 .faq{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
@@ -319,7 +325,7 @@ fn.addEventListener('input',()=>{fn.classList.remove('erro');fm.textContent=''})
 wf.addEventListener('submit',async e=>{e.preventDefault();if(!fn.value.trim()){fn.classList.add('erro');fm.textContent='Digite o seu nome.';fn.focus();return}
  const dig=fw.value.replace(/\\D/g,'');const ok=fw.value.trim().startsWith('+')?dig.length>=8:dig.length>=10;if(!ok){fw.classList.add('erro');fm.textContent='Digite o seu WhatsApp com DDD.';fw.focus();return}
  if(wf.site.value)return;$('fb').disabled=true;const q=new URLSearchParams(location.search);
- try{await fetch(URL_PLANILHA,{method:'POST',mode:'no-cors',body:new URLSearchParams({nome:fn.value.trim(),whatsapp:fw.value.trim(),cidade:fc.value.trim(),origem:q.get('origem')||q.get('utm_source')||ORIGEM,campanha:q.get('utm_campaign')||'pagina-nicho'})})}catch(_){}
+ try{await fetch(URL_PLANILHA,{method:'POST',mode:'no-cors',body:new URLSearchParams({nome:fn.value.trim(),whatsapp:fw.value.trim(),cidade:fc.value.trim(),origem:(window.germoOrigem&&germoOrigem())||ORIGEM,campanha:(window.germoOrigem&&germoOrigem())?ORIGEM:(q.get('utm_campaign')||'pagina-nicho')})})}catch(_){}
  $('wait').classList.add('done')});
 """
 
@@ -349,7 +355,13 @@ def pagina(slug, d):
 <meta name="description" content="{e(d["desc"])}">
 <meta property="og:title" content="{e(d["titulo"])}">
 <meta property="og:description" content="{e(d["desc"])}">
-<meta property="og:image" content="{d["foto"]}">
+<meta property="og:image" content="{OG.get(cat + "-" + slug, d["foto"])}">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://www.germobr.link/{cat}/{slug}"><meta property="og:type" content="website"><meta property="og:site_name" content="Germo">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.germobr.link/{cat}/{slug}">
+<script defer src="/_vercel/insights/script.js"></script>
+<script src="/assets/germo.js"></script>
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -455,8 +467,9 @@ def pagina(slug, d):
           <input class="isca" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
           <p class="fmsg" id="fmsg" role="status" aria-live="polite"></p>
           <button class="btn pr" type="submit" id="fb">Entrar na lista de espera <span class="ar" aria-hidden="true">→</span></button>
+          <p class="priv">Usamos o seu contato só para avisar sobre a Germo. <a href="/privacidade">Política de privacidade</a></p>
         </form>
-        <div class="ok" role="status"><b>Pronto, você está na lista.</b><p>Nós vamos te avisar no WhatsApp assim que a Germo abrir, com a oferta de lançamento.</p><a class="btn ol" href="/paginainicial">Conhecer a Germo</a></div>
+        <div class="ok" role="status"><b>Pronto, você está na lista.</b><p>Nós vamos te avisar no WhatsApp assim que a Germo abrir, com a oferta de lançamento.</p><div class="ind"><span>Conhece alguém que também ia gostar?</span><a class="btn wa" data-indicar href="https://wa.me/" target="_blank" rel="noopener"><img src="/wa.png" alt="" width="20" height="20">Mandar para um amigo no WhatsApp</a></div><a class="lk" href="/paginainicial">Conhecer a Germo →</a></div>
       </div>
     </div>
   </div>
@@ -480,7 +493,7 @@ def pagina(slug, d):
 <footer>
   <div class="in">
     <span class="wm" style="font-size:17px">germo<b>.br</b></span>
-    <nav aria-label="Rodapé"><a href="/paginainicial">Página inicial</a><a href="https://instagram.com/germo.br" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/5541988840707?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20a%20Germo." target="_blank" rel="noopener">Central de Ajuda</a></nav>
+    <nav aria-label="Rodapé"><a href="/paginainicial">Página inicial</a><a href="/privacidade">Privacidade</a><a href="https://instagram.com/germo.br" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/5541988840707?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20a%20Germo." target="_blank" rel="noopener">Central de Ajuda</a></nav>
     <span>germo.br · Todos os direitos reservados.</span>
   </div>
 </footer>
@@ -498,3 +511,8 @@ if __name__ == "__main__":
         with open(os.path.join(pasta, "index.html"), "w") as f:
             f.write(pagina(slug, d))
         print("ok", slug)
+    urls = ["/", "/paginainicial", "/privacidade"] + [f"/{d['cat']}/{s}" for s, d in N.items()]
+    sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>https://www.germobr.link{u}</loc></url>\n" for u in urls) + "</urlset>\n"
+    open(os.path.join(raiz, "sitemap.xml"), "w").write(sm)
+    open(os.path.join(raiz, "robots.txt"), "w").write("User-agent: *\nAllow: /\n\nSitemap: https://www.germobr.link/sitemap.xml\n")
+    print("sitemap", len(urls))

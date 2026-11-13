@@ -8,6 +8,13 @@
 <meta property="og:title" content="Germo · 10 ajudantes do agro no WhatsApp">
 <meta property="og:description" content="Planilha, relatório, post, contrato, previsão do tempo. Você pede no WhatsApp e recebe pronto.">
 <meta name="theme-color" content="#FFFFFF">
+<meta property="og:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/8d9c90ff-12a5-4e42-9bf0-c4eab957289e.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://www.germobr.link/paginainicial"><meta property="og:type" content="website"><meta property="og:site_name" content="Germo">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.germobr.link/paginainicial">
+<script defer src="/_vercel/insights/script.js"></script>
+<script src="/assets/germo.js"></script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -733,6 +740,10 @@ footer a:hover{color:var(--ink)}
 .ncta:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 0 0 1.5px rgba(19,169,75,.25),0 14px 28px -12px rgba(21,32,26,.4)}
 .ncta span{position:relative;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 4px 10px -4px rgba(19,169,75,.6)}
 
+.priv{margin:2px 0 0;font-size:12.5px;color:var(--mute);line-height:1.45}.priv a{color:var(--mute)}
+.ind{display:flex;flex-direction:column;gap:10px;margin-top:4px;padding-top:16px;border-top:1px solid var(--line);width:100%}.ind span{font-weight:700;font-size:15px}
+.btn.wa{background:#25D366;color:#fff;justify-content:center}.btn.wa img{filter:brightness(0) invert(1)}
+.lk{font-weight:700;color:var(--verde-lab);text-decoration:none;font-size:15px}
 /* menu Soluções */
 .mtr{display:inline-flex;align-items:center;gap:6px;border:0;background:none;cursor:pointer;font-weight:600;font-size:15px;color:var(--ink2);padding:10px 14px;border-radius:999px}
 .mtr:hover,.mtr[aria-expanded="true"]{background:var(--soft)}
@@ -989,9 +1000,10 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
             <input class="isca" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
             <p class="fmsg" id="fmsg" role="status" aria-live="polite"></p>
             <button class="btn pr" type="submit" id="fb">Entrar na lista de espera <span class="ar" aria-hidden="true">→</span></button>
+            <p class="priv">Usamos o seu contato só para avisar sobre a Germo. <a href="/privacidade">Política de privacidade</a></p>
             <div class="seals"><span><i></i>Sem custo para entrar</span><span><i></i>Sem compromisso</span><span><i></i>Sem spam</span></div>
           </form>
-          <div class="ok" role="status"><span class="tick" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0A0C0B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><b>Pronto, você está na lista.</b><p>Nós vamos te avisar no WhatsApp assim que a Germo abrir, com a oferta de lançamento.</p><a class="btn ol" href="#ajudantes">Rever os ajudantes</a></div>
+          <div class="ok" role="status"><span class="tick" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0A0C0B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><b>Pronto, você está na lista.</b><p>Nós vamos te avisar no WhatsApp assim que a Germo abrir, com a oferta de lançamento.</p><div class="ind"><span>Conhece alguém que também ia gostar?</span><a class="btn wa" data-indicar href="https://wa.me/" target="_blank" rel="noopener"><img src="/wa.png" alt="" width="20" height="20">Mandar para um amigo no WhatsApp</a></div><a class="lk" href="#ajudantes">Rever os ajudantes →</a></div>
         </div>
       </div>
     </div>
@@ -1027,7 +1039,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
 <footer>
   <div class="in">
     <span class="wm" style="font-size:17px;color:var(--ink)">GERMO<b>.</b></span>
-    <nav aria-label="Rodapé"><a href="/">germobr.link</a><a href="https://instagram.com/germo.br" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/5541988840707?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20a%20Germo." target="_blank" rel="noopener">Central de Ajuda</a></nav>
+    <nav aria-label="Rodapé"><a href="/">germobr.link</a><a href="/privacidade">Privacidade</a><a href="https://instagram.com/germo.br" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/5541988840707?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20a%20Germo." target="_blank" rel="noopener">Central de Ajuda</a></nav>
     <span>germo.br · Todos os direitos reservados.</span>
   </div>
 </footer>
@@ -1167,7 +1179,7 @@ wf.addEventListener('submit',async e=>{e.preventDefault();
   if(wf.site.value)return;
   $('fb').disabled=true;const q=new URLSearchParams(location.search);
   try{await fetch(URL_PLANILHA,{method:'POST',mode:'no-cors',body:new URLSearchParams({nome:fn.value.trim(),whatsapp:fw.value.trim(),cidade:fc.value.trim(),
-    origem:q.get('origem')||q.get('utm_source')||'paginainicial',campanha:q.get('utm_campaign')||'landing-page'})})}catch(_){}
+    origem:(window.germoOrigem&&germoOrigem())||'paginainicial',campanha:(window.germoOrigem&&germoOrigem())?'paginainicial':(q.get('utm_campaign')||'landing-page')})})}catch(_){}
   $('wait').classList.add('done');});
 
 /* celular: carrosséis com indicador e botão fixo */
