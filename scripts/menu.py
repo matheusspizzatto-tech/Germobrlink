@@ -64,7 +64,7 @@ def links_html(home="/paginainicial"):
 
 
 def burger_html():
-    return ('<button type="button" class="mbtn" id="mbtn" aria-label="Abrir o menu" aria-expanded="false" aria-controls="mega">'
+    return ('<button type="button" class="mbtn" id="mbtn" aria-label="Abrir o menu" aria-expanded="false" aria-controls="mmob">'
             '<i></i><i></i></button>')
 
 
@@ -88,6 +88,22 @@ def panel_html(home="/paginainicial", atual=None):
         '<div class="mega" id="mega2" hidden><div class="in">'
         f'<p class="mh">Os 10 ajudantes · cada um com uma função, todos no mesmo número de WhatsApp</p><div class="ml g5">{_agentes(atual)}</div>'
         f'{foot}</div></div>'
+        + mobile_html(home, atual)
+    )
+
+
+def mobile_html(home="/paginainicial", atual=None):
+    nichos = "".join(f'<a{" class=\"cur\"" if s == atual else ""} href="/para/{s}">{t}</a>' for s, t, d, live in NICHOS_MENU)
+    tarefas = "".join(f'<a{" class=\"cur\"" if s == atual else ""} href="/tarefa/{s}">{t}</a>' for s, t, d in TAREFAS)
+    ags = "".join(f'<a{" class=\"cur\"" if k == atual else ""} href="/ajudante/{k}"><img src="/img/{k}.webp" alt="" loading="lazy" width="28" height="28"><span style="--c:{c}">{nome(k)}</span></a>' for k, c, d in AGENTES)
+    g = lambda t, l, cls="": f'<details class="mm-g"><summary>{t}{CHEV}</summary><div class="mm-l{cls}">{l}</div></details>'
+    return (
+        '<div class="mmob" id="mmob" hidden><div class="mm-card">'
+        + g("Para quem faz o agro", nichos) + g("Por tarefa", tarefas) + g("Os 10 ajudantes", ags, " mm-ag")
+        + f'<a class="mm-a" href="{home}#como">Como funciona</a><a class="mm-a" href="{home}#exemplos">Exemplos</a><a class="mm-a" href="{home}#perguntas">Perguntas</a>'
+        + f'<a class="mm-cta" href="{home}#planos">Entrar na lista de espera <span aria-hidden="true">→</span></a>'
+        + '<p class="mm-n">Todos os ajudantes ficam no mesmo número de WhatsApp.</p>'
+        '</div></div>'
     )
 
 
@@ -183,6 +199,28 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
   body.mopen{overflow:hidden}
 }
 @media (max-width:420px){.nav .in{gap:8px}.mbtn{width:38px;height:38px}.ncta i{display:none}.ncta{padding-left:13px!important}.wm{font-size:19px!important}}
+/* menu do celular: cartão flutuante organizado (estilo AbacatePay) */
+.mmob{display:none}
+@media (max-width:920px){
+  #mega{display:none!important}
+  .mmob{display:block;position:absolute;left:0;right:0;top:calc(100% + 8px);padding:0 14px;z-index:60}
+  .mmob[hidden]{display:none}
+  .mm-card{background:#fff;border-radius:28px;box-shadow:0 34px 70px -26px rgba(21,32,26,.38),0 0 0 1px var(--line);padding:8px 20px 18px;max-height:calc(100vh - 96px);max-height:calc(100dvh - 96px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+    opacity:0;transform:translateY(-10px) scale(.985);transform-origin:top center;transition:opacity .2s ease,transform .3s cubic-bezier(.22,1,.36,1)}
+  .mmob.on .mm-card{opacity:1;transform:none}
+  .mm-g summary,.mm-a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 4px;font-size:18px;font-weight:600;letter-spacing:-.01em;color:var(--ink);text-decoration:none;list-style:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .mm-g summary::-webkit-details-marker{display:none}
+  .mm-g summary svg{width:16px;height:16px;color:var(--mute);transition:transform .25s ease;flex:none}
+  .mm-g[open] summary svg{transform:rotate(180deg)}
+  .mm-l{display:flex;flex-direction:column;gap:2px;padding:0 0 12px 10px}
+  .mm-l a{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:14px;font-size:16.5px;font-weight:500;color:var(--ink2);text-decoration:none;-webkit-tap-highlight-color:transparent}
+  .mm-l a:active,.mm-l a.cur{background:var(--soft)}
+  .mm-l a.cur{color:var(--verde-lab);font-weight:600}
+  .mm-ag a img{width:28px;height:28px;object-fit:contain;flex:none}
+  .mm-cta{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:14px;padding:15px 18px;border-radius:999px;background:var(--broto);color:#15201A;font-weight:700;font-size:16px;text-decoration:none}
+  .mm-n{margin:12px 4px 0;font-size:13px;line-height:1.4;color:var(--mute);text-align:center}
+  body.mopen{overflow:hidden}
+}
 """
 
 MENU_JS = """
@@ -194,9 +232,19 @@ MENU_JS = """
   const isOpen=p=>p&&!p.hidden&&p.classList.contains('on');
   trs.forEach(tr=>{const p=document.getElementById(tr.dataset.p);tr.addEventListener('click',()=>isOpen(p)?close(p):open(p));
     if(matchMedia('(hover:hover)').matches){let h;[tr,p].forEach(el=>{el.addEventListener('mouseenter',()=>{clearTimeout(h);clearTimeout(t[p.id]);h=setTimeout(()=>open(p),90)});el.addEventListener('mouseleave',()=>{clearTimeout(h);h=setTimeout(()=>{if(cur===p)close(p)},220)})})}});
-  mb&&mb.addEventListener('click',()=>{const p=document.getElementById('mega');isOpen(p)?close(p):open(p)});
+  mb&&mb.addEventListener('click',()=>{if(mobile())return;const p=document.getElementById('mega');isOpen(p)?close(p):open(p)});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const p=cur;close(p);(trOf(p)||mb).focus()}});
   document.addEventListener('click',e=>{if(cur&&!cur.contains(e.target)&&!trs.some(x=>x.contains(e.target))&&!mb?.contains(e.target))close(cur)});
   pans.forEach(p=>p.addEventListener('click',e=>{if(e.target.closest('a'))close(p)}));
+})();
+(function(){const mb=document.getElementById('mbtn'),m=document.getElementById('mmob');if(!mb||!m)return;let tm;const card=m.querySelector('.mm-card');
+  const isO=()=>m.classList.contains('on');
+  const op=()=>{clearTimeout(tm);m.hidden=false;requestAnimationFrame(()=>m.classList.add('on'));mb.setAttribute('aria-expanded','true');document.body.classList.add('mopen')};
+  const cl=()=>{m.classList.remove('on');mb.setAttribute('aria-expanded','false');document.body.classList.remove('mopen');tm=setTimeout(()=>{if(!isO())m.hidden=true},260)};
+  mb.addEventListener('click',()=>{if(!matchMedia('(max-width:920px)').matches)return;isO()?cl():op()});
+  document.addEventListener('click',e=>{if(isO()&&!card.contains(e.target)&&!mb.contains(e.target))cl()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&isO()){cl();mb.focus()}});
+  m.addEventListener('click',e=>{if(e.target.closest('a'))cl()});
+  const ds=[...m.querySelectorAll('details')];ds.forEach(d=>d.addEventListener('toggle',()=>{if(d.open)ds.forEach(o=>{if(o!==d)o.open=false})}));
 })();
 """
