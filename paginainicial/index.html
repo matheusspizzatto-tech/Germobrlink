@@ -744,6 +744,13 @@ footer a:hover{color:var(--ink)}
 .ind{display:flex;flex-direction:column;gap:10px;margin-top:4px;padding-top:16px;border-top:1px solid var(--line);width:100%}.ind span{font-weight:700;font-size:15px}
 .btn.wa{background:#25D366;color:#fff;justify-content:center}.btn.wa img{filter:brightness(0) invert(1)}
 .lk{font-weight:700;color:var(--verde-lab);text-decoration:none;font-size:15px}
+/* faixa diferenca */
+.dif{padding:clamp(40px,6vw,72px) 0;background:#EEFBF2;color:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.dif .in{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
+.dif-t{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(26px,3.6vw,44px);line-height:1.12;letter-spacing:-.02em;max-width:22ch}
+.dif-t .g{color:var(--verde)}
+.dif-r{display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;padding:9px 18px;border-radius:999px;background:#fff;box-shadow:0 0 0 1.5px var(--ring);font-size:15.5px;font-weight:600;color:var(--ink2)}
+.dif-r b{color:var(--verde-lab)}
 /* menu Soluções */
 .mtr{display:inline-flex;align-items:center;gap:6px;border:0;background:none;cursor:pointer;font-weight:600;font-size:15px;color:var(--ink2);padding:10px 14px;border-radius:999px}
 .mtr:hover,.mtr[aria-expanded="true"]{background:var(--soft)}
@@ -857,8 +864,8 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
         <div class="mcrew" aria-hidden="true"><button type="button" class="mc mc0" style="--c:#F26B1D" tabindex="-1"><img src="/img/viral.webp" alt=""><b>viral</b></button><button type="button" class="mc mc1" style="--c:#3AA0FF" tabindex="-1"><img src="/img/vitrine.webp" alt=""><b>vitrine</b></button><button type="button" class="mc mc2" style="--c:#8E2443" tabindex="-1"><img src="/img/juridico.webp" alt=""><b>jurídico</b></button><button type="button" class="mc mc3" style="--c:#24408E" tabindex="-1"><img src="/img/contabil.webp" alt=""><b>contábil</b></button><button type="button" class="mc mc4" style="--c:#B88F0E" tabindex="-1"><img src="/img/vendas.webp" alt=""><b>vendas</b></button></div>
         <span class="pl hpill" style="align-self:flex-start;display:none"><i class="dot"></i>Pré-lançamento · lista de espera aberta</span>
         <h1>10 ajudantes<br><span class="g">no seu WhatsApp.</span></h1>
-        <p class="lead lead-l">Você manda uma mensagem, um áudio ou uma foto no WhatsApp da Germo. O ajudante certo responde e devolve o trabalho pronto: a planilha, o relatório da visita, o post, a análise do contrato, a previsão do tempo da sua propriedade e muito mais.</p>
-        <p class="lead lead-s">Mande um áudio, uma foto ou uma mensagem. O ajudante certo devolve o trabalho pronto no seu WhatsApp.</p>
+        <p class="lead lead-l">Você manda o áudio. O trabalho volta pronto. Mande uma mensagem, um áudio ou uma foto no WhatsApp da Germo e o ajudante certo devolve: a planilha, o relatório da visita, o post, a análise do contrato, a previsão do tempo da sua propriedade e muito mais.</p>
+        <p class="lead lead-s">Você manda o áudio. O trabalho volta pronto no seu WhatsApp: planilha, relatório, contrato e proposta.</p>
         <div class="acts">
           <a class="btn pr hcta" href="#planos">Entrar na lista de espera <span class="ar" aria-hidden="true">→</span></a>
           <a class="btn ol" href="#como">Ver como funciona</a>
@@ -898,6 +905,14 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
     </div>
   </section>
 
+  <!-- DIFERENCA -->
+  <section class="dif" aria-label="O que a Germo faz diferente">
+    <div class="in rv">
+      <p class="dif-t">Outras IAs te explicam como fazer. <span class="g">Os ajudantes da Germo fazem por você.</span></p>
+      <div class="dif-r"><span>Não é resposta.</span><b>É trabalho pronto.</b></div>
+    </div>
+  </section>
+
   <!-- AJUDANTES -->
   <section id="ajudantes">
     <div class="in">
@@ -922,7 +937,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
   <!-- EXEMPLOS -->
   <section class="how" id="exemplos">
     <div class="in">
-      <div class="head c rv"><span class="eyebrow">Exemplos</span><h2>Um dia comum, <span class="g">com os ajudantes certos.</span></h2><p class="lead">Áudios de verdade, do jeito que o campo fala. Escolha um perfil, aperte o play e veja o que cada ajudante devolve.</p></div>
+      <div class="head c rv"><span class="eyebrow">Exemplos</span><h2>O que chega pronto <span class="g">no seu WhatsApp.</span></h2><p class="lead">Áudios de verdade, do jeito que o campo fala. Escolha um perfil, aperte o play e veja o que cada ajudante devolve.</p></div>
       <div class="tabs" role="tablist" aria-label="Perfis" id="ctabs"></div>
       <div class="case rv" id="case" role="tabpanel"></div>
     </div>
@@ -934,6 +949,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
       <div class="tx rv">
         <span class="eyebrow">O que é a Germo</span>
         <h2>Um número de WhatsApp com <span class="g">10 ajudantes</span> trabalhando para você.</h2>
+        <p><b style="color:var(--ink)">Tirar dúvida é fácil. O difícil é sentar à noite para montar o relatório, a planilha e a proposta. É isso que nós fazemos por você.</b></p>
         <p>Cada ajudante é uma inteligência artificial treinada para um tipo de trabalho do agro. Um monta planilha, outro escreve o relatório da visita, outro acompanha o tempo da sua propriedade, outro explica o contrato.</p>
         <p>Você não precisa decorar qual chamar. Escreve do seu jeito, ou manda um áudio, e a Germo passa o pedido para o ajudante certo. Ele responde no mesmo chat, com o próprio nome, e entrega pronto.</p>
       </div>
@@ -966,7 +982,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
   <!-- TUDO NO WHATSAPP -->
   <section id="whats">
     <div class="in">
-      <div class="head rv"><span class="eyebrow">Tudo no WhatsApp</span><h2>Um número só, <span class="g">10 ajudantes trabalhando.</span></h2><p class="lead"><b class="num" style="color:var(--verde)">96%</b> das pessoas do campo usam o WhatsApp. Por isso nós colocamos os ajudantes onde você já está. <span class="muted" style="font-size:13px;display:block;margin-top:6px">Fonte: 9ª Pesquisa ABMRA, Hábitos do Produtor Rural.</span></p></div>
+      <div class="head rv"><span class="eyebrow">Tudo no WhatsApp</span><h2>Um número só, <span class="g">10 ajudantes trabalhando.</span></h2><p class="lead"><b class="num" style="color:var(--verde)">96%</b> das pessoas do campo usam o WhatsApp. Por isso nós colocamos os ajudantes onde você já está. Sem aplicativo, sem senha, sem computador: você pede do jeito que fala e recebe o arquivo no mesmo chat. <span class="muted" style="font-size:13px;display:block;margin-top:6px">Fonte: 9ª Pesquisa ABMRA, Hábitos do Produtor Rural.</span></p></div>
       <div class="why">
         <div class="wy rv"><div class="sc" aria-hidden="true"><div class="ct"><span class="av"><svg width="18" height="18" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="28"/><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></span><span><b>Germo <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path d="m8 12.3 2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>Conta comercial</small></span><span class="add">Salvo</span></div></div><div class="tx2"><h3>Nada para instalar</h3><p>Sem aplicativo novo, sem site para entrar e sem senha. É só um contato salvo no seu celular.</p></div></div>
         <div class="wy rv"><div class="sc"><div class="vn ap" data-a="6"><button type="button" aria-label="Ouvir o áudio"></button><span class="wv" aria-hidden="true"><i style="height:18px"></i><i style="height:18px"></i><i style="height:16px"></i><i style="height:21px"></i><i style="height:17px"></i><i style="height:22px"></i><i style="height:19px"></i><i style="height:15px"></i><i style="height:21px"></i><i style="height:15px"></i><i style="height:15px"></i><i style="height:20px"></i><i style="height:10px"></i><i style="height:16px"></i><i style="height:15px"></i><i style="height:15px"></i><i style="height:15px"></i><i style="height:17px"></i><i style="height:13px"></i><i style="height:13px"></i><i style="height:19px"></i><i style="height:21px"></i><i style="height:22px"></i><i style="height:21px"></i></span><span class="tm">0:20</span></div></div><div class="tx2"><h3>Pede por áudio</h3><p>Está no trator ou no meio da lavoura? Grava um áudio. O ajudante entende e responde do mesmo jeito que se você tivesse escrito.</p></div></div>
@@ -978,7 +994,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
   <!-- PLANOS: LISTA DE ESPERA -->
   <section class="plans" id="planos">
     <div class="in">
-      <div class="head c rv"><span class="eyebrow">Planos</span><h2>Os planos saem <span class="g">no lançamento.</span></h2><p class="lead">Enquanto isso, a lista de espera está aberta. Quem entra agora recebe a oferta de lançamento antes de todo mundo, direto no WhatsApp.</p></div>
+      <div class="head c rv"><span class="eyebrow">Planos</span><h2>Quanto vale a sua <span class="g">noite de relatório?</span></h2><p class="lead">Os planos saem no lançamento e custam menos que uma hora de um técnico ou de um designer, todo mês. Enquanto isso, a lista de espera está aberta. Quem entra agora recebe a oferta de lançamento antes de todo mundo, direto no WhatsApp.</p></div>
       <div class="wait rv" id="wait">
         <div class="l">
           <span class="eyebrow">Lista de espera</span>
@@ -1015,6 +1031,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
       <div class="head c rv"><span class="eyebrow">Perguntas</span><h2>Ficou alguma dúvida?</h2></div>
       <div class="faq">
         <details class="rv"><summary>O que é a Germo?<i aria-hidden="true">+</i></summary><p>Um número de WhatsApp com 10 ajudantes trabalhando para você. Cada ajudante é uma inteligência artificial treinada para um tipo de trabalho do agro: um monta planilha, outro escreve o relatório da visita, outro acompanha o tempo da sua propriedade, outro explica o contrato. Você não precisa decorar qual chamar: escreve do seu jeito, ou manda um áudio, e a Germo passa o pedido para o ajudante certo. Ele responde no mesmo chat, com o próprio nome, e entrega pronto.</p></details>
+        <details class="rv"><summary>Qual a diferença da Germo para outras IAs do agro?<i aria-hidden="true">+</i></summary><p>As outras IAs respondem as suas dúvidas, e isso é ótimo. Os ajudantes da Germo vão além: você pede e recebe o trabalho pronto, seja a planilha, o relatório em PDF, o contrato revisado ou a proposta para o comprador. Você só confere e usa.</p></details>
         <details class="rv"><summary>A Germo lembra das minhas informações?<i aria-hidden="true">+</i></summary><p>Sim. Logo no começo você se apresenta e, se quiser, manda os seus documentos. A Germo monta a ficha da sua propriedade (cidade, o que produz, área, equipe) e os 10 ajudantes usam essa ficha em toda conversa. Assim você não repete tudo de novo, os seus documentos ficam à mão para os ajudantes consultarem e o post, a mensagem e a apresentação saem no seu jeito de falar e com os seus dados.</p></details>
         <details class="rv"><summary>Preciso baixar algum aplicativo?<i aria-hidden="true">+</i></summary><p>Não. A Germo funciona dentro do WhatsApp que você já usa. Depois de assinar, é só salvar o número da Germo e conversar.</p></details>
         <details class="rv"><summary>Os ajudantes substituem o agrônomo, o advogado ou o contador?<i aria-hidden="true">+</i></summary><p>Não. O agrônomo, o jurídico e o contábil explicam, organizam e mostram os pontos de atenção em linguagem simples, e avisam quando o assunto precisa de um profissional. Receita de defensivo só com agrônomo habilitado.</p></details>
@@ -1028,7 +1045,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
   <section class="end">
     <div class="in">
       <div class="box rv">
-        <h2>Os ajudantes estão prontos. <span class="g">Falta você.</span></h2>
+        <h2>Pare de fazer à noite <span class="g">o que pode chegar pronto amanhã cedo.</span></h2>
         <p class="lead" style="margin:0 auto">Entre na lista de espera e receba a Germo antes do lançamento.</p>
         <div class="lineup" aria-hidden="true"><img src="/img/viral.webp" alt=""><img src="/img/vitrine.webp" alt=""><img src="/img/apresenta.webp" alt=""><img src="/img/planilha.webp" alt=""><img src="/img/campo.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/clima.webp" alt=""><img src="/img/agronomo.webp" alt=""><img src="/img/juridico.webp" alt=""><img src="/img/contabil.webp" alt=""></div>
       </div>

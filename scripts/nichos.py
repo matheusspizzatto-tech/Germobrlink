@@ -239,6 +239,7 @@ section{padding-block:clamp(56px,8vw,104px)}
 .ent .pv{background:var(--soft);padding:22px;min-height:290px;display:flex;align-items:center;justify-content:center}
 .ent .tx{padding:20px 22px 22px;display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line)}
 .ent .tg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800}.ent .tg img{width:26px;height:26px;object-fit:contain}
+.ent .sel{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin-top:8px;padding:5px 11px;border-radius:999px;background:var(--mint);color:var(--verde-lab);font-size:12.5px;font-weight:800}
 .ent p{margin:0;color:var(--ink2);font-size:14.5px;line-height:1.5}
 .mk{width:100%;max-width:300px;background:#fff;border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,.06),0 16px 30px -18px rgba(21,32,26,.35);font-size:13px}
 .mkh{padding:12px 14px 10px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:8px}.mkh b{font-size:13.5px}.mkh small{color:var(--mute);font-size:11.5px;font-weight:600}
@@ -330,16 +331,19 @@ wf.addEventListener('submit',async e=>{e.preventDefault();if(!fn.value.trim()){f
 """
 
 
+from pronto import PRONTO, FAQ_DIF, selo
+
+
 def pagina(slug, d):
     e = html.escape
     chat_o, chat_ag, chat_r = d["chat"]
     dores = "".join(f'<div class="dor rv"><small>Hoje</small><b>{t}</b><p>{p}</p></div>' for t, p in d["dor"])
     ents = "".join(
         f'<div class="ent rv"><div class="pv">{mk}</div><div class="tx"><span class="tg" style="color:{TXT[k]}"><img src="/img/{k}.webp" alt="" loading="lazy">{nome(k)}</span>'
-        f'<h3>{t}</h3><p>{p}</p></div></div>' for k, t, p, mk in d["entregas"])
+        f'<h3>{t}</h3><p>{p}</p><span class="sel"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>{selo(k, mk, t)}</span></div></div>' for k, t, p, mk in d["entregas"])
     peds = "".join(f'<div class="ped">"{p}"</div>' for p in d["pedidos"])
     ags = "".join(f'<div class="ag rv" style="--c:{COR[k]}"><img src="/img/{k}.webp" alt="" loading="lazy"><b>{nome(k)}</b><p>{t}</p></div>' for k, t in d["ajudantes"])
-    faq = "".join(f'<details><summary>{q}<i aria-hidden="true">+</i></summary><p>{a}</p></details>' for q, a in d["faq"])
+    faq = "".join(f'<details><summary>{q}<i aria-hidden="true">+</i></summary><p>{a}</p></details>' for q, a in list(d["faq"]) + [FAQ_DIF])
     cat = d["cat"]; cat_nome, lista = CATS[cat]
     i0 = lista.index(slug); viz = [lista[(i0 + j) % len(lista)] for j in range(1, len(lista))][:3]
     outras = "".join(
@@ -414,7 +418,7 @@ def pagina(slug, d):
 
 <section id="pronto" style="padding-top:0">
   <div class="in">
-    <div class="head rv"><span class="eyebrow">O que fica pronto</span><h2>Você pede no WhatsApp. <span class="g">Recebe assim.</span></h2><p class="lead">Exemplos do trabalho que os ajudantes devolvem para quem vive essa rotina.</p></div>
+    <div class="head rv"><span class="eyebrow">O que fica pronto</span><h2>Você pede no WhatsApp. <span class="g">Recebe assim.</span></h2><p class="lead">{PRONTO.get(slug, "Exemplos do trabalho que os ajudantes devolvem para quem vive essa rotina.")}</p></div>
     <div class="ents">{ents}</div>
   </div>
 </section>
