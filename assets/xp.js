@@ -34,10 +34,10 @@ planilha:{a:'90123b73-0960-4cc5-ac36-cba4b15e5f31',d:4.4,t:9,f:'Ô Germo, monta 
   const ref=x.q('.xref'),fx=x.q('.xfx'),c=id=>x.q(`[data-c="${id}"]`);
   const sel=(td,f)=>{x.qa('.sel').forEach(e=>e.classList.remove('sel'));td.classList.add('sel');ref.textContent=td.dataset.c;fx.textContent=f||''};
   await x.cam([176,150],1.3);
-  for(let i=0;i<4;i++){const n=i+2,a=c('A'+n),b=c('B'+n),s=c('C'+n);sel(a);await x.to(s,{side:'r'});await x.type(a,R[i][0],20,fx);sel(b);await x.type(b,R[i][1],20,fx);sel(s,brl(R[i][2]));await x.count(s,R[i][2],240)}
+  for(let i=0;i<4;i++){const n=i+2,a=c('A'+n),b=c('B'+n),s=c('C'+n);sel(a);await x.to(s,{side:'b',dx:.1,dy:.02});await x.type(a,R[i][0],20,fx);sel(b);await x.type(b,R[i][1],20,fx);sel(s,brl(R[i][2]));await x.count(s,R[i][2],240)}
   await x.cam([330,170],1.3);
-  for(let i=0;i<4;i++){const n=i+2,d=c('D'+n);sel(d,`=C${n}*8%`);if(i===0)await x.to(d,{side:'l',dy:.08});await x.count(d,R[i][2]*.08,220);await x.wait(90)}
-  c('A6').textContent='Total';const tc=c('C6'),td=c('D6');sel(tc,'=SOMA(C2:C5)');await x.to(tc,{side:'l',dy:.06});await x.count(tc,11150,420);sel(td,'=SOMA(D2:D5)');await x.count(td,892,340);
+  for(let i=0;i<4;i++){const n=i+2,d=c('D'+n);sel(d,`=C${n}*8%`);if(i===0)await x.to(c('B7'),{side:'b',dy:-.14});await x.count(d,R[i][2]*.08,220);await x.wait(90)}
+  c('A6').textContent='Total';const tc=c('C6'),td=c('D6');sel(tc,'=SOMA(C2:C5)');await x.count(tc,11150,420);sel(td,'=SOMA(D2:D5)');await x.count(td,892,340);
   x.q('.xst').textContent='Soma: 11.150,00';await x.wait(350);x.qa('.sel').forEach(e=>e.classList.remove('sel'))},
  out:()=>`${FILE('#1D6F42','XLS','Salários_Novembro.xlsx','Planilha · 1 aba')}Pronto! 4 funcionários, R$ 11.150,00 de folha no mês. Já calculei os 8% de FGTS: R$ 892,00.`},
 
@@ -45,11 +45,11 @@ clima:{a:'22a0578b-3d78-4705-82c0-aaca0b46beaa',d:4.8,t:8,f:'Germo, vai chover a
  doc(){const H=[['07h',0],['09h',0],['11h',0],['13h',0],['15h',18],['17h',14],['19h',6],['21h',2]];
   return `<div class="xw wx"><div class="wx-map" style="background-image:url(${ph('aerea')})"><div class="wx-rad"><i></i><i></i><i></i></div><div class="wx-pin"><b></b><span>Fazenda Boa Vista</span></div><div class="wx-top"><b>Radar de chuva · amanhã</b><span class="wxh">07h</span></div><div class="wx-leg"><i style="background:#3896FF"></i>fraca<i style="background:#34C759"></i>moderada<i style="background:#FFC400"></i>forte<i style="background:#FF4030"></i>muito forte</div></div><div class="wx-pan"><div class="wx-now"><small>CHUVA PREVISTA</small><strong><span class="wxm">0</span><u>mm</u></strong><span class="wxs">amanhã, na fazenda</span><span class="wx-win">Colher: das 7h às 13h</span></div><div class="wx-bars">${H.map(([h,m])=>`<div data-m="${m}"><u>${m?m+' mm':'seco'}</u><i></i>${h}</div>`).join('')}</div></div></div>`},
  async run(x){const bars=x.qa('.wx-bars div'),rad=x.q('.wx-rad'),hh=x.q('.wxh'),mm=x.q('.wxm'),P=[-78,-66,-54,-42,-12,6,26,48];let acc=0;
-  await x.to(bars[0],{side:'b',dy:-.06});
+  await x.to(x.q('.wxh'),{side:'b',dx:.03,dy:.05});
   for(let i=0;i<8;i++){const b=bars[i],m=+b.dataset.m;bars.forEach(e=>e.classList.remove('cur'));b.classList.add('cur','on',m?'wet':'dry');b.querySelector('i').style.height=(m?16+m*4:9)+'px';hh.textContent=b.lastChild.textContent;rad.style.transform=`translateX(${P[i]}%)`;
    if(m){acc+=m;mm.textContent=acc}
    if(i===3)x.on(x.q('.wx-win'));
-   if(i===4){x.q('.wxs').textContent='amanhã, a partir das 15h';await x.to(b,{side:'l',dy:-.1})}
+   if(i===4){x.q('.wxs').textContent='amanhã, a partir das 15h';await x.hop()}
    await x.wait(i===4?900:520)}
   bars.forEach(e=>e.classList.remove('cur'));hh.textContent='15h às 21h';rad.style.transform='translateX(6%)';await x.wait(500)},
  out:()=>`Amanhã chove 40 mm na fazenda, começando às 15h. Dá para colher das 7h às 13h.`},
@@ -59,7 +59,7 @@ campo:{a:'7f90076d-2d0b-4f5b-9ff2-e04eb82fbf5a',d:4.7,t:11,f:'Germo, acabei a vi
   const T=[['Ferrugem asiática','Lesões em 8% das folhas de baixo','xat','Atenção'],['Percevejos','1,5 por metro, no pano de batida','xok','Abaixo do nível de ação'],['Lagartas','4 por metro, no pano de batida','xok','Abaixo do nível de ação']];
   return `<div class="xw pdf"><div class="xw-bar"><i>PDF</i><b>Relatorio_Visita_Talhao4.pdf</b><em>1 / 2</em></div><div class="pg"><div class="pg-h"><div><small>RELATÓRIO DE VISITA TÉCNICA</small><b>Talhão 4 · Soja</b></div><span>Nº 047/2026<br>Safra 2026/27</span></div><div class="pg-f">${F.map(f=>`<div><small>${f}</small><span></span></div>`).join('')}</div><h5>1. Registro fotográfico</h5><div class="pg-ph">${[['soja','Foto 1: lavoura em R3, com bom estande'],['folha','Foto 2: lesões nas folhas de baixo'],['pano','Foto 3: pano de batida entre as linhas']].map(([p,c])=>`<figure><span style="background-image:url(${ph(p)})"></span><figcaption>${c}</figcaption></figure>`).join('')}</div><h5>2. Monitoramento</h5><table class="pg-t"><thead><tr><th>Alvo</th><th>O que encontramos</th><th>Situação</th></tr></thead><tbody>${T.map(([a,b,c,d])=>`<tr><td><b>${a}</b></td><td>${b}</td><td><em class="${c}">${d}</em></td></tr>`).join('')}</tbody></table><h5>3. Recomendações</h5><ol class="pg-r"><li></li><li></li><li></li></ol><div class="pg-s"><div><svg viewBox="0 0 110 34"><path d="M4 26c8-14 14-20 16-12s-6 16-2 14 10-18 16-16-4 14 2 12 8-10 14-10 2 8 8 6 10-8 18-8 10 6 26 2"/></svg>Técnico responsável</div><span>Página 1 de 2</span></div></div></div>`},
  async run(x){const V=['José Almeida','Fazenda Boa Vista','Rio Verde, GO','Soja','R3, formação de vagens','62 hectares'],f=x.qa('.pg-f span');
-  await x.cam(x.q('.pg-f'),1.3);await x.to(f[4],{side:'b'});
+  await x.cam(x.q('.pg-f'),1.3);await x.to(f[4],{side:'b',dy:.07});
   for(let i=0;i<6;i++)await x.type(f[i],V[i],13);
   const figs=x.qa('.pg-ph figure');await x.cam(x.q('.pg-ph'),1.25);await x.to(figs[1],{side:'b',dy:-.05});
   for(const g of figs){x.on(g);await x.wait(330)}
@@ -71,14 +71,14 @@ campo:{a:'7f90076d-2d0b-4f5b-9ff2-e04eb82fbf5a',d:4.7,t:11,f:'Germo, acabei a vi
   x.on(x.q('.pg-s'));await x.wait(1150)},
  out:()=>`${FILE('#C8402F','PDF','Relatorio_Visita_Talhao4.pdf','PDF · 2 páginas')}Relatório pronto, com as 3 fotos, o monitoramento e as recomendações. É só enviar ao produtor.`},
 
-agronomo:{a:null,d:2.6,t:7,f:'Apareceu essa mancha na folha da soja. O que pode ser?',
+agronomo:{a:'5208050f-a0bb-4fbc-83b3-2b0868545835',d:3.6,t:7,f:'Apareceu essa mancha na folha da soja. O que pode ser?',
  doc:()=>`<div class="xw dx"><div class="dx-ph" style="background-image:url(${ph('folha')})"><span class="dx-tag">Foto enviada pelo produtor</span><i class="dx-scan"></i>${[[57,27],[68,69],[27,60]].map(([l,t],i)=>`<span class="dx-ring" style="left:${l}%;top:${t}%"><b>${i+1}</b></span>`).join('')}<div class="dx-lp" style="background-image:url(${ph('folha')});background-position:-813px -365px"><small>zoom na lesão 1</small></div></div><div class="dx-c"><div><small>TRIAGEM DA FOTO</small><div class="dx-r t1" style="--w:74%"><b>Ferrugem asiática</b><em>mais provável</em><i></i></div><div class="dx-r" style="--w:26%"><b>Mancha-parda</b><em>possível</em><i></i></div><div class="dx-r" style="--w:10%"><b>Crestamento bacteriano</b><em>menos provável</em><i></i></div></div><div class="dx-n"><b>Como confirmar</b><p>Lupa de 20x no verso da folha: pústulas salientes indicam ferrugem.</p><p class="w">Chame o seu agrônomo antes de aplicar qualquer produto.</p></div></div></div>`,
  async run(x){const rg=x.qa('.dx-ring');x.on(x.q('.dx-scan'));await x.to(rg[2],{side:'b',dy:-.1});await x.wait(900);
   for(const r of rg){x.on(r);await x.wait(330)}
   await x.to(rg[0],{side:'l',dy:.1});x.on(x.q('.dx-lp'));await x.wait(800);
-  const rs=x.qa('.dx-r');await x.to(rs[0],{side:'r',dx:-.1,dy:-.2});
+  const rs=x.qa('.dx-r');await x.to(x.q('.dx-n'),{side:'b',dy:-.34});
   for(const r of rs){x.on(r);await x.wait(420)}
-  x.on(x.q('.dx-n'));await x.wait(900)},
+  await x.to(rg[2],{side:'a',dx:.02,dy:.12});x.on(x.q('.dx-n'));await x.wait(900)},
  out:()=>`Pela foto, o mais provável é ferrugem asiática no início. Confirme com lupa no verso da folha e chame o seu agrônomo hoje.<span class="xbtn">Falar com um agrônomo parceiro</span>`},
 
 vendas:{a:'1ac5537b-3a53-4d86-9c66-7592b35f3de7',d:4,t:9,f:'Recebi 3 propostas pela soja. Qual que tá pagando melhor?',
@@ -87,14 +87,14 @@ vendas:{a:'1ac5537b-3a53-4d86-9c66-7592b35f3de7',d:4,t:9,f:'Recebi 3 propostas p
   return `<div class="xw xcmp"><div class="xw-bar"><i>PDF</i><b>Comparativo_Propostas_Soja.pdf</b><em>1 / 1</em></div><div class="cmp-pg"><div class="cmp-h"><div><small>COMPARATIVO DE PROPOSTAS</small><b>Soja · 2.000 sacas</b></div><span>valores em reais,<br>por saca de 60 kg</span></div><table class="cmp-t"><thead><tr><th></th>${P.map((p,i)=>`<th data-c="${i}">${i===2?'<em class="cmp-st" style="font-style:normal">MELHOR</em>':''}${p[0]}</th>`).join('')}</tr></thead><tbody>${tr('','Preço oferecido',p=>brl(p[1]))}${tr('','Frete até a entrega',p=>p[2]?'<span class="neg on">− '+brl(p[2])+'</span>':'incluso')}${tr('','Funrural (1,5%)',p=>'<span class="neg on">− '+brl(p[1]*.015)+'</span>')}${tr('lq','Líquido por saca',p=>brl(lq(p)))}${tr('','Prazo de pagamento',p=>p[3])}${tr('tt','Total em 2.000 sacas',p=>brl(lq(p)*2000))}</tbody></table><div class="cmp-f"><b>Melhor proposta: Cerealista.</b> São R$ 4.895,00 a mais que na Cooperativa.</div></div></div>`},
  async run(x){const rows=x.qa('.cmp-t tbody tr');
   await x.cam([220,150],1.12);
-  for(let r=0;r<rows.length;r++){const sp=[...rows[r].querySelectorAll('td>span')];if(r===0||r===3||r===5)await x.to(rows[Math.min(r+1,5)],{side:'b',dx:r===3?-.28:.12});
+  for(let r=0;r<rows.length;r++){const sp=[...rows[r].querySelectorAll('td>span')];if(r===0)await x.to(rows[3].firstElementChild,{side:'b',dy:-.05});if(r===3)await x.to(x.q('.cmp-t thead th'),{side:'a',dx:-.03,dy:.2});
    for(const s of sp){x.on(s);await x.wait(r===3?260:150)}
    if(r===3){await x.wait(250);x.qa('[data-c="2"]').forEach(e=>e.classList.add('best'));x.on(x.q('.cmp-st'));await x.hop();await x.wait(450)}
    await x.wait(140)}
   x.on(x.q('.cmp-f'));await x.wait(800)},
  out:()=>`${FILE('#B88F0E','PDF','Comparativo_Propostas_Soja.pdf','PDF · 1 página')}A melhor é a Cerealista: R$ 128,53 líquidos por saca, já sem frete e Funrural. Em 2.000 sacas, são R$ 4.895,00 a mais que na Cooperativa.`},
 
-viral:{a:null,d:2.8,t:9,f:'Germo, me dá um roteiro de reels pra mostrar a colheita do milho.',
+viral:{a:'4040b006-bd5e-4c02-9f75-a47ba37def5e',d:4,t:9,f:'Germo, me dá um roteiro de reels pra mostrar a colheita do milho.',
  doc(){const L=[['0:00','Gancho','"Ninguém mostra isso da colheita do milho."'],['0:03','Cena 1','Plano aberto: a colheitadeira entrando no talhão.'],['0:08','Cena 2','Câmera lenta: o grão caindo no caminhão.'],['0:14','Cena 3','Você na frente da lavoura, contando quantas sacas deu.'],['0:20','Chamada','"Comenta MILHO que eu te conto o resto."']];
   return `<div class="xw rl"><div class="rl-ph" style="background-image:url(${ph('reel')})"><span class="rl-tp">Reels</span><span class="rl-ch">0:00 · Gancho</span><b class="rl-hk"></b><div class="rl-sd">${IC.heart}${IC.msg}${IC.send}</div><div class="rl-bt"><b>fazendaboavista</b>Um ano de trabalho em 25 segundos.</div><div class="rl-pb"><i></i></div></div><div class="rl-sc"><small>ROTEIRO · 25 SEGUNDOS</small>${L.map(([t,a,b])=>`<div class="rl-l" data-t="${t}" data-a="${a}"><em>${t}</em><div><b>${a}</b><span>${b}</span></div></div>`).join('')}<div class="rl-cp"><b>Legenda:</b> Um ano de trabalho em 25 segundos. <u>#colheita #milho #agro</u></div></div></div>`},
  async run(x){const ls=x.qa('.rl-l'),ch=x.q('.rl-ch'),pb=x.q('.rl-pb i'),W=[12,32,56,80,100];
@@ -116,7 +116,7 @@ vitrine:{a:null,d:2.6,t:9,f:'Faz um post pra eu vender os morangos que eu colhi 
 apresenta:{a:null,d:2.8,t:8,f:'Monta uma apresentação do meu estágio na cooperativa, com 8 slides.',
  doc(){const s=SL();return `<div class="xw pp"><div class="xw-bar"><i>P</i><b>Estagio_Cooperativa_Vale_Verde.pptx</b><em>8 slides</em></div><div class="pp-b"><div class="pp-r">${s.map((h,i)=>`<div class="pp-th">${i+1}<span><div class="sl">${h}</div></span></div>`).join('')}</div><div class="pp-m"><div class="pp-v">${s.map(h=>`<div class="sl">${h}</div>`).join('')}</div><span class="pp-n">Slide 1 de 8</span></div></div></div>`},
  async run(x){const th=x.qa('.pp-th'),sl=x.qa('.pp-v .sl'),n=x.q('.pp-n'),T=[1000,650,480,480,850,950,480,700];
-  await x.to(x.q('.pp-n'),{side:'r',dx:.14,dy:-.2});
+  await x.to(x.q('.pp-n'),{side:'r',dx:.3,dy:.2});
   for(let i=0;i<8;i++){th.forEach(t=>t.classList.remove('cur'));th[i].classList.add('on','cur');sl.forEach(s=>s.classList.remove('on'));sl[i].classList.add('on');n.textContent=`Slide ${i+1} de 8`;if(i===4||i===7)await x.hop();await x.wait(T[i])}
   if(x.fast){th.forEach(t=>t.classList.remove('cur'));th[0].classList.add('cur');sl.forEach(s=>s.classList.remove('on'));sl[0].classList.add('on');n.textContent='Slide 1 de 8'}},
  out:()=>`${FILE('#5B3FD6','PPT','Estagio_Cooperativa_Vale_Verde.pptx','Apresentação · 8 slides')}8 slides prontos: capa, cooperativa, objetivos, atividades, números, resultado, aprendizados e agradecimento.`},
@@ -133,13 +133,13 @@ juridico:{a:null,d:2.8,t:12,f:'Analisa esse contrato de arrendamento e me fala o
 
 contabil:{a:null,d:2.6,t:10,f:'Organiza as notas do mês no livro caixa pro meu contador.',
  N:[['NF-e 4.812','03/11','Óleo diesel S10',-1240],['NF-e 15.207','07/11','Adubo NPK',-8900],['NFP-e 311','12/11','Venda de leite',14320],['NF-e 9.044','18/11','Defensivo',-2150],['NF-e 2.376','21/11','Peças do trator',-760]],
- doc(){return `<div class="xw lc"><div class="xw-bar"><i>X</i><b>Livro_Caixa_Novembro.xlsx</b><em>Salvo</em></div><div class="lc-b"><div class="lc-n"><small>NOTAS DO MÊS</small>${this.N.map(([n,d,h,v])=>`<div class="nf"><u>${n} · ${d}</u><b>${h}</b><s></s>R$ ${brl(Math.abs(v))}</div>`).join('')}</div><div><div class="lc-t"><h6>Livro Caixa do Produtor Rural<span>novembro</span></h6><table><colgroup><col style="width:38px"><col><col style="width:60px"><col style="width:60px"><col style="width:64px"></colgroup><thead><tr><th>Data</th><th>Histórico</th><th class="n">Entrada</th><th class="n">Saída</th><th class="n">Saldo</th></tr></thead><tbody><tr><td>01/11</td><td>Saldo anterior</td><td></td><td></td><td class="n">18.400,00</td></tr></tbody><tfoot><tr><td></td><td>Totais do mês</td><td class="n xin te">0,00</td><td class="n xout ts">0,00</td><td class="n tb">18.400,00</td></tr></tfoot></table></div><div class="lc-al">1 nota sem o seu CPF: peça a correção ao fornecedor.</div></div></div></div>`},
+ doc(){return `<div class="xw lc"><div class="xw-bar"><i>X</i><b>Livro_Caixa_Novembro.xlsx</b><em>Salvo</em></div><div class="lc-b"><div class="lc-n"><small>NOTAS DO MÊS</small>${this.N.map(([n,d,h,v])=>`<div class="nf"><u>${n} · ${d}</u><b>${h}</b><s></s>R$ ${brl(Math.abs(v))}</div>`).join('')}</div><div><div class="lc-t"><h6>Livro Caixa do Produtor Rural<span>novembro</span></h6><table><colgroup><col style="width:38px"><col><col style="width:60px"><col style="width:60px"><col style="width:64px"></colgroup><thead><tr><th>Data</th><th>Histórico</th><th class="n">Entrada</th><th class="n">Saída</th><th class="n">Saldo</th></tr></thead><tbody><tr><td>01/11</td><td>Saldo anterior</td><td></td><td></td><td class="n">18.400,00</td></tr></tbody><tfoot><tr><td></td><td>Totais do mês</td><td class="n xin te">0,00</td><td class="n xout ts">0,00</td><td class="n tb">18.400,00</td></tr></tfoot></table></div><div class="lc-al">1 nota sem o seu CPF: peça a correção.</div></div></div></div>`},
  async run(x){const nf=x.qa('.nf'),tb=x.q('.lc-t tbody'),te=x.q('.te'),ts=x.q('.ts'),tbl=x.q('.tb');let bal=18400,en=0,sa=0;
-  for(let i=0;i<5;i++){const [n,d,h,v]=this.N[i],c=nf[i];x.on(c,'act');await x.to(c,{side:'b',dx:.02,dy:-.03});await x.wait(260);
+  for(let i=0;i<5;i++){const [n,d,h,v]=this.N[i],c=nf[i];x.on(c,'act');await x.to(c,i<2?{side:'b',dy:-.03}:{side:'a'});await x.wait(260);
    if(i===4){x.off(c,'act');x.on(c,'fl');x.on(x.q('.lc-al'));await x.hop();await x.wait(700);break}
    const tr=document.createElement('tr');tr.className='nw';tr.innerHTML=`<td>${d}</td><td>${h}</td><td class="n xin">${v>0?brl(v):''}</td><td class="n xout">${v<0?brl(-v):''}</td><td class="n"></td>`;tb.appendChild(tr);
    bal+=v;v>0?en+=v:sa-=v;await x.count(tr.lastChild,bal,300);te.textContent=brl(en);ts.textContent=brl(sa);tbl.textContent=brl(bal);x.off(c,'act');x.on(c,'dn');await x.wait(200)}
-  if(!x.fast){await x.cam(x.q('.lc-t tfoot'),1.35);await x.to(x.q('.lc-t tfoot'),{side:'b',dx:-.2});await x.wait(900)}},
+  if(!x.fast){await x.cam(x.q('.lc-t tfoot'),1.35);await x.to(x.q('.lc-t h6'),{side:'b',dx:-.42});await x.wait(1000)}},
  out:()=>`${FILE('#22408C','XLS','Livro_Caixa_Novembro.xlsx','Planilha · 1 aba')}4 notas lançadas no livro caixa. Saldo do mês: R$ 20.430,00. A nota das peças veio sem o seu CPF: peça a correção.`}
 };
 
@@ -155,7 +155,7 @@ function helpers(st,alive,fast){
   const chk=()=>{if(!alive())throw new Cancel()};
   const wait=ms=>{chk();return fast?Promise.resolve():new Promise(r=>setTimeout(r,RM?Math.min(ms,80):ms)).then(chk)};
   const wpos=el=>{const wr=world.getBoundingClientRect(),er=el.getBoundingClientRect(),k=(wr.width/DW)||1;return{x:(er.left-wr.left)/k,y:(er.top-wr.top)/k,w:er.width/k,h:er.height/k}};
-  const size=()=>{const h=A.offsetHeight||stage.clientHeight*.46;return{w:A.offsetWidth>8?A.offsetWidth:h*.8,h}};
+  const size=()=>{const h=A.offsetHeight||stage.clientHeight*.42;return{w:A.offsetWidth>8?A.offsetWidth:h*.8,h}};
   let pos=null;
   const put=(x,y)=>{pos={x,y};A.style.transform=`translate(${x}px,${y}px)`};
   const raf=fn=>new Promise((res,rej)=>{const t0=performance.now();const f=n=>{if(!alive())return rej(new Cancel());fn(Math.max(0,n-t0))?res():requestAnimationFrame(f)};requestAnimationFrame(f)});
@@ -170,7 +170,7 @@ function helpers(st,alive,fast){
     async to(el,o={}){chk();if(fast||!el)return;const W=stage.clientWidth,H=stage.clientHeight,{w,h}=size();
       const sr=stage.getBoundingClientRect(),er=el.getBoundingClientRect(),l=er.left-sr.left,t=er.top-sr.top,r=er.right-sr.left,b=er.bottom-sr.top;
       const side=o.side||((l+r)/2>W*.58?'l':'r');let ax,ay;
-      if(side==='b'){ax=(l+r)/2-w/2;ay=b-h*.1}else{ax=side==='r'?r-w*.12:l-w*.88;ay=(t+b)/2-h*.3}
+      if(side==='b'){ax=(l+r)/2-w/2;ay=b-h*.1}else if(side==='a'){ax=(l+r)/2-w/2;ay=t-h*.9}else{ax=side==='r'?r-w*.12:l-w*.88;ay=(t+b)/2-h*.3}
       ax+=(o.dx||0)*W;ay+=(o.dy||0)*H;
       ax=Math.max(-w*.1,Math.min(W-w*.9,ax));ay=Math.max(-h*.04,Math.min(H-h*.97,ay));
       if(pos&&Math.hypot(pos.x-ax,pos.y-ay)<8)return;
