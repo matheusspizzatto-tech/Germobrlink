@@ -14,6 +14,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://www.germobr.link/paginainicial">
 <script defer src="/_vercel/insights/script.js"></script>
+<link rel="stylesheet" href="/assets/xp.css">
+<script src="/assets/xp.js"></script>
 <script src="/assets/germo.js"></script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1172,14 +1174,14 @@ const label=k=>({agronomo:'agrônomo',juridico:'jurídico',contabil:'contábil'}
 const hex2=(h,a)=>{const n=parseInt(h.slice(1),16);return `rgba(${n>>16},${n>>8&255},${n&255},${a})`};
 let cur=0;
 $('pick').innerHTML=AG.map((a,i)=>`<button class="ag" role="tab" id="ag-${a.k}" aria-selected="${i===0}" aria-controls="det" style="--c:${a.c}" data-i="${i}"><img src="/img/${a.k}.webp" alt="" loading="lazy"><span>${label(a.k)}</span></button>`).join('');
-function showAg(i){cur=i;const a=AG[i];if(window._apReady&&curAp&&curAp.closest('#det')){player.pause();stopAp()}
+function showAg(i,auto){cur=i;const a=AG[i];if(window._apReady&&curAp&&curAp.closest('#det')){player.pause();stopAp()}
   document.querySelectorAll('.ag').forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});
   const d=$('det');d.style.setProperty('--c',a.t);d.style.setProperty('--cs',hex2(a.c,.2));d.setAttribute('aria-labelledby','ag-'+a.k);
   d.innerHTML=`<div class="top"><div><span class="eyebrow" style="color:${a.t}">Ajudante ${i+1} de 10</span><div class="nm">Eu sou o <i>${label(a.k)}</i>.</div><p class="ds">${esc(a.d)}</p></div><img class="pop" src="/img/${a.k}.webp" alt="Personagem do ajudante ${label(a.k)}"></div>
-  ${(()=>{const e=document.querySelector('#entregas').content.querySelector('[data-k="'+a.k+'"]');return e?`<div class="ent"><div class="eh"><small>Exemplo de entrega</small><b>${esc(e.dataset.t)}</b><span>${esc(e.dataset.p)}</span></div><div class="pv">${e.innerHTML}</div></div>`:''})()}
-  <div class="rows"><div><small>Você pede</small><p>${esc(a.p)}</p></div><div><small>Você recebe</small><p>${esc(a.r)}</p></div></div>
-  ${a.warn?`<div class="warn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>${esc(a.warn)}</div>`:''}`;}
-$('pick').addEventListener('click',e=>{const b=e.target.closest('.ag');if(b)showAg(+b.dataset.i)});
+  <div class="xp"></div>
+  ${a.warn?`<div class="warn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></svg>${esc(a.warn)}</div>`:''}`;
+  if(window.GXP)GXP.mount(d.querySelector('.xp'),{k:a.k,t:a.t,n:label(a.k)},d.querySelector('.top img'),!!auto);}
+$('pick').addEventListener('click',e=>{const b=e.target.closest('.ag');if(b)showAg(+b.dataset.i,true)});
 $('pick').addEventListener('keydown',e=>{const n={ArrowRight:1,ArrowDown:5,ArrowLeft:-1,ArrowUp:-5}[e.key];if(n==null)return;e.preventDefault();const i=(cur+n+AG.length)%AG.length;showAg(i);$('pick').children[i].focus()});
 showAg(0);
 
@@ -1219,7 +1221,7 @@ const CASES=[
    +inB('apresenta',`<div class="sld" style="background-image:url(${CF+IMG.slide})"><span class="k">ESTÁGIO SUPERVISIONADO</span><span class="h">Relatório de<br>Estágio</span><span class="s">Fazenda Santa Rita · Safra 25/26</span><span class="f">Carolina Souza · Técnica agrícola</span><span class="n">1/12</span></div>`+doc('#D24726','PPT','Apresentação do estágio.pptx','Apresentação · 12 slides'),'20:16')
    +inB('vitrine',`Bio e posts prontos:<div class="ig"><div class="u"><span>carol.nocampo</span><span style="color:#666">···</span></div><div class="row"><img src="${CF+IMG.carol}" alt=""><div class="st"><div><b>126</b>posts</div><div><b>3.480</b>seguidores</div><div><b>410</b>seguindo</div></div></div><div class="bio"><b>Carolina Souza</b><br><span>Técnica agrícola</span><br>Hortaliças e soja no PR · Estágio na Fazenda Santa Rita</div><div class="gr"><div style="background-image:url(${CF+IMG.p1})"></div><div style="background-image:url(${CF+IMG.p2})"></div><div style="background-image:url(${CF+IMG.p3})"></div></div></div>`,'20:16')}
 ];
-let cc=0;const player=new Audio();player.preload='none';let curAp=null;window._apReady=true;
+let cc=0;const player=new Audio();window._lpPause=()=>{try{player.pause();stopAp()}catch(e){}};player.addEventListener('play',()=>{window.GXP&&GXP.stop()});player.preload='none';let curAp=null;window._apReady=true;
 function stopAp(){if(curAp){curAp.classList.remove('playing');curAp.querySelector('button').innerHTML=play;curAp.querySelector('button').setAttribute('aria-label','Ouvir o áudio');curAp.querySelectorAll('.wv i').forEach(i=>i.classList.remove('on'));curAp.querySelector('.tm').textContent=fmt(DUR[curAp.dataset.a])}curAp=null}
 player.addEventListener('timeupdate',()=>{if(!curAp||!player.duration)return;const f=player.currentTime/player.duration;const bars=curAp.querySelectorAll('.wv i');const k=Math.round(f*bars.length);bars.forEach((b,i)=>b.classList.toggle('on',i<k));curAp.querySelector('.tm').textContent=fmt(player.currentTime)});
 if(window._heroHook)window._heroHook();player.addEventListener('ended',stopAp);
