@@ -269,7 +269,25 @@ section{padding-block:clamp(64px,9vw,112px)}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:28px}
 .tab{border:0;cursor:pointer;border-radius:999px;padding:12px 20px;font-weight:700;font-size:15px;background:#fff;box-shadow:0 0 0 1.5px var(--ring)}
 .tab[aria-selected="true"]{background:var(--noite);color:var(--on-noite);box-shadow:none}
-.case{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(20px,4vw,48px);align-items:center}
+.case{max-width:620px;margin:0 auto}
+.tab{display:inline-flex;align-items:center;gap:8px}
+.tab img{width:28px;height:28px;border-radius:50%;object-fit:cover;margin:-6px 0 -6px -12px;box-shadow:0 0 0 2px #fff}
+.exc.convo{gap:8px}
+.exp{display:flex;align-items:center;gap:10px;padding:2px 2px 6px}
+.exp img{width:40px;height:40px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #fff}
+.exp b{display:block;font-size:15px}.exp small{font-size:13px;color:var(--mute)}
+.exr{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+.exk{text-align:left;border:0;cursor:pointer;background:#fff;border-radius:16px 16px 16px 4px;padding:11px 12px 10px;box-shadow:0 1px 1px rgba(21,32,26,.12);display:flex;flex-direction:column;gap:3px;font:inherit;color:var(--ink);animation:exIn .45s cubic-bezier(.2,1.3,.4,1) var(--d) both;transition:transform .18s,box-shadow .18s}
+.exk:hover{transform:translateY(-2px);box-shadow:0 0 0 1.5px var(--c),0 10px 20px rgba(21,32,26,.08)}
+.exk:focus-visible{outline:3px solid var(--c);outline-offset:2px}
+.exh{display:flex;align-items:center;gap:6px;font-weight:800;font-size:12.5px;color:var(--c)}
+.exh img{width:26px;height:26px;object-fit:contain}
+.exk b{font-family:var(--display);font-weight:600;letter-spacing:-.03em;font-size:21px;line-height:1.1;margin-top:3px}
+.exk small{font-size:13px;line-height:1.35;color:var(--ink2)}
+.exk u{text-decoration:none;font-weight:700;font-size:13px;color:#0B7A4B;margin-top:5px}
+.exk u::after{content:" →"}
+@keyframes exIn{from{opacity:0;transform:translateY(10px) scale(.96)}}
+@media (max-width:420px){.exk b{font-size:18px}.exk{padding:10px 10px 9px}}
 .case .tx{display:flex;flex-direction:column;gap:14px}
 .case .tx p{margin:0;font-size:17px;line-height:1.55;color:var(--ink2)}
 .used{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
@@ -682,7 +700,7 @@ footer a:hover{color:var(--ink)}
   .pick .ag img{height:60px}
   .pick .ag span{font-size:13px}
   #ctabs{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;margin:0 -16px 22px;padding:2px 16px 6px;scrollbar-width:none}
-  #ctabs .tab{flex:none;padding:13px 18px}
+  #ctabs .tab{flex:none;padding:10px 16px}
   .ap button{width:44px;height:44px}
   .wa-body .ap button{width:40px;height:40px}
   .dl .pv .doc2{zoom:1.22}
@@ -788,17 +806,15 @@ footer a:hover{color:var(--ink)}
   #ajudantes .det{grid-column:2;grid-row:1/span 2}
 }
 
-/* exemplos no computador: título e perfis à esquerda, conversa sobe à direita */
+/* exemplos no computador: título e perfis à esquerda, conversa à direita */
 @media (min-width:861px){
-  #exemplos>.in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);grid-template-rows:auto auto 1fr;column-gap:clamp(20px,4vw,48px);align-items:start}
+  #exemplos>.in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:clamp(24px,5vw,64px);align-items:start}
   #exemplos .head{grid-column:1;grid-row:1;margin-bottom:0;max-width:none;text-align:left;align-items:flex-start}
   #exemplos .head h2{font-size:clamp(36px,3.4vw,50px)}
   #exemplos .head .lead{font-size:17px;margin-inline:0;text-wrap:pretty}
-  #exemplos .tabs{grid-column:1;grid-row:2;justify-content:flex-start;flex-wrap:nowrap;gap:6px;margin:28px 0 0}
-  #exemplos .tab{padding:11px 16px;font-size:14.5px;white-space:nowrap}
-  #exemplos .case{display:contents}
-  #exemplos .case>.tx{grid-column:1;grid-row:3;margin-top:36px;position:sticky;top:96px}
-  #exemplos .case>:not(.tx){grid-column:2;grid-row:1/span 3}
+  #exemplos .tabs{grid-column:1;grid-row:2;justify-content:flex-start;flex-wrap:nowrap;gap:8px;margin:28px 0 0;align-self:start}
+  #exemplos .tab{padding:11px 18px;font-size:14.5px;white-space:nowrap}
+  #exemplos .case{grid-column:2;grid-row:1/span 2;max-width:none;margin:0}
 }
 /* menu Soluções */
 .mtr{display:inline-flex;align-items:center;gap:6px;border:0;background:none;cursor:pointer;font-weight:600;font-size:15px;color:var(--ink2);padding:10px 14px;border-radius:999px}
@@ -1000,7 +1016,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
   <!-- EXEMPLOS -->
   <section class="how" id="exemplos">
     <div class="in">
-      <div class="head c rv"><span class="eyebrow">Exemplos</span><h2>O que chega pronto <span class="g">no seu WhatsApp.</span></h2><p class="lead">Áudios de verdade, do jeito que o campo fala. Escolha um perfil, aperte o play e veja o que cada ajudante devolve.</p></div>
+      <div class="head c rv"><span class="eyebrow">Exemplos</span><h2>O que chega pronto <span class="g">no seu WhatsApp.</span></h2><p class="lead">Um áudio só, e vários ajudantes trabalham juntos. Escolha um perfil e aperte o play.</p></div>
       <div class="tabs" role="tablist" aria-label="Perfis" id="ctabs"></div>
       <div class="case rv" id="case" role="tabpanel"></div>
     </div>
@@ -1200,26 +1216,12 @@ const inB=(k,html,h)=>`<div class="bub i">${who(k)}${html}${tIn(h)}</div>`;
 const doc=(c,e,n,sz)=>`<div class="file"><span class="fi" style="background:${c}">${e}</span><span><b>${esc(n)}</b><small>${esc(sz)}</small></span></div>`;
 const XLT=`<div class="xl"><div class="t">Salários da equipe.xlsx</div><table><tr class="h"><td>Funcionário</td><td>Função</td><td class="r">Salário</td></tr><tr><td>João Silva</td><td>Tratorista</td><td class="r">2.900,00</td></tr><tr><td>Maria Souza</td><td>Ordenha</td><td class="r">2.450,00</td></tr><tr><td>Pedro Lima</td><td>Operador</td><td class="r">3.100,00</td></tr><tr><td>Ana Costa</td><td>Escritório</td><td class="r">2.700,00</td></tr><tr class="tt"><td>Total</td><td></td><td class="r">11.150,00</td></tr></table></div>`;
 const CASES=[
- {n:'Produtor rural',face:'prod',who:'Produtor rural',sub:'Pecuária de leite e lavoura · 2 áudios',h:'Resolve tudo por áudio, entre uma tarefa e outra.',p:'Ele não tem escritório nem tempo para computador. Num áudio pede a previsão do tempo e a planilha da equipe. No outro, tira a dúvida do imposto e manda o contrato de arrendamento para analisar.',u:['clima','planilha','contabil','juridico'],
-  chat:()=>'<span class="sep">Hoje · 06:10</span>'+audioB(1,'prod','Ô Germo, bom dia! Me avisa se vai chover amanhã aqui na fazenda e já me faz uma planilha com o salário dos meus funcionários.','06:10')
-   +inB('clima','Chuva forte amanhã a partir das 15h, cerca de 40 mm. Dá tempo de recolher o feno.<br><span class="chip2">Amanhã · 15h · 40 mm</span>','06:10')
-   +inB('planilha','Pronto, a planilha da equipe:'+XLT,'06:11')
-   +'<span class="sep">Hoje · 18:40</span><div class="bub o">'+doc('#C8402F','PDF','Contrato de arrendamento.pdf','PDF · 6 páginas')+tOut('18:40')+'</div>'
-   +audioB(5,'prod','Germo, como é que funciona o imposto pro produtor rural? E analisa esse contrato de arrendamento aqui e me fala o que eu devo fazer.','18:40')
-   +inB('contabil','Você declara a atividade rural no IR com o Livro Caixa. Monto o seu resumo do ano?<span class="pbtn">Falar com um contador parceiro</span>','18:41')
-   +inB('juridico','Li o contrato. Faltam a cláusula de renovação e quem paga o ITR. Peça para incluir antes de assinar.<span class="pbtn">Falar com um advogado parceiro</span>','18:41')},
- {n:'Engenheiro agrônomo',face:'agro',who:'Engenheiro agrônomo',sub:'Consultoria de campo · 2 áudios',h:'Passa o dia na estrada, de visita em visita.',p:'Grava o áudio da visita e manda a foto da folha ali mesmo, na lavoura. No caminho de volta, pede o roteiro do reels e a mensagem para o cliente que sumiu depois do orçamento.',u:['campo','agronomo','viral','vendas'],
-  chat:()=>'<span class="sep">Hoje · 11:25</span><div class="bub o"><img class="att-img" src="'+CF+IMG.folha+'" alt="Foto de folha de soja com manchas amareladas" loading="lazy">'+tOut('11:25')+'</div>'
-   +audioB(2,'agro','Fala, Germo. Faz o relatório da visita de hoje no talhão 3 e olha essa foto da folha aí, que mancha é essa?','11:25')
-   +inB('campo','Relatório da visita pronto.'+doc('#C8402F','PDF','Relatório de visita · Talhão 3.pdf','PDF · 2 páginas'),'11:26')
-   +inB('agronomo','Pode ser ferrugem asiática. Olhe o verso da folha: se tiver pontinhos marrons, é ela.<span class="pbtn">Falar com um agrônomo parceiro</span>','11:26')
-   +'<span class="sep">Hoje · 17:52</span>'+audioB(4,'agro','Germo, me faz um roteiro de reels da colheita de soja. E um cliente sumiu depois do orçamento, o que eu mando pra ele?','17:52')
-   +inB('viral','<b>0 a 3 s</b> Você sabe quanto perde na colheita?<br><b>3 a 15 s</b> Mostre as perdas no chão.<br><b>15 a 30 s</b> Uma dica e o convite para salvar.','17:53')
-   +inB('vendas','Manda assim:<div class="qt">Oi, Carlos! Separei as 40 sacas que você pediu e seguro o preço até sexta. Fechamos?</div>','17:53')},
- {n:'Profissional do campo',face:'carol',who:'Carolina Souza',sub:'Técnica agrícola · 1 áudio',h:'Terminou o estágio e quer mostrar o trabalho.',p:'Num áudio só, a Carolina pede a apresentação do relatório de estágio e a bio nova do perfil, para começar a mostrar o que faz e conseguir as primeiras consultorias.',u:['apresenta','vitrine'],
-  chat:()=>'<span class="sep">Hoje · 20:15</span>'+audioB(3,'carol','Oi, Germo! Cria a apresentação do meu relatório de estágio e arruma a bio do meu perfil, por favor?','20:15')
-   +inB('apresenta',`<div class="sld" style="background-image:url(${CF+IMG.slide})"><span class="k">ESTÁGIO SUPERVISIONADO</span><span class="h">Relatório de<br>Estágio</span><span class="s">Fazenda Santa Rita · Safra 25/26</span><span class="f">Carolina Souza · Técnica agrícola</span><span class="n">1/12</span></div>`+doc('#D24726','PPT','Apresentação do estágio.pptx','Apresentação · 12 slides'),'20:16')
-   +inB('vitrine',`Bio e posts prontos:<div class="ig"><div class="u"><span>carol.nocampo</span><span style="color:#666">···</span></div><div class="row"><img src="${CF+IMG.carol}" alt=""><div class="st"><div><b>126</b>posts</div><div><b>3.480</b>seguidores</div><div><b>410</b>seguindo</div></div></div><div class="bio"><b>Carolina Souza</b><br><span>Técnica agrícola</span><br>Hortaliças e soja no PR · Estágio na Fazenda Santa Rita</div><div class="gr"><div style="background-image:url(${CF+IMG.p1})"></div><div style="background-image:url(${CF+IMG.p2})"></div><div style="background-image:url(${CF+IMG.p3})"></div></div></div>`,'20:16')}
+ {n:'Produtor',face:'prod',who:'Produtor rural',sub:'Pecuária de leite e lavoura',t:'Hoje · 06:10',a:1,tr:'Ô Germo, bom dia! Me avisa se vai chover amanhã aqui na fazenda e já me faz uma planilha com o salário dos meus funcionários.',
+  r:[['clima','Chuva às 15h','40 mm amanhã. Dá para colher até as 13h.'],['planilha','R$ 11.150,00','Folha de 4 funcionários, com o FGTS.']]},
+ {n:'Agrônomo',face:'agro',who:'Engenheiro agrônomo',sub:'Consultoria de campo',t:'Hoje · 11:25',a:2,img:'folha',tr:'Fala, Germo. Faz o relatório da visita de hoje no talhão 3 e olha essa foto da folha aí, que mancha é essa?',
+  r:[['campo','Relatório pronto','Talhão 3, em PDF, com as fotos.'],['agronomo','Ferrugem asiática','A mais provável. Confirme no verso da folha.']]},
+ {n:'Técnica',face:'carol',who:'Carolina Souza',sub:'Técnica agrícola',t:'Hoje · 20:15',a:3,tr:'Oi, Germo! Cria a apresentação do meu relatório de estágio e arruma a bio do meu perfil, por favor?',
+  r:[['apresenta','8 slides','Apresentação do estágio pronta.'],['vitrine','Bio nova','Perfil arrumado e 3 posts prontos.']]}
 ];
 let cc=0;const player=new Audio();window._lpPause=()=>{try{player.pause();stopAp()}catch(e){}};player.addEventListener('play',()=>{window.GXP&&GXP.stop()});player.preload='none';let curAp=null;window._apReady=true;
 function stopAp(){if(curAp){curAp.classList.remove('playing');curAp.querySelector('button').innerHTML=play;curAp.querySelector('button').setAttribute('aria-label','Ouvir o áudio');curAp.querySelectorAll('.wv i').forEach(i=>i.classList.remove('on'));curAp.querySelector('.tm').textContent=fmt(DUR[curAp.dataset.a])}curAp=null}
@@ -1230,12 +1232,13 @@ function toggleAp(ap,seek){if(curAp===ap&&!player.paused&&seek==null){player.pau
   const go=()=>{if(seek!=null&&player.duration)player.currentTime=seek*player.duration;player.play().catch(()=>{})};
   if(seek!=null&&!player.duration)player.addEventListener('loadedmetadata',function f(){player.removeEventListener('loadedmetadata',f);go()});
   go();ap.classList.add('playing');ap.querySelector('button').innerHTML=pause;ap.querySelector('button').setAttribute('aria-label','Pausar o áudio')}
-$('ctabs').innerHTML=CASES.map((c,i)=>`<button class="tab" role="tab" id="ct${i}" aria-selected="${i===0}" aria-controls="case" data-i="${i}">${c.n}</button>`).join('');
+$('ctabs').innerHTML=CASES.map((c,i)=>`<button class="tab" role="tab" id="ct${i}" aria-selected="${i===0}" aria-controls="case" data-i="${i}"><img src="${CF+IMG[c.face]}" alt="">${c.n}</button>`).join('');
 function showCase(i){cc=i;const c=CASES[i];if(curAp&&curAp.closest('#case')){player.pause();stopAp()}document.querySelectorAll('#ctabs .tab').forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});$('case').setAttribute('aria-labelledby','ct'+i);
-  $('case').innerHTML=`<div class="tx"><div class="persona"><img src="${CF+IMG[c.face]}" alt="Foto de ${esc(c.who)}"><span><b>${esc(c.who)}</b><small>${esc(c.sub)}</small></span></div><h3 style="font-size:clamp(26px,3vw,34px);font-weight:500;letter-spacing:-.035em">${esc(c.h)}</h3><p>${esc(c.p)}</p><span class="listen"><i></i>Toque no play para ouvir o áudio</span><p style="font-weight:700;color:var(--ink);margin-top:4px">Ajudantes que responderam:</p><div class="used">${c.u.map(k=>`<span><img src="/img/${k}.webp" alt="">${label(k)}</span>`).join('')}</div></div><div class="convo">${c.chat()}</div>`;}
+  const ix=k=>AG.findIndex(x=>x.k===k);
+  $('case').innerHTML=`<div class="exc convo"><div class="exp"><img src="${CF+IMG[c.face]}" alt="Foto de ${esc(c.who)}"><span><b>${esc(c.who)}</b><small>${esc(c.sub)}</small></span></div><span class="sep">${c.t}</span>${c.img?`<div class="bub o"><img class="att-img" src="${CF+IMG[c.img]}" alt="Foto de folha de soja com manchas" loading="lazy">${tOut(c.t.slice(-5))}</div>`:''}${audioB(c.a,c.face,c.tr,c.t.slice(-5))}<div class="exr">${c.r.map(([k,v,d],j)=>{const g=AG[ix(k)];return `<button type="button" class="exk" data-g="${ix(k)}" style="--d:${j*120}ms;--c:${g.t}"><span class="exh"><img src="/img/${k}.webp" alt="">${label(k)}</span><b>${esc(v)}</b><small>${esc(d)}</small><u>Ver o arquivo</u></button>`}).join('')}</div></div>`;}
 $('ctabs').addEventListener('click',e=>{const b=e.target.closest('.tab');if(b)showCase(+b.dataset.i)});
 $('ctabs').addEventListener('keydown',e=>{const n={ArrowRight:1,ArrowLeft:-1}[e.key];if(n==null)return;e.preventDefault();const i=(cc+n+CASES.length)%CASES.length;showCase(i);$('ctabs').children[i].focus()});
-$('case').addEventListener('click',e=>{const ap=e.target.closest('.ap');if(!ap)return;const wv=e.target.closest('.wv');if(wv){const r=wv.getBoundingClientRect();toggleAp(ap,Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)))}else if(e.target.closest('button'))toggleAp(ap)});
+$('case').addEventListener('click',e=>{const kk=e.target.closest('.exk');if(kk){player.pause();stopAp();showAg(+kk.dataset.g);const t=$('det');scrollTo({top:scrollY+t.getBoundingClientRect().top-90,behavior:'smooth'});setTimeout(()=>window.GXP&&GXP.start(),650);return}const ap=e.target.closest('.ap');if(!ap)return;const wv=e.target.closest('.wv');if(wv){const r=wv.getBoundingClientRect();toggleAp(ap,Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)))}else if(e.target.closest('button'))toggleAp(ap)});
 showCase(0);
 document.querySelectorAll('#heroChat .ap').forEach(ap=>{ap.querySelector('.wv').innerHTML=WV[ap.dataset.a].split(',').map(v=>`<i style="height:${v}px"></i>`).join('')});
 $('det').addEventListener('click',e=>{const ap=e.target.closest('.ap');if(!ap)return;const wv=e.target.closest('.wv');if(wv){const r=wv.getBoundingClientRect();toggleAp(ap,Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)))}else if(e.target.closest('button'))toggleAp(ap)});
