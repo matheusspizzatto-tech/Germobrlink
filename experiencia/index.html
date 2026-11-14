@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Teste um pedido · Germo</title>
+<meta name="description" content="Toque no pedido, ouça o áudio e veja o ajudante da Germo montar o arquivo até ele chegar pronto no seu WhatsApp.">
+<link rel="canonical" href="https://www.germobr.link/experiencia">
+<meta property="og:title" content="Faça um pedido. Veja o trabalho chegar.">
+<meta property="og:description" content="Você manda o áudio. O trabalho volta pronto no seu WhatsApp.">
+<meta property="og:image" content="https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/8d9c90ff-12a5-4e42-9bf0-c4eab957289e.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://www.germobr.link/experiencia"><meta property="og:type" content="website"><meta property="og:site_name" content="Germo">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..800&family=Manrope:wght@400..800&display=swap">
+<script defer src="/_vercel/insights/script.js"></script>
+<script src="/assets/germo.js"></script>
+<style>
+:root{--ink:#15201A;--ink2:#2E3A33;--mute:#55605A;--ring:#E4EAE4;--line:#ECEFEC;--soft:#F5F8F5;--broto:#19E35F;--verde:#13A94B;--verde-lab:#0F8A3D;--wa-bg:#EFEAE2;--wa-out:#D9FDD3;--xl:#1D7A45;--display:"Archivo",system-ui,sans-serif;--body:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--body);color:var(--ink);background:radial-gradient(70% 60% at 85% 40%,#DDF8E6 0%,rgba(221,248,230,0) 70%),linear-gradient(180deg,#fff 0%,#F4FBF6 100%);min-height:100vh;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.top{max-width:1180px;margin:0 auto;padding:18px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.03em}
+.logo .gm{width:36px;height:36px;border-radius:9px;background:var(--broto);display:grid;place-items:center}
+.logo b{color:var(--verde)}
+.cta{display:inline-flex;align-items:center;gap:10px;padding:8px 8px 8px 18px;border-radius:999px;background:#fff;box-shadow:0 0 0 1.5px var(--ring),0 10px 24px -14px rgba(21,32,26,.35);text-decoration:none;font-weight:700;font-size:15px}
+.cta i{width:32px;height:32px;border-radius:50%;background:var(--broto);display:grid;place-items:center;font-style:normal}
+.wrap{max-width:1180px;margin:0 auto;padding:8px 20px 56px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,4vw,56px);align-items:center;min-height:calc(100vh - 76px)}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--verde-lab)}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(40px,5vw,68px);line-height:1.02;letter-spacing:-.045em;margin:14px 0 16px}
+h1 .g{color:var(--verde)}
+.lead{font-size:17.5px;line-height:1.6;color:var(--mute);margin:0 0 28px;max-width:520px}
+.reqs{display:flex;flex-direction:column;gap:10px;max-width:520px}
+.req{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:14px;padding:12px 14px 12px 12px;border-radius:20px;background:#fff;box-shadow:0 0 0 1.5px var(--ring);cursor:pointer;transition:box-shadow .2s,transform .2s}
+.req img{width:48px;height:48px;object-fit:contain;flex:none}
+.req span{flex:1;display:flex;flex-direction:column;gap:3px}
+.req b{font-size:16.5px;font-weight:700;letter-spacing:-.01em}
+.req small{font-size:13px;color:var(--mute);font-weight:600}
+.req .pl{width:44px;height:44px;border-radius:50%;background:var(--broto);display:grid;place-items:center;flex:none;box-shadow:0 0 0 0 rgba(25,227,95,.45);animation:pulse 2s ease-out infinite}
+.req.on{box-shadow:0 0 0 2px var(--verde),0 18px 40px -22px rgba(19,169,75,.55)}
+.req:hover{transform:translateY(-1px)}
+.req:focus-visible{outline:3px solid var(--verde);outline-offset:3px}
+.req.soon{cursor:default;opacity:.55}
+.req.soon:hover{transform:none}
+.req.soon small{color:var(--verde-lab)}
+.req.busy .pl{animation:none;background:#E9F5EC}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(25,227,95,.45)}100%{box-shadow:0 0 0 14px rgba(25,227,95,0)}}
+
+/* palco */
+.stage{position:relative;display:flex;justify-content:center;align-items:center;min-height:720px}
+.phone{position:relative;width:340px;height:700px;border-radius:54px;background:#111;padding:11px;box-shadow:0 40px 80px -30px rgba(21,32,26,.45),inset 0 0 0 2px #2a2a2a;z-index:2}
+.scr{position:relative;width:100%;height:100%;border-radius:44px;overflow:hidden;background:var(--wa-bg);display:flex;flex-direction:column}
+.isl{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:96px;height:28px;border-radius:20px;background:#000;z-index:3}
+.sb{height:46px;flex:none;display:flex;align-items:flex-end;justify-content:space-between;padding:0 26px 6px;font-size:13px;font-weight:700;background:#F6F6F6}
+.wh{flex:none;display:flex;align-items:center;gap:10px;padding:8px 12px 10px;background:#F6F6F6;border-bottom:1px solid #E2E2E2}
+.wh .av{width:36px;height:36px;border-radius:50%;background:var(--broto);display:grid;place-items:center;flex:none}
+.wh b{display:flex;align-items:center;gap:4px;font-size:15px}
+.wh small{display:block;font-size:12px;color:#667;transition:color .2s}
+.wh small.typing{color:var(--verde-lab);font-weight:700}
+.chat{flex:1;display:flex;flex-direction:column;gap:6px;padding:12px 10px;overflow:hidden;justify-content:flex-end}
+.day{align-self:center;background:#fff;border-radius:8px;padding:4px 10px;font-size:11.5px;font-weight:700;color:#556;box-shadow:0 1px .5px rgba(0,0,0,.1);margin-bottom:auto}
+.hint{align-self:center;margin:auto 0;background:rgba(255,255,255,.85);border-radius:12px;padding:10px 14px;font-size:13px;font-weight:700;color:var(--verde-lab);text-align:center;box-shadow:0 1px .5px rgba(0,0,0,.1)}
+.b{max-width:88%;padding:7px 9px 5px;border-radius:10px;font-size:13.5px;line-height:1.4;box-shadow:0 1px .5px rgba(0,0,0,.13);animation:pop .3s cubic-bezier(.2,1.2,.4,1) both}
+.b.out{align-self:flex-end;background:var(--wa-out);border-top-right-radius:3px}
+.b.in{align-self:flex-start;background:#fff;border-top-left-radius:3px}
+.b .who{display:block;font-size:12.5px;font-weight:800;margin-bottom:2px}
+.b .tm{display:flex;justify-content:flex-end;align-items:center;gap:3px;font-size:10.5px;color:#7a8580;margin-top:2px}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:none}}
+.ap{display:flex;align-items:center;gap:8px;min-width:230px}
+.ap img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.ap .pb{width:26px;height:26px;display:grid;place-items:center;color:#55605A}
+.wv{flex:1;display:flex;align-items:center;gap:2px;height:26px}
+.wv i{flex:1;max-width:3px;min-width:2px;border-radius:2px;background:#9DB3A6}
+.wv i.on{background:#2E7D4F}
+.ap .du{font-size:11px;color:#667;min-width:26px;text-align:right}
+.tr{font-style:italic;color:#3B4A42;font-size:12.5px;margin-top:5px;padding-top:5px;border-top:1px solid rgba(0,0,0,.07);min-height:18px}
+.tr span{opacity:.12;transition:opacity .2s}
+.tr span.on{opacity:1}
+.chip{display:inline-block;margin-top:5px;padding:3px 8px;border-radius:999px;background:#E6F6F1;color:#0E7A5F;font-size:12px;font-weight:800}
+.file{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;background:#F2F5F3;margin:2px 0 6px}
+.file .ic{width:36px;height:40px;border-radius:5px;background:var(--xl);color:#fff;display:grid;place-items:center;font-size:10px;font-weight:800;letter-spacing:.02em}
+.file b{display:block;font-size:13px}
+.file small{font-size:11px;color:#667}
+.wi{flex:none;display:flex;align-items:center;gap:8px;padding:8px 10px 22px;background:#F6F6F6}
+.wi span{flex:1;height:34px;border-radius:18px;background:#fff;box-shadow:0 0 0 1px #E2E2E2}
+
+/* área de trabalho do ajudante */
+.ws{position:absolute;z-index:4;width:380px;left:calc(50% - 300px);top:150px;background:#fff;border-radius:18px;box-shadow:0 0 0 1px rgba(21,32,26,.06),0 30px 70px -24px rgba(21,32,26,.45);overflow:hidden;opacity:0;transform:translateY(16px) scale(.96);transition:opacity .35s ease,transform .45s cubic-bezier(.2,1,.3,1);pointer-events:none}
+.ws.on{opacity:1;transform:none}
+.ws-h{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--xl);color:#fff}
+.ws-h .ic{width:26px;height:26px;border-radius:6px;background:#fff;color:var(--xl);display:grid;place-items:center;font-size:10px;font-weight:800}
+.ws-h b{font-size:14.5px}
+.ws-h small{margin-left:auto;font-size:12px;opacity:.85}
+.fx{display:flex;align-items:center;gap:10px;padding:7px 12px;border-bottom:1px solid var(--line);font-size:12.5px;font-family:ui-monospace,Menlo,monospace;color:var(--ink2);min-height:32px}
+.fx em{font-style:normal;font-weight:800;color:var(--xl);font-family:var(--body)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:7px 9px;text-align:left;height:33px;white-space:nowrap}
+th{background:var(--soft);font-weight:800;font-size:12px;color:var(--mute)}
+td.n,th.n{text-align:right}
+td.rn,th.rn{width:28px;text-align:center;color:#9aa49e;font-size:11px;background:var(--soft);font-weight:700;padding:7px 0}
+tr.tot td{font-weight:800;background:#F1FAF4}
+tr.fg td{color:var(--verde-lab);font-weight:700}
+td.act{box-shadow:inset 0 0 0 2px var(--verde)}
+.car{display:inline-block;width:1.5px;height:14px;background:var(--ink);vertical-align:-2px;margin-left:1px;animation:blink .8s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.ws-f{display:flex;align-items:center;gap:8px;padding:9px 14px;font-size:12.5px;color:var(--mute);font-weight:600}
+.ws-f i{width:8px;height:8px;border-radius:50%;background:var(--broto);animation:pulse 1.4s ease-out infinite}
+.agent{position:absolute;z-index:5;width:112px;left:calc(50% - 352px);top:440px;opacity:0;transform:scale(.4) translateY(30px);transition:opacity .3s,transform .5s cubic-bezier(.2,1.5,.4,1);filter:drop-shadow(0 16px 14px rgba(21,32,26,.25));pointer-events:none}
+.agent.on{opacity:1;transform:none;animation:bob 1.6s ease-in-out .5s infinite}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -6px}}
+
+/* fim */
+.end{position:absolute;z-index:6;left:50%;top:110px;width:min(380px,calc(100% - 24px));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:26px;padding:22px 22px 20px;box-shadow:0 0 0 1px rgba(21,32,26,.06),0 30px 70px -20px rgba(21,32,26,.45);text-align:center;transition:opacity .4s,transform .5s cubic-bezier(.2,1,.3,1)}
+.end.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.end p{margin:0;font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:-.03em;line-height:1.15}
+.end p span{display:block;color:var(--verde)}
+.crew{display:flex;justify-content:center;margin:14px 0 16px}
+.crew img{width:34px;height:34px;object-fit:contain;margin:0 -3px}
+.bt{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.bt a,.bt button{all:unset;box-sizing:border-box;cursor:pointer;padding:13px 18px;border-radius:999px;font-weight:800;font-size:15px}
+.bt a{background:var(--broto);color:#0A0C0B}
+.bt button{box-shadow:0 0 0 1.5px var(--ring);background:#fff}
+.bt a:focus-visible,.bt button:focus-visible{outline:3px solid var(--verde);outline-offset:3px}
+footer{text-align:center;font-size:13px;color:var(--mute);padding:0 20px 28px}
+footer a{color:var(--mute)}
+
+@media (max-width:980px){
+  .wrap{grid-template-columns:minmax(0,1fr);min-height:0;padding-top:0}
+  .intro{text-align:left}
+  .stage{min-height:0}
+  .ws{left:50%;width:min(380px,calc(100vw - 32px));top:170px;transform:translate(-50%,16px) scale(.96)}
+  .ws.on{transform:translate(-50%,0)}
+  .agent{left:auto;right:calc(50% - 200px);top:70px;width:100px}
+  .end{top:96px}
+}
+@media (max-width:420px){
+  .phone{width:320px;height:660px}
+  .ws{top:160px}
+  .agent{right:4px;width:88px}
+  .top .cta span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="/paginainicial" aria-label="Germo, página inicial"><span class="gm" aria-hidden="true"><svg width="26" height="26" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="26"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="24"/><circle cx="360" cy="279" r="24" fill="#0A0C0B"/></svg></span><span>germo<b>.br</b></span></a>
+  <a class="cta" href="/paginainicial?origem=experiencia#planos"><span>Entrar na lista</span><i aria-hidden="true">→</i></a>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <span class="eyebrow">Teste um pedido</span>
+    <h1>Faça um pedido.<br><span class="g">Veja o trabalho chegar.</span></h1>
+    <p class="lead">Toque no pedido, ouça o áudio e acompanhe o ajudante montando o arquivo até ele chegar pronto no WhatsApp.</p>
+    <div class="reqs">
+      <button class="req on" id="go" aria-describedby="go-d">
+        <img src="/img/planilha.webp" alt="">
+        <span><b>“Monta a planilha dos salários”</b><small id="go-d">Ajudante planilha · áudio de 8 s</small></span>
+        <i class="pl" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="#0A0C0B"><path d="M7 4.5v15l13-7.5z"/></svg></i>
+      </button>
+      <div class="req soon" aria-disabled="true"><img src="/img/clima.webp" alt=""><span><b>“Vai chover amanhã?”</b><small>Em breve</small></span></div>
+      <div class="req soon" aria-disabled="true"><img src="/img/campo.webp" alt=""><span><b>“Faz o relatório da visita”</b><small>Em breve</small></span></div>
+      <div class="req soon" aria-disabled="true"><img src="/img/juridico.webp" alt=""><span><b>“Analisa esse contrato”</b><small>Em breve</small></span></div>
+    </div>
+  </section>
+
+  <section class="stage" aria-label="Demonstração no WhatsApp">
+    <img class="agent" id="agent" src="/img/planilha.webp" alt="">
+    <div class="ws" id="ws" aria-hidden="true">
+      <div class="ws-h"><span class="ic">XLS</span><b>Salários da equipe.xlsx</b><small>novembro</small></div>
+      <div class="fx"><em id="fxc">A1</em><span id="fxv"></span></div>
+      <table>
+        <thead><tr><th class="rn"></th><th>Funcionário</th><th>Função</th><th class="n">Salário</th></tr></thead>
+        <tbody id="tb"></tbody>
+      </table>
+      <div class="ws-f"><i></i><span id="wsf">planilha está montando o arquivo</span></div>
+    </div>
+
+    <div class="phone">
+      <div class="scr">
+        <div class="isl"></div>
+        <div class="sb"><span>06:10</span><span>5G ▮</span></div>
+        <div class="wh">
+          <span class="av"><svg width="22" height="22" viewBox="134 134 372 372"><circle cx="320" cy="320" r="175" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#0A0C0B" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#0A0C0B" stroke-width="28"/><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></span>
+          <span><b>Germo <svg width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#19E35F"/><path d="m7.5 12.5 3 3 6-6.5" fill="none" stroke="#0A0C0B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small id="st">online</small></span>
+        </div>
+        <div class="chat" id="chat" aria-live="polite"></div>
+        <div class="wi"><span></span></div>
+      </div>
+    </div>
+
+    <div class="end" id="end" role="dialog" aria-label="Fim da demonstração">
+      <p>Esse foi 1 pedido.<span>São 10 ajudantes, 24 horas por dia.</span></p>
+      <div class="crew" id="crew"></div>
+      <div class="bt"><a href="/paginainicial?origem=experiencia#planos">Entrar na lista</a><button type="button" id="again">Ver de novo</button></div>
+    </div>
+  </section>
+</main>
+<footer>Valores ilustrativos. <a href="/paginainicial">Conhecer a Germo</a> · <a href="/privacidade">Privacidade</a></footer>
+
+<script>
+(function(){
+const CF='https://d2ol7oe51mr4n9.cloudfront.net/user_2vVA8WvBFtZCaqwnis3S3BiJPUC/';
+const AUDIO=CF+'e8f8eb32-5f6a-41ed-b014-f165af741b04.mp3', FACE=CF+'b35e47d7-6dcd-4b71-a619-fbc9ddd53496.jpg';
+const FALA='Ô Germo, bom dia! Me avisa se vai chover amanhã aqui na fazenda e já me faz uma planilha com o salário dos meus funcionários.';
+const ROWS=[['João Silva','Tratorista',2900],['Maria Souza','Ordenha',2450],['Pedro Lima','Operador',3100],['Ana Costa','Escritório',2700]];
+const AG=['planilha','clima','campo','agronomo','vendas','viral','vitrine','apresenta','juridico','contabil'];
+const $=id=>document.getElementById(id), chat=$('chat'), ws=$('ws'), tb=$('tb'), st=$('st'), agent=$('agent'), end=$('end'), go=$('go');
+const brl=v=>v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const sp=RM?0.15:1;
+$('crew').innerHTML=AG.map(k=>`<img src="/img/${k}.webp" alt="">`).join('');
+let run=0, player=new Audio(); player.preload='auto'; player.src=AUDIO;
+const wait=ms=>new Promise(r=>setTimeout(r,ms*sp));
+const alive=id=>id===run;
+const tick='<svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="#53BDEB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m1 6 3 3 6-7"/><path d="m6 9 1 1 6-8"/></svg>';
+function el(h){const d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild}
+function add(h){const n=el(h);chat.appendChild(n);return n}
+function reset(){
+  run++;player.pause();try{player.currentTime=0}catch(e){}
+  chat.innerHTML='<div class="day">Hoje</div><div class="hint">Toque no pedido para começar ▸</div>';
+  tb.innerHTML='';$('fxc').textContent='A1';$('fxv').textContent='';$('wsf').textContent='planilha está montando o arquivo';
+  ws.classList.remove('on');ws.style.transform='';ws.style.opacity='';agent.classList.remove('on');end.classList.remove('on');
+  st.textContent='online';st.classList.remove('typing');go.classList.remove('busy');go.disabled=false;
+}
+async function type(td,txt,id,ms=38){td.classList.add('act');td.innerHTML='<span></span><i class="car"></i>';const s=td.firstChild;for(const ch of txt){if(!alive(id))return;s.textContent+=ch;$('fxv').textContent=s.textContent;await wait(ms)}td.querySelector('.car')?.remove();td.classList.remove('act')}
+async function count(td,v,id,ms=420){td.classList.add('act');const t0=performance.now();return new Promise(res=>{const f=t=>{if(!alive(id))return res();const p=Math.min(1,(t-t0)/(ms*sp||1));const x=v*(1-Math.pow(1-p,3));td.textContent=brl(x);$('fxv').textContent=brl(x);if(p<1)requestAnimationFrame(f);else{td.classList.remove('act');res()}};requestAnimationFrame(f)})}
+async function start(){
+  reset();const id=run;go.classList.add('busy');go.disabled=true;
+  const sg=document.querySelector('.stage').getBoundingClientRect();if(sg.top<0||sg.bottom>innerHeight)document.querySelector('.stage').scrollIntoView({behavior:RM?'auto':'smooth',block:'center'});
+  chat.querySelector('.hint').remove();
+  const words=FALA.split(' ');
+  const bars=Array.from({length:34},(_,i)=>`<i style="height:${6+Math.round(Math.abs(Math.sin(i*1.7)+Math.sin(i*.6))*9)}px"></i>`).join('');
+  const ab=add(`<div class="b out"><div class="ap"><img src="${FACE}" alt=""><span class="pb"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></span><span class="wv">${bars}</span><span class="du">0:00</span></div><div class="tr">${words.map(w=>`<span>${w}</span>`).join(' ')}</div><div class="tm">06:10 ${tick}</div></div>`);
+  const bi=[...ab.querySelectorAll('.wv i')], ws_=[...ab.querySelectorAll('.tr span')], du=ab.querySelector('.du');
+  let D=8.2, climaDone=false;
+  const onT=t=>{const p=Math.min(1,t/D);bi.forEach((b,i)=>b.classList.toggle('on',i/bi.length<p));ws_.forEach((w,i)=>w.classList.toggle('on',i/ws_.length<p*1.08));du.textContent='0:0'+Math.min(9,Math.floor(t));if(t>=3.3&&!climaDone){climaDone=true;clima()}};
+  const clima=()=>{if(!alive(id))return;add(`<div class="b in"><span class="who" style="color:#0FA3B1">clima</span>Chuva forte amanhã a partir das 15h, cerca de 40 mm. Dá tempo de recolher o feno.<br><span class="chip">Amanhã · 15h · 40 mm</span><div class="tm">06:10</div></div>`)};
+  // tenta tocar o áudio; se o navegador bloquear, segue no tempo
+  let usedAudio=false;
+  try{player.currentTime=0;await Promise.race([player.play(),new Promise((_,j)=>setTimeout(()=>j('t'),2500))]);usedAudio=true;if(isFinite(player.duration)&&player.duration>3)D=player.duration}catch(e){}
+  await new Promise(res=>{
+    if(usedAudio){const h=()=>{if(!alive(id)){cl();return res()}onT(player.currentTime)};const e=()=>{onT(D);cl();res()};const cl=()=>{player.removeEventListener('timeupdate',h);player.removeEventListener('ended',e)};player.addEventListener('timeupdate',h);player.addEventListener('ended',e)}
+    else{const t0=performance.now();const f=()=>{if(!alive(id))return res();const t=(performance.now()-t0)/1000/(sp||1);onT(t);if(t<D)requestAnimationFrame(f);else res()};requestAnimationFrame(f)}
+  });
+  if(!alive(id))return;
+  ab.querySelector('.pb').innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>';
+  if(!climaDone)clima();
+  await wait(500);
+  // ajudante começa a trabalhar
+  st.textContent='planilha está montando o arquivo…';st.classList.add('typing');
+  agent.classList.add('on');await wait(350);ws.classList.add('on');await wait(500);
+  for(let r=0;r<ROWS.length;r++){
+    if(!alive(id))return;
+    const tr=el(`<table><tr><td class="rn">${r+2}</td><td></td><td></td><td class="n"></td></tr></table>`).querySelector('tr');tb.appendChild(tr);const td=tr.children;
+    $('fxc').textContent='A'+(r+2);await type(td[1],ROWS[r][0],id);
+    $('fxc').textContent='B'+(r+2);await type(td[2],ROWS[r][1],id,30);
+    $('fxc').textContent='C'+(r+2);await count(td[3],ROWS[r][2],id);
+  }
+  if(!alive(id))return;
+  const tot=ROWS.reduce((a,r)=>a+r[2],0), fg=Math.round(tot*0.08*100)/100;
+  const t1=el(`<table><tr class="tot"><td class="rn">6</td><td>Total</td><td></td><td class="n"></td></tr></table>`).querySelector('tr');tb.appendChild(t1);
+  $('fxc').textContent='C6';$('fxv').textContent='=SOMA(C2:C5)';await wait(700);await count(t1.children[3],tot,id,700);$('fxv').textContent='=SOMA(C2:C5)';
+  await wait(350);
+  const t2=el(`<table><tr class="fg"><td class="rn">7</td><td>FGTS 8%</td><td>a recolher</td><td class="n"></td></tr></table>`).querySelector('tr');tb.appendChild(t2);
+  $('fxc').textContent='C7';$('fxv').textContent='=C6*8%';await wait(600);await count(t2.children[3],fg,id,600);$('fxv').textContent='=C6*8%';
+  $('wsf').textContent='Pronto. Enviando para o seu WhatsApp…';
+  await wait(900);if(!alive(id))return;
+  // arquivo voa para o chat
+  const fb=add(`<div class="b in" style="visibility:hidden"><span class="who" style="color:#1FAA59">planilha</span><div class="file"><span class="ic">XLS</span><span><b>Salários da equipe.xlsx</b><small>Planilha · 12 KB</small></span></div>Pronto! 4 funcionários, R$ ${brl(tot)} no mês. Já separei os 8% de FGTS: R$ ${brl(fg)}.<div class="tm">06:11</div></div>`);
+  const a=ws.getBoundingClientRect(), b=fb.getBoundingClientRect();
+  const dx=(b.left+b.width/2)-(a.left+a.width/2), dy=(b.top+b.height/2)-(a.top+a.height/2), s=Math.min(.6,b.width/a.width);
+  const base=getComputedStyle(ws).transform==='none'?'':getComputedStyle(ws).transform;
+  ws.style.transition='transform .7s cubic-bezier(.6,0,.3,1),opacity .7s ease';
+  ws.style.transform=`translate(${dx}px,${dy}px) ${base} scale(${s})`;ws.style.opacity='0';
+  agent.classList.remove('on');
+  await wait(650);if(!alive(id))return;
+  fb.style.visibility='';fb.style.animation='pop .35s cubic-bezier(.2,1.2,.4,1) both';
+  st.textContent='online';st.classList.remove('typing');
+  await wait(400);ws.style.transition='';
+  await wait(1300);if(!alive(id))return;
+  end.classList.add('on');go.classList.remove('busy');go.disabled=false;
+}
+go.addEventListener('click',start);
+$('again').addEventListener('click',()=>{start()});
+reset();
+if(new URLSearchParams(location.search).has('auto'))setTimeout(start,800);
+})();
+</script>
+</body>
+</html>
