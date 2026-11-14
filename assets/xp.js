@@ -247,19 +247,19 @@ async function start(){
     root.classList.add('talk');let played=false;
     if(pp){try{await Promise.race([pp,new Promise((_,j)=>setTimeout(j,2500))]);played=true}catch(e){try{audio.pause()}catch(_){}}}
     if(!alive())throw new Cancel();
-    await new Promise(res=>{const t0=performance.now(),d0=s.d;const f=()=>{if(!alive())return res();const el=(performance.now()-t0)/1000;let p,t;
+    const talk=new Promise(res=>{const t0=performance.now(),d0=s.d;const f=()=>{if(!alive())return res();const el=(performance.now()-t0)/1000;let p,t;
       if(played){const d=isFinite(audio.duration)&&audio.duration>0?audio.duration:d0;t=audio.currentTime;p=t/d;if(audio.ended||p>=.995||el>d+4)p=1}else{t=el*(RM?6:1);p=t/d0}
       if(p>=1){prog(st,1,d0);res()}else{prog(st,p,t);requestAnimationFrame(f)}};f()});
-    if(!alive())throw new Cancel();
-    root.classList.remove('talk');
-    /* 2. o ajudante entra no arquivo e trabalha */
+    talk.then(()=>root.classList.remove('talk'));
+    /* 2. o ajudante já começa a trabalhar junto com o áudio */
+    await x.wait(450);
     big&&big.classList.add('away');x.enter();
     void pg.offsetWidth;pg.style.transition=`width ${s.t||9}s linear`;pg.style.width='94%';
     await x.wait(560);
     await s.run(x);
     await x.cam(null);
     pg.style.transition='width .3s';pg.style.width='100%';
-    await x.hop();await x.wait(260);
+    await x.hop();await talk;if(!alive())throw new Cancel();await x.wait(260);
     /* 3. a entrega */
     A.classList.remove('on');big&&big.classList.remove('away');
     reply(st,true);setGo(st,true);
