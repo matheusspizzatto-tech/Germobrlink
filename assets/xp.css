@@ -196,10 +196,10 @@
 .cmp-h b{font-size:18px;letter-spacing:-.02em;line-height:1.1}
 .cmp-h span{font-size:9.5px;color:#6B7570;text-align:right;line-height:1.3}
 .cmp-t{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed}
-.cmp-t th,.cmp-t td{padding:0 8px;height:27px;text-align:right;border-bottom:1px solid #E6E9E6;font-variant-numeric:tabular-nums;transition:background .35s}
+.cmp-t th,.cmp-t td{padding:0 8px;height:25px;text-align:right;border-bottom:1px solid #E6E9E6;font-variant-numeric:tabular-nums;transition:background .35s}
 .cmp-t th:first-child,.cmp-t td:first-child{text-align:left;width:128px;color:#3D4741;font-weight:600}
-.cmp-t thead th{height:42px;font-size:12px;font-weight:700;border-bottom:1.5px solid #1B1F1D;vertical-align:bottom;padding-bottom:5px;position:relative}
-.cmp-t .lq td{font-weight:700;font-size:13px;border-top:1.5px solid #1B1F1D;height:31px}
+.cmp-t thead th{height:38px;font-size:12px;font-weight:700;border-bottom:1.5px solid #1B1F1D;vertical-align:bottom;padding-bottom:5px;position:relative}
+.cmp-t .lq td{font-weight:700;font-size:13px;border-top:1.5px solid #1B1F1D;height:29px}
 .cmp-t .tt td{font-weight:700;border-bottom:0}
 .cmp-t .neg{color:#B3261E}
 .cmp-t td span{opacity:0;transition:opacity .25s}
