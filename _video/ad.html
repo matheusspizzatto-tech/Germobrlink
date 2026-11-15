@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=Manrope:wght@400..800&display=block" rel="stylesheet">
+<style>
+:root{--ink:#15201A;--ink2:#3D4A42;--g:#13A94B;--gd:#0B7A36;--broto:#19E35F;--soft:#F2F6F1;--wa:#EFEAE2}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#fff}
+body{font-family:Manrope,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+#st{position:relative;width:1920px;height:1080px;overflow:hidden;background:#fff}
+.sc{position:absolute;inset:0;opacity:0}
+.a{position:absolute;will-change:transform,opacity}
+.big{font-family:Archivo,sans-serif;font-weight:800;letter-spacing:-.045em;line-height:.98}
+.g{color:var(--g)}
+.w{display:inline-block;opacity:0}
+/* telefone */
+.ph{width:440px;height:900px;border-radius:70px;background:#121614;padding:14px;box-shadow:0 60px 120px -30px rgba(21,32,26,.45),0 0 0 2px #2a302c inset}
+.ph .scr{width:100%;height:100%;border-radius:57px;overflow:hidden;background:var(--wa);display:flex;flex-direction:column;position:relative}
+.ph .isl{position:absolute;left:50%;top:14px;width:130px;height:36px;border-radius:20px;background:#000;transform:translateX(-50%);z-index:3}
+.ph .hd{height:140px;padding:62px 22px 0;background:#F7F7F7;display:flex;align-items:center;gap:14px;border-bottom:1px solid #e3e3e3}
+.ph .av{width:50px;height:50px;border-radius:50%;flex:none;display:grid;place-items:center;font:800 20px Archivo;color:#fff}
+.ph .hd b{display:block;font-size:21px}.ph .hd small{font-size:15px;color:#6b7a72}
+.ph .bd{flex:1;padding:18px 16px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px}
+.bb{max-width:88%;border-radius:18px;padding:12px 15px 9px;font-size:22px;line-height:1.35;box-shadow:0 1px 1px rgba(0,0,0,.1);position:relative}
+.bb.o{align-self:flex-end;background:#D9FDD3;border-top-right-radius:4px}
+.bb.i{align-self:flex-start;background:#fff;border-top-left-radius:4px}
+.bb .t{display:block;text-align:right;font-size:13px;color:#7c8a80;margin-top:3px}
+.bb .who{display:block;font-weight:800;font-size:19px;margin-bottom:3px}
+.vn{display:flex;align-items:center;gap:12px}
+.vn img{width:52px;height:52px;border-radius:50%;object-fit:cover}
+.vn .pl{width:0;height:0;border-left:18px solid #54656F;border-top:11px solid transparent;border-bottom:11px solid transparent}
+.vn .wv{display:flex;gap:3px;align-items:center;height:34px}
+.vn .wv i{width:4px;border-radius:2px;background:#9AA6A0}
+.vn .wv i.on{background:#128C4B}
+/* cartões de arquivo */
+.card{background:#fff;border-radius:28px;box-shadow:0 40px 90px -30px rgba(21,32,26,.35),0 0 0 1.5px #E3E9E4;overflow:hidden}
+.bar{height:54px;display:flex;align-items:center;gap:12px;padding:0 20px;color:#fff;font-weight:700;font-size:20px}
+.bar i{font-style:normal;width:30px;height:30px;border-radius:7px;background:#fff;display:grid;place-items:center;font:800 13px Arial}
+.lbl{font-family:Archivo,sans-serif;font-weight:800;letter-spacing:-.035em;font-size:58px;line-height:1}
+.chip{display:inline-flex;align-items:center;gap:12px;background:#fff;border-radius:999px;padding:12px 22px 12px 14px;font-weight:800;font-size:24px;box-shadow:0 14px 30px -12px rgba(21,32,26,.3)}
+.chip img{height:44px}
+.ch{position:absolute;filter:drop-shadow(0 22px 18px rgba(21,32,26,.28));transform-origin:50% 100%}
+/* contrato */
+.ct{padding:30px 42px 28px 50px;font:23px/1.5 Georgia,serif;color:#161616;text-align:justify}
+.ct h4{text-align:center;font:700 25px Georgia,serif;margin-bottom:12px;letter-spacing:.03em}
+.ct p{margin-bottom:9px;position:relative;padding-left:4px;border-radius:3px}
+.ct p .dot{position:absolute;left:-26px;top:3px;width:17px;height:17px;border-radius:50%;opacity:0}
+.ct mark{background:transparent;color:inherit}
+.ct p.bad mark{background:#FAD0D6;box-shadow:0 2px 0 #C62839}
+.cm{position:absolute;width:300px;background:#fff;border-left:5px solid #C62839;border-radius:0 12px 12px 0;padding:12px 16px;font-size:20px;line-height:1.35;box-shadow:0 12px 26px -10px rgba(0,0,0,.3)}
+.cm b{display:block;color:#C62839;font-size:21px}
+/* planilha */
+.xt{width:100%;border-collapse:collapse;font:18px Calibri,Arial,sans-serif}
+.xt td{border:1px solid #E1E4E1;height:44px;padding:0 12px;white-space:nowrap}
+.xt tr.h td{background:#E2EFDA;font-weight:700;color:#1B4B2E}
+.xt .n{text-align:right}
+.xt tr.tt td{font-weight:700;border-top:2px solid #15201A;background:#F6FAF6}
+/* outras IAs */
+.gpt{background:#F4F4F4;border-radius:26px;padding:28px 32px;font-size:22px;line-height:1.5;color:#555}
+.gpt p{margin-bottom:12px}
+</style></head><body><div id="st">
+
+<!-- A: o gancho -->
+<div class="sc" id="A" style="background:linear-gradient(180deg,#fff,#F2F6F1)">
+  <div class="a big" id="aT" style="left:150px;top:300px;width:1000px;font-size:118px"></div>
+  <div class="a ph" id="aP" style="left:1300px;top:120px"><div class="scr"><div class="isl"></div>
+    <div class="hd"><div class="av" style="background:#8A97A0">C</div><span><b>Clientes</b><small>12 conversas não lidas</small></span></div>
+    <div class="bd" id="aB">
+      <div class="bb o">Seu Zé, o pagamento venceu ontem.<span class="t">08:02 ✓✓</span></div>
+      <div class="bb o">Bom dia! Lembrando do boleto de R$ 1.200,00.<span class="t">08:40 ✓✓</span></div>
+      <div class="bb o">Oi? Consegue me retornar hoje?<span class="t">11:15 ✓✓</span></div>
+      <div class="bb o">Passando para cobrar de novo…<span class="t">16:30 ✓✓</span></div>
+    </div></div></div>
+  <div class="a" id="aW" style="left:1520px;top:570px;width:60px;height:60px;border-radius:50%;background:var(--g)"></div>
+</div>
+
+<!-- B: a nova equipe -->
+<div class="sc" id="B">
+  <div class="a" id="bG" style="inset:0;background:var(--g)"></div>
+  <div class="a big" id="bT1" style="left:0;width:1920px;top:360px;text-align:center;color:#fff;font-size:150px">A Germo criou a<br>sua nova equipe.</div>
+  <div class="a" id="bL" style="inset:0;background:linear-gradient(180deg,#fff,#EEF5EE)"></div>
+  <div class="a big" id="bN" style="left:140px;top:200px;font-size:250px;color:var(--g);letter-spacing:-.06em">10</div>
+  <div class="a big" id="bT2" style="left:150px;top:450px;width:760px;font-size:70px">ajudantes dentro<br>do seu WhatsApp,</div>
+  <div class="a" id="bT3" style="left:154px;top:640px;font:700 40px Manrope;color:var(--ink2)">em um número só.</div>
+  <div class="a ph" id="bP" style="left:1160px;top:90px"><div class="scr"><div class="isl"></div>
+    <div class="hd"><div class="av" style="background:var(--g)">g</div><span><b>Germo ✓</b><small>online</small></span></div>
+    <div class="bd"><div class="bb i"><span class="who" style="color:var(--g)">Germo</span>Bem-vindo! Os seus 10 ajudantes já estão prontos.<span class="t">06:00</span></div><div class="bb i"><span class="who" style="color:var(--g)">Germo</span>Mande um áudio, uma foto ou um PDF. Nós devolvemos o trabalho pronto.<span class="t">06:00</span></div></div></div></div>
+  <div id="bC"></div>
+</div>
+
+<!-- C: áudio, contrato, imposto -->
+<div class="sc" id="C" style="background:linear-gradient(180deg,#fff,#F2F6F1)">
+  <div class="a ph" id="cP" style="left:120px;top:90px"><div class="scr"><div class="isl"></div>
+    <div class="hd"><div class="av" style="background:var(--g)">g</div><span><b>Germo ✓</b><small>online</small></span></div>
+    <div class="bd"><div class="bb o"><div class="vn"><img src="img/prod.jpg"><span class="pl"></span><span class="wv" id="cWv"></span></div><i style="display:block;margin-top:8px;font-size:19px;color:#3d4a42">"Germo, analisa esse contrato e me fala do imposto do produtor."</i><span class="t">06:10 ✓✓</span></div><div class="bb i" id="cR1"><span class="who" style="color:#8E2443">jurídico</span>Achei 4 pontos no contrato. Deixei os comentários no arquivo.<span class="t">06:11</span></div><div class="bb i" id="cR2"><span class="who" style="color:#24408E">contábil</span>Fiz as 2 contas do imposto. Pelo Livro Caixa sai mais barato.<span class="t">06:11</span></div></div></div></div>
+  <div class="a big" id="cT1" style="left:680px;top:420px;font-size:110px">Você manda<br>um áudio.</div>
+  <div class="a card" id="cK" style="left:640px;top:70px;width:840px">
+    <div class="bar" style="background:#7A1F3A"><i style="color:#7A1F3A">W</i>Contrato_Prestacao_Servicos.docx</div>
+    <div class="ct"><h4>CONTRATO DE PRESTAÇÃO DE SERVIÇOS</h4>
+      <p id="k1"><span class="dot" style="background:#1E9E57"></span><b>CLÁUSULA 1ª.</b> Assistência técnica em 120 hectares de soja e milho, com visitas quinzenais.</p>
+      <p id="k2"><span class="dot" style="background:#1E9E57"></span><b>CLÁUSULA 2ª.</b> Prazo de 12 meses, de setembro de 2026 a agosto de 2027.</p>
+      <p id="k3"><span class="dot" style="background:#C62839"></span><b>CLÁUSULA 3ª.</b> O CONTRATANTE pagará <mark>R$ 4.500,00 por mês, até o dia 10</mark>.</p>
+      <p id="k4"><span class="dot" style="background:#C62839"></span><b>CLÁUSULA 5ª.</b> Rescisão <mark>a qualquer tempo, sem aviso prévio</mark>.</p>
+      <p style="margin-top:18px;font-size:15px;text-align:center;color:#555">MATHEUS PIZZATTO &nbsp;·&nbsp; ARTHUR ISFER</p>
+    </div>
+  </div>
+  <div class="a cm" id="cM1" style="left:1510px;top:380px"><b>Atraso sem multa</b>Sugestão: 2% de multa e 1% ao mês.</div>
+  <div class="a cm" id="cM2" style="left:1510px;top:520px"><b>Falta a ART</b>Agronomia exige ART no CREA.</div>
+  <div class="a lbl" id="cL1" style="left:640px;top:800px">O contrato volta<br><span class="g">analisado.</span></div>
+  <div class="a card" id="cI" style="left:680px;top:130px;width:820px;padding:40px 48px">
+    <div style="font:800 15px Manrope;letter-spacing:.14em;color:#24408E">IMPOSTO DE RENDA · ATIVIDADE RURAL</div>
+    <div style="font:800 40px Archivo;letter-spacing:-.03em;margin:8px 0 26px">As 2 contas, lado a lado</div>
+    <div id="iR1" style="margin-bottom:22px"><div style="display:flex;justify-content:space-between;font:700 22px Manrope;margin-bottom:8px"><span>Livro Caixa</span><span id="iV1">R$ 0</span></div><div style="height:26px;border-radius:13px;background:#E8ECF5;overflow:hidden"><i id="iB1" style="display:block;height:100%;width:0;background:#9DB0DA;border-radius:13px"></i></div></div>
+    <div id="iR2"><div style="display:flex;justify-content:space-between;font:700 22px Manrope;margin-bottom:8px"><span>Sobre 20% da receita</span><span id="iV2">R$ 0</span></div><div style="height:26px;border-radius:13px;background:#E8ECF5;overflow:hidden"><i id="iB2" style="display:block;height:100%;width:0;background:#24408E;border-radius:13px"></i></div></div>
+    <div id="iOk" style="margin-top:26px;background:#E7F7EC;color:#0B6B33;border-radius:14px;padding:14px 18px;font:800 23px Manrope;opacity:0">Pagando pelo Livro Caixa, você economiza R$ 6.840,00</div>
+  </div>
+  <div class="a lbl" id="cL2" style="left:680px;top:760px">O imposto,<br><span style="color:#24408E">resolvido.</span></div>
+  <div id="cC"></div>
+</div>
+
+<!-- D: a esteira de entregas -->
+<div class="sc" id="D" style="background:#F2F6F1">
+  <div class="a card" id="d1" style="left:110px;top:200px;width:540px">
+    <div class="bar" style="background:#1D6F42"><i style="color:#1D6F42">X</i>Salários_Novembro.xlsx</div>
+    <table class="xt"><tr class="h"><td>Funcionário</td><td class="n">Salário</td></tr><tr><td>João Silva</td><td class="n">2.900,00</td></tr><tr><td>Maria Souza</td><td class="n">2.450,00</td></tr><tr><td>Pedro Lima</td><td class="n">3.100,00</td></tr><tr><td>Ana Costa</td><td class="n">2.700,00</td></tr><tr class="tt"><td>Total</td><td class="n">11.150,00</td></tr></table>
+  </div>
+  <div class="a card" id="d2" style="left:690px;top:200px;width:540px">
+    <div class="bar" style="background:#33383A"><i style="color:#C8402F">PDF</i>Relatório_Visita_Talhão4.pdf</div>
+    <div style="padding:20px 24px"><div style="font:800 13px Manrope;letter-spacing:.14em;color:#C8402F">RELATÓRIO DE VISITA TÉCNICA</div><div style="font:800 28px Archivo;letter-spacing:-.02em;border-bottom:3px solid #C8402F;padding-bottom:8px;margin-bottom:14px">Talhão 4 · Soja</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px"><span style="aspect-ratio:4/3;background:url(img/soja.jpg) center/cover;border-radius:4px"></span><span style="aspect-ratio:4/3;background:url(img/folha.jpg) center/cover;border-radius:4px"></span><span style="aspect-ratio:4/3;background:url(img/pano.jpg) center/cover;border-radius:4px"></span></div>
+    <div style="margin-top:14px;height:10px;border-radius:5px;background:#E6E9E6;width:92%"></div><div style="margin-top:8px;height:10px;border-radius:5px;background:#E6E9E6;width:70%"></div></div>
+  </div>
+  <div class="a card" id="d3" style="left:1270px;top:200px;width:540px;background:#0F1B24;color:#fff">
+    <div style="height:250px;background:url(img/aerea.jpg) center/cover;position:relative"><div id="dRad" style="position:absolute;inset:0;background:radial-gradient(circle at 40% 50%,rgba(255,64,48,.7),rgba(255,196,0,.55) 22%,rgba(52,199,89,.45) 40%,rgba(56,150,255,.3) 55%,transparent 68%);mix-blend-mode:normal"></div><span style="position:absolute;left:14px;top:14px;background:rgba(15,27,36,.8);border-radius:10px;padding:7px 12px;font:700 16px Manrope">Radar de chuva · amanhã</span></div>
+    <div style="padding:20px 24px;display:flex;align-items:flex-end;justify-content:space-between"><div><div style="font:800 13px Manrope;letter-spacing:.12em;color:#7FD6C9">CHUVA NA FAZENDA</div><div style="font:800 64px Archivo;letter-spacing:-.04em;line-height:1">40 mm</div><div style="font:600 17px Manrope;color:#C6D3DB">amanhã, a partir das 15h</div></div><span style="background:#1E9E57;border-radius:10px;padding:9px 12px;font:800 17px Manrope">Colher: 7h às 13h</span></div>
+  </div>
+  <div class="a lbl" id="dL1" style="left:110px;top:640px;font-size:52px">A planilha,</div>
+  <div class="a lbl" id="dL2" style="left:690px;top:640px;font-size:52px">o relatório da visita,</div>
+  <div class="a lbl" id="dL3" style="left:1270px;top:640px;font-size:52px">a previsão da fazenda.</div>
+  <div id="dC"></div>
+</div>
+
+<!-- E: explica x faz -->
+<div class="sc" id="E" style="background:#fff">
+  <div class="a" id="eL" style="left:0;top:0;width:960px;height:1080px;background:#F5F5F5"></div>
+  <div class="a" id="eR" style="left:960px;top:0;width:960px;height:1080px;background:var(--g)"></div>
+  <div class="a" id="eA" style="left:110px;top:150px;width:740px">
+    <div style="font:800 22px Manrope;letter-spacing:.14em;color:#888;margin-bottom:22px">OUTRAS IAs</div>
+    <div class="gpt"><p>Para montar a sua planilha de salários, siga estes passos:</p><p>1. Abra o Excel e crie uma nova planilha.</p><p>2. Na coluna A, digite o nome de cada funcionário.</p><p>3. Na coluna B, coloque a função…</p><p>4. Use a fórmula =SOMA para…</p></div>
+  </div>
+  <div class="a big" id="eT1" style="left:110px;top:780px;width:760px;font-size:62px;color:#555">Te explicam<br>como fazer.</div>
+  <div class="a" id="eB" style="left:1070px;top:150px;width:740px">
+    <div style="font:800 22px Manrope;letter-spacing:.14em;color:#D9FBE3;margin-bottom:22px">AJUDANTES DA GERMO</div>
+    <div class="card" style="padding:22px 26px;display:flex;align-items:center;gap:20px;margin-bottom:16px"><span style="width:60px;height:72px;border-radius:10px;background:#1D6F42;color:#fff;display:grid;place-items:center;font:800 17px Manrope">XLS</span><span><b style="font-size:26px;display:block">Salários_Novembro.xlsx</b><span style="font-size:19px;color:#5E7468">Pronto · 4 funcionários · R$ 11.150,00</span></span></div>
+    <div class="card" id="eB2" style="padding:22px 26px;display:flex;align-items:center;gap:20px"><span style="width:60px;height:72px;border-radius:10px;background:#7A1F3A;color:#fff;display:grid;place-items:center;font:800 17px Manrope">DOC</span><span><b style="font-size:26px;display:block">Contrato_revisado.docx</b><span style="font-size:19px;color:#5E7468">Pronto · 4 comentários</span></span></div>
+  </div>
+  <div class="a big" id="eT2" style="left:1070px;top:780px;width:780px;font-size:62px;color:#fff">Fazem<br>por você.</div>
+  <div id="eC"></div>
+</div>
+
+<!-- F: assinatura -->
+<div class="sc" id="F" style="background:linear-gradient(180deg,#fff,#EEF5EE)">
+  <div class="a big" id="fW" style="left:0;width:1920px;top:250px;text-align:center;font-size:200px;font-stretch:125%;letter-spacing:-.03em">germo<span class="g">.br</span></div>
+  <div class="a" id="fS" style="left:0;width:1920px;top:500px;text-align:center;font:700 44px Manrope;color:var(--ink2)">10 ajudantes no seu WhatsApp. O trabalho volta pronto.</div>
+  <div class="a" id="fCta" style="left:660px;top:600px;width:600px;height:96px;border-radius:999px;background:var(--broto);display:flex;align-items:center;justify-content:center;gap:18px;font:800 38px Manrope;box-shadow:0 24px 50px -18px rgba(19,169,75,.6)">Entre na lista <span style="font-weight:600">germobr.link</span></div>
+  <div id="fC"></div>
+</div>
+
+</div>
+<script>
+const K=['planilha','clima','campo','agronomo','vendas','viral','vitrine','apresenta','juridico','contabil'];
+const c=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),P=(t,a,b)=>c((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3),eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2,eb=x=>{const s=1.9;x=x-1;return x*x*((s+1)*x+s)+1};
+const $=id=>document.getElementById(id);
+function S(el,o){if(typeof el==='string')el=$(el);if(!el)return;const s=el.style;if(o.o!=null)s.opacity=o.o;s.transform=`translate(${o.x||0}px,${o.y||0}px) scale(${o.s==null?1:o.s}) rotate(${o.r||0}deg)`;}
+/* personagens */
+const CH=[];function mk(par,k,x,y,h,off){const im=document.createElement('img');im.className='ch';im.style.left=x+'px';im.style.top=y+'px';im.style.height=h+'px';$(par).appendChild(im);const o={im,k,off:off||Math.floor(Math.random()*58),cur:-1};CH.push(o);return o}
+function fr(o,t){const f=(Math.floor(t*10)+o.off)%58;if(f!==o.cur){o.im.src=`ch2/${o.k}/${String(f).padStart(2,'0')}.png`;o.cur=f}}
+/* B: 10 em volta do telefone */
+const BP=[[880,40],[930,300],[900,560],[960,800],[1620,20],[1660,270],[1640,520],[1570,780],[1230,850],[660,800]];
+const bC=K.map((k,i)=>mk('bC',k,BP[i][0],BP[i][1],215,i*6));
+const cJ=mk('cC','juridico',1470,640,320,3),cCo=mk('cC','contabil',1560,620,320,11);
+const dC=[mk('dC','planilha',470,40,190,2),mk('dC','campo',1040,30,190,9),mk('dC','clima',1640,30,190,17)];
+const eC=[mk('eC','planilha',1660,470,230,5),mk('eC','juridico',1500,560,200,22)];
+const fC=K.map((k,i)=>mk('fC',k,150+i*165,790,230,i*5));
+/* onda do áudio */
+const WV=[12,22,8,26,14,30,10,20,28,12,24,16,30,10,22,14,26,8,20,12,28,16,10,24];
+$('cWv').innerHTML=WV.map(h=>`<i style="height:${h}px"></i>`).join('');
+/* gancho palavra por palavra */
+const AW=[['Pensou',.5],['que',.84],['o',.96],['seu',1.02],['WhatsApp',1.12,1],['era',1.5],['só',1.78],['pra',2.08],['cobrar',2.2],['cliente?',2.5]];
+$('aT').innerHTML=AW.map(([w,,g],i)=>`<span class="w${g?' g':''}" id="aw${i}">${w}</span>`).join(' ').replace('<span class="w" id="aw5">','<br><span class="w" id="aw5">');
+function scene(id,t,a,b,fi=.35,fo=.35){const v=t<a-0.001||t>b?0:Math.min(fi?P(t,a,a+fi):1,fo?1-P(t,b-fo,b):1);$(id).style.opacity=v;$(id).style.display=v>0?'block':'none';return v}
+function render(t){
+  /* A */
+  if(scene('A',t,0,3.75,0,.25)){
+    AW.forEach(([,ts],i)=>{const p=eo(P(t,ts-.05,ts+.22));S('aw'+i,{o:p,y:(1-p)*40})});
+    const pp=eo(P(t,0,.7));S('aP',{o:pp,y:(1-pp)*120,r:(1-pp)*4});
+    [...$('aB').children].forEach((b,i)=>{const p=eb(P(t,.3+i*.45,.62+i*.45));b.style.opacity=c(p*1.3);b.style.transform=`scale(${.7+.3*p})`;b.style.transformOrigin='100% 100%'});
+    const w=eio(P(t,3.15,3.75));S('aW',{o:w>0?1:0,s:1+w*70});
+    const zz=P(t,0,3.75);$('aT').style.transform=`scale(${1+zz*.04})`;
+  }
+  /* B */
+  if(scene('B',t,3.6,9.4,0,.3)){
+    S('bG',{o:1});const t1=eo(P(t,3.6,4.1));S('bT1',{o:t1*(1-P(t,5.3,5.6)),y:(1-t1)*60,s:1+P(t,3.6,5.6)*.06});
+    const l=eio(P(t,5.45,5.85));S('bL',{o:1,y:(1-l)*1080});
+    const n=eb(P(t,5.7,6.1));S('bN',{o:P(t,5.7,5.85),s:.6+.4*n,y:(1-n)*30});
+    $('bN').textContent=String(Math.max(1,Math.min(10,Math.round(1+9*P(t,5.75,8.1)))));
+    const t2=eo(P(t,6.4,6.8));S('bT2',{o:t2,y:(1-t2)*40});const t3=eo(P(t,7.9,8.3));S('bT3',{o:t3,y:(1-t3)*30});
+    const ph=eo(P(t,5.6,6.2));S('bP',{o:ph,y:(1-ph)*200});
+    bC.forEach((o,i)=>{const st=5.85+i*.23,p=eb(P(t,st,st+.4));fr(o,t);S(o.im,{o:P(t,st,st+.12),s:p*(1+.03*Math.sin(t*3+i)),y:(1-p)*60+Math.sin(t*2.2+i)*6})});
+    const zo=P(t,8.3,9.4);$('B').style.transform=`scale(${1+zo*.05})`;
+  }
+  /* C */
+  if(scene('C',t,9.2,14.0,.25,.3)){
+    const ph=eo(P(t,9.2,9.7));S('cP',{o:ph,x:(1-ph)*-120});
+    const wv=[...$('cWv').children],pr=P(t,9.5,10.9);wv.forEach((b,i)=>b.classList.toggle('on',i/wv.length<pr));
+    const t1=eo(P(t,9.35,9.75))*(1-P(t,10.25,10.45));S('cT1',{o:t1,y:(1-eo(P(t,9.35,9.75)))*40});
+    const k=eb(P(t,10.35,10.85));const kOut=eio(P(t,12.15,12.5));S('cK',{o:P(t,10.35,10.5)*(1-kOut),x:(1-k)*300-kOut*700,s:.9+.1*k,r:(1-k)*3});
+    ['k1','k2','k3','k4'].forEach((id,i)=>{const on=t>10.9+i*.22;$(id).classList.toggle('bad',on&&i>1);$(id).querySelector('.dot').style.opacity=on?1:0});
+    const m1=eb(P(t,11.4,11.7)),m2=eb(P(t,11.65,11.95));S('cM1',{o:P(t,11.4,11.5)*(1-kOut),x:(1-m1)*60-kOut*700});S('cM2',{o:P(t,11.65,11.75)*(1-kOut),x:(1-m2)*60-kOut*700});
+    const l1=eo(P(t,10.55,10.95));S('cL1',{o:l1*(1-kOut),y:(1-l1)*40,x:-kOut*700});
+    const r1=eb(P(t,10.9,11.2)),r2=eb(P(t,12.75,13.05));$('cR1').style.display=t>10.9?'block':'none';$('cR2').style.display=t>12.75?'block':'none';$('cR1').style.opacity=P(t,10.9,11.0);$('cR1').style.transform=`scale(${.8+.2*r1})`;$('cR2').style.opacity=P(t,12.75,12.85);$('cR2').style.transform=`scale(${.8+.2*r2})`;
+    fr(cJ,t);const j=eb(P(t,10.45,10.95));S(cJ.im,{o:P(t,10.45,10.6)*(1-kOut),s:j,x:-kOut*700,y:Math.sin(t*2.4)*6});
+    const ii=eb(P(t,12.3,12.8));S('cI',{o:P(t,12.3,12.45),x:(1-ii)*400,s:.92+.08*ii});
+    const b1=eo(P(t,12.7,13.2)),b2=eo(P(t,12.9,13.4));$('iB1').style.width=(60*b1)+'%';$('iB2').style.width=(92*b2)+'%';
+    $('iV1').textContent='R$ '+Math.round(9120*b1).toLocaleString('pt-BR')+',00';$('iV2').textContent='R$ '+Math.round(15960*b2).toLocaleString('pt-BR')+',00';
+    const ok=eb(P(t,13.35,13.65));$('iOk').style.opacity=P(t,13.35,13.45);$('iOk').style.transform=`scale(${.9+.1*ok})`;
+    const l2=eo(P(t,12.4,12.8));S('cL2',{o:l2,y:(1-l2)*40});
+    fr(cCo,t);const cc=eb(P(t,12.45,12.95));S(cCo.im,{o:P(t,12.45,12.6),s:cc,y:Math.sin(t*2.4+1)*6});
+  }
+  /* D */
+  if(scene('D',t,13.8,18.0,.25,.3)){
+    [['d1','dL1',13.95],['d2','dL2',14.75],['d3','dL3',16.05]].forEach(([cd,lb,st],i)=>{const p=eb(P(t,st,st+.45));S(cd,{o:P(t,st,st+.15),y:(1-p)*160,r:(1-p)*(i-1)*3,s:.9+.1*p});const l=eo(P(t,st+.1,st+.45));S(lb,{o:l,y:(1-l)*30});fr(dC[i],t);const q=eb(P(t,st+.2,st+.6));S(dC[i].im,{o:P(t,st+.2,st+.3),s:q,y:Math.sin(t*2.5+i)*6})});
+    $('dRad').style.transform=`translateX(${-200+P(t,16,18)*260}px)`;
+    const z=P(t,13.8,18);$('D').style.transform=`scale(${1.04-z*.04})`;
+  }
+  /* E */
+  if(scene('E',t,17.85,22.75,.25,.3)){
+    const r=eio(P(t,20.1,20.5));S('eR',{o:1,x:(1-r)*960});$('eL').style.width=(960+960*(1-r))+'px';S('eL',{o:1});const sh=480*(1-r);
+    const a=eo(P(t,18.0,18.4));S('eA',{o:a*(1-.45*P(t,20.2,20.6)),y:(1-a)*40,x:sh});
+    const t1=eo(P(t,18.2,18.6));S('eT1',{o:t1*(1-.45*P(t,20.2,20.6)),y:(1-t1)*30,x:sh});
+    const b=eb(P(t,20.35,20.8));S('eB',{o:P(t,20.35,20.5),y:(1-b)*80});const b2=eb(P(t,20.6,21.0));S('eB2',{o:P(t,20.6,20.7),s:.9+.1*b2});
+    const t2=eo(P(t,20.5,20.9));S('eT2',{o:t2,y:(1-t2)*30});
+    eC.forEach((o,i)=>{fr(o,t);const st=20.7+i*.2,p=eb(P(t,st,st+.4));S(o.im,{o:P(t,st,st+.1),s:p,y:Math.sin(t*3+i)*8})});
+  }
+  /* F */
+  if(scene('F',t,22.6,30,.3,0)){
+    const w=eb(P(t,22.7,23.2));S('fW',{o:P(t,22.7,22.9),s:.8+.2*w});
+    const s=eo(P(t,23.3,23.7));S('fS',{o:s,y:(1-s)*30});
+    const cta=eb(P(t,23.8,24.3));S('fCta',{o:P(t,23.8,23.95),s:(.7+.3*cta)*(1+.025*Math.sin(Math.max(0,t-24.3)*5))});
+    fC.forEach((o,i)=>{fr(o,t);const st=22.9+i*.09,p=eb(P(t,st,st+.4));S(o.im,{o:P(t,st,st+.1),s:p,y:(1-p)*80+Math.sin(t*2.6+i*.7)*7})});
+    $('fW').style.filter='';const end=P(t,29.4,30);$('st').style.opacity=1;
+  }
+}
+window.render=render;
+window.ready=Promise.all([document.fonts.ready,...K.flatMap(k=>Array.from({length:58},(_,i)=>new Promise(r=>{const im=new Image();im.onload=im.onerror=r;im.src=`ch2/${k}/${String(i).padStart(2,'0')}.png`})))]);
+</script></body></html>
