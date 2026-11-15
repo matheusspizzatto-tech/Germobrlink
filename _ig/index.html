@@ -25,7 +25,7 @@ body{background:#999;font-family:Manrope,sans-serif;color:var(--ink)}
 .cmt{position:absolute;z-index:3;width:230px;background:#fff;border-radius:12px;padding:12px 14px 13px;font-family:Manrope;font-size:16.5px;line-height:1.32;font-weight:600;color:#1d2420;box-shadow:0 0 0 1.5px #E3C9D1,0 14px 26px -12px rgba(60,20,30,.35)}
 .cmt .w{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:800;color:#8E2443;margin-bottom:5px}
 .cmt .w i{width:20px;height:20px;border-radius:50%;background:#8E2443;color:#fff;font-style:normal;font-size:11px;display:grid;place-items:center}
-.cmt::before{content:"";position:absolute;left:-26px;top:20px;width:26px;border-top:2px dashed #C78A9C}
+.cmt::before{content:"";position:absolute;left:-30px;top:22px;width:30px;border-top:2px dashed #C78A9C}
 /* ---------- telefone / whatsapp escuro ---------- */
 .ph{position:absolute;z-index:4;border-radius:56px;background:#0B0F0D;padding:14px;box-shadow:0 60px 100px -30px rgba(5,15,10,.55),0 0 0 2px #2A302D inset}
 .scr{position:relative;width:100%;height:100%;border-radius:44px;overflow:hidden;background:#0B141A;font-family:Manrope}
@@ -60,25 +60,30 @@ body{background:#999;font-family:Manrope,sans-serif;color:var(--ink)}
 
 <!-- ============ 1 JURIDICO ============ -->
 <div class="p" id="p1">
-  <div class="hd"><h1>Esse contrato tem 3 problemas.<br><em>Você ia descobrir<br>depois de assinar.</em></h1></div>
-  <div class="doc shadow" style="left:448px;top:360px;width:420px;height:1060px;padding:42px 38px;transform:rotate(2.2deg);z-index:3">
-    <h4>CONTRATO DE ARRENDAMENTO RURAL</h4>
-    <div class="cl" style="margin-top:16px"><b>ARRENDADOR:</b> José Antônio Ferreira, brasileiro, agricultor, residente em Castro/PR.</div>
-    <div class="cl"><b>ARRENDATÁRIO:</b> Paulo Henrique Ribeiro, brasileiro, produtor rural, residente em Carambeí/PR.</div>
-    <div class="cl"><b>CLÁUSULA 1ª · DO OBJETO.</b> O ARRENDADOR cede ao ARRENDATÁRIO o uso de 48 hectares da Fazenda Santa Rita, matrícula nº 18.437 do CRI de Castro/PR, para cultivo de soja e milho.</div>
-    <div class="cl"><b>CLÁUSULA 2ª · DO PRAZO.</b> O prazo é de 3 safras, com início em 1º de setembro de 2026 e término em 31 de agosto de 2029.</div>
-    <div class="cl"><b>CLÁUSULA 3ª · DO PREÇO.</b> <span class="mk">O ARRENDATÁRIO pagará 10 sacas de soja por hectare ao ano</span>, entregues no armazém indicado pelo ARRENDADOR.</div>
-    <div class="cl"><b>CLÁUSULA 4ª · DO PAGAMENTO.</b> O pagamento será feito até 30 de abril de cada ano, após a colheita.</div>
-    <div class="cl"><b>CLÁUSULA 5ª · DAS BENFEITORIAS.</b> As benfeitorias úteis dependem de autorização por escrito do ARRENDADOR.</div>
-    <div class="cl"><b>CLÁUSULA 6ª · DAS DESPESAS.</b> <span class="mk">As despesas do imóvel serão acertadas entre as partes.</span></div>
-    <div class="cl"><b>CLÁUSULA 7ª · DO TÉRMINO.</b> <span class="mk">Encerrado o prazo, o ARRENDATÁRIO devolverá a área</span> livre e desocupada.</div>
-    <div class="cl"><b>CLÁUSULA 8ª · DO FORO.</b> Fica eleito o foro da Comarca de Castro/PR.</div>
+  <div class="hd"><h1>Contratos são complicados e chatos.<br><em>Tire aquela insegurança<br>e assine com confiança.</em></h1></div>
+  <div class="doc shadow" id="ct1" style="left:385px;top:345px;width:470px;height:1100px;padding:40px 36px;z-index:3">
+    <h4 style="font-size:17px">CONTRATO PARTICULAR DE<br>ARRENDAMENTO RURAL</h4>
+    <div class="cl" style="margin-top:14px"><b>ARRENDADOR:</b> José Antônio Ferreira, brasileiro, casado, agricultor, CPF nº ***.482.119-**, residente na Estrada do Lajeado, s/n, Castro/PR.</div>
+    <div class="cl"><b>ARRENDATÁRIO:</b> Paulo Henrique Ribeiro, brasileiro, solteiro, produtor rural, CPF nº ***.731.604-**, residente em Carambeí/PR.</div>
+    <div class="cl">As partes celebram o presente contrato, regido pela Lei nº 4.504/64 (Estatuto da Terra) e pelo Decreto nº 59.566/66, nas cláusulas seguintes:</div>
+    <div class="cl"><b>CLÁUSULA 1ª · DO OBJETO.</b> O ARRENDADOR cede ao ARRENDATÁRIO o uso e gozo de 48,00 ha do imóvel rural Fazenda Santa Rita, matrícula nº 18.437 do Registro de Imóveis de Castro/PR, CCIR nº 950.041.287.412, para cultivo de soja e milho.</div>
+    <div class="cl"><b>CLÁUSULA 2ª · DO PRAZO.</b> O prazo é de 3 anos agrícolas, de 1º/09/2026 a 31/08/2029. <span class="mk" data-c="1">Findo o prazo, o contrato se extingue de pleno direito, independentemente de notificação.</span></div>
+    <div class="cl"><b>CLÁUSULA 3ª · DO PREÇO.</b> <span class="mk" data-c="2">O ARRENDATÁRIO pagará 10 sacas de 60 kg de soja por hectare ao ano</span>, entregues no armazém indicado pelo ARRENDADOR.</div>
+    <div class="cl"><b>CLÁUSULA 4ª · DO PAGAMENTO.</b> O pagamento será feito até 30 de abril de cada ano agrícola, após a colheita.</div>
+    <div class="cl"><b>CLÁUSULA 5ª · DOS ENCARGOS.</b> <span class="mk" data-c="3">Os impostos e despesas do imóvel serão acertados entre as partes.</span></div>
+    <div class="cl"><b>CLÁUSULA 6ª · DA CONSERVAÇÃO.</b> O ARRENDATÁRIO usará o imóvel conforme sua destinação, com práticas de conservação do solo, e não poderá subarrendar a área.</div>
+    <div class="cl"><b>CLÁUSULA 7ª · DAS BENFEITORIAS.</b> As benfeitorias úteis dependem de autorização por escrito do ARRENDADOR.</div>
   </div>
-  <div class="cmt" style="left:812px;top:620px;transform:rotate(2deg)"><div class="w"><i>1</i>jurídico</div>Preço em sacas. A lei pede o preço em dinheiro (Decreto 59.566/66, art. 18).</div>
-  <div class="cmt" style="left:800px;top:850px;transform:rotate(2deg)"><div class="w"><i>2</i>jurídico</div>Não diz quem paga o ITR. Isso vira briga depois.</div>
-  <div class="cmt" style="left:790px;top:1040px;transform:rotate(2deg)"><div class="w"><i>3</i>jurídico</div>Falta a cláusula de renovação e o direito de preferência.</div>
-  <div class="note" style="left:470px;bottom:30px;background:#fff;padding:8px 14px;border-radius:10px;z-index:10">Leve ao seu advogado antes de assinar.</div>
+  <div class="cmt cm1" data-c="1"><div class="w"><i>1</i>jurídico</div>Acaba sem aviso? A lei garante preferência na renovação, com notificação 6 meses antes (Estatuto da Terra, art. 95, IV).</div>
+  <div class="cmt cm1" data-c="2"><div class="w"><i>2</i>jurídico</div>Preço em sacas. A lei pede o preço em dinheiro (Decreto 59.566/66, art. 18).</div>
+  <div class="cmt cm1" data-c="3"><div class="w"><i>3</i>jurídico</div>Não diz quem paga o ITR. Isso vira briga depois.</div>
+  <div class="note" style="left:405px;bottom:34px;background:#fff;padding:9px 16px;border-radius:10px;z-index:10;box-shadow:0 6px 18px -8px rgba(0,0,0,.25)">Leve ao seu advogado antes de assinar.</div>
 </div>
+<script>
+addEventListener('load',()=>{const pg=document.getElementById('p1').getBoundingClientRect();
+document.querySelectorAll('#p1 .cmt.cm1').forEach(c=>{const m=document.querySelector(`#p1 .mk[data-c="${c.dataset.c}"]`).getBoundingClientRect();
+c.style.left='842px';c.style.width='214px';c.style.top=(m.top-pg.top-12)+'px';});});
+</script>
 
 <!-- ============ 2 CAMPO ============ -->
 <div class="p" id="p2">
