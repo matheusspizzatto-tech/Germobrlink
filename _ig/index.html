@@ -10,7 +10,7 @@ body{background:#999;font-family:Manrope,sans-serif;color:var(--ink)}
 .hd{position:absolute;left:60px;right:60px;top:92px;text-align:center;z-index:9}
 .hd h1{font-family:Archivo;font-stretch:106%;font-weight:800;font-size:64px;line-height:1.03;white-space:nowrap;letter-spacing:-.04em}
 .hd h1 em{font-style:normal;color:var(--verde)}
-.hd p{margin-top:16px;font-size:28px;font-weight:600;color:var(--mute)}
+.hd p{margin-top:16px;white-space:nowrap;font-size:28px;font-weight:600;color:var(--mute)}
 .sig{position:absolute;right:48px;bottom:40px;z-index:9;display:flex;align-items:center;gap:9px;font-family:Archivo;font-stretch:125%;font-weight:800;font-size:22px;color:var(--ink)}
 .sig i{width:30px;height:30px;border-radius:8px;background:var(--broto);display:grid;place-items:center}
 .sig b{color:var(--verde)}
@@ -57,11 +57,28 @@ body{background:#999;font-family:Manrope,sans-serif;color:var(--ink)}
 .sheet td.r{text-align:right}
 .sheet td.h{background:#E6F4EA;font-weight:800}
 .sheet td.k{background:#F3F4F5;color:#5F6368;text-align:center;font-size:14px;width:34px;padding:5px}
+/* ---------- glass chat card ---------- */
+.gc{position:absolute;z-index:4;border-radius:38px;padding:18px 18px 22px;background:rgba(255,255,255,.58);-webkit-backdrop-filter:blur(26px) saturate(1.7);backdrop-filter:blur(26px) saturate(1.7);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.95),0 0 0 1.5px rgba(21,32,26,.07),0 50px 90px -34px rgba(21,32,26,.42);font-family:Manrope}
+.gct{display:flex;align-items:center;gap:14px;background:#fff;border-radius:24px;padding:14px 18px;box-shadow:0 0 0 1.5px rgba(21,32,26,.06),0 10px 24px -14px rgba(21,32,26,.3)}
+.gct .av{width:56px;height:56px;border-radius:50%;background:var(--broto);display:grid;place-items:center;flex:none}
+.gct b{display:flex;align-items:center;gap:6px;font-size:24px;font-weight:800;color:#111}
+.gct small{display:block;font-size:17px;color:#667781;font-weight:600;margin-top:1px}
+.gms{display:flex;flex-direction:column;gap:12px;margin-top:16px;padding:0 6px}
+.gb{max-width:90%;border-radius:20px;padding:12px 16px 8px;font-size:21px;line-height:1.38;color:#111B21;background:#fff;align-self:flex-start;position:relative;box-shadow:0 2px 2px rgba(0,0,0,.05)}
+.gb.o{background:#D9FDD3;align-self:flex-end;border-top-right-radius:6px}
+.gb.i{border-top-left-radius:6px}
+.gb small{display:block;text-align:right;font-size:14px;color:#667781;margin-top:3px}
+.gb .n{display:block;font-size:16px;font-weight:800;margin-bottom:3px}
+.gb .wv i{background:#6FA889}
+.gb .aud .pl{border-left-color:#4A5A52}
+.gb .att{background:rgba(0,0,0,.05)}
+.gb .att span{color:#667781}
+.gday{align-self:center;background:rgba(255,255,255,.85);color:#55605A;font-size:14px;font-weight:800;letter-spacing:.06em;padding:6px 14px;border-radius:10px}
 </style></head><body>
 
 <!-- ============ 1 JURIDICO ============ -->
 <div class="p" id="p1">
-  <div class="hd"><h1 style="font-size:60px">Contratos são complicados<br>e chatos.<br><em>Tire aquela insegurança<br>e assine com confiança.</em></h1></div>
+  <div class="hd"><h1 style="font-size:68px">Contratos são<br>complicados e chatos.</h1><p style="font-family:Archivo;font-stretch:106%;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-.025em;color:var(--verde);margin-top:18px">Tire aquela insegurança<br>e assine com confiança.</p></div>
   <div class="doc shadow" id="ct1" style="left:378px;top:375px;width:450px;height:1100px;padding:40px 36px;z-index:3">
     <h4 style="font-size:17px">CONTRATO PARTICULAR DE<br>ARRENDAMENTO RURAL</h4>
     <div class="cl" style="margin-top:14px"><b>ARRENDADOR:</b> José Antônio Ferreira, brasileiro, casado, agricultor, CPF nº ***.482.119-**, residente na Estrada do Lajeado, s/n, Castro/PR.</div>
@@ -89,50 +106,40 @@ c.style.left='846px';c.style.width='212px';const t=Math.max(m.top-pg.top-14,wind
 <!-- ============ 2 CAMPO ============ -->
 <div class="p" id="p2">
   <div class="hd"><h1>Você mandou um áudio<br>de 40 segundos do trator.<br><em>Recebeu isso.</em></h1></div>
-  <div class="ph" style="left:70px;top:300px;width:520px;height:1120px;transform:rotate(-3deg)"><div class="scr">
-    <div class="wbar"><div class="av"><svg width="30" height="30" viewBox="134 134 372 372"><g fill="none" stroke="#0A0C0B"><circle cx="320" cy="320" r="175" stroke-width="30"/><circle cx="342" cy="298.5" r="111" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" stroke-width="28"/></g><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></div><div><b>Germo</b><span>online</span></div></div>
-    <div class="chat" style="height:100%">
-      <div class="day">HOJE</div>
-      <div class="b o" style="width:330px"><div class="aud"><div class="pl"></div><div class="wv w"></div><span style="font-size:13px;color:#A9C9BF">0:41</span></div><small>10:12 ✓✓</small></div>
-      <div class="b" style="width:410px"><span class="n" style="color:#D69A63">campo</span>
-        <div class="pdf">
-          <div style="background:#13A94B;color:#fff;padding:9px 12px;font:800 12px Manrope;letter-spacing:.06em">RELATÓRIO DE VISITA TÉCNICA</div>
-          <div style="padding:10px 12px 12px">
-            <div style="font:800 15px Manrope">Fazenda Santa Rita · Talhão 3</div>
-            <div style="font:600 11px Manrope;color:#666;margin:2px 0 8px">Soja · V6 · 18/11/2026 · Castro/PR</div>
-            <div class="photo" style="height:120px;border-radius:6px;background:#6b8f3a center/cover"></div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px;font:600 11px Manrope">
-              <div style="background:#F3F6F4;border-radius:5px;padding:6px"><span style="color:#777">Ocorrência</span><br><b>Ferrugem, início</b></div>
-              <div style="background:#F3F6F4;border-radius:5px;padding:6px"><span style="color:#777">Onde</span><br><b>Bordadura norte</b></div>
-              <div style="background:#F3F6F4;border-radius:5px;padding:6px"><span style="color:#777">Estande</span><br><b>14 plantas/m</b></div>
-              <div style="background:#FDF1E7;border-radius:5px;padding:6px"><span style="color:#777">Ação</span><br><b>Ver página 4</b></div>
+  <div class="gc" style="left:56px;top:330px;width:600px"><div class="gct"><div class="av"><svg width="32" height="32" viewBox="134 134 372 372"><g fill="none" stroke="#0A0C0B"><circle cx="320" cy="320" r="175" stroke-width="30"/><circle cx="342" cy="298.5" r="111" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" stroke-width="28"/></g><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></div><div><b>Germo <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#25D366" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path d="m8 12.3 2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>10 ajudantes · online</small></div></div>
+    <div class="gms">
+      <div class="gb o" style="width:350px"><div class="aud"><div class="pl"></div><div class="wv"></div><span style="font-size:15px;color:#667781">0:41</span></div><small>10:12 ✓✓</small></div>
+      <div class="gb i" style="width:520px"><span class="n" style="color:#A0673A">campo</span>
+        <div class="pdf" style="box-shadow:0 0 0 1.5px #E6EAE7">
+          <div style="background:#13A94B;color:#fff;padding:10px 14px;font:800 13px Manrope;letter-spacing:.06em">RELATÓRIO DE VISITA TÉCNICA</div>
+          <div style="padding:12px 14px 14px">
+            <div style="font:800 19px Manrope">Fazenda Santa Rita · Talhão 3</div>
+            <div style="font:600 13px Manrope;color:#666;margin:2px 0 10px">Soja · V6 · 18/11/2026 · Castro/PR</div>
+            <div class="photo" style="height:150px;border-radius:8px;background:#6b8f3a center/cover"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px;font:600 13px Manrope">
+              <div style="background:#F3F6F4;border-radius:6px;padding:7px 9px"><span style="color:#777">Ocorrência</span><br><b>Ferrugem, início</b></div>
+              <div style="background:#F3F6F4;border-radius:6px;padding:7px 9px"><span style="color:#777">Onde</span><br><b>Bordadura norte</b></div>
+              <div style="background:#F3F6F4;border-radius:6px;padding:7px 9px"><span style="color:#777">Estande</span><br><b>14 plantas/m</b></div>
+              <div style="background:#FDF1E7;border-radius:6px;padding:7px 9px"><span style="color:#777">Ação</span><br><b>Ver página 4</b></div>
             </div>
           </div>
         </div>
-        <div class="att"><div class="ic">PDF</div><div><b>Relatorio_Talhao3.pdf</b><span>4 páginas · 1,2 MB</span></div></div>
         Pronto. Achei ferrugem no início na bordadura norte do talhão 3. A recomendação está na página 4.<small>10:13</small></div>
-    </div></div></div>
+    </div>
+  </div>
 </div>
 
 <!-- ============ 3 CLIMA ============ -->
 <div class="p" id="p3">
   <div class="hd"><h1>Chuva em 40 minutos.<br><em>O aviso já chegou.</em></h1></div>
-  <div class="ph" style="left:70px;top:300px;width:520px;height:1120px;transform:rotate(-3deg)"><div class="scr" style="background:linear-gradient(180deg,#24323A 0%,#121B20 60%,#0B1013 100%)">
-    <div style="text-align:center;color:#EDF2F4;padding-top:78px">
-      <div style="font:600 21px Manrope;opacity:.85">terça-feira, 18 de novembro</div>
-      <div style="font:700 118px Archivo;font-stretch:90%;letter-spacing:-.03em;line-height:1">14:32</div>
+  <div class="gc" style="left:56px;top:330px;width:600px"><div class="gct"><div class="av"><svg width="32" height="32" viewBox="134 134 372 372"><g fill="none" stroke="#0A0C0B"><circle cx="320" cy="320" r="175" stroke-width="30"/><circle cx="342" cy="298.5" r="111" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" stroke-width="28"/></g><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></div><div><b>Germo <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#25D366" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path d="m8 12.3 2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>10 ajudantes · online</small></div></div>
+    <div class="gms">
+      <div class="gday">HOJE</div>
+      <div class="gb i" style="width:500px"><span class="n" style="color:#139E91">clima</span>☀️ Bom dia! Manhã firme, 27 °C. Chuva provável depois das 14h, te aviso antes.<small>06:00</small></div>
+      <div class="gb i" style="width:540px;box-shadow:0 0 0 3px #1FC7B6,0 14px 30px -12px rgba(31,199,182,.5)"><span class="n" style="color:#139E91">clima</span>🌧️ <b>Chuva forte chegando em 40 a 60 minutos</b> na sua propriedade, entre 15 e 25 mm.<br><br>Recolha o que estiver secando no terreiro.<small>14:32</small></div>
+      <div class="gb o" style="width:330px">Valeu, recolhendo agora 🙏<small>14:33 ✓✓</small></div>
     </div>
-    <div style="margin:44px 16px 0;background:rgba(235,242,238,.92);border-radius:24px;padding:16px 18px 18px;color:#111;font-family:Manrope">
-      <div style="display:flex;align-items:center;gap:10px;font-size:15px;color:#555;font-weight:700"><span style="width:26px;height:26px;border-radius:7px;background:#25D366;display:grid;place-items:center"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="#fff" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/></svg></span>WHATSAPP<span style="margin-left:auto;font-weight:600">agora</span></div>
-      <div style="font-size:19px;font-weight:800;margin-top:8px">Germo · clima</div>
-      <div style="font-size:21px;line-height:1.38;margin-top:4px">🌧️ Chuva forte chegando em 40 a 60 minutos na sua propriedade, entre 15 e 25 mm. Recolha o que estiver secando no terreiro.</div>
-    </div>
-    <div style="margin:12px 16px 0;background:rgba(235,242,238,.62);border-radius:22px;padding:14px 18px;color:#222;font-family:Manrope">
-      <div style="display:flex;font-size:14px;font-weight:700;color:#555">WHATSAPP<span style="margin-left:auto;font-weight:600">06:00</span></div>
-      <div style="font-size:17px;font-weight:800;margin-top:4px">Germo · clima</div>
-      <div style="font-size:17px;line-height:1.35">☀️ Bom dia! Manhã firme, 27 °C. Chuva provável depois das 14h, te aviso antes.</div>
-    </div>
-  </div></div>
+  </div>
 </div>
 
 <!-- ============ 4 CONTABIL ============ -->
@@ -186,13 +193,12 @@ c.style.left='846px';c.style.width='212px';const t=Math.max(m.top-pg.top-14,wind
 <!-- ============ 6 AGRONOMO ============ -->
 <div class="p" id="p6">
   <div class="hd"><h1>Que mancha é essa na folha?<br><em>Manda a foto.</em></h1></div>
-  <div class="ph" style="left:70px;top:300px;width:520px;height:1120px;transform:rotate(-3deg)"><div class="scr">
-    <div class="wbar"><div class="av"><svg width="30" height="30" viewBox="134 134 372 372"><g fill="none" stroke="#0A0C0B"><circle cx="320" cy="320" r="175" stroke-width="30"/><circle cx="342" cy="298.5" r="111" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" stroke-width="28"/></g><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></div><div><b>Germo</b><span>online</span></div></div>
-    <div class="chat" style="height:100%">
-      <div class="day">HOJE</div>
-      <div class="b o" style="padding:5px 5px 6px;width:320px"><div class="leaf" style="height:300px;border-radius:10px;background:#567a2a center/cover"></div><div style="padding:6px 8px 0">que mancha é essa?</div><small>15:20 ✓✓</small></div>
-      <div class="b" style="width:420px"><span class="n" style="color:#F07A6E">agrônomo</span>Pelas manchas pequenas e marrons no verso da folha, pode ser o início da ferrugem asiática.<br><br>Olhe as folhas de baixo em 3 pontos do talhão. Se aparecer em mais de 1, o ideal é agir já.<br><br>Quer que eu chame um agrônomo parceiro para visitar?<small>15:21</small></div>
-    </div></div></div>
+  <div class="gc" style="left:56px;top:300px;width:600px"><div class="gct"><div class="av"><svg width="32" height="32" viewBox="134 134 372 372"><g fill="none" stroke="#0A0C0B"><circle cx="320" cy="320" r="175" stroke-width="30"/><circle cx="342" cy="298.5" r="111" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" stroke-width="28"/></g><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></div><div><b>Germo <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#25D366" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path d="m8 12.3 2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>10 ajudantes · online</small></div></div>
+    <div class="gms">
+      <div class="gb o" style="padding:6px 6px 8px;width:360px"><div class="leaf" style="height:300px;border-radius:14px;background:#567a2a center/cover"></div><div style="padding:8px 10px 0">que mancha é essa?</div><small style="padding-right:8px">15:20 ✓✓</small></div>
+      <div class="gb i" style="width:530px"><span class="n" style="color:#D8483B">agrônomo</span>Pelas manchas pequenas e marrons no verso da folha, pode ser o início da ferrugem asiática.<br><br>Olhe as folhas de baixo em 3 pontos do talhão. Se aparecer em mais de 1, o ideal é agir já.<br><br>Quer que eu chame um agrônomo parceiro para visitar?<small>15:21</small></div>
+    </div>
+  </div>
 </div>
 
 <!-- ============ 7 VENDAS ============ -->
@@ -251,18 +257,17 @@ c.style.left='846px';c.style.width='212px';const t=Math.max(m.top-pg.top-14,wind
   <div class="note" style="right:48px;bottom:36px">Valores de exemplo</div>
 </div>
 
-<!-- ============ 10 SEGUNDA 6H ============ -->
+<!-- ============ 10 SEGUNDA ============ -->
 <div class="p" id="p10">
   <div class="hd"><h1>Segunda, 6h.<br>Você ainda nem acordou.<br><em>O trabalho já está pronto.</em></h1></div>
-  <div class="ph" style="left:270px;top:330px;width:540px;height:740px;"><div class="scr">
-    <div class="wbar" style="padding-top:44px"><div class="av"><svg width="30" height="30" viewBox="134 134 372 372"><g fill="none" stroke="#0A0C0B"><circle cx="320" cy="320" r="175" stroke-width="30"/><circle cx="342" cy="298.5" r="111" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" stroke-width="28"/></g><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></div><div><b>Germo</b><span>online</span></div></div>
-    <div class="chat" style="height:100%">
-      <div class="day">SEGUNDA</div>
-      <div class="b"><span class="n" style="color:#4FD1C5">clima</span>Bom dia! Sem chuva até as 17h. Boa janela para pulverizar de manhã.<small>06:00</small></div>
-      <div class="b"><span class="n" style="color:#E07A93">jurídico</span><div class="att" style="margin:4px 0 6px"><div class="ic">PDF</div><div><b>Contrato_arrendamento_revisado.pdf</b><span>3 pontos comentados</span></div></div><small>06:00</small></div>
-      <div class="b"><span class="n" style="color:#7D98F0">contábil</span>Fiz as 2 contas do seu IR: o Livro Caixa sai mais barato este ano. O resumo está no PDF.<small>06:01</small></div>
-      <div class="b"><span class="n" style="color:#5BE38A">planilha</span><div class="att" style="margin:4px 0 0;"><div class="ic" style="background:#107C41">XLS</div><div><b>Custos_semana_47.xlsx</b><span>atualizada com as notas de sexta</span></div></div><small>06:01</small></div>
-    </div></div></div>
+  <div class="gc" style="left:220px;top:330px;width:640px"><div class="gct"><div class="av"><svg width="32" height="32" viewBox="134 134 372 372"><g fill="none" stroke="#0A0C0B"><circle cx="320" cy="320" r="175" stroke-width="30"/><circle cx="342" cy="298.5" r="111" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" stroke-width="28"/></g><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></div><div><b>Germo <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#25D366" d="M12 1.5l2.6 1.9 3.2-.1 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.1z"/><path d="m8 12.3 2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>10 ajudantes · online</small></div></div>
+    <div class="gms">
+      <div class="gb i"><span class="n" style="color:#139E91">clima</span>Bom dia! Sem chuva até as 17h. Boa janela para pulverizar de manhã.<small>06:00</small></div>
+      <div class="gb i" style="width:520px"><span class="n" style="color:#8E2443">jurídico</span><div class="att" style="margin:4px 0 6px"><div class="ic">PDF</div><div><b>Contrato_arrendamento_revisado.pdf</b><span>3 pontos comentados</span></div></div><small>06:00</small></div>
+      <div class="gb i"><span class="n" style="color:#24408E">contábil</span>Fiz as 2 contas do seu IR: o Livro Caixa sai mais barato este ano. O resumo está no PDF.<small>06:01</small></div>
+      <div class="gb i" style="width:480px"><span class="n" style="color:#13A94B">planilha</span><div class="att" style="margin:4px 0 0"><div class="ic" style="background:#107C41">XLS</div><div><b>Custos_semana_47.xlsx</b><span>atualizada com as notas de sexta</span></div></div><small>06:01</small></div>
+    </div>
+  </div>
 </div>
 
 <script>
