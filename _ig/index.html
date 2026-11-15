@@ -1,0 +1,266 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Archivo;src:url(a/archivo.woff2) format("woff2");font-stretch:62% 125%;font-weight:100 900}
+@font-face{font-family:Manrope;src:url(a/manrope.woff2) format("woff2");font-weight:200 800}
+@font-face{font-family:Serif4;src:url(a/serif.woff2) format("woff2");font-weight:200 900}
+:root{--ink:#15201A;--ink2:#2E3A33;--mute:#5E6963;--verde:#13A94B;--broto:#19E35F;--line:#E6EAE7}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#999;font-family:Manrope,sans-serif;color:var(--ink)}
+.p{width:1080px;height:1350px;position:relative;overflow:hidden;background:#fff center/cover no-repeat;margin-bottom:30px}
+.hd{position:absolute;left:60px;right:60px;top:92px;text-align:center;z-index:9}
+.hd h1{font-family:Archivo;font-stretch:106%;font-weight:800;font-size:70px;line-height:1.02;letter-spacing:-.04em}
+.hd h1 em{font-style:normal;color:var(--verde)}
+.hd p{margin-top:16px;font-size:28px;font-weight:600;color:var(--mute)}
+.sig{position:absolute;right:48px;bottom:40px;z-index:9;display:flex;align-items:center;gap:9px;font-family:Archivo;font-stretch:125%;font-weight:800;font-size:22px;color:var(--ink)}
+.sig i{width:30px;height:30px;border-radius:8px;background:var(--broto);display:grid;place-items:center}
+.sig b{color:var(--verde)}
+.note{position:absolute;z-index:9;font-size:19px;font-weight:600;color:var(--mute)}
+.shadow{box-shadow:0 50px 90px -30px rgba(10,20,15,.45),0 0 0 1px rgba(0,0,0,.06)}
+/* ---------- contrato ---------- */
+.doc{position:absolute;background:#fff;font-family:Serif4,Georgia,serif;color:#1d1d1d}
+.doc h4{font-family:Serif4;font-weight:700;text-align:center;font-size:19px;letter-spacing:.04em}
+.doc .cl{font-size:13.6px;line-height:1.5;text-align:justify;margin-top:10px}
+.doc .cl b{font-weight:700}
+.mk{background:#FFE98A;box-shadow:0 0 0 2px #FFE98A}
+.cmt{position:absolute;z-index:3;width:230px;background:#fff;border-radius:12px;padding:12px 14px 13px;font-family:Manrope;font-size:16.5px;line-height:1.32;font-weight:600;color:#1d2420;box-shadow:0 0 0 1.5px #E3C9D1,0 14px 26px -12px rgba(60,20,30,.35)}
+.cmt .w{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:800;color:#8E2443;margin-bottom:5px}
+.cmt .w i{width:20px;height:20px;border-radius:50%;background:#8E2443;color:#fff;font-style:normal;font-size:11px;display:grid;place-items:center}
+.cmt::before{content:"";position:absolute;left:-26px;top:20px;width:26px;border-top:2px dashed #C78A9C}
+/* ---------- telefone / whatsapp escuro ---------- */
+.ph{position:absolute;z-index:4;border-radius:56px;background:#0B0F0D;padding:14px;box-shadow:0 60px 100px -30px rgba(5,15,10,.55),0 0 0 2px #2A302D inset}
+.scr{position:relative;width:100%;height:100%;border-radius:44px;overflow:hidden;background:#0B141A;font-family:Manrope}
+.wbar{display:flex;align-items:center;gap:14px;padding:58px 22px 16px;background:#1F2C34;color:#E9EDEF}
+.wbar .av{width:52px;height:52px;border-radius:50%;background:var(--broto);display:grid;place-items:center;flex:none}
+.wbar b{font-size:22px;display:block}.wbar span{font-size:15px;color:#8696A0}
+.chat{padding:16px 16px;display:flex;flex-direction:column;gap:10px;background:#0B141A url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='none' stroke='%23182229' stroke-width='2'%3E%3Ccircle cx='20' cy='20' r='6'/%3E%3Cpath d='M50 55l8 8M58 55l-8 8'/%3E%3Cpath d='M60 18q6-8 12 0'/%3E%3C/g%3E%3C/svg%3E")}
+.b{max-width:86%;border-radius:14px;padding:10px 13px 6px;font-size:18px;line-height:1.36;color:#E9EDEF;background:#202C33;align-self:flex-start;position:relative}
+.b.o{background:#005C4B;align-self:flex-end}
+.b small{display:block;text-align:right;font-size:12.5px;color:#8FA59F;margin-top:2px}
+.b .n{display:block;font-size:14.5px;font-weight:800;margin-bottom:3px}
+.day{align-self:center;background:#182229;color:#8696A0;font-size:13.5px;font-weight:700;padding:5px 12px;border-radius:8px}
+.aud{display:flex;align-items:center;gap:12px;padding:4px 2px}
+.aud .pl{width:0;height:0;border-left:16px solid #D1D7DB;border-top:10px solid transparent;border-bottom:10px solid transparent}
+.wv{display:flex;align-items:center;gap:3px;height:34px}.wv i{width:3px;border-radius:2px;background:#8BC5B4}
+.aud .pf{width:40px;height:40px;border-radius:50%;flex:none;overflow:hidden;background:#A0673A}
+.att{display:flex;gap:12px;align-items:center;background:rgba(0,0,0,.18);border-radius:10px;padding:10px;margin-bottom:6px}
+.att .ic{width:40px;height:48px;border-radius:5px;background:#E5484D;color:#fff;font-size:11px;font-weight:800;display:grid;place-items:end center;padding-bottom:6px;flex:none}
+.att b{font-size:16px;display:block}.att span{font-size:13px;color:#A9BCB5}
+/* pdf page preview */
+.pdf{background:#fff;border-radius:8px;overflow:hidden;color:#1d1d1d;margin-bottom:6px}
+/* ---------- planilha ---------- */
+.sheet{position:absolute;z-index:4;background:#fff;border-radius:16px;overflow:hidden;font-family:Manrope}
+.sheet .tb{background:#107C41;color:#fff;padding:14px 20px;font-weight:800;font-size:19px;display:flex;justify-content:space-between}
+.sheet table{border-collapse:collapse;width:100%;font-size:18.5px}
+.sheet td,.sheet th{border:1px solid #DADDE0;padding:9px 12px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sheet th{background:#F3F4F5;color:#5F6368;font-weight:600;font-size:14px;text-align:center;padding:5px}
+.sheet td.r{text-align:right}
+.sheet td.h{background:#E6F4EA;font-weight:800}
+.sheet td.k{background:#F3F4F5;color:#5F6368;text-align:center;font-size:14px;width:34px;padding:5px}
+</style></head><body>
+
+<!-- ============ 1 JURIDICO ============ -->
+<div class="p" id="p1">
+  <div class="hd"><h1>Esse contrato tem 3 problemas.<br><em>Você ia descobrir depois de assinar.</em></h1></div>
+  <div class="doc shadow" style="left:438px;top:330px;width:420px;height:1060px;padding:42px 38px;transform:rotate(2.2deg);z-index:3">
+    <h4>CONTRATO DE ARRENDAMENTO RURAL</h4>
+    <div class="cl" style="margin-top:16px"><b>ARRENDADOR:</b> José Antônio Ferreira, brasileiro, agricultor, residente em Castro/PR.</div>
+    <div class="cl"><b>ARRENDATÁRIO:</b> Paulo Henrique Ribeiro, brasileiro, produtor rural, residente em Carambeí/PR.</div>
+    <div class="cl"><b>CLÁUSULA 1ª · DO OBJETO.</b> O ARRENDADOR cede ao ARRENDATÁRIO o uso de 48 hectares da Fazenda Santa Rita, matrícula nº 18.437 do CRI de Castro/PR, para cultivo de soja e milho.</div>
+    <div class="cl"><b>CLÁUSULA 2ª · DO PRAZO.</b> O prazo é de 3 safras, com início em 1º de setembro de 2026 e término em 31 de agosto de 2029.</div>
+    <div class="cl"><b>CLÁUSULA 3ª · DO PREÇO.</b> <span class="mk">O ARRENDATÁRIO pagará 10 sacas de soja por hectare ao ano</span>, entregues no armazém indicado pelo ARRENDADOR.</div>
+    <div class="cl"><b>CLÁUSULA 4ª · DO PAGAMENTO.</b> O pagamento será feito até 30 de abril de cada ano, após a colheita.</div>
+    <div class="cl"><b>CLÁUSULA 5ª · DAS BENFEITORIAS.</b> As benfeitorias úteis dependem de autorização por escrito do ARRENDADOR.</div>
+    <div class="cl"><b>CLÁUSULA 6ª · DAS DESPESAS.</b> <span class="mk">As despesas do imóvel serão acertadas entre as partes.</span></div>
+    <div class="cl"><b>CLÁUSULA 7ª · DO TÉRMINO.</b> <span class="mk">Encerrado o prazo, o ARRENDATÁRIO devolverá a área</span> livre e desocupada.</div>
+    <div class="cl"><b>CLÁUSULA 8ª · DO FORO.</b> Fica eleito o foro da Comarca de Castro/PR.</div>
+  </div>
+  <div class="cmt" style="left:812px;top:590px;transform:rotate(2deg)"><div class="w"><i>1</i>jurídico</div>Preço em sacas. A lei pede o preço em dinheiro (Decreto 59.566/66, art. 18).</div>
+  <div class="cmt" style="left:800px;top:820px;transform:rotate(2deg)"><div class="w"><i>2</i>jurídico</div>Não diz quem paga o ITR. Isso vira briga depois.</div>
+  <div class="cmt" style="left:790px;top:1010px;transform:rotate(2deg)"><div class="w"><i>3</i>jurídico</div>Falta a cláusula de renovação e o direito de preferência.</div>
+  <div class="note" style="left:470px;bottom:30px;background:#fff;padding:8px 14px;border-radius:10px;z-index:10">Leve ao seu advogado antes de assinar.</div>
+</div>
+
+<!-- ============ 2 CAMPO ============ -->
+<div class="p" id="p2">
+  <div class="hd"><h1>Você mandou um áudio de 40 segundos<br>do trator. <em>Recebeu isso.</em></h1></div>
+  <div class="ph" style="left:70px;top:300px;width:520px;height:1120px;transform:rotate(-3deg)"><div class="scr">
+    <div class="wbar"><div class="av"><svg width="30" height="30" viewBox="134 134 372 372"><g fill="none" stroke="#0A0C0B"><circle cx="320" cy="320" r="175" stroke-width="30"/><circle cx="342" cy="298.5" r="111" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" stroke-width="28"/></g><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></div><div><b>Germo</b><span>online</span></div></div>
+    <div class="chat" style="height:100%">
+      <div class="day">HOJE</div>
+      <div class="b o" style="width:330px"><div class="aud"><div class="pl"></div><div class="wv w"></div><span style="font-size:13px;color:#A9C9BF">0:41</span></div><small>10:12 ✓✓</small></div>
+      <div class="b" style="width:410px"><span class="n" style="color:#D69A63">campo</span>
+        <div class="pdf">
+          <div style="background:#13A94B;color:#fff;padding:9px 12px;font:800 12px Manrope;letter-spacing:.06em">RELATÓRIO DE VISITA TÉCNICA</div>
+          <div style="padding:10px 12px 12px">
+            <div style="font:800 15px Manrope">Fazenda Santa Rita · Talhão 3</div>
+            <div style="font:600 11px Manrope;color:#666;margin:2px 0 8px">Soja · V6 · 18/11/2026 · Castro/PR</div>
+            <div class="photo" style="height:120px;border-radius:6px;background:#6b8f3a center/cover"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px;font:600 11px Manrope">
+              <div style="background:#F3F6F4;border-radius:5px;padding:6px"><span style="color:#777">Ocorrência</span><br><b>Ferrugem, início</b></div>
+              <div style="background:#F3F6F4;border-radius:5px;padding:6px"><span style="color:#777">Onde</span><br><b>Bordadura norte</b></div>
+              <div style="background:#F3F6F4;border-radius:5px;padding:6px"><span style="color:#777">Estande</span><br><b>14 plantas/m</b></div>
+              <div style="background:#FDF1E7;border-radius:5px;padding:6px"><span style="color:#777">Ação</span><br><b>Ver página 4</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="att"><div class="ic">PDF</div><div><b>Relatorio_Talhao3.pdf</b><span>4 páginas · 1,2 MB</span></div></div>
+        Pronto. Achei ferrugem no início na bordadura norte do talhão 3. A recomendação está na página 4.<small>10:13</small></div>
+    </div></div></div>
+</div>
+
+<!-- ============ 3 CLIMA ============ -->
+<div class="p" id="p3">
+  <div class="hd"><h1>Chuva em 40 minutos.<br><em>O aviso já chegou.</em></h1></div>
+  <div class="ph" style="left:70px;top:300px;width:520px;height:1120px;transform:rotate(-3deg)"><div class="scr" style="background:linear-gradient(180deg,#24323A 0%,#121B20 60%,#0B1013 100%)">
+    <div style="text-align:center;color:#EDF2F4;padding-top:78px">
+      <div style="font:600 21px Manrope;opacity:.85">terça-feira, 18 de novembro</div>
+      <div style="font:700 118px Archivo;font-stretch:90%;letter-spacing:-.03em;line-height:1">14:32</div>
+    </div>
+    <div style="margin:44px 16px 0;background:rgba(235,242,238,.92);border-radius:24px;padding:16px 18px 18px;color:#111;font-family:Manrope">
+      <div style="display:flex;align-items:center;gap:10px;font-size:15px;color:#555;font-weight:700"><span style="width:26px;height:26px;border-radius:7px;background:#25D366;display:grid;place-items:center"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="#fff" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/></svg></span>WHATSAPP<span style="margin-left:auto;font-weight:600">agora</span></div>
+      <div style="font-size:19px;font-weight:800;margin-top:8px">Germo · clima</div>
+      <div style="font-size:18px;line-height:1.38;margin-top:3px">🌧️ Chuva forte chegando em 40 a 60 minutos na sua propriedade, entre 15 e 25 mm. Recolha o que estiver secando no terreiro.</div>
+    </div>
+    <div style="margin:10px 26px 0;background:rgba(235,242,238,.55);border-radius:20px;height:46px"></div>
+  </div></div>
+</div>
+
+<!-- ============ 4 CONTABIL ============ -->
+<div class="p" id="p4">
+  <div class="hd"><h1>Livro Caixa ou 20%?<br><em>Um dos 2 te faz pagar mais imposto.</em></h1></div>
+  <div class="doc shadow" style="left:70px;top:330px;width:440px;padding:30px 30px 26px;transform:rotate(-3deg);z-index:3;font-family:Manrope;border-radius:6px">
+    <div style="font:800 15px Manrope;letter-spacing:.08em;color:#24408E">OPÇÃO 1 · LIVRO CAIXA</div>
+    <div style="font:600 14px Manrope;color:#777;margin:4px 0 14px">Imposto sobre a receita menos os custos</div>
+    <table style="width:100%;font-size:18px;border-collapse:collapse;font-variant-numeric:tabular-nums">
+      <tr><td style="padding:7px 0">Receita da atividade</td><td style="text-align:right">R$ 800.000</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #ddd">Custos comprovados</td><td style="text-align:right;border-bottom:1px solid #ddd">R$ 700.000</td></tr>
+      <tr><td style="padding:10px 0;font-weight:800">Base do imposto</td><td style="text-align:right;font-weight:800;font-size:24px">R$ 100.000</td></tr>
+    </table>
+    <div style="position:absolute;right:-18px;top:-22px;transform:rotate(9deg);border:4px solid #13A94B;color:#13A94B;font:800 20px Archivo;font-stretch:112%;letter-spacing:.06em;padding:6px 14px;border-radius:8px;background:rgba(255,255,255,.9)">MAIS BARATO</div>
+  </div>
+  <div class="doc shadow" style="left:570px;top:350px;width:440px;padding:30px 30px 26px;transform:rotate(3deg);z-index:3;font-family:Manrope;border-radius:6px">
+    <div style="font:800 15px Manrope;letter-spacing:.08em;color:#24408E">OPÇÃO 2 · 20% DA RECEITA</div>
+    <div style="font:600 14px Manrope;color:#777;margin:4px 0 14px">Imposto sobre 20% de tudo que vendeu</div>
+    <table style="width:100%;font-size:18px;border-collapse:collapse;font-variant-numeric:tabular-nums">
+      <tr><td style="padding:7px 0">Receita da atividade</td><td style="text-align:right">R$ 800.000</td></tr>
+      <tr><td style="padding:7px 0;border-bottom:1px solid #ddd">20% da receita</td><td style="text-align:right;border-bottom:1px solid #ddd">× 0,20</td></tr>
+      <tr><td style="padding:10px 0;font-weight:800">Base do imposto</td><td style="text-align:right;font-weight:800;font-size:24px;color:#C2342E">R$ 160.000</td></tr>
+    </table>
+    <div style="margin-top:6px;font:700 15px Manrope;color:#C2342E">R$ 60.000 a mais de base para o imposto</div>
+  </div>
+  <div class="note" style="left:60px;bottom:36px">Valores de exemplo</div>
+</div>
+
+<!-- ============ 5 PLANILHA ============ -->
+<div class="p" id="p5">
+  <div class="hd"><h1>Quanto custou cada saca<br><em>que você colheu?</em></h1></div>
+  <div class="sheet shadow" style="left:430px;top:320px;width:610px;transform:rotate(2deg)">
+    <div class="tb"><span>Custo da safra 26/27 · Soja</span><span style="opacity:.8">120 ha</span></div>
+    <table>
+      <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+      <tr><td class="k">1</td><td style="font-weight:800">Item</td><td style="font-weight:800" class="r">R$ por ha</td><td style="font-weight:800" class="r">Total</td></tr>
+      <tr><td class="k">2</td><td>Sementes</td><td class="r">520</td><td class="r">62.400</td></tr>
+      <tr><td class="k">3</td><td>Fertilizantes</td><td class="r">1.380</td><td class="r">165.600</td></tr>
+      <tr><td class="k">4</td><td>Defensivos</td><td class="r">1.150</td><td class="r">138.000</td></tr>
+      <tr><td class="k">5</td><td>Operações</td><td class="r">690</td><td class="r">82.800</td></tr>
+      <tr><td class="k">6</td><td>Arrendamento</td><td class="r">1.400</td><td class="r">168.000</td></tr>
+      <tr><td class="k">7</td><td>Outros</td><td class="r">260</td><td class="r">31.200</td></tr>
+      <tr><td class="k">8</td><td style="font-weight:800">Custo total</td><td class="r" style="font-weight:800">5.400</td><td class="r" style="font-weight:800">648.000</td></tr>
+      <tr><td class="k">9</td><td>Produtividade</td><td class="r">65 sc/ha</td><td class="r">7.800 sc</td></tr>
+      <tr><td class="k">10</td><td class="h">Custo por saca</td><td class="h r" colspan="2" style="font-size:26px;color:#0B6B33">R$ 83,08</td></tr>
+    </table>
+  </div>
+  <div class="note" style="right:48px;bottom:36px">Valores de exemplo</div>
+</div>
+
+<!-- ============ 6 AGRONOMO ============ -->
+<div class="p" id="p6">
+  <div class="hd"><h1>Que mancha é essa na folha?<br><em>Manda a foto.</em></h1></div>
+  <div class="ph" style="left:70px;top:300px;width:520px;height:1120px;transform:rotate(-3deg)"><div class="scr">
+    <div class="wbar"><div class="av"><svg width="30" height="30" viewBox="134 134 372 372"><g fill="none" stroke="#0A0C0B"><circle cx="320" cy="320" r="175" stroke-width="30"/><circle cx="342" cy="298.5" r="111" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" stroke-width="28"/></g><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></div><div><b>Germo</b><span>online</span></div></div>
+    <div class="chat" style="height:100%">
+      <div class="day">HOJE</div>
+      <div class="b o" style="padding:5px 5px 6px;width:320px"><div class="leaf" style="height:300px;border-radius:10px;background:#567a2a center/cover"></div><div style="padding:6px 8px 0">que mancha é essa?</div><small>15:20 ✓✓</small></div>
+      <div class="b" style="width:420px"><span class="n" style="color:#F07A6E">agrônomo</span>Pelas manchas pequenas e marrons no verso da folha, pode ser o início da ferrugem asiática.<br><br>Olhe as folhas de baixo em 3 pontos do talhão. Se aparecer em mais de 1, o ideal é agir já.<br><br>Quer que eu chame um agrônomo parceiro para visitar?<small>15:21</small></div>
+    </div></div></div>
+</div>
+
+<!-- ============ 7 VENDAS ============ -->
+<div class="p" id="p7">
+  <div class="hd"><h1>Mandou o orçamento<br><em>e o cliente sumiu?</em></h1></div>
+  <div class="ph" style="left:490px;top:300px;width:520px;height:1120px;transform:rotate(3deg)"><div class="scr">
+    <div class="wbar"><div class="av"><svg width="30" height="30" viewBox="134 134 372 372"><g fill="none" stroke="#0A0C0B"><circle cx="320" cy="320" r="175" stroke-width="30"/><circle cx="342" cy="298.5" r="111" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" stroke-width="28"/></g><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></div><div><b>Germo</b><span>online</span></div></div>
+    <div class="chat" style="height:100%">
+      <div class="day">HOJE</div>
+      <div class="b o" style="width:400px">Mandei orçamento de 20 toneladas de calcário pro Carlos faz 3 dias. Ele visualizou e não respondeu. O que eu mando?<small>08:47 ✓✓</small></div>
+      <div class="b" style="width:420px"><span class="n" style="color:#E8C14A">vendas</span>Manda essa, curta e com prazo:<div style="margin:8px 0 6px;background:rgba(0,0,0,.22);border-left:4px solid #E8C14A;border-radius:8px;padding:10px 12px;font-size:17.5px">Oi Carlos, tudo certo? Consegui segurar o preço do calcário até sexta. Quer que eu já reserve a entrega para a semana que vem?</div>Se ele não responder até quinta, te aviso para ligar.<small>08:47</small></div>
+      <div style="align-self:flex-start;display:flex;gap:8px"><span style="background:#202C33;color:#53BDEB;font-weight:700;font-size:16px;padding:9px 16px;border-radius:12px">Copiar mensagem</span></div>
+    </div></div></div>
+</div>
+
+<!-- ============ 8 VIRAL ============ -->
+<div class="p" id="p8">
+  <div class="hd"><h1>Você posta todo dia<br><em>e ninguém vê?</em></h1></div>
+  <div class="doc shadow" style="left:70px;top:330px;width:520px;padding:30px 32px 30px;transform:rotate(-3deg);z-index:3;font-family:Manrope;border-radius:22px">
+    <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:800 14px Manrope;letter-spacing:.08em;color:#F26B1D">ROTEIRO DE REELS · 30 S</span><span style="font:700 13px Manrope;color:#999">viral</span></div>
+    <div style="font:800 26px Archivo;font-stretch:104%;letter-spacing:-.02em;margin:10px 0 16px;line-height:1.15">"Esse erro no plantio me custou 8 sacas por hectare."</div>
+    <div style="font-size:16.5px;line-height:1.45;color:#333">
+      <div style="display:flex;gap:12px;padding:9px 0;border-top:1px solid #eee"><b style="color:#F26B1D;min-width:66px">0 a 3 s</b><span>Você na frente da plantadeira, olhando pra câmera. Fala a frase de cima.</span></div>
+      <div style="display:flex;gap:12px;padding:9px 0;border-top:1px solid #eee"><b style="color:#F26B1D;min-width:66px">3 a 15 s</b><span>Mostra a linha falhando e a profundidade errada da semente.</span></div>
+      <div style="display:flex;gap:12px;padding:9px 0;border-top:1px solid #eee"><b style="color:#F26B1D;min-width:66px">15 a 26 s</b><span>O ajuste que você fez e a lavoura de hoje, uniforme.</span></div>
+      <div style="display:flex;gap:12px;padding:9px 0;border-top:1px solid #eee"><b style="color:#F26B1D;min-width:66px">26 a 30 s</b><span>"Comenta PLANTIO que eu te mando a regulagem."</span></div>
+    </div>
+    <div style="margin-top:12px;background:#FFF4EC;border-radius:12px;padding:12px 14px;font-size:15px;color:#7A3A10"><b>Legenda:</b> 8 sacas por hectare foram embora por 1 detalhe na regulagem. Comenta PLANTIO.</div>
+  </div>
+</div>
+
+<!-- ============ 9 APRESENTA ============ -->
+<div class="p" id="p9">
+  <div class="hd"><h1>Reunião no banco amanhã?<br><em>Pede hoje à noite.</em></h1></div>
+  <div class="shadow" style="position:absolute;left:470px;top:350px;width:580px;height:420px;border-radius:30px;background:#111;padding:16px;transform:rotate(3deg);z-index:4">
+    <div style="width:100%;height:100%;border-radius:16px;background:#fff;overflow:hidden;font-family:Manrope;padding:26px 28px;position:relative">
+      <div style="font:800 12px Manrope;letter-spacing:.1em;color:#7B5CFF">FAZENDA SANTA RITA · CASTRO/PR</div>
+      <div style="font:800 30px Archivo;font-stretch:104%;letter-spacing:-.03em;margin:4px 0 14px">Safra 26/27: pedido de custeio</div>
+      <div style="display:flex;gap:18px">
+        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:9px">
+          <div style="background:#F4F1FF;border-radius:10px;padding:10px 12px"><div style="font:600 11px Manrope;color:#777">Área</div><div style="font:800 21px Manrope">120 ha</div></div>
+          <div style="background:#F4F1FF;border-radius:10px;padding:10px 12px"><div style="font:600 11px Manrope;color:#777">Média 3 safras</div><div style="font:800 21px Manrope">64 sc/ha</div></div>
+          <div style="background:#F4F1FF;border-radius:10px;padding:10px 12px"><div style="font:600 11px Manrope;color:#777">Custo previsto</div><div style="font:800 21px Manrope">R$ 648 mil</div></div>
+          <div style="background:#7B5CFF;color:#fff;border-radius:10px;padding:10px 12px"><div style="font:600 11px Manrope;opacity:.85">Valor pedido</div><div style="font:800 21px Manrope">R$ 420 mil</div></div>
+        </div>
+        <div style="width:170px;display:flex;align-items:flex-end;gap:12px;height:170px;border-bottom:2px solid #eee;padding:0 6px">
+          <div style="flex:1;height:72%;background:#CFC4FF;border-radius:6px 6px 0 0;position:relative"><span style="position:absolute;bottom:-22px;left:0;right:0;text-align:center;font:600 10px Manrope;color:#888">23/24</span></div>
+          <div style="flex:1;height:84%;background:#A994FF;border-radius:6px 6px 0 0;position:relative"><span style="position:absolute;bottom:-22px;left:0;right:0;text-align:center;font:600 10px Manrope;color:#888">24/25</span></div>
+          <div style="flex:1;height:96%;background:#7B5CFF;border-radius:6px 6px 0 0;position:relative"><span style="position:absolute;bottom:-22px;left:0;right:0;text-align:center;font:600 10px Manrope;color:#888">25/26</span></div>
+        </div>
+      </div>
+      <div style="position:absolute;right:20px;bottom:14px;font:600 11px Manrope;color:#aaa">3 / 8</div>
+    </div>
+  </div>
+  <div class="shadow" style="position:absolute;left:560px;top:820px;width:430px;border-radius:16px;background:#202C33;color:#E9EDEF;padding:12px 16px 8px;font:18px/1.36 Manrope;z-index:5;transform:rotate(3deg)"><span style="display:block;font-weight:800;font-size:14.5px;color:#A994FF">apresenta</span>Pronto: 8 slides com a área, o histórico das 3 safras, o custo e o pedido. Leve em PDF ou no celular.<span style="display:block;text-align:right;font-size:12.5px;color:#8FA59F">22:40</span></div>
+  <div class="note" style="right:48px;bottom:36px">Valores de exemplo</div>
+</div>
+
+<!-- ============ 10 SEGUNDA 6H ============ -->
+<div class="p" id="p10">
+  <div class="hd"><h1>Segunda, 6h. Você ainda nem acordou.<br><em>O trabalho já está pronto.</em></h1></div>
+  <div class="ph" style="left:270px;top:300px;width:540px;height:760px;"><div class="scr">
+    <div class="wbar" style="padding-top:44px"><div class="av"><svg width="30" height="30" viewBox="134 134 372 372"><g fill="none" stroke="#0A0C0B"><circle cx="320" cy="320" r="175" stroke-width="30"/><circle cx="342" cy="298.5" r="111" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" stroke-width="28"/></g><circle cx="360" cy="279" r="26" fill="#0A0C0B"/></svg></div><div><b>Germo</b><span>online</span></div></div>
+    <div class="chat" style="height:100%">
+      <div class="day">SEGUNDA</div>
+      <div class="b"><span class="n" style="color:#4FD1C5">clima</span>Bom dia! Sem chuva até as 17h. Boa janela para pulverizar de manhã.<small>06:00</small></div>
+      <div class="b"><span class="n" style="color:#E07A93">jurídico</span><div class="att" style="margin:4px 0 6px"><div class="ic">PDF</div><div><b>Contrato_arrendamento_revisado.pdf</b><span>3 pontos comentados</span></div></div><small>06:00</small></div>
+      <div class="b"><span class="n" style="color:#7D98F0">contábil</span>Fiz as 2 contas do seu IR: o Livro Caixa sai mais barato este ano. O resumo está no PDF.<small>06:01</small></div>
+      <div class="b"><span class="n" style="color:#5BE38A">planilha</span><div class="att" style="margin:4px 0 0;"><div class="ic" style="background:#107C41">XLS</div><div><b>Custos_semana_47.xlsx</b><span>atualizada com as notas de sexta</span></div></div><small>06:01</small></div>
+    </div></div></div>
+</div>
+
+<script>
+const SC=window.SC||{};
+document.querySelectorAll('.wv').forEach(w=>{[10,18,26,14,22,30,20,12,26,16,30,18,10,24,28,14,20,8,18,26,14,22,12,18,24,16].forEach(v=>{const i=document.createElement('i');i.style.height=v+'px';w.appendChild(i)})});
+const q=new URLSearchParams(location.search);
+for(const [k,v] of q){ if(k.startsWith('s')){const el=document.getElementById('p'+k.slice(1)); if(el) el.style.backgroundImage=`url(${v})`;} }
+if(q.get('soja')) document.querySelectorAll('.photo').forEach(e=>e.style.backgroundImage=`url(${q.get('soja')})`);
+if(q.get('folha')) document.querySelectorAll('.leaf').forEach(e=>e.style.backgroundImage=`url(${q.get('folha')})`);
+</script>
+</body></html>
