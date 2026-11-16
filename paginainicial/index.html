@@ -628,23 +628,22 @@ section{padding-block:clamp(64px,9vw,112px)}
  #oque .facts{grid-template-rows:auto}
  #exemplos{padding-bottom:130px}
 }
-/* fio do broto */
-.vine{position:relative;--vx:max(8px,calc((100% - 1160px) / 2 - 30px))}
-.vine>section{position:relative}
 #exemplos>.in,#oque>.in{width:min(1160px,calc(100% - 32px))}
-.vtr{position:absolute;left:var(--vx);width:2px;margin-left:-1px;background:repeating-linear-gradient(180deg,#CFE9D7 0 6px,transparent 6px 12px);z-index:3;pointer-events:none;display:none}
-.vfl{position:absolute;left:0;top:0;width:100%;height:0;background:linear-gradient(180deg,#19E35F,#13A94B);border-radius:2px;box-shadow:0 0 10px rgba(25,227,95,.45)}
-.vnd{position:absolute;left:var(--vx);z-index:4;display:none;align-items:center;gap:10px;transform:translate(-9px,-50%);pointer-events:none}
-.vnd i{flex:none;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px #CFE9D7;transition:box-shadow .35s,background .35s}
-.vnd span{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:6px 13px 6px 7px;font-size:13px;font-weight:700;color:var(--mute);box-shadow:0 0 0 1.5px var(--ring);white-space:nowrap;transition:color .35s,box-shadow .35s,transform .35s;transform:translateX(-4px);opacity:.75}
-.vnd b{font-family:var(--display);font-stretch:112%;font-size:11.5px;letter-spacing:.04em;background:var(--soft);color:var(--verde-lab);border-radius:999px;padding:3px 7px}
-.vnd.on i{background:var(--broto);box-shadow:0 0 0 4px rgba(25,227,95,.25)}
-.vnd.on span{color:var(--ink);box-shadow:0 0 0 1.5px rgba(25,227,95,.55),0 10px 22px -12px rgba(15,138,61,.5);transform:none;opacity:1}
-.vnd.on b{background:var(--broto);color:var(--ink)}
-.vlf{position:absolute;left:var(--vx);z-index:4;display:none;transform:translate(-17px,-30px) scale(.2);transform-origin:50% 100%;opacity:0;transition:transform .5s cubic-bezier(.3,1.6,.5,1),opacity .3s}
-.vlf.on{transform:translate(-17px,-30px) scale(1);opacity:1}
-.vine.rdy .vtr,.vine.rdy .vlf{display:block}.vine.rdy .vnd{display:flex}
-@media (max-width:860px){.vine{--vx:6px}.vnd span{font-size:12px;padding:5px 11px 5px 6px}.vnd{gap:8px}}
+
+/* planta: corpo da Germo descendo pelo site */
+main{position:relative}
+#planta{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:6;overflow:hidden;display:none}
+#planta.rdy{display:block}
+#plsv{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+.plc{position:absolute;width:var(--cw,110px);height:auto;transform-origin:50% 100%;animation:plsw 5s ease-in-out infinite;filter:drop-shadow(0 10px 10px rgba(10,60,20,.25))}
+.plf{position:absolute;width:var(--lw,56px);height:auto;transform-origin:50% 100%;transition:transform .7s cubic-bezier(.3,1.5,.5,1);filter:drop-shadow(0 6px 6px rgba(10,60,20,.22))}
+@keyframes plsw{0%,100%{rotate:-3deg}50%{rotate:3deg}}
+.end .box{position:relative}
+.solo{align-self:stretch;margin:0 calc(-1 * clamp(24px,5vw,64px));height:clamp(70px,8vw,104px);background:linear-gradient(180deg,#7A4E28 0%,#5C3819 55%,#4A2C13 100%);position:relative;box-shadow:inset 0 10px 14px -8px rgba(0,0,0,.35);margin-top:-14px;z-index:0}
+.solo:before{content:"";position:absolute;left:0;right:0;top:-8px;height:16px;background:radial-gradient(14px 8px at 10% 50%,#7A4E28 98%,transparent),radial-gradient(18px 9px at 33% 60%,#7A4E28 98%,transparent),radial-gradient(12px 7px at 58% 45%,#7A4E28 98%,transparent),radial-gradient(16px 8px at 81% 55%,#7A4E28 98%,transparent)}
+#rzsv{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.lineup{position:relative;z-index:1}
+@media (prefers-reduced-motion:reduce){.plc{animation:none}}
 
 /* nossa intenção */
 .intn{background:#fff}
@@ -1061,6 +1060,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
 </header>
 
 <main id="topo">
+  <div id="planta" aria-hidden="true"><svg id="plsv"></svg><img class="plc" src="/img/broto.webp" alt=""></div>
   <!-- HERÓI -->
   <section class="hero">
     <div class="in">
@@ -1131,7 +1131,6 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
     </div>
   </section>
 
-  <div class="vine" id="vine"><div class="vtr" aria-hidden="true"><div class="vfl"></div></div><div aria-hidden="true"><div class="vnd" data-s="exemplos"><i></i><span><b>01</b>Exemplos</span></div><div class="vnd" data-s="oque"><i></i><span><b>02</b>O que é</span></div><div class="vnd" data-s="como"><i></i><span><b>03</b>Como funciona</span></div><div class="vnd" data-s="whats"><i></i><span><b>04</b>Tudo no WhatsApp</span></div></div><div class="vlf" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 33V17" stroke="#13A94B" stroke-width="2.4" stroke-linecap="round"/><path d="M17 19C17 10 22 5 31 4c0 9-5 15-14 15z" fill="#19E35F"/><path d="M17 22C17 15 13 11 5 10c0 7 4 12 12 12z" fill="#13A94B"/></svg></div>
   <!-- EXEMPLOS -->
   <section class="how" id="exemplos">
     <div class="in">
@@ -1188,8 +1187,6 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
       </div>
     </div>
   </section>
-
-  </div>
 
   <!-- PLANOS: LISTA DE ESPERA -->
   <section class="plans" id="planos">
@@ -1258,6 +1255,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
         <h2>Pare de fazer à noite <span class="g">o que pode chegar pronto amanhã cedo.</span></h2>
         <p class="lead" style="margin:0 auto">Entre na lista de espera e receba a Germo antes do lançamento.</p>
         <div class="lineup" aria-hidden="true"><img src="/img/viral.webp" alt=""><img src="/img/vitrine.webp" alt=""><img src="/img/apresenta.webp" alt=""><img src="/img/planilha.webp" alt=""><img src="/img/campo.webp" alt=""><img src="/img/vendas.webp" alt=""><img src="/img/clima.webp" alt=""><img src="/img/agronomo.webp" alt=""><img src="/img/juridico.webp" alt=""><img src="/img/contabil.webp" alt=""></div>
+        <div class="solo" aria-hidden="true"><svg id="rzsv"></svg></div>
       </div>
     </div>
   </section>
@@ -1438,17 +1436,51 @@ const go=(b,f)=>{bs.forEach(x=>{const on=x===b;x.setAttribute('aria-selected',on
 bs.forEach((b,i)=>{b.addEventListener('click',()=>go(b));b.addEventListener('keydown',e=>{const k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){e.preventDefault();go(bs[(i+k+bs.length)%bs.length],1);}});});
 document.querySelectorAll('.fpan').forEach(p=>{const ds=[...p.querySelectorAll('details')];ds.forEach(d=>d.addEventListener('toggle',()=>{if(d.open)ds.forEach(o=>{if(o!==d)o.open=false})}));});})();
 
-(()=>{const v=$('vine');if(!v)return;const tr=v.querySelector('.vtr'),fl=v.querySelector('.vfl'),lf=v.querySelector('.vlf'),nds=[...v.querySelectorAll('.vnd')];
-const band=id=>{const sc=$(id);return sc.querySelector('.hband')||(id==='whats'?sc.querySelector('.head'):sc.querySelector(':scope>.in'))};
-let top=0,end=0,ys=[];const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const lay=()=>{const vr=v.getBoundingClientRect(),vt=vr.top+scrollY;
- ys=nds.map((n,i)=>{const id=n.dataset.s,b=band(id).getBoundingClientRect().top+scrollY-vt;const g=id==='exemplos'?44:(id==='whats'?40:i===2?60:34);return Math.max(0,b-g)});
- const w=$('whats');end=w.getBoundingClientRect().bottom+scrollY-vt-30;top=ys[0];
- nds.forEach((n,i)=>n.style.top=ys[i]+'px');tr.style.top=top+'px';tr.style.height=(end-top)+'px';lf.style.top=end+'px';v.classList.add('rdy');go();};
-const go=()=>{const vt=v.getBoundingClientRect().top+scrollY;const h=red?end:Math.min(end,Math.max(0,scrollY+innerHeight*.62-vt));
- fl.style.height=Math.max(0,h-top)+'px';nds.forEach((n,i)=>n.classList.toggle('on',h>=ys[i]-2));lf.classList.toggle('on',h>=end-2);};
-addEventListener('scroll',go,{passive:true});addEventListener('resize',lay);addEventListener('load',lay);
-if('ResizeObserver' in window)new ResizeObserver(lay).observe(v);lay();})();
+
+
+(()=>{const P=$('planta'),M=$('topo'),sv=$('plsv'),rz=$('rzsv'),cr=P.querySelector('.plc');if(!P||!sv)return;
+const NS='http://www.w3.org/2000/svg',red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mk=(t,a,par)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(par||sv).appendChild(e);return e};
+const SEC=['#exemplos','#oque','#como','#whats','#planos','#intencao','#perguntas'];
+let L=0,samp=[],y0=0,leaves=[],tube=[],sap=null,roots=[],RL=[],grown=false,done=false;
+const cat=pts=>{let d=`M${pts[0][0]},${pts[0][1]}`;for(let i=0;i<pts.length-1;i++){const p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
+ d+=` C${p1[0]+(p2[0]-p0[0])/6},${p1[1]+(p2[1]-p0[1])/6} ${p2[0]-(p3[0]-p1[0])/6},${p2[1]-(p3[1]-p1[1])/6} ${p2[0]},${p2[1]}`}return d};
+const tubeOf=(d,w,c,par)=>{const g=[mk('path',{d,fill:'none',stroke:c[0],'stroke-width':w+3,'stroke-linecap':'round'},par),mk('path',{d,fill:'none',stroke:c[1],'stroke-width':w,'stroke-linecap':'round'},par),mk('path',{d,fill:'none',stroke:c[2],'stroke-width':Math.max(1.2,w*.3),'stroke-linecap':'round',transform:`translate(${-w*.18},0)`,opacity:.85},par)];return g};
+const lay=()=>{const W=M.clientWidth;const mob=W<900;const mr=M.getBoundingClientRect(),mt=mr.top+scrollY;
+ const gut=Math.max(16,(W-1160)/2);const vx=mob?7:Math.max(12,gut*.5);const A=mob?0:Math.min(16,gut*.16);const w=mob?4:(gut>90?15:9);
+ const aj=$('ajudantes'),box=document.querySelector('.end .box'),solo=document.querySelector('.solo');if(!aj||!box||!solo)return;
+ y0=aj.getBoundingClientRect().top+scrollY-mt+(mob?30:56);
+ const sr=solo.getBoundingClientRect(),br=box.getBoundingClientRect();const sy=sr.top+scrollY-mt+(mob?16:22),bx=br.left-mr.left;
+ const ex=bx+(mob?26:58);
+ sv.innerHTML='';const pts=[];for(let y=y0;y<sy-140;y+=110)pts.push([vx+A*Math.sin(y/240+.8),y]);
+ const lp=pts[pts.length-1];pts.push([vx+A*.3,sy-60]);pts.push([(vx+ex)/2,sy-6]);pts.push([ex,sy]);
+ const d=cat(pts);tube=tubeOf(d,w,['#05500A','#14900F','#B8FF9E']);
+ sap=mk('path',{d,fill:'none',stroke:'#7CFF5E','stroke-width':w*.55,'stroke-linecap':'round',opacity:0,filter:''});
+ L=tube[1].getTotalLength();samp=[];for(let l=0;l<=L;l+=12)samp.push([l,tube[1].getPointAtLength(l).y]);
+ tube.concat([sap]).forEach(p=>{p.style.strokeDasharray=L+' '+L});sap.style.strokeDasharray=`${Math.min(260,L*.08)} ${L}`;
+ const cw=mob?44:Math.max(70,Math.min(118,gut*.85));cr.style.setProperty('--cw',cw+'px');const ch=cw*165/337;
+ cr.style.left=Math.max(mob?-4:0,pts[0][0]-cw/2)+'px';cr.style.top=(y0-ch+6)+'px';
+ leaves.forEach(l=>l.el.remove());leaves=[];
+ if(gut>=40&&!mob){SEC.forEach((q,i)=>{const e=document.querySelector(q);if(!e)return;const y=e.getBoundingClientRect().top+scrollY-mt+70;if(y<y0+80||y>sy-200)return;
+  const x=vx+A*Math.sin(y/240+.8);const side=i%2?1:-1;const lw=Math.min(76,gut*.6);const im=new Image();im.src='/img/broto.webp';im.className='plf';im.style.setProperty('--lw',lw+'px');
+  im.style.left=(x-lw/2)+'px';im.style.top=(y-lw*165/337)+'px';P.appendChild(im);leaves.push({el:im,y,rot:side*62});});}
+ // raizes
+ rz.innerHTML='';const RW=sr.width,RH=sr.height,ox=ex-(sr.left-mr.left),oy=sy-(sr.top+scrollY-mt);
+ const rr=[[[ox,oy],[ox+RW*.08,oy+RH*.35],[ox+RW*.2,oy+RH*.55],[RW*.42,RH*.62],[RW*.62,RH*.5],[RW*.82,RH*.62],[RW+20,RH*.55]],
+  [[ox+RW*.04,oy+RH*.2],[ox+RW*.02,RH*.6],[ox-10,RH+20]],[[ox+RW*.12,oy+RH*.45],[ox+RW*.16,RH*.85],[ox+RW*.22,RH+20]],
+  [[RW*.42,RH*.62],[RW*.46,RH*.86],[RW*.5,RH+20]],[[RW*.62,RH*.5],[RW*.66,RH*.3],[RW*.74,RH*.22]],[[RW*.82,RH*.62],[RW*.86,RH*.9],[RW*.9,RH+20]],[[RW*.3,RH*.6],[RW*.33,RH*.35],[RW*.38,RH*.28]]];
+ roots=[];RL=[];rr.forEach((r,i)=>{const dd=cat(r);const t=tubeOf(dd,i?(mob?2.6:5.5):(mob?4:11),['#3A210C','#C98A4B','#FFE2B0'],rz);const l=t[1].getTotalLength();t.forEach(p=>p.style.strokeDasharray=l+' '+l);roots.push(t);RL.push(l)});
+ P.classList.add('rdy');grown=false;go(true)};
+const lenAt=y=>{let r=0;for(const s of samp){if(s[1]<=y)r=s[0];else break}return r};
+const go=f=>{if(!L)return;const mt=M.getBoundingClientRect().top+scrollY;const ty=red?1e9:scrollY+innerHeight*.72-mt;
+ const dl=Math.min(L,lenAt(ty));tube.forEach(p=>p.style.strokeDashoffset=L-dl);
+ leaves.forEach(l=>l.el.style.transform=`rotate(${l.rot}deg) scale(${ty>l.y?1:0})`);
+ const full=dl>=L-4;const rp=full?1:0;roots.forEach((t,i)=>t.forEach(p=>{p.style.transition=f?'none':'stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1) '+(i*.12)+'s';p.style.strokeDashoffset=RL[i]*(1-rp)}));
+ if(full&&!grown&&!red){grown=true;setTimeout(pulse,900)} if(!full)grown=false};
+const pulse=()=>{if(!sap)return;const seg=Math.min(260,L*.08);let t0=null;sap.style.opacity=1;const dur=2200;
+ const st=ts=>{t0=t0||ts;const k=Math.min(1,(ts-t0)/dur),e=1-Math.pow(1-k,2);sap.style.strokeDashoffset=-(L-seg)*(1-e);sap.style.opacity=k>.9?(1-k)*10:1;if(k<1)requestAnimationFrame(st);else sap.style.opacity=0};requestAnimationFrame(st)};
+addEventListener('scroll',()=>go(),{passive:true});addEventListener('resize',lay);addEventListener('load',lay);
+let rt;if('ResizeObserver' in window)new ResizeObserver(()=>{clearTimeout(rt);rt=setTimeout(lay,120)}).observe(M);lay();})();
 </script>
 </body>
 </html>
