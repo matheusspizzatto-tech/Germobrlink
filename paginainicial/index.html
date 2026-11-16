@@ -630,16 +630,6 @@ section{padding-block:clamp(64px,9vw,112px)}
 }
 #exemplos>.in,#oque>.in{width:min(1160px,calc(100% - 32px))}
 
-/* planta: corpo da Germo descendo pelo site (só computador) */
-main{position:relative}
-#planta{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:6;overflow:hidden;display:none}
-#planta.rdy{display:block}
-#plsv{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
-#plsv .lf{transition:transform .8s cubic-bezier(.3,1.45,.5,1)}
-#plsv .cw{animation:plsw 5s ease-in-out infinite}
-@keyframes plsw{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
-@media (prefers-reduced-motion:reduce){#plsv .cw{animation:none}}
-
 /* nossa intenção */
 .intn{background:#fff}
 .whyg{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,96px);align-items:center}
@@ -1055,7 +1045,6 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
 </header>
 
 <main id="topo">
-  <div id="planta" aria-hidden="true"><svg id="plsv"></svg></div>
   <!-- HERÓI -->
   <section class="hero">
     <div class="in">
@@ -1432,59 +1421,7 @@ document.querySelectorAll('.fpan').forEach(p=>{const ds=[...p.querySelectorAll('
 
 
 
-(()=>{const P=$('planta'),M=$('topo'),sv=$('plsv');if(!P||!sv)return;
-const NS='http://www.w3.org/2000/svg',red=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const mk=(t,a,par)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(par||sv).appendChild(e);return e};
-const SEC=['#exemplos','#oque','#como','#whats','#planos','#intencao','#perguntas'];
-let L=0,samp=[],stem=[],sap=null,lvs=[],roots=[],RL=[],soil=null,grown=false,endY=0;
-const cat=pts=>{let d=`M${pts[0][0]},${pts[0][1]}`;for(let i=0;i<pts.length-1;i++){const p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
- d+=` C${(p1[0]+(p2[0]-p0[0])/6).toFixed(1)},${(p1[1]+(p2[1]-p0[1])/6).toFixed(1)} ${(p2[0]-(p3[0]-p1[0])/6).toFixed(1)},${(p2[1]-(p3[1]-p1[1])/6).toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`}return d};
-const tube=(d,w,c,par)=>[mk('path',{d,fill:'none',stroke:c[0],'stroke-width':w+2.5,'stroke-linecap':'round'},par),mk('path',{d,fill:'none',stroke:c[1],'stroke-width':w,'stroke-linecap':'round'},par),
- mk('path',{d,fill:'none',stroke:c[2],'stroke-width':w*.55,'stroke-linecap':'round',transform:`translate(${-w*.12},0)`},par),mk('path',{d,fill:'none',stroke:c[3],'stroke-width':Math.max(1,w*.16),'stroke-linecap':'round',transform:`translate(${-w*.26},0)`,opacity:.9},par)];
-// folha brilhante, apontando para +x, comprimento s
-const leaf=(g,s,ang)=>{const w=s*.46,gg=mk('g',{transform:`rotate(${ang})`},g);
- const d=`M0,0 C${s*.18},${-w*.78} ${s*.68},${-w*.72} ${s},${-w*.12} C${s*.72},${w*.5} ${s*.24},${w*.52} 0,0 Z`;
- mk('path',{d,fill:'#05520A'},gg);mk('path',{d,fill:'url(#plG)',transform:'scale(.965)'},gg);
- mk('path',{d:`M${s*.16},${-w*.28} C${s*.36},${-w*.62} ${s*.66},${-w*.58} ${s*.86},${-w*.24} C${s*.62},${-w*.4} ${s*.38},${-w*.4} ${s*.16},${-w*.28} Z`,fill:'url(#plH)'},gg);
- mk('ellipse',{cx:s*.42,cy:-w*.36,rx:s*.09,ry:w*.07,fill:'#fff',opacity:.85,transform:`rotate(-12 ${s*.42} ${-w*.36})`},gg);
- mk('path',{d:`M${s*.1},${w*.02} C${s*.4},${w*.06} ${s*.66},${w*.0} ${s*.9},${-w*.1}`,fill:'none',stroke:'#0A6A0C','stroke-width':Math.max(.8,s*.012),opacity:.55},gg);return gg};
-const sprout=(x,y,s,par)=>{const g=mk('g',{transform:`translate(${x},${y})`},par);leaf(g,s,-148);leaf(g,s,-32);mk('circle',{r:s*.07,fill:'#0D7A0B'},g);return g};
-const defs=()=>{const d=mk('defs',{});d.innerHTML='<linearGradient id="plG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4FD62E"/><stop offset=".45" stop-color="#17A312"/><stop offset="1" stop-color="#0A6E0B"/></linearGradient><linearGradient id="plH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><radialGradient id="plS" cx=".4" cy=".3" r=".8"><stop offset="0" stop-color="#9A6638"/><stop offset=".6" stop-color="#6B4320"/><stop offset="1" stop-color="#3E240E"/></radialGradient><filter id="plD" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#0A3D14" flood-opacity=".28"/></filter>'};
-const lay=()=>{const W=M.clientWidth;const gut=(W-1160)/2;if(gut<56){P.classList.remove('rdy');L=0;return}
- const mr=M.getBoundingClientRect(),mt=mr.top+scrollY;const vx=gut*.5,A=Math.min(14,gut*.12),w=gut>110?13:9,cs=Math.min(64,gut*.42);
- const aj=$('ajudantes'),box=document.querySelector('.end .box');if(!aj||!box)return;
- const y0=aj.getBoundingClientRect().top+scrollY-mt+cs*1.25;const br=box.getBoundingClientRect();endY=br.bottom+scrollY-mt+18;
- sv.innerHTML='';defs();const X=y=>vx+A*Math.sin(y/250+.6);
- const pts=[];for(let y=y0;y<endY-60;y+=100)pts.push([X(y),y]);pts.push([vx,endY]);const d=cat(pts);
- const sg=mk('g',{filter:'url(#plD)'});stem=tube(d,w,['#04440A','#0D7A0B','#1FB016','#DFFFCF'],sg);
- sap=mk('path',{d,fill:'none',stroke:'#B6FF8A','stroke-width':w*.5,'stroke-linecap':'round',opacity:0},sg);
- L=stem[1].getTotalLength();samp=[];for(let l=0;l<=L;l+=10)samp.push([l,stem[1].getPointAtLength(l).y]);
- stem.forEach(p=>p.style.strokeDasharray=L+' '+L);sap.style.strokeDasharray=`${Math.min(220,L*.06)} ${L}`;
- // copa
- const c=mk('g',{transform:`translate(${X(y0)},${y0+2})`,filter:'url(#plD)'});const cw=mk('g',{class:'cw'},c);sprout(0,0,cs,cw);
- // folhinhas
- lvs=[];SEC.forEach((q,i)=>{const e=document.querySelector(q);if(!e)return;const y=e.getBoundingClientRect().top+scrollY-mt+80;if(y<y0+120||y>endY-160)return;
-  const x=X(y),side=i%2?1:-1,ls=Math.min(40,gut*.3);const g=mk('g',{transform:`translate(${x},${y})`,filter:'url(#plD)'});const lg=mk('g',{class:'lf'},g);
-  mk('path',{d:`M0,0 Q${side*ls*.35},${-ls*.1} ${side*ls*.5},${-ls*.42}`,fill:'none',stroke:'#0D7A0B','stroke-width':Math.max(2.5,w*.32),'stroke-linecap':'round'},lg);
-  const tip=mk('g',{transform:`translate(${side*ls*.5},${-ls*.42})`},lg);leaf(tip,ls,side>0?-38:-142);leaf(tip,ls*.72,side>0?18:162);
-  lg.style.transformOrigin='0 0';lg.style.transformBox='view-box';lvs.push({g:lg,y});});
- // um pouco de terra + raizes
- const rg=mk('g',{transform:`translate(${vx},${endY})`});roots=[];RL=[];
- [[[0,0],[-6,18],[-16,34],[-30,46]],[[0,0],[4,22],[2,44],[8,62]],[[0,0],[10,14],[24,26],[40,34]],[[-3,6],[-14,12],[-26,14]],[[3,8],[14,24],[16,40]]].forEach((r,i)=>{const t=tube(cat(r),i<3?4.5:2.6,['#3A210C','#B57A40','#D69A5C','#FFE2B0'],rg);const l=t[1].getTotalLength();t.forEach(p=>{p.style.strokeDasharray=l+' '+l;p.style.strokeDashoffset=l});roots.push(t);RL.push(l)});
- soil=mk('g',{},rg);mk('path',{d:'M-34,4 C-30,-10 -14,-14 0,-12 C14,-14 30,-10 34,4 C24,12 -24,12 -34,4 Z',fill:'url(#plS)'},soil);
- mk('ellipse',{cx:-10,cy:-6,rx:9,ry:3,fill:'#fff',opacity:.25},soil);mk('circle',{cx:-40,cy:6,r:3,fill:'#6B4320'},soil);mk('circle',{cx:41,cy:5,r:2.4,fill:'#6B4320'},soil);mk('circle',{cx:-46,cy:9,r:1.6,fill:'#6B4320'},soil);
- P.classList.add('rdy');grown=false;go(true)};
-const lenAt=y=>{let r=0;for(const s of samp){if(s[1]<=y)r=s[0];else break}return r};
-const go=f=>{if(!L)return;const mt=M.getBoundingClientRect().top+scrollY;const ty=red?1e9:scrollY+innerHeight*.86-mt;
- const dl=ty>=endY?L:Math.min(L,lenAt(ty));stem.forEach(p=>p.style.strokeDashoffset=L-dl);
- lvs.forEach(l=>l.g.style.transform=`scale(${ty>l.y+10?1:0})`);
- const full=dl>=L;soil.style.opacity=full?1:0;soil.style.transition='opacity .4s';
- roots.forEach((t,i)=>t.forEach(p=>{p.style.transition=f?'none':`stroke-dashoffset 1.2s ease-out ${.2+i*.1}s`;p.style.strokeDashoffset=full?0:RL[i]}));
- if(full&&!grown&&!red){grown=true;setTimeout(pulse,1100)}if(!full)grown=false};
-const pulse=()=>{if(!sap)return;const seg=Math.min(220,L*.06);let t0=null;const dur=2400;
- const st=ts=>{t0=t0||ts;const k=Math.min(1,(ts-t0)/dur),e=1-Math.pow(1-k,2);sap.style.strokeDashoffset=-(L-seg)*(1-e);sap.style.opacity=k>.88?(1-k)*8:.95;if(k<1)requestAnimationFrame(st);else sap.style.opacity=0};requestAnimationFrame(st)};
-addEventListener('scroll',()=>go(),{passive:true});addEventListener('resize',lay);addEventListener('load',lay);
-let rt;if('ResizeObserver' in window)new ResizeObserver(()=>{clearTimeout(rt);rt=setTimeout(lay,120)}).observe(M);lay();})();
+
 </script>
 </body>
 </html>
