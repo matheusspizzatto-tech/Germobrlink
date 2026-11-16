@@ -646,11 +646,24 @@ section{padding-block:clamp(64px,9vw,112px)}
 .lineup{display:flex;align-items:flex-end;justify-content:center;margin-top:18px;max-width:100%}
 .lineup img{height:clamp(70px,11vw,132px);width:auto;margin:0 -6px;filter:drop-shadow(0 14px 12px rgba(21,32,26,.18))}
 .lineup img:nth-child(odd){transform:translateY(8px)}
-footer{padding-block:40px calc(40px + env(safe-area-inset-bottom,0px))}
-footer .in{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;color:var(--mute);font-size:14px;font-weight:600}
-footer nav{display:flex;gap:18px;flex-wrap:wrap}
-footer a{text-decoration:none}
-footer a:hover{color:var(--ink)}
+.ft{background:#0F2C1C;color:rgba(255,255,255,.66);padding-block:clamp(48px,6vw,72px) calc(36px + env(safe-area-inset-bottom,0px));font-size:14.5px}
+.ft a{color:inherit;text-decoration:none;transition:color .15s}
+.ft a:hover{color:#fff}
+.fgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:44px 32px}
+.fc h4{margin:0 0 16px;font-family:var(--body);font-size:16px;font-weight:800;color:#fff;letter-spacing:-.01em}
+.fc ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.fc li a{font-weight:500}
+.fbar{display:flex;align-items:center;gap:22px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);margin-top:48px;padding-top:28px}
+.flogo{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:22px;color:#fff!important;letter-spacing:-.01em}
+.flogo b{color:var(--broto)}
+.fcp{font-weight:600;color:rgba(255,255,255,.8)}
+.fso{margin-left:auto;display:flex;gap:10px}
+.fso a{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08)}
+.fso a:hover{background:var(--broto);color:#0F2C1C}
+.fdis{margin:22px 0 0;max-width:92ch;font-size:13px;line-height:1.6;color:rgba(255,255,255,.55)}
+.fdis a{text-decoration:underline}
+@media (max-width:900px){.fgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.fgrid{gap:36px 18px}.fc h4{font-size:15px}.ft{font-size:14px}.fso{margin-left:0}}
 
 
 .mcrew{display:block;position:relative;width:100%;max-width:520px;height:150px;margin-bottom:-10px}
@@ -770,8 +783,6 @@ footer a:hover{color:var(--ink)}
   .dl .ft small{font-size:13.5px}
   .faq summary{padding:20px 18px;font-size:17px;min-height:64px}
   .faq details p{padding:0 18px 20px;font-size:16px}
-  footer nav a{display:inline-block;padding:10px 0}
-  footer .in{flex-direction:column;align-items:flex-start;gap:8px}
   .convo .bub{max-width:92%}
   .convo .ap{min-width:0;width:100%;gap:6px}
   .convo .ap .face{width:34px;height:34px}
@@ -1208,11 +1219,12 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
   </section>
 </main>
 
-<footer>
+<footer class="ft">
   <div class="in">
-    <span class="wm" style="font-size:17px;color:var(--ink)">GERMO<b>.</b></span>
-    <nav aria-label="Rodapé"><a href="/">germobr.link</a><a href="/privacidade">Privacidade</a><a href="https://instagram.com/germo.br" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/5541988840707?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20a%20Germo." target="_blank" rel="noopener">Central de Ajuda</a></nav>
-    <span>germo.br · Todos os direitos reservados.</span>
+    <div class="fgrid"><div class="fc"><h4>Os 10 ajudantes</h4><ul><li><a href="/ajudante/planilha">planilha</a></li><li><a href="/ajudante/clima">clima</a></li><li><a href="/ajudante/campo">campo</a></li><li><a href="/ajudante/agronomo">agrônomo</a></li><li><a href="/ajudante/vendas">vendas</a></li><li><a href="/ajudante/viral">viral</a></li><li><a href="/ajudante/vitrine">vitrine</a></li><li><a href="/ajudante/apresenta">apresenta</a></li><li><a href="/ajudante/juridico">jurídico</a></li><li><a href="/ajudante/contabil">contábil</a></li></ul></div><div class="fc"><h4>Para quem produz</h4><ul><li><a href="/para/graos">Grãos</a></li><li><a href="/para/pecuaria-leite">Pecuária de leite</a></li><li><a href="/para/pecuaria-corte">Pecuária de corte</a></li><li><a href="/para/cafe">Café</a></li><li><a href="/para/hortifruti">Hortifrúti e orgânicos</a></li><li><a href="/para/fruticultura">Fruticultura</a></li><li><a href="/para/avicultura-suinocultura">Avicultura e suinocultura</a></li><li><a href="/para/cana">Cana e usinas</a></li><li><a href="/para/madeira">Pínus e eucalipto</a></li><li><a href="/para/mel">Mel e apicultura</a></li></ul></div><div class="fc"><h4>Por tarefa</h4><ul><li><a href="/tarefa/vender-producao">Vender a produção</a></li><li><a href="/tarefa/imposto-papelada">Impostos e taxas</a></li><li><a href="/tarefa/contratos">Contratos e leis</a></li><li><a href="/tarefa/controle-custos">Custos e taxas</a></li><li><a href="/tarefa/credito-rural">Crédito rural</a></li><li><a href="/tarefa/licencas-ambientais">Licenças ambientais</a></li><li><a href="/tarefa/clima-safra">Clima e safra</a></li><li><a href="/tarefa/cobranca">Cobrança de clientes</a></li><li><a href="/tarefa/equipe">Equipe e funcionários</a></li><li><a href="/tarefa/instagram">Instagram e vendas online</a></li></ul></div><div class="fc"><h4>Germo</h4><ul><li><a href="#como">Como funciona</a></li><li><a href="#exemplos">Exemplos</a></li><li><a href="#planos">Planos</a></li><li><a href="#intencao">Nossa intenção</a></li><li><a href="#perguntas">Perguntas frequentes</a></li><li><a href="/experiencia">Teste um pedido</a></li><li><a href="/oferta">Oferta antes do lançamento</a></li><li><a href="/">Germo Links</a></li></ul></div><div class="fc"><h4>Profissionais e empresas</h4><ul><li><a href="/para/agroindustria">Agroindústrias e fábricas</a></li><li><a href="/para/tecnicos">Técnicos e agrônomos</a></li><li><a href="/para/estudantes">Estudantes de agronomia</a></li><li><a href="/para/creators">Criadores de conteúdo</a></li></ul></div><div class="fc"><h4>Suporte e legal</h4><ul><li><a href="https://wa.me/5541988840707?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20a%20Germo." target="_blank" rel="noopener">Central de Ajuda no WhatsApp</a></li><li><a href="https://instagram.com/germo.br" target="_blank" rel="noopener">Instagram @germo.br</a></li><li><a href="/privacidade">Política de privacidade</a></li></ul></div></div>
+    <div class="fbar"><a class="flogo" href="#topo" aria-label="Germo, voltar ao início">germo<b>.br</b></a><span class="fcp">© 2026 Germo · Todos os direitos reservados.</span>
+      <span class="fso"><a href="https://instagram.com/germo.br" target="_blank" rel="noopener" aria-label="Instagram da Germo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://wa.me/5541988840707?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20a%20Germo." target="_blank" rel="noopener" aria-label="WhatsApp da Germo"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg></a></span></div>
+    <p class="fdis">Os ajudantes da Germo usam inteligência artificial para organizar, explicar e entregar trabalho pronto. Eles não substituem o agrônomo, o advogado ou o contador e avisam quando o assunto precisa de um profissional. Receita de defensivo só com agrônomo habilitado. Saiba como cuidamos dos seus dados na <a href="/privacidade">Política de privacidade</a>.</p>
   </div>
 </footer>
 
