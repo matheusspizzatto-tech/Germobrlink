@@ -75,7 +75,7 @@ body{font-family:Manrope,sans-serif;color:var(--ink);-webkit-font-smoothing:anti
 
 <!-- S2 todo dia aparece -->
 <div class="sc" id="s2">
- <div class="a big" id="s2h" style="left:0;top:470px;width:1920px;text-align:center;font-size:104px;z-index:5;text-shadow:0 0 30px #fff,0 0 60px #fff,0 0 90px #fff"></div>
+ <div class="a big" id="s2h" style="left:0;top:130px;width:1920px;text-align:center;font-size:104px;z-index:5;text-shadow:0 0 30px #fff,0 0 60px #fff,0 0 90px #fff"></div>
  <div class="card paper a" id="c1" style="left:0;top:0;width:430px;height:560px">
   <h4>CONTRATO DE ARRENDAMENTO RURAL</h4>
   <div style="font-size:24px;line-height:1.35;color:#333">Cláusula 4ª. O prazo do arrendamento é de 3 safras, com início em</div>
@@ -126,10 +126,10 @@ body{font-family:Manrope,sans-serif;color:var(--ink);-webkit-font-smoothing:anti
 
 <!-- S5 Conheça os ajudantes da germo -->
 <div class="sc" id="s5">
- <div class="a big" id="s5t" style="left:0;width:1920px;top:400px;text-align:center;font-size:170px;white-space:nowrap"></div>
+ <div class="a big" id="s5t" style="left:0;width:1920px;top:420px;text-align:center;font-size:132px;white-space:nowrap"></div>
  <div class="a" id="s5c" style="inset:0"></div>
  <div class="a" id="s5l" style="left:0;width:1920px;top:430px;text-align:center;white-space:nowrap">
-  <svg class="mk" width="190" height="190" viewBox="134 134 372 372" style="margin-right:30px;margin-top:-30px"><circle cx="320" cy="320" r="175" fill="none" stroke="#111A14" stroke-width="30"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#111A14" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#111A14" stroke-width="28"/><circle cx="360" cy="279" r="26" fill="#111A14"/></svg><span class="big" style="font-size:230px;font-stretch:125%;letter-spacing:-.02em;vertical-align:middle">germo<span style="color:var(--broto)">.br</span></span>
+  <svg class="mk" width="160" height="160" viewBox="134 134 372 372" style="margin-right:26px;margin-top:-26px"><circle cx="320" cy="320" r="175" fill="none" stroke="#111A14" stroke-width="30"/><circle cx="342" cy="298.5" r="111" fill="none" stroke="#111A14" stroke-width="30"/><circle cx="357.5" cy="282.5" r="52.5" fill="none" stroke="#111A14" stroke-width="28"/><circle cx="360" cy="279" r="26" fill="#111A14"/></svg><span class="big" style="font-size:190px;font-stretch:125%;letter-spacing:-.02em;vertical-align:middle">germo<span style="color:var(--broto)">.br</span></span>
  </div>
 </div>
 
@@ -275,14 +275,14 @@ scene('s1c',1.95,2.5,t=>{
 // ---------- S2 ----------
 const S2T=[[2.5,[['E todo dia aparece…']]],[3.45,[['um '],['contrato','gt'],[' pra revisar']]],[5.0,[['um '],['imposto','gt'],[' pra calcular']]],[6.6,[['um '],['relatório','gt'],[' pra entregar']]]];
 let s2cur=-1;
-const CARDS=[['c1',3.45,120,280,-7,-380,60],['c2',5.0,1390,110,6,420,-60],['c3',6.6,1370,560,-4,380,80]];
-const CHIPS=[['h1',2.7,260,130],['h2',3.0,800,150],['h3',4.2,640,800],['h4',5.6,1000,880],['h5',6.2,1120,250],['h6',7.0,330,930]];
+const CARDS=[['c1',3.45,300,380,-7,-380,60],['c2',5.0,1210,380,6,420,-60],['c3',6.6,760,520,-3,0,300]];
+const CHIPS=[['h1',2.7,120,330],['h2',3.0,1480,300],['h3',4.2,80,760],['h4',5.6,1520,820],['h5',6.2,1440,620],['h6',7.0,140,980]];
 scene('s2',2.5,8.25,t=>{
  let k=0;S2T.forEach((x,i)=>{if(t>=x[0])k=i;});
  const h=$('s2h');
- if(k!=s2cur){s2cur=k;S2H=words(h,S2T[k][1]);S2H.forEach(s=>{if(s.classList.contains('gt')){s.style.backgroundSize='300% 100%';}});}
+ if(k!=s2cur){s2cur=k;S2H=words(h,S2T[k][1]);S2H.forEach(s=>{if(s.classList.contains('gt')){s.style.backgroundSize='100% 100%';}});}
  const q=eo5(P(t,S2T[k][0],S2T[k][0]+.35));
- S2H.forEach((s,i)=>{const r=eo5(P(t,S2T[k][0]+i*.06,S2T[k][0]+.4+i*.06));S(s,{opacity:r,transform:`translateY(${(1-r)*50}px)`,filter:`blur(${(1-r)*8}px)`,backgroundPosition:`${(t*30)%300}% 0`});});
+ S2H.forEach((s,i)=>{const r=eo5(P(t,S2T[k][0]+i*.06,S2T[k][0]+.4+i*.06));S(s,{opacity:r,transform:`translateY(${(1-r)*50}px)`,filter:`blur(${(1-r)*8}px)`,backgroundPosition:'0 0'});});
  const ex=eio(P(t,7.95,8.25));
  S(h,{transform:`scale(${1+ex*.15})`,opacity:1-ex});
  CARDS.forEach(([id,t0,x,y,rot,dx,dy])=>{const r=eo5(P(t,t0,t0+.55));const dr=(t-t0)*6;
@@ -312,7 +312,7 @@ scene('s4',9.3,10.4,t=>{
 
 // ---------- S5 Conheça ----------
 let s5m='';
-const CPOS=[[300,170,-10],[640,90,6],[1180,80,-6],[1520,160,10],[180,520,8],[1640,520,-8],[300,820,-6],[700,880,8],[1150,880,-8],[1530,820,6]];
+const CPOS=[[330,180,-10],[700,110,6],[1220,110,-6],[1590,180,10],[110,540,8],[1810,540,-8],[330,880,-6],[740,920,8],[1180,920,-8],[1590,880,6]];
 scene('s5',10.4,12.3,t=>{
  const T=$('s5t');
  if(t<11.55){
@@ -324,7 +324,7 @@ scene('s5',10.4,12.3,t=>{
  } else {S(T,{opacity:0});
   const r=eo5(P(t,11.55,11.9));S('s5l',{opacity:r,transform:`scale(${lerp(1.25,1,r)})`,filter:`blur(${(1-r)*12}px)`});}
  const C=$('s5c');
- if(!C.children.length){CH.forEach((c,i)=>{const im=document.createElement('img');im.src='hi/w_'+c+'_still.png';im.className='a';im.style.height='250px';C.appendChild(im);});}
+ if(!C.children.length){CH.forEach((c,i)=>{const im=document.createElement('img');im.src='hi/w_'+c+'_still.png';im.className='a';im.style.height='230px';C.appendChild(im);});}
  [...C.children].forEach((im,i)=>{const [x,y,rot]=CPOS[i];const q=bk(P(t,10.75+i*.07,11.15+i*.07));
   const fl=Math.sin(t*2+i)*8;S(im,{opacity:cl(q*3),transform:`translate(${x-90}px,${y-125+fl}px) rotate(${rot}deg) scale(${q*(t<11.55?.8:1)})`});});
 });
