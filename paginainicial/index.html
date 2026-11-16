@@ -628,6 +628,24 @@ section{padding-block:clamp(64px,9vw,112px)}
  #oque .facts{grid-template-rows:auto}
  #exemplos{padding-bottom:130px}
 }
+/* fio do broto */
+.vine{position:relative;--vx:max(8px,calc((100% - 1160px) / 2 - 30px))}
+.vine>section{position:relative}
+#exemplos>.in,#oque>.in{width:min(1160px,calc(100% - 32px))}
+.vtr{position:absolute;left:var(--vx);width:2px;margin-left:-1px;background:repeating-linear-gradient(180deg,#CFE9D7 0 6px,transparent 6px 12px);z-index:3;pointer-events:none;display:none}
+.vfl{position:absolute;left:0;top:0;width:100%;height:0;background:linear-gradient(180deg,#19E35F,#13A94B);border-radius:2px;box-shadow:0 0 10px rgba(25,227,95,.45)}
+.vnd{position:absolute;left:var(--vx);z-index:4;display:none;align-items:center;gap:10px;transform:translate(-9px,-50%);pointer-events:none}
+.vnd i{flex:none;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px #CFE9D7;transition:box-shadow .35s,background .35s}
+.vnd span{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:6px 13px 6px 7px;font-size:13px;font-weight:700;color:var(--mute);box-shadow:0 0 0 1.5px var(--ring);white-space:nowrap;transition:color .35s,box-shadow .35s,transform .35s;transform:translateX(-4px);opacity:.75}
+.vnd b{font-family:var(--display);font-stretch:112%;font-size:11.5px;letter-spacing:.04em;background:var(--soft);color:var(--verde-lab);border-radius:999px;padding:3px 7px}
+.vnd.on i{background:var(--broto);box-shadow:0 0 0 4px rgba(25,227,95,.25)}
+.vnd.on span{color:var(--ink);box-shadow:0 0 0 1.5px rgba(25,227,95,.55),0 10px 22px -12px rgba(15,138,61,.5);transform:none;opacity:1}
+.vnd.on b{background:var(--broto);color:var(--ink)}
+.vlf{position:absolute;left:var(--vx);z-index:4;display:none;transform:translate(-17px,-30px) scale(.2);transform-origin:50% 100%;opacity:0;transition:transform .5s cubic-bezier(.3,1.6,.5,1),opacity .3s}
+.vlf.on{transform:translate(-17px,-30px) scale(1);opacity:1}
+.vine.rdy .vtr,.vine.rdy .vlf{display:block}.vine.rdy .vnd{display:flex}
+@media (max-width:860px){.vine{--vx:6px}.vnd span{font-size:12px;padding:5px 11px 5px 6px}.vnd{gap:8px}}
+
 /* nossa intenção */
 .intn{background:#fff}
 .whyg{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,96px);align-items:center}
@@ -1113,6 +1131,7 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
     </div>
   </section>
 
+  <div class="vine" id="vine"><div class="vtr" aria-hidden="true"><div class="vfl"></div></div><div aria-hidden="true"><div class="vnd" data-s="exemplos"><i></i><span><b>01</b>Exemplos</span></div><div class="vnd" data-s="oque"><i></i><span><b>02</b>O que é</span></div><div class="vnd" data-s="como"><i></i><span><b>03</b>Como funciona</span></div><div class="vnd" data-s="whats"><i></i><span><b>04</b>Tudo no WhatsApp</span></div></div><div class="vlf" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 33V17" stroke="#13A94B" stroke-width="2.4" stroke-linecap="round"/><path d="M17 19C17 10 22 5 31 4c0 9-5 15-14 15z" fill="#19E35F"/><path d="M17 22C17 15 13 11 5 10c0 7 4 12 12 12z" fill="#13A94B"/></svg></div>
   <!-- EXEMPLOS -->
   <section class="how" id="exemplos">
     <div class="in">
@@ -1169,6 +1188,8 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
       </div>
     </div>
   </section>
+
+  </div>
 
   <!-- PLANOS: LISTA DE ESPERA -->
   <section class="plans" id="planos">
@@ -1416,6 +1437,18 @@ document.querySelectorAll('.mc').forEach(b=>b.addEventListener('click',()=>{b.cl
 const go=(b,f)=>{bs.forEach(x=>{const on=x===b;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;$(x.getAttribute('aria-controls')).hidden=!on;});if(f)b.focus();b.scrollIntoView({block:'nearest',inline:'nearest'});};
 bs.forEach((b,i)=>{b.addEventListener('click',()=>go(b));b.addEventListener('keydown',e=>{const k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){e.preventDefault();go(bs[(i+k+bs.length)%bs.length],1);}});});
 document.querySelectorAll('.fpan').forEach(p=>{const ds=[...p.querySelectorAll('details')];ds.forEach(d=>d.addEventListener('toggle',()=>{if(d.open)ds.forEach(o=>{if(o!==d)o.open=false})}));});})();
+
+(()=>{const v=$('vine');if(!v)return;const tr=v.querySelector('.vtr'),fl=v.querySelector('.vfl'),lf=v.querySelector('.vlf'),nds=[...v.querySelectorAll('.vnd')];
+const band=id=>{const sc=$(id);return sc.querySelector('.hband')||(id==='whats'?sc.querySelector('.head'):sc.querySelector(':scope>.in'))};
+let top=0,end=0,ys=[];const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const lay=()=>{const vr=v.getBoundingClientRect(),vt=vr.top+scrollY;
+ ys=nds.map((n,i)=>{const id=n.dataset.s,b=band(id).getBoundingClientRect().top+scrollY-vt;const g=id==='exemplos'?44:(id==='whats'?40:i===2?60:34);return Math.max(0,b-g)});
+ const w=$('whats');end=w.getBoundingClientRect().bottom+scrollY-vt-30;top=ys[0];
+ nds.forEach((n,i)=>n.style.top=ys[i]+'px');tr.style.top=top+'px';tr.style.height=(end-top)+'px';lf.style.top=end+'px';v.classList.add('rdy');go();};
+const go=()=>{const vt=v.getBoundingClientRect().top+scrollY;const h=red?end:Math.min(end,Math.max(0,scrollY+innerHeight*.62-vt));
+ fl.style.height=Math.max(0,h-top)+'px';nds.forEach((n,i)=>n.classList.toggle('on',h>=ys[i]-2));lf.classList.toggle('on',h>=end-2);};
+addEventListener('scroll',go,{passive:true});addEventListener('resize',lay);addEventListener('load',lay);
+if('ResizeObserver' in window)new ResizeObserver(lay).observe(v);lay();})();
 </script>
 </body>
 </html>
