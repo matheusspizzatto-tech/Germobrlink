@@ -616,15 +616,17 @@ section{padding-block:clamp(64px,9vw,112px)}
 #exemplos .tab{background:rgba(255,255,255,.08);color:#fff;box-shadow:0 0 0 1.5px rgba(255,255,255,.16)}
 #exemplos .tab[aria-selected="true"]{background:var(--broto);color:var(--ink);box-shadow:0 0 0 4px rgba(25,227,95,.2)}
 #exemplos .case{margin-bottom:calc(-1 * clamp(36px,4vw,48px) - 70px)!important;filter:drop-shadow(0 30px 40px rgba(0,0,0,.28))}
-#oque{padding-top:0;padding-bottom:clamp(100px,10vw,130px)}
+#oque{padding-top:0}
 #oque>.in{background:linear-gradient(160deg,#E9FBEF 0%,#C9F3D7 100%);padding-bottom:clamp(36px,4vw,48px)}
-#oque .facts{align-self:end;margin-bottom:calc(-1 * clamp(36px,4vw,48px) - 70px)}
+#oque .what{align-items:stretch}
+#oque .facts{align-self:stretch;grid-template-rows:1fr 1fr}
 #oque .fact{box-shadow:0 0 0 1.5px rgba(21,32,26,.06),0 24px 44px -24px rgba(21,32,26,.28)}
 #oque .what .tx p{color:#24352B}
 @media (max-width:860px){
  #exemplos>.in,#oque>.in{margin-inline:12px;padding:32px 20px}
- #exemplos .case,#oque .facts{margin-bottom:-90px!important}
- #exemplos,#oque{padding-bottom:130px}
+ #exemplos .case{margin-bottom:-90px!important}
+ #oque .facts{grid-template-rows:auto}
+ #exemplos{padding-bottom:130px}
 }
 /* nossa intenção */
 .intn{background:#fff}
