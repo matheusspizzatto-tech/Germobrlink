@@ -1054,6 +1054,17 @@ a.mi.mag:hover b{color:color-mix(in srgb,var(--c) 70%,#15201A)}
 .hi{background:rgba(246,246,246,.96)}
 .hi i{width:118px;height:5px;background:#0A0A0A}
 @media (max-width:560px){.phone{border-radius:54px;padding:7px;border-width:3px}.screen{border-radius:44px}.island{width:92px;height:28px;top:10px}.phone::before{top:104px}.phone .v1{top:150px;height:48px}.phone .v2{top:206px;height:48px}.phone::after{top:168px}}
+
+/* mobile: sem cortes no seletor de ajudantes e nas abas de exemplos */
+@media (max-width:640px){
+ .pick{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:0;padding:2px 0 6px;overflow:visible}
+ .pick .ag{flex:none;padding:9px 2px 8px;border-radius:16px;min-width:0}
+ .pick .ag img{height:50px}
+ .pick .ag span{font-size:11.5px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ #ctabs{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0 0 22px!important;padding:0!important;overflow:visible}
+ #ctabs .tab,#exemplos #ctabs .tab{justify-content:center;padding:7px 6px!important;font-size:12.5px!important;gap:5px;min-width:0}
+ #ctabs .tab img{width:22px!important;height:22px!important;margin:0!important;flex:none}
+}
 </style>
 </head>
 <body class="nojs">
